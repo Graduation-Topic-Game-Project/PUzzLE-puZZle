@@ -3,7 +3,17 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - 'GemRed '
+  - GrooveRed
+  - GemYellow
+  - GrooveYellow
+  - GemBlue
+  - GrooveBlue
+  - GemPink
+  - GroovePink
+  - GemGray
+  - GrooveGray
   layers:
   - Default
   - TransparentFX
