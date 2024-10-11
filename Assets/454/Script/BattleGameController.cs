@@ -5,9 +5,11 @@ using UnityEngine;
 public class BattleGameController : MonoBehaviour
 {
     public Puzzle[,] puzzles = new Puzzle[7, 6];
-    public GameObject puzzlesGrids; //場景上的
-    public GameObject[,] puzzlesGridGameObject = new GameObject[7, 6];
-    public Puzzle puzzlePrefab;
+    public GameObject puzzlesGrids; //場景上的盤面格子父物件
+    public Vector3[,] puzzlesGridTransform = new Vector3[7, 6]; //拼圖盤面框位置，用來對生成時的位置的
+    
+
+    public Puzzle puzzlePrefab; //預設拼圖
     public GameObject puzzleInstanceTransform; //拼圖物件生成資料夾
 
 
@@ -15,24 +17,31 @@ public class BattleGameController : MonoBehaviour
     {
         puzzles[0, 5] = puzzlePrefab;
         Load_puzzlesGrids();
-        //Debug.Log(puzzlesGridGameObject[0, 5]);
         UpdatePuzzleDisk();
-
+    }
+    private void Update()
+    {
+        Test();
     }
 
-    public void UpdatePuzzleDisk() //更新盤面上拼圖
+    public void UpdatePuzzleDisk() //更新顯示盤面上拼圖
     {
+        for(int i= 0; i< puzzleInstanceTransform.transform.childCount; i++)
+        {   //清空舊拼圖
+            Destroy(puzzleInstanceTransform.transform.GetChild(i).gameObject);
+        }
+
         for (int i = 0; i < 7; i++)
         {
             for (int j = 0; j < 6; j++)
             {
                 if (puzzles[i, j] != null)
                 {
-                    Debug.Log(puzzles[i, j]);
-                    Debug.Log(puzzlesGridGameObject[i, j]);
+                    //Debug.Log(puzzles[i, j]);
+                    //Debug.Log(puzzlesGridGameObject[i, j]);
                     Puzzle nowPuzzle = puzzles[i, j];
                     //                                                                                         //拼圖物件生成的資料夾
-                    Instantiate(nowPuzzle, puzzlesGridGameObject[i, j].transform.position, transform.rotation, puzzleInstanceTransform.transform);
+                    Instantiate(nowPuzzle, puzzlesGridTransform[i, j], transform.rotation, puzzleInstanceTransform.transform);
                 }
             }
         }
@@ -45,16 +54,22 @@ public class BattleGameController : MonoBehaviour
         {
             for (int j = 0; j < 6; j++)
             {
-
-                if (puzzlesGridGameObject[i, j] == null)
-                {
-                    puzzlesGridGameObject[i, j] = puzzlesGrids.transform.GetChild(childNum).gameObject;
+                    puzzlesGridTransform[i, j] = puzzlesGrids.transform.GetChild(childNum).gameObject.transform.position;
                     //Debug.Log(puzzlesGrids.transform.GetChild(childNum).gameObject);
-                    Debug.Log(puzzlesGridGameObject[i, j]);
+                    //Debug.Log(puzzlesGridGameObject[i, j]);
                     childNum++;
-                }
             }
         }
         //UpdatePuzzleDisk(); //更新盤面上拼圖
+    }
+
+    public void Test()
+    {
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            Debug.Log("test更新盤面");
+            puzzles[1, 5] = puzzlePrefab;
+            UpdatePuzzleDisk();
+        }
     }
 }

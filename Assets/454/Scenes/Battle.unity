@@ -2199,6 +2199,7 @@ GameObject:
   m_Component:
   - component: {fileID: 683618067}
   - component: {fileID: 683618066}
+  - component: {fileID: 683618068}
   m_Layer: 0
   m_Name: BattleGameController
   m_TagString: Untagged
@@ -2236,6 +2237,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &683618068
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 683618065}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4ffa6f627f70554bb96d4d7fbddb097, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  puzzleLibrary: []
+  puzzlePreparations: {fileID: 0}
+  puzzlePreparationsTransform: []
 --- !u!1001 &727150898
 PrefabInstance:
   m_ObjectHideFlags: 0
