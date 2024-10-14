@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4b11fff491e6ce4997649e32191fc3b, type: 3}
+  m_Name: PartherTest
+  m_EditorClassIdentifier: 
+  thisParther:
+    Lv: 0
+    Hp: 0
+    partherPuzzleData:
+    - _essence: 0
+      _up:
+        _essence: 0
+        _interlocking: 0
+      _down:
+        _essence: 0
+        _interlocking: 0
+      _right:
+        _essence: 0
+        _interlocking: 0
+      _left:
+        _essence: 0
+        _interlocking: 0
+    - _essence: 0
+      _up:
+        _essence: 0
+        _interlocking: 0
+      _down:
+        _essence: 0
+        _interlocking: 0
+      _right:
+        _essence: 0
+        _interlocking: 0
+      _left:
+        _essence: 0
+        _interlocking: 0
