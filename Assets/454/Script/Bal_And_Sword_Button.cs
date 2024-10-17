@@ -6,12 +6,14 @@ public class Bal_And_Sword_Button : MonoBehaviour
 {
     public GameObject sword;
     public GameObject balance;
+    public GameObject S_and_B_Interface;
     bool isOpen = false;
 
     public void open()
     {
         isOpen = !isOpen;
-        sword.SetActive(isOpen);
-        balance.SetActive(isOpen);
+        S_and_B_Interface.SetActive(isOpen);
+        /*sword.SetActive(isOpen);
+        balance.SetActive(isOpen);*/
     }
 }
