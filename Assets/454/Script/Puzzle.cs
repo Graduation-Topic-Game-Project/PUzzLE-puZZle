@@ -41,7 +41,7 @@ public class PuzzleScriptableObject : ScriptableObject
 public class PuzzleData
 {
     [Header("拼圖的本質屬性"), Tooltip("拼圖的本質屬性")]
-    public PuzzleEssence _essence;
+    public PuzzleEssence _essence = PuzzleEssence.Strengthe_力量;
     public SideData _up, _down, _right, _left = new();
 
     public enum PuzzleEssence

@@ -6,10 +6,9 @@ using UnityEngine;
 [Serializable]
 public class PartherData
 {
-    public int Lv;
+    public int Lv = 1;
     public int Hp;
-    //public List<Puzzle> partherPuzzle;
-    public List<PuzzleData> partherPuzzleData;
+    public List<PuzzleData> parthersPuzzle;
 }
 
 

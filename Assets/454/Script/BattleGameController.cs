@@ -21,12 +21,17 @@ public class BattleGameController : MonoBehaviour
 
     private void Awake()
     {
-
         puzzles[0, 5] = puzzlePrefab;
         puzzles[3, 3] = new Puzzle(PuzzleData.PuzzleEssence.Strengthe_力量);
 
         Load_puzzlesGrids();  //將場景的puzzlesGrid存進2維陣列
     }
+
+    private void Start()
+    {
+        BattleStart?.Invoke(this, EventArgs.Empty);
+    }
+
     private void Update()
     {
         Test();

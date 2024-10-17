@@ -15,30 +15,108 @@ MonoBehaviour:
   thisParther:
     Lv: 0
     Hp: 0
-    partherPuzzleData:
-    - _essence: 0
+    parthersPuzzle:
+    - _essence: 1
       _up:
-        _essence: 0
-        _interlocking: 0
+        _essence: 1
+        _interlocking: 1
       _down:
-        _essence: 0
-        _interlocking: 0
+        _essence: 2
+        _interlocking: 1
       _right:
-        _essence: 0
-        _interlocking: 0
+        _essence: 3
+        _interlocking: 2
       _left:
-        _essence: 0
-        _interlocking: 0
-    - _essence: 0
+        _essence: 3
+        _interlocking: 2
+    - _essence: 2
       _up:
-        _essence: 0
-        _interlocking: 0
+        _essence: 1
+        _interlocking: 1
       _down:
-        _essence: 0
-        _interlocking: 0
+        _essence: 2
+        _interlocking: 1
       _right:
-        _essence: 0
-        _interlocking: 0
+        _essence: 3
+        _interlocking: 2
       _left:
-        _essence: 0
-        _interlocking: 0
+        _essence: 3
+        _interlocking: 2
+    - _essence: 3
+      _up:
+        _essence: 1
+        _interlocking: 1
+      _down:
+        _essence: 2
+        _interlocking: 1
+      _right:
+        _essence: 3
+        _interlocking: 2
+      _left:
+        _essence: 3
+        _interlocking: 2
+    - _essence: 4
+      _up:
+        _essence: 1
+        _interlocking: 1
+      _down:
+        _essence: 2
+        _interlocking: 1
+      _right:
+        _essence: 3
+        _interlocking: 2
+      _left:
+        _essence: 3
+        _interlocking: 2
+    - _essence: 4
+      _up:
+        _essence: 1
+        _interlocking: 1
+      _down:
+        _essence: 2
+        _interlocking: 1
+      _right:
+        _essence: 3
+        _interlocking: 2
+      _left:
+        _essence: 3
+        _interlocking: 2
+    - _essence: 4
+      _up:
+        _essence: 1
+        _interlocking: 1
+      _down:
+        _essence: 2
+        _interlocking: 1
+      _right:
+        _essence: 3
+        _interlocking: 2
+      _left:
+        _essence: 3
+        _interlocking: 2
+    - _essence: 4
+      _up:
+        _essence: 1
+        _interlocking: 1
+      _down:
+        _essence: 2
+        _interlocking: 1
+      _right:
+        _essence: 3
+        _interlocking: 2
+      _left:
+        _essence: 3
+        _interlocking: 2
+    - _essence: 4
+      _up:
+        _essence: 1
+        _interlocking: 1
+      _down:
+        _essence: 2
+        _interlocking: 1
+      _right:
+        _essence: 3
+        _interlocking: 2
+      _left:
+        _essence: 3
+        _interlocking: 2

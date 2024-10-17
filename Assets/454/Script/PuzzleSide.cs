@@ -19,9 +19,9 @@ public class PuzzleSide : MonoBehaviour
 public class SideData
 {
     [Header("拼圖邊的本質屬性"), Tooltip("拼圖邊的本質屬性")]
-    public SideEssence _essence;
+    public SideEssence _essence = SideEssence.Strengthe_力量;
     [Header("拼圖邊的凹凸"), Tooltip("拼圖邊的凹凸")]
-    public Interlocking _interlocking;
+    public Interlocking _interlocking = Interlocking.indentations_凹陷;
 
     public enum SideEssence
     {
@@ -37,5 +37,6 @@ public class SideData
         None_無凹凸 = 0, //平
         indentations_凹陷 = 1, //凹
         protrusions_突起 = 2,  //凸
+
     }
 }
