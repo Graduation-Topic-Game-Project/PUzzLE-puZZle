@@ -2325,12 +2325,91 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   battleGameController: {fileID: 683618066}
   puzzleLibrary: []
+  puzzlePreparations:
+  - _essence: 2
+    _up:
+      _essence: 3
+      _interlocking: 1
+    _down:
+      _essence: 1
+      _interlocking: 1
+    _right:
+      _essence: 1
+      _interlocking: 1
+    _left:
+      _essence: 1
+      _interlocking: 1
+  - _essence: 1
+    _up:
+      _essence: 1
+      _interlocking: 1
+    _down:
+      _essence: 1
+      _interlocking: 1
+    _right:
+      _essence: 1
+      _interlocking: 1
+    _left:
+      _essence: 1
+      _interlocking: 1
+  - _essence: 1
+    _up:
+      _essence: 1
+      _interlocking: 1
+    _down:
+      _essence: 1
+      _interlocking: 1
+    _right:
+      _essence: 1
+      _interlocking: 1
+    _left:
+      _essence: 1
+      _interlocking: 1
+  - _essence: 1
+    _up:
+      _essence: 1
+      _interlocking: 1
+    _down:
+      _essence: 1
+      _interlocking: 1
+    _right:
+      _essence: 1
+      _interlocking: 1
+    _left:
+      _essence: 1
+      _interlocking: 1
+  - _essence: 1
+    _up:
+      _essence: 1
+      _interlocking: 1
+    _down:
+      _essence: 1
+      _interlocking: 1
+    _right:
+      _essence: 1
+      _interlocking: 1
+    _left:
+      _essence: 1
+      _interlocking: 1
+  - _essence: 1
+    _up:
+      _essence: 1
+      _interlocking: 1
+    _down:
+      _essence: 1
+      _interlocking: 1
+    _right:
+      _essence: 1
+      _interlocking: 1
+    _left:
+      _essence: 1
+      _interlocking: 1
   parthers:
   - {fileID: 11400000, guid: 7dee00a6bf6f2374b81b6a7457448cc4, type: 2}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  puzzlePreparations: {fileID: 1647793097}
+  puzzlePreparationsGameObject: {fileID: 1647793097}
   puzzlePreparationsTransform:
   - {x: 0, y: 0, z: 0}
   - {x: 0, y: 0, z: 0}
