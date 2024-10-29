@@ -2292,6 +2292,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfb50108c07c0d8448165516a3b7b88c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  puzzlePrefab: {fileID: -2443544983015812757, guid: d01b2ccc19df3344391c843ecc473c6c, type: 3}
 --- !u!4 &683618067
 Transform:
   m_ObjectHideFlags: 0
@@ -2320,6 +2321,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   battleGameController: {fileID: 683618066}
+  puzzlePreparationsAllGameObject: {fileID: 1647793097}
   puzzleLibrary: []
   puzzlePreparations:
   - _essence: 2
@@ -2405,14 +2407,13 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  puzzlePreparationsGameObject: {fileID: 1647793097}
-  puzzlePreparationsTransform:
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
+  puzzlePreparationsGameObject:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!114 &683618069
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2427,7 +2428,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   battleGameController: {fileID: 683618066}
   puzzlesGrids: {fileID: 191730163}
-  puzzlePrefab: {fileID: -2443544983015812757, guid: d01b2ccc19df3344391c843ecc473c6c, type: 3}
 --- !u!1001 &727150898
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8229,19 +8229,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7994091349878035213, guid: 3a300b32421d6c947bc12be0967c1e5e, type: 3}
       propertyPath: m_Color.a
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7994091349878035213, guid: 3a300b32421d6c947bc12be0967c1e5e, type: 3}
       propertyPath: m_Color.b
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7994091349878035213, guid: 3a300b32421d6c947bc12be0967c1e5e, type: 3}
       propertyPath: m_Color.g
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7994091349878035213, guid: 3a300b32421d6c947bc12be0967c1e5e, type: 3}
       propertyPath: m_Color.r
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

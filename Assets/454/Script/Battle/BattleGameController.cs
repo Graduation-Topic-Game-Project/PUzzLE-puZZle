@@ -12,6 +12,8 @@ public class BattleGameController : MonoBehaviour
     public event EventHandler BattleAwake;
     public event EventHandler TestUpdatePuzzleBoard;
 
+    public Puzzle puzzlePrefab; //¹w³]«÷¹Ï
+
     private void Awake()
     {
         BattleAwake?.Invoke(this, EventArgs.Empty);

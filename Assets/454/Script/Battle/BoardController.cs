@@ -6,20 +6,26 @@ using System;
 public class BoardController : MonoBehaviour
 {
     public BattleGameController battleGameController;
-    public Puzzle[,] puzzles = new Puzzle[6, 7];
+    public PuzzleData[,] puzzles = new PuzzleData[6, 7];
     public GameObject puzzlesGrids; //場景上的盤面格子父物件
     public GameObject[,] puzzlesGridGameObject = new GameObject[6, 7]; //拼圖盤面框位置，用來對生成時的位置的
 
 
-    public Puzzle puzzlePrefab; //預設拼圖
+    
     //public GameObject puzzleInstanceTransform; //拼圖物件生成資料夾
 
     private void Awake()
     {
-        puzzles[0, 5] = puzzlePrefab;
-        puzzles[3, 3] = new Puzzle(PuzzleData.PuzzleEssence.Strengthe_力量);
+        if (battleGameController == null)
+        {
+            battleGameController = FindObjectOfType<BattleGameController>();
+        }
 
-        battleGameController.BattleAwake += this.Load_puzzlesGrids;
+
+        puzzles[0, 5] = battleGameController.puzzlePrefab.GetComponent<Puzzle>().puzzleData;
+        puzzles[3, 3] = new PuzzleData();
+
+        battleGameController.BattleStart += this.Load_puzzlesGrids;
         battleGameController.TestUpdatePuzzleBoard += this.TestUpdatePuzzleBoard;
 
         // Load_puzzlesGrids(this, EventArgs.Empty);  //將場景的puzzlesGrid存進2維陣列
@@ -48,15 +54,16 @@ public class BoardController : MonoBehaviour
             {
                 if (puzzles[i, j] != null)
                 {
-                    Debug.Log(puzzles[i, j]);
-                    //Debug.Log(puzzlesGridTransform[i, j]);
-                    Puzzle nowPuzzle = puzzles[i, j];
+                    //Debug.Log($"顯示更新拼圖格{i}，{j}");
+                    Puzzle nowPuzzle = battleGameController.puzzlePrefab;
+                    nowPuzzle.puzzleData = puzzles[i, j];
                     //                                                                                         //拼圖物件生成的資料夾
                     Instantiate(nowPuzzle, puzzlesGridGameObject[i, j].transform.position, transform.rotation, puzzlesGridGameObject[i, j].transform.GetChild(1));
                 }
             }
         }
     }
+
     /// <summary>
     /// 將場景的puzzlesGrid存進2維陣列
     /// </summary>
@@ -82,7 +89,7 @@ public class BoardController : MonoBehaviour
     public void TestUpdatePuzzleBoard(object sender, EventArgs e)
     {
         Debug.Log("test更新盤面");
-        puzzles[1, 5] = puzzlePrefab;
+        puzzles[1, 5] = battleGameController.puzzlePrefab.puzzleData;
         UpdatePuzzleBoard();
     }
 }

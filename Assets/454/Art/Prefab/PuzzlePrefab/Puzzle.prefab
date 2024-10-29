@@ -309,25 +309,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   puzzleData:
-    _essence: 0
+    _essence: 1
+    _up:
+      _essence: 1
+      _interlocking: 2
+    _down:
+      _essence: 1
+      _interlocking: 2
+    _right:
+      _essence: 1
+      _interlocking: 2
+    _left:
+      _essence: 1
+      _interlocking: 2
   _upImage: {fileID: 5091287995779515649}
   _downImage: {fileID: 3575560854768146671}
   _rightImage: {fileID: 1695729801470337725}
   _leftImage: {fileID: 3607062338995200861}
   _middleImage: {fileID: 7849055816979757713}
-  _up:
-    _essence: 0
-    _interlocking: 0
-  _down:
-    _essence: 0
-    _interlocking: 0
-  _right:
-    _essence: 0
-    _interlocking: 0
-  _left:
-    _essence: 0
-    _interlocking: 0
-  sideDataList: []
 --- !u!1 &2678841385961278183
 GameObject:
   m_ObjectHideFlags: 0

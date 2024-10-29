@@ -15,6 +15,12 @@ public class Puzzle : MonoBehaviour
         puzzleData._essence = _essence;
     }
 
+    /// <param name="puzzleData_">指定拚圖的PuzzleData</param>
+    public Puzzle(PuzzleData puzzleData_)
+    {
+        puzzleData = puzzleData_;
+    }
+
     /// <summary>
     /// 設定拼圖屬性
     /// </summary>
