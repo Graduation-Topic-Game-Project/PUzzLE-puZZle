@@ -9,7 +9,7 @@ public class PuzzleLibrary : MonoBehaviour
     public GameObject puzzlePreparationsAllGameObject; //場景上的拼圖備戰區父物件
     public List<PuzzleData> puzzleLibrary; //拼圖庫
     public PuzzleData[] puzzlePreparations = new PuzzleData[6]; //拼圖備戰區
-    
+
     public Parther[] parthers = new Parther[4]; //要戰鬥的夥伴
     public GameObject[] puzzlePreparationsGameObject = new GameObject[6]; //拼圖備戰區物件位置，用來對生成時的位置的
 
@@ -92,6 +92,14 @@ public class PuzzleLibrary : MonoBehaviour
     /// </summary>
     public void UpdatePreparationPuzzle(object sender, EventArgs e)
     {
+        //清空舊拼圖
+        for (int i = 0; i < 6; i++)
+        {
+            for (int childCount = 0; childCount < puzzlePreparationsGameObject[i].transform.GetChild(1).childCount; childCount++)
+            {
+                Destroy(puzzlePreparationsGameObject[i].transform.GetChild(1).GetChild(childCount).gameObject);
+            }
+        }
 
         for (int i = 0; i < 6; i++)
         {
@@ -99,11 +107,12 @@ public class PuzzleLibrary : MonoBehaviour
             {
                 Debug.Log("errortest");
             }
-            
+
             Puzzle nowPuzzle = battleGameController.puzzlePrefab;
             nowPuzzle.puzzleData = puzzlePreparations[i];
 
             Instantiate(nowPuzzle, puzzlePreparationsGameObject[i].transform.position, transform.rotation, puzzlePreparationsGameObject[i].transform.GetChild(1));
+            nowPuzzle.ReUpdate_PuzzleEssence_Image();
         }
     }
 

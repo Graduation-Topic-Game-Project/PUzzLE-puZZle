@@ -9,6 +9,8 @@ public class Puzzle : MonoBehaviour
 {
     public PuzzleData puzzleData = new();
     public Image _upImage, _downImage, _rightImage, _leftImage, _middleImage;
+    public List<Sprite> PuzzleEssenceImage = new List<Sprite>();
+    public List<Sprite> PuzzleSideEssenceImage = new List<Sprite>();
 
     public Puzzle(PuzzleData.PuzzleEssence _essence)
     {
@@ -35,6 +37,25 @@ public class Puzzle : MonoBehaviour
             puzzleData._essence = value;
         }
     }
+
+    public PuzzleSideData.SideEssence UpSideEssence
+    {
+        get
+        {
+            return puzzleData._up._essence;
+        }
+    }
+
+    /// <summary>
+    /// 更新拼圖圖片
+    /// </summary>
+    public void ReUpdate_PuzzleEssence_Image()
+    {
+        _middleImage.sprite = PuzzleEssenceImage[(int)this.Essence];
+
+        //_upImage.sprite = PuzzleSideEssenceImage[(int)this.Essence];
+
+    }
 }
 
 [CreateAssetMenu(fileName = "New Puzzle", menuName = "ScriptableObject/Puzzle", order = 2)]
@@ -48,7 +69,10 @@ public class PuzzleData
 {
     [Header("拼圖的本質屬性"), Tooltip("拼圖的本質屬性")]
     public PuzzleEssence _essence = PuzzleEssence.Strengthe_力量;
-    public SideData _up, _down, _right, _left = new();
+    public PuzzleSideData _up, _down, _right, _left = new();
+
+    //public PuzzleData.PuzzleEssence 
+
 
     public enum PuzzleEssence
     {

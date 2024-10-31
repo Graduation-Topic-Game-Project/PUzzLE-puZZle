@@ -6,17 +6,25 @@ using System;
 [Serializable]
 public class PuzzleSide : MonoBehaviour
 {
-    public SideData sideData = new();
+    public PuzzleSideData sideData = new();
 
-    public PuzzleSide(SideData.Interlocking interlocking, SideData.SideEssence sideEssence)
+    public PuzzleSide(PuzzleSideData.Interlocking interlocking, PuzzleSideData.SideEssence sideEssence)
     {
         sideData._essence = sideEssence;
         sideData._interlocking = interlocking;
     }
+
+    public PuzzleSideData.SideEssence Essence
+    {
+        get
+        {
+            return sideData._essence;
+        }
+    }
 }
 
 [Serializable]
-public class SideData
+public class PuzzleSideData
 {
     [Header("拼圖邊的本質屬性"), Tooltip("拼圖邊的本質屬性")]
     public SideEssence _essence = SideEssence.Strengthe_力量;
