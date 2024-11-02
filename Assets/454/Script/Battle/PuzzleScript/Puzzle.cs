@@ -12,11 +12,6 @@ public class Puzzle : MonoBehaviour
     public List<Sprite> PuzzleEssenceImage = new List<Sprite>();
     public List<Sprite> PuzzleSideEssenceImage = new List<Sprite>();
 
-    public Puzzle(PuzzleData.PuzzleEssence _essence)
-    {
-        puzzleData._essence = _essence;
-    }
-
     /// <param name="puzzleData_">指定拚圖的PuzzleData</param>
     public Puzzle(PuzzleData puzzleData_)
     {
@@ -38,14 +33,6 @@ public class Puzzle : MonoBehaviour
         }
     }
 
-    public PuzzleSideData.SideEssence UpSideEssence
-    {
-        get
-        {
-            return puzzleData._up._essence;
-        }
-    }
-
     /// <summary>
     /// 更新拼圖圖片
     /// </summary>
@@ -53,8 +40,23 @@ public class Puzzle : MonoBehaviour
     {
         _middleImage.sprite = PuzzleEssenceImage[(int)this.Essence];
 
-        //_upImage.sprite = PuzzleSideEssenceImage[(int)this.Essence];
+        ReUpdate_PuzzleSide_Image(puzzleData.Up_, _upImage);
+        ReUpdate_PuzzleSide_Image(puzzleData.Down_, _downImage);
+        ReUpdate_PuzzleSide_Image(puzzleData.Right_, _rightImage);
+        ReUpdate_PuzzleSide_Image(puzzleData.Left_, _leftImage);
 
+    }
+
+    public void ReUpdate_PuzzleSide_Image(PuzzleSideData _puzzleSideData, Image _sideImage)
+    {
+        if (_puzzleSideData.Interlocking_ == PuzzleSideData.Interlocking.indentations_凹陷)
+        {
+            _sideImage.sprite = PuzzleSideEssenceImage[5];
+        }
+        else
+        {
+            _sideImage.sprite = PuzzleSideEssenceImage[(int)puzzleData.Up_.Interlocking_];
+        }
     }
 }
 
@@ -71,7 +73,11 @@ public class PuzzleData
     public PuzzleEssence _essence = PuzzleEssence.Strengthe_力量;
     public PuzzleSideData _up, _down, _right, _left = new();
 
-    //public PuzzleData.PuzzleEssence 
+
+    public PuzzleSideData Up_ { get { return _up; } }
+    public PuzzleSideData Down_ { get { return _down; } }
+    public PuzzleSideData Right_ { get { return _right; } }
+    public PuzzleSideData Left_ { get { return _left; } }
 
 
     public enum PuzzleEssence

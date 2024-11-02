@@ -258,6 +258,13 @@ MonoBehaviour:
   - {fileID: 21300000, guid: fc2f6df367345ae49832b073ae7c3bf4, type: 3}
   - {fileID: 21300000, guid: fbb09b4976796d1408cb39686b314f49, type: 3}
   - {fileID: 21300000, guid: bc96cbf227813cb439de55f4691af766, type: 3}
+  PuzzleSideEssenceImage:
+  - {fileID: 21300000, guid: 23f3618149ccb1d45a766ed4787c80a6, type: 3}
+  - {fileID: 21300000, guid: 5a0bbc6309776584281dd7802e0cffb9, type: 3}
+  - {fileID: 21300000, guid: 864b8b042563a114d8f9da3a86af24d2, type: 3}
+  - {fileID: 21300000, guid: cdd1fac0d6ef77247b6c5a313e987792, type: 3}
+  - {fileID: 21300000, guid: fc758e38783cf2c45ab916e58c6faaef, type: 3}
+  - {fileID: 21300000, guid: bac2e37993faf2a4a93fa419e24bc16e, type: 3}
 --- !u!1 &2678841385961278183
 GameObject:
   m_ObjectHideFlags: 0
