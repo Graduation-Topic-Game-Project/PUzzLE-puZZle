@@ -13,6 +13,7 @@ public class BattleGameController : MonoBehaviour
     public event EventHandler TestUpdatePuzzleBoard;
 
     public Puzzle puzzlePrefab; //¹w³]«÷¹Ï
+    public PuzzleData specifyPuzzle;
 
     private void Awake()
     {

@@ -10,7 +10,6 @@ public class BoardController : MonoBehaviour
     public GameObject puzzlesGrids; //場景上的盤面格子父物件
     public GameObject[,] puzzlesGridGameObject = new GameObject[6, 7]; //拼圖盤面框位置，用來對生成時的位置的
 
-
     
     //public GameObject puzzleInstanceTransform; //拼圖物件生成資料夾
 

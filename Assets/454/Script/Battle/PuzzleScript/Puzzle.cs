@@ -44,7 +44,6 @@ public class Puzzle : MonoBehaviour
         ReUpdate_PuzzleSide_Image(puzzleData.Down_, _downImage);
         ReUpdate_PuzzleSide_Image(puzzleData.Right_, _rightImage);
         ReUpdate_PuzzleSide_Image(puzzleData.Left_, _leftImage);
-
     }
 
     public void ReUpdate_PuzzleSide_Image(PuzzleSideData _puzzleSideData, Image _sideImage)
@@ -55,7 +54,7 @@ public class Puzzle : MonoBehaviour
         }
         else
         {
-            _sideImage.sprite = PuzzleSideEssenceImage[(int)puzzleData.Up_.Interlocking_];
+            _sideImage.sprite = PuzzleSideEssenceImage[(int)_puzzleSideData.Essence_];
         }
     }
 }

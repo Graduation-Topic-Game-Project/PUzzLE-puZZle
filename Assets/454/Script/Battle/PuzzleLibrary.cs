@@ -19,6 +19,11 @@ public class PuzzleLibrary : MonoBehaviour
         Array.Clear(puzzlePreparations, 0, 6);
         battleGameController.BattleStart += this.Load_PuzzleLibrary_ForParther;
         battleGameController.BattleStart += this.Load_All_Preparation;
+
+        for (int i = 0; i < puzzlePreparationsGameObject.Length; i++)
+        {
+            puzzlePreparationsGameObject[i].GetComponent<PuzzlePreparation>().ClickPreparationBotton += this.SpecifyPuzzle;
+        }
         //battleGameController.BattleStart += UpdatePreparationPuzzle;
     }
 
@@ -31,6 +36,7 @@ public class PuzzleLibrary : MonoBehaviour
         for (int i = 0; i < 6; i++)
         {
             puzzlePreparationsGameObject[i] = puzzlePreparationsAllGameObject.transform.GetChild(i).gameObject;
+            puzzlePreparationsGameObject[i].GetComponent<PuzzlePreparation>().number = i;
         }
     }
 
@@ -85,6 +91,8 @@ public class PuzzleLibrary : MonoBehaviour
         puzzleLibrary.Remove(puzzle);
 
         UpdatePreparationPuzzle(this, EventArgs.Empty);
+        UpdatePreparationPuzzle(this, EventArgs.Empty);
+        //UpdatePreparationPuzzle(this, EventArgs.Empty);
     }
 
     /// <summary>
@@ -111,9 +119,15 @@ public class PuzzleLibrary : MonoBehaviour
             Puzzle nowPuzzle = battleGameController.puzzlePrefab;
             nowPuzzle.puzzleData = puzzlePreparations[i];
 
-            Instantiate(nowPuzzle, puzzlePreparationsGameObject[i].transform.position, transform.rotation, puzzlePreparationsGameObject[i].transform.GetChild(1));
             nowPuzzle.ReUpdate_PuzzleEssence_Image();
+            Instantiate(nowPuzzle, puzzlePreparationsGameObject[i].transform.position, transform.rotation, puzzlePreparationsGameObject[i].transform.GetChild(1));
+            //nowPuzzle.ReUpdate_PuzzleEssence_Image();
         }
+    }
+
+    public void SpecifyPuzzle(int number)
+    {
+        battleGameController.specifyPuzzle = puzzlePreparations[number];
     }
 
 

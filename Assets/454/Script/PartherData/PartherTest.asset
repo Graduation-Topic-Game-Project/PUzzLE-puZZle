@@ -18,105 +18,105 @@ MonoBehaviour:
     parthersPuzzle:
     - _essence: 1
       _up:
-        _essence: 1
+        _sideEssence: 1
         _interlocking: 1
       _down:
-        _essence: 2
+        _sideEssence: 1
         _interlocking: 1
       _right:
-        _essence: 3
+        _sideEssence: 2
         _interlocking: 2
       _left:
-        _essence: 3
+        _sideEssence: 1
         _interlocking: 2
     - _essence: 2
       _up:
-        _essence: 1
+        _sideEssence: 1
         _interlocking: 1
       _down:
-        _essence: 2
+        _sideEssence: 1
         _interlocking: 1
       _right:
-        _essence: 3
+        _sideEssence: 1
         _interlocking: 2
       _left:
-        _essence: 3
+        _sideEssence: 1
         _interlocking: 2
     - _essence: 3
       _up:
-        _essence: 1
-        _interlocking: 1
+        _sideEssence: 3
+        _interlocking: 2
       _down:
-        _essence: 2
+        _sideEssence: 1
         _interlocking: 1
       _right:
-        _essence: 3
+        _sideEssence: 1
         _interlocking: 2
       _left:
-        _essence: 3
+        _sideEssence: 1
         _interlocking: 2
     - _essence: 4
       _up:
-        _essence: 1
+        _sideEssence: 1
         _interlocking: 1
       _down:
-        _essence: 2
+        _sideEssence: 1
         _interlocking: 1
       _right:
-        _essence: 3
+        _sideEssence: 1
         _interlocking: 2
       _left:
-        _essence: 3
+        _sideEssence: 1
         _interlocking: 2
     - _essence: 1
       _up:
-        _essence: 1
+        _sideEssence: 1
         _interlocking: 2
       _down:
-        _essence: 1
+        _sideEssence: 1
         _interlocking: 2
       _right:
-        _essence: 1
+        _sideEssence: 1
         _interlocking: 2
       _left:
-        _essence: 1
+        _sideEssence: 1
         _interlocking: 2
     - _essence: 4
       _up:
-        _essence: 1
+        _sideEssence: 1
         _interlocking: 1
       _down:
-        _essence: 2
+        _sideEssence: 1
         _interlocking: 1
       _right:
-        _essence: 3
+        _sideEssence: 1
         _interlocking: 2
       _left:
-        _essence: 3
+        _sideEssence: 1
         _interlocking: 2
     - _essence: 4
       _up:
-        _essence: 1
+        _sideEssence: 1
         _interlocking: 1
       _down:
-        _essence: 2
+        _sideEssence: 1
         _interlocking: 1
       _right:
-        _essence: 3
+        _sideEssence: 1
         _interlocking: 2
       _left:
-        _essence: 3
+        _sideEssence: 1
         _interlocking: 2
     - _essence: 0
       _up:
-        _essence: 0
+        _sideEssence: 1
         _interlocking: 2
       _down:
-        _essence: 0
+        _sideEssence: 1
         _interlocking: 2
       _right:
-        _essence: 0
+        _sideEssence: 1
         _interlocking: 2
       _left:
-        _essence: 0
+        _sideEssence: 1
         _interlocking: 2
