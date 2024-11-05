@@ -16,11 +16,12 @@ public class PuzzleLibrary : MonoBehaviour
     private void Awake()
     {
         Load_puzzlePreparationsTransform();  //獲取備戰區位置
-        Array.Clear(puzzlePreparations, 0, 6);
-        battleGameController.BattleStart += this.Load_PuzzleLibrary_ForParther;
-        battleGameController.BattleStart += this.Load_All_Preparation;
+        Array.Clear(puzzlePreparations, 0, 6); //獲取備戰區位置
+        battleGameController.Event_BattleStart += this.Load_PuzzleLibrary_ForParther;
+        battleGameController.Event_BattleStart += this.Load_All_Preparation;
+        battleGameController.Event_RemovePlacedPuzzle += this.RemovePlacedPuzzle;
 
-        for (int i = 0; i < puzzlePreparationsGameObject.Length; i++)
+        for (int i = 0; i < puzzlePreparationsGameObject.Length; i++) //訂閱所有備戰區按鈕事件
         {
             puzzlePreparationsGameObject[i].GetComponent<PuzzlePreparation>().ClickPreparationBotton += this.SpecifyPuzzle;
         }
@@ -36,7 +37,7 @@ public class PuzzleLibrary : MonoBehaviour
         for (int i = 0; i < 6; i++)
         {
             puzzlePreparationsGameObject[i] = puzzlePreparationsAllGameObject.transform.GetChild(i).gameObject;
-            puzzlePreparationsGameObject[i].GetComponent<PuzzlePreparation>().number = i;
+            puzzlePreparationsGameObject[i].GetComponent<PuzzlePreparation>().PreparationNumber = i;
         }
     }
 
@@ -71,15 +72,16 @@ public class PuzzleLibrary : MonoBehaviour
     {
         for (int i = 0; i < 6; i++)
         {
-            Load_Preparation(i);
+            Load_Preparation_ForParner(i);
         }
+        UpdatePreparationPuzzle(this, EventArgs.Empty);
     }
 
     /// <summary>
     /// 刷新指定備戰區(移除並從拼圖庫填入)
     /// </summary>
     /// <param name="i">要ReLoad的備戰區(0~5)</param>
-    public void Load_Preparation(int i)
+    public void Load_Preparation_ForParner(int i)
     {
         if (puzzleLibrary.Count == 0)
         {
@@ -89,10 +91,17 @@ public class PuzzleLibrary : MonoBehaviour
         PuzzleData puzzle = puzzleLibrary[0];
         puzzlePreparations[i] = puzzle;
         puzzleLibrary.Remove(puzzle);
+    }
 
+    /// <summary>
+    /// 在放置後移除並刷新第number個備戰區
+    /// </summary>
+    /// <param name="number">要刷新的備戰區是第幾個</param>
+    public void RemovePlacedPuzzle(int number)
+    {
+        Debug.Log("RemovePlacedPuzzle");
+        Load_Preparation_ForParner(number);
         UpdatePreparationPuzzle(this, EventArgs.Empty);
-        UpdatePreparationPuzzle(this, EventArgs.Empty);
-        //UpdatePreparationPuzzle(this, EventArgs.Empty);
     }
 
     /// <summary>
@@ -111,10 +120,12 @@ public class PuzzleLibrary : MonoBehaviour
 
         for (int i = 0; i < 6; i++)
         {
-            if (puzzlePreparations[i] == null || puzzlePreparationsGameObject[i] == null)
-            {
-                Debug.Log("errortest");
-            }
+            if (puzzlePreparations[i] == null)
+                Debug.Log("errortest_puzzlePreparations" + i);
+
+            if (puzzlePreparationsGameObject[i] == null)
+                Debug.Log("errortest_puzzlePreparationsGameObject" + i);
+
 
             Puzzle nowPuzzle = battleGameController.puzzlePrefab;
             nowPuzzle.puzzleData = puzzlePreparations[i];
@@ -125,9 +136,21 @@ public class PuzzleLibrary : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// 選擇備戰區的拼圖
+    /// </summary>
+    /// <param name="number">第幾個備戰區格子</param>
     public void SpecifyPuzzle(int number)
     {
         battleGameController.specifyPuzzle = puzzlePreparations[number];
+        battleGameController.specifyPuzzleNumber = number;
+        battleGameController.isSpecifyPuzzle = true;
+
+        for (int i = 0; i < puzzlePreparationsGameObject.Length; i++) //重製所有按鈕顏色為預設
+        {
+            puzzlePreparationsGameObject[i].GetComponent<PuzzlePreparation>().ResetColor();
+        }
+        //puzzlePreparationsGameObject[number].GetComponent<PuzzlePreparation>().SetClickColor(); //將點擊按鈕顏色為ClickColor
     }
 
 

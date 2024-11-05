@@ -2293,6 +2293,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   puzzlePrefab: {fileID: -2443544983015812757, guid: d01b2ccc19df3344391c843ecc473c6c, type: 3}
+  specifyPuzzle:
+    _essence: 1
+    _up:
+      _sideEssence: 1
+      _interlocking: 1
+    _down:
+      _sideEssence: 1
+      _interlocking: 1
+    _right:
+      _sideEssence: 1
+      _interlocking: 1
+    _left:
+      _sideEssence: 1
+      _interlocking: 1
+  isSpecifyPuzzle: 0
 --- !u!4 &683618067
 Transform:
   m_ObjectHideFlags: 0
@@ -2326,81 +2341,81 @@ MonoBehaviour:
   puzzlePreparations:
   - _essence: 2
     _up:
-      _essence: 3
+      _sideEssence: 1
       _interlocking: 1
     _down:
-      _essence: 1
+      _sideEssence: 1
       _interlocking: 1
     _right:
-      _essence: 1
+      _sideEssence: 1
       _interlocking: 1
     _left:
-      _essence: 1
+      _sideEssence: 1
       _interlocking: 1
   - _essence: 1
     _up:
-      _essence: 1
+      _sideEssence: 1
       _interlocking: 1
     _down:
-      _essence: 1
+      _sideEssence: 1
       _interlocking: 1
     _right:
-      _essence: 1
+      _sideEssence: 1
       _interlocking: 1
     _left:
-      _essence: 1
+      _sideEssence: 1
       _interlocking: 1
   - _essence: 1
     _up:
-      _essence: 1
+      _sideEssence: 1
       _interlocking: 1
     _down:
-      _essence: 1
+      _sideEssence: 1
       _interlocking: 1
     _right:
-      _essence: 1
+      _sideEssence: 1
       _interlocking: 1
     _left:
-      _essence: 1
+      _sideEssence: 1
       _interlocking: 1
   - _essence: 1
     _up:
-      _essence: 1
+      _sideEssence: 1
       _interlocking: 1
     _down:
-      _essence: 1
+      _sideEssence: 1
       _interlocking: 1
     _right:
-      _essence: 1
+      _sideEssence: 1
       _interlocking: 1
     _left:
-      _essence: 1
+      _sideEssence: 1
       _interlocking: 1
   - _essence: 1
     _up:
-      _essence: 1
+      _sideEssence: 1
       _interlocking: 1
     _down:
-      _essence: 1
+      _sideEssence: 1
       _interlocking: 1
     _right:
-      _essence: 1
+      _sideEssence: 1
       _interlocking: 1
     _left:
-      _essence: 1
+      _sideEssence: 1
       _interlocking: 1
   - _essence: 1
     _up:
-      _essence: 1
+      _sideEssence: 1
       _interlocking: 1
     _down:
-      _essence: 1
+      _sideEssence: 1
       _interlocking: 1
     _right:
-      _essence: 1
+      _sideEssence: 1
       _interlocking: 1
     _left:
-      _essence: 1
+      _sideEssence: 1
       _interlocking: 1
   parthers:
   - {fileID: 11400000, guid: 7dee00a6bf6f2374b81b6a7457448cc4, type: 2}
@@ -3391,7 +3406,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -7835,6 +7850,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Puzzle Test
       objectReference: {fileID: 0}
+    - target: {fileID: 2193704032216370510, guid: d01b2ccc19df3344391c843ecc473c6c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7849055816979757713, guid: d01b2ccc19df3344391c843ecc473c6c, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -8222,6 +8241,22 @@ PrefabInstance:
     - target: {fileID: 4517014884987348197, guid: 3a300b32421d6c947bc12be0967c1e5e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5501936197966003136, guid: 3a300b32421d6c947bc12be0967c1e5e, type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5501936197966003136, guid: 3a300b32421d6c947bc12be0967c1e5e, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5501936197966003136, guid: 3a300b32421d6c947bc12be0967c1e5e, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5501936197966003136, guid: 3a300b32421d6c947bc12be0967c1e5e, type: 3}
+      propertyPath: m_Color.r
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7240086704813519408, guid: 3a300b32421d6c947bc12be0967c1e5e, type: 3}
       propertyPath: m_Name

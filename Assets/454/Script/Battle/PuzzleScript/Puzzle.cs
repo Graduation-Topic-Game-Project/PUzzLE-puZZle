@@ -72,12 +72,12 @@ public class PuzzleData
     public PuzzleEssence _essence = PuzzleEssence.Strengthe_¤O¶q;
     public PuzzleSideData _up, _down, _right, _left = new();
 
+    public PuzzleEssence Essence { get => _essence; set { _essence = value; } }
 
     public PuzzleSideData Up_ { get { return _up; } }
     public PuzzleSideData Down_ { get { return _down; } }
     public PuzzleSideData Right_ { get { return _right; } }
     public PuzzleSideData Left_ { get { return _left; } }
-
 
     public enum PuzzleEssence
     {
@@ -86,6 +86,12 @@ public class PuzzleData
         Wisdom_´¼¼z = 2,  //´¼¼z
         Belief_«H¥õ = 3, //«H¥õ
         Soul_ÆF»î = 4, //ÆF»î
+    }
+
+    public void RandomlyGeneratedPuzzleData()
+    {
+        PuzzleData puzzleData = new PuzzleData();
+        puzzleData._essence = (PuzzleEssence)UnityEngine.Random.Range(0, 5);
     }
 }
 

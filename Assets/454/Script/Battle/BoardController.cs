@@ -8,31 +8,25 @@ public class BoardController : MonoBehaviour
     public BattleGameController battleGameController;
     public PuzzleData[,] puzzles = new PuzzleData[6, 7];
     public GameObject puzzlesGrids; //場景上的盤面格子父物件
-    public GameObject[,] puzzlesGridGameObject = new GameObject[6, 7]; //拼圖盤面框位置，用來對生成時的位置的
+    public GameObject[,] puzzlesGridGameObject = new GameObject[6, 7]; //拼圖盤面框物件，用來對生成時的位置的
 
-    
-    //public GameObject puzzleInstanceTransform; //拼圖物件生成資料夾
 
     private void Awake()
     {
-        if (battleGameController == null)
+        if (battleGameController == null) //獲取場景上的BattleGameController
         {
             battleGameController = FindObjectOfType<BattleGameController>();
         }
 
 
         puzzles[0, 5] = battleGameController.puzzlePrefab.GetComponent<Puzzle>().puzzleData;
-        puzzles[3, 3] = new PuzzleData();
 
-        battleGameController.BattleStart += this.Load_puzzlesGrids;
-        battleGameController.TestUpdatePuzzleBoard += this.TestUpdatePuzzleBoard;
+        battleGameController.Event_BattleStart += this.Load_puzzlesGrids; //將場景的puzzlesGrid存進2維陣列
+        battleGameController.Event_TestUpdatePuzzleBoard += this.TestUpdatePuzzleBoard;
 
         // Load_puzzlesGrids(this, EventArgs.Empty);  //將場景的puzzlesGrid存進2維陣列
     }
-    private void Start()
-    {
 
-    }
     public void UpdatePuzzleBoard() //更新顯示盤面上拼圖
     {
         //清空舊拼圖
@@ -56,9 +50,13 @@ public class BoardController : MonoBehaviour
                     //Debug.Log($"顯示更新拼圖格{i}，{j}");
                     Puzzle nowPuzzle = battleGameController.puzzlePrefab;
                     nowPuzzle.puzzleData = puzzles[i, j];
+
+                    nowPuzzle.ReUpdate_PuzzleEssence_Image();
                     //                                                                                         //拼圖物件生成的資料夾
                     Instantiate(nowPuzzle, puzzlesGridGameObject[i, j].transform.position, transform.rotation, puzzlesGridGameObject[i, j].transform.GetChild(1));
                 }
+                /*else
+                    Debug.Log($"error_UpdatePuzzleBoard_puzzles[{i}, {j}] == null");*/
             }
         }
     }
@@ -77,10 +75,37 @@ public class BoardController : MonoBehaviour
                 puzzlesGridGameObject[i, j] = puzzlesGrids.transform.GetChild(childNum).gameObject;
                 //Debug.Log(puzzlesGrids.transform.GetChild(childNum).gameObject);
                 //Debug.Log(puzzlesGridGameObject[i, j]);
+
+                puzzlesGridGameObject[i, j].GetComponent<PuzzleGrid>().PuzzleGridNumber[0] = i;
+                puzzlesGridGameObject[i, j].GetComponent<PuzzleGrid>().PuzzleGridNumber[1] = j;
+
+                puzzlesGridGameObject[i, j].GetComponent<PuzzleGrid>().ClickPuzzleGridBotton += this.PlacePuzzle;
+
                 childNum++;
             }
         }
         UpdatePuzzleBoard(); //更新盤面上拼圖
+    }
+
+    /// <summary>
+    /// 放置拼圖
+    /// </summary>
+    /// <param name="i"></param>
+    /// <param name="j"></param>
+    public void PlacePuzzle(int i, int j)
+    {
+        if (battleGameController.isSpecifyPuzzle == true) //如果目前已指定拼圖
+        {
+            puzzles[i, j] = battleGameController.specifyPuzzle;
+            Debug.Log($"已在{i}，{j}處放置{puzzles[i, j]._essence}拼圖");
+
+            battleGameController.RemovePlacedPuzzle();
+            UpdatePuzzleBoard();
+        }
+        else
+        {
+            Debug.Log("未指定拼圖");
+        }
     }
 
 
@@ -88,7 +113,7 @@ public class BoardController : MonoBehaviour
     public void TestUpdatePuzzleBoard(object sender, EventArgs e)
     {
         Debug.Log("test更新盤面");
-        puzzles[1, 5] = battleGameController.puzzlePrefab.puzzleData;
+        //puzzles[1, 5] = battleGameController.puzzlePrefab.puzzleData;
         UpdatePuzzleBoard();
     }
 }
