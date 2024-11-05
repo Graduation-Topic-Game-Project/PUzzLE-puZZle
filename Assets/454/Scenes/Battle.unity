@@ -2273,6 +2273,7 @@ GameObject:
   - component: {fileID: 683618066}
   - component: {fileID: 683618068}
   - component: {fileID: 683618069}
+  - component: {fileID: 683618070}
   m_Layer: 0
   m_Name: BattleGameController
   m_TagString: Untagged
@@ -2307,6 +2308,7 @@ MonoBehaviour:
     _left:
       _sideEssence: 1
       _interlocking: 1
+  specifyPuzzleNumber: 0
   isSpecifyPuzzle: 0
 --- !u!4 &683618067
 Transform:
@@ -2443,6 +2445,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   battleGameController: {fileID: 683618066}
   puzzlesGrids: {fileID: 191730163}
+--- !u!114 &683618070
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 683618065}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3755f3c3d7e855243a6a1b03542359d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boardController: {fileID: 683618069}
 --- !u!1001 &727150898
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3421,8 +3436,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 1912563456
-  m_fontColor: {r: 0, g: 0.40270567, b: 1, a: 0.44313726}
+    rgba: 1358915328
+  m_fontColor: {r: 0, g: 0.40270567, b: 1, a: 0.3137255}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:

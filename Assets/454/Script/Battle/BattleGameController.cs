@@ -12,6 +12,7 @@ public class BattleGameController : MonoBehaviour
     public event EventHandler Event_BattleAwake;
     public event EventHandler Event_TestUpdatePuzzleBoard;
     public event Action<int> Event_RemovePlacedPuzzle; //移除已放置拼圖
+    public event EventHandler Event_PuzzlePlaceCompleted; //拼圖放置完成
 
     public Puzzle puzzlePrefab; //預設拼圖Prefab
 
@@ -42,6 +43,14 @@ public class BattleGameController : MonoBehaviour
     {
         Event_RemovePlacedPuzzle?.Invoke(specifyPuzzleNumber); //刷新選擇的備戰區編號的備戰區
         isSpecifyPuzzle = false;
+    }
+
+    /// <summary>
+    /// 發送拼圖放置完成事件
+    /// </summary>
+    public void PlacedPuzzle()
+    {
+        Event_PuzzlePlaceCompleted?.Invoke(this, EventArgs.Empty);
     }
 
 

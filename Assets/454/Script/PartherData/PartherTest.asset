@@ -31,14 +31,14 @@ MonoBehaviour:
         _interlocking: 2
     - _essence: 2
       _up:
-        _sideEssence: 1
-        _interlocking: 1
+        _sideEssence: 3
+        _interlocking: 2
       _down:
-        _sideEssence: 1
-        _interlocking: 1
+        _sideEssence: 4
+        _interlocking: 2
       _right:
         _sideEssence: 1
-        _interlocking: 2
+        _interlocking: 1
       _left:
         _sideEssence: 1
         _interlocking: 2
@@ -57,17 +57,17 @@ MonoBehaviour:
         _interlocking: 2
     - _essence: 4
       _up:
-        _sideEssence: 1
+        _sideEssence: 4
         _interlocking: 1
       _down:
-        _sideEssence: 1
-        _interlocking: 1
+        _sideEssence: 4
+        _interlocking: 2
       _right:
         _sideEssence: 1
-        _interlocking: 2
+        _interlocking: 1
       _left:
         _sideEssence: 1
-        _interlocking: 2
+        _interlocking: 1
     - _essence: 1
       _up:
         _sideEssence: 1
@@ -103,10 +103,10 @@ MonoBehaviour:
         _interlocking: 1
       _right:
         _sideEssence: 1
-        _interlocking: 2
+        _interlocking: 1
       _left:
         _sideEssence: 1
-        _interlocking: 2
+        _interlocking: 1
     - _essence: 0
       _up:
         _sideEssence: 1
@@ -116,7 +116,7 @@ MonoBehaviour:
         _interlocking: 2
       _right:
         _sideEssence: 1
-        _interlocking: 2
+        _interlocking: 1
       _left:
         _sideEssence: 1
         _interlocking: 2

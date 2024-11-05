@@ -20,6 +20,7 @@ public class PuzzleLibrary : MonoBehaviour
         battleGameController.Event_BattleStart += this.Load_PuzzleLibrary_ForParther;
         battleGameController.Event_BattleStart += this.Load_All_Preparation;
         battleGameController.Event_RemovePlacedPuzzle += this.RemovePlacedPuzzle;
+        battleGameController.Event_PuzzlePlaceCompleted += this.ResetAllPreparationButtonColor;
 
         for (int i = 0; i < puzzlePreparationsGameObject.Length; i++) //訂閱所有備戰區按鈕事件
         {
@@ -99,7 +100,7 @@ public class PuzzleLibrary : MonoBehaviour
     /// <param name="number">要刷新的備戰區是第幾個</param>
     public void RemovePlacedPuzzle(int number)
     {
-        Debug.Log("RemovePlacedPuzzle");
+        //Debug.Log("RemovePlacedPuzzle");
         Load_Preparation_ForParner(number);
         UpdatePreparationPuzzle(this, EventArgs.Empty);
     }
@@ -146,11 +147,20 @@ public class PuzzleLibrary : MonoBehaviour
         battleGameController.specifyPuzzleNumber = number;
         battleGameController.isSpecifyPuzzle = true;
 
-        for (int i = 0; i < puzzlePreparationsGameObject.Length; i++) //重製所有按鈕顏色為預設
+        ResetAllPreparationButtonColor();
+        //puzzlePreparationsGameObject[number].GetComponent<PuzzlePreparation>().SetClickColor(); //將點擊按鈕顏色為ClickColor
+    }
+
+    public void ResetAllPreparationButtonColor()  //重製所有備戰區按鈕顏色為預設
+    {
+        for (int i = 0; i < puzzlePreparationsGameObject.Length; i++) 
         {
             puzzlePreparationsGameObject[i].GetComponent<PuzzlePreparation>().ResetColor();
         }
-        //puzzlePreparationsGameObject[number].GetComponent<PuzzlePreparation>().SetClickColor(); //將點擊按鈕顏色為ClickColor
+    }
+    public void ResetAllPreparationButtonColor(object sender, EventArgs e)
+    {
+        ResetAllPreparationButtonColor();
     }
 
 

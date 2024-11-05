@@ -70,7 +70,8 @@ public class PuzzleData
 {
     [Header("拼圖的本質屬性"), Tooltip("拼圖的本質屬性")]
     public PuzzleEssence _essence = PuzzleEssence.Strengthe_力量;
-    public PuzzleSideData _up, _down, _right, _left = new();
+    [SerializeField]
+    private PuzzleSideData _up, _down, _right, _left = new();
 
     public PuzzleEssence Essence { get => _essence; set { _essence = value; } }
 
@@ -92,6 +93,7 @@ public class PuzzleData
     {
         PuzzleData puzzleData = new PuzzleData();
         puzzleData._essence = (PuzzleEssence)UnityEngine.Random.Range(0, 5);
+        puzzleData.Up_.Interlocking_ = (PuzzleSideData.Interlocking)UnityEngine.Random.Range(1, 3);
     }
 }
 

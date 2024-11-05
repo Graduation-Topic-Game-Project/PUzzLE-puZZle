@@ -38,7 +38,7 @@ public class PuzzlePreparation : MonoBehaviour
     {
         //battleGameController.otherPuzzle = PuzzleLibrary.puzzlePreparations[number];
         ClickPreparationBotton?.Invoke(_preparationNumber);
-        SetClickColor();
+        SetColorForSpecifying();
     }
 
     /// <summary>
@@ -50,9 +50,9 @@ public class PuzzlePreparation : MonoBehaviour
     }
 
     /// <summary>
-    /// 將按鈕顏色變成選則時顏色
+    /// 將按鈕顏色變成選擇時顏色
     /// </summary>
-    public void SetClickColor()
+    public void SetColorForSpecifying()
     {
         this.gameObject.transform.GetChild(0).GetComponent<Image>().color = _buttonClickColor;
     }

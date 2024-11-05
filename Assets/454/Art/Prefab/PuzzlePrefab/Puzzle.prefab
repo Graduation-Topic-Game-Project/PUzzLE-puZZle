@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7245977831966252070}
   - component: {fileID: 5916546567971546934}
   - component: {fileID: 3607062338995200861}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Left Imaga
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -276,7 +276,7 @@ GameObject:
   - component: {fileID: 8293571563655715561}
   - component: {fileID: 1647179411231540668}
   - component: {fileID: 3575560854768146671}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Down Imaga
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -387,7 +387,7 @@ GameObject:
   - component: {fileID: 2398390855476973406}
   - component: {fileID: 4425783704293248755}
   - component: {fileID: 7849055816979757713}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Middle Imaga
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -462,7 +462,7 @@ GameObject:
   - component: {fileID: 3330824300936217370}
   - component: {fileID: 595104633876967706}
   - component: {fileID: 1695729801470337725}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Right Imaga
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -752,7 +752,7 @@ GameObject:
   - component: {fileID: 402891461834984588}
   - component: {fileID: 7525990043565088130}
   - component: {fileID: 5091287995779515649}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Up Imaga
   m_TagString: Untagged
   m_Icon: {fileID: 0}

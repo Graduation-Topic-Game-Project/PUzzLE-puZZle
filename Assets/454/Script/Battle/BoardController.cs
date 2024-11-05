@@ -10,6 +10,7 @@ public class BoardController : MonoBehaviour
     public GameObject puzzlesGrids; //場景上的盤面格子父物件
     public GameObject[,] puzzlesGridGameObject = new GameObject[6, 7]; //拼圖盤面框物件，用來對生成時的位置的
 
+    public event Func<int, int, PuzzleData, bool> Event_CheckPuzzleIsCanBePlace; //檢查拼圖是否可被放置
 
     private void Awake()
     {
@@ -90,17 +91,26 @@ public class BoardController : MonoBehaviour
     /// <summary>
     /// 放置拼圖
     /// </summary>
-    /// <param name="i"></param>
-    /// <param name="j"></param>
+    /// <param name="i">放置位置座標X(橫行)</param>
+    /// <param name="j">放置位置座標Y(直列)</param>
     public void PlacePuzzle(int i, int j)
     {
         if (battleGameController.isSpecifyPuzzle == true) //如果目前已指定拼圖
         {
-            puzzles[i, j] = battleGameController.specifyPuzzle;
-            Debug.Log($"已在{i}，{j}處放置{puzzles[i, j]._essence}拼圖");
+            if (Event_CheckPuzzleIsCanBePlace.Invoke(i, j, battleGameController.specifyPuzzle) == true) //檢查拼圖是否可被放置
+            {
+                Debug.Log("拼圖可放置");
+                puzzles[i, j] = battleGameController.specifyPuzzle;
+                Debug.Log($"已在{i}，{j}處放置{puzzles[i, j]._essence}拼圖");
 
-            battleGameController.RemovePlacedPuzzle();
-            UpdatePuzzleBoard();
+                battleGameController.RemovePlacedPuzzle();
+                UpdatePuzzleBoard();
+                battleGameController.PlacedPuzzle(); //BattleGameController發送放置拼圖結束事件
+            }
+            else
+            {
+                Debug.Log("與周圍拼圖衝突，拼圖不可放置");
+            }
         }
         else
         {

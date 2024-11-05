@@ -10,18 +10,20 @@ public class PuzzleSide : MonoBehaviour
 
     public PuzzleSide(PuzzleSideData.Interlocking interlocking, PuzzleSideData.SideEssence sideEssence)
     {
-        sideData._sideEssence = sideEssence;
-        sideData._interlocking = interlocking;
+        sideData.Essence_ = sideEssence;
+        sideData.Interlocking_ = interlocking;
     }
 }
 
 [Serializable]
 public class PuzzleSideData
 {
+    [SerializeField]
     [Header("拼圖邊的本質屬性"), Tooltip("拼圖邊的本質屬性")]
-    public SideEssence _sideEssence = SideEssence.Strengthe_力量;
+    private SideEssence _sideEssence = SideEssence.Strengthe_力量;
+    [SerializeField]
     [Header("拼圖邊的凹凸"), Tooltip("拼圖邊的凹凸")]
-    public Interlocking _interlocking = Interlocking.indentations_凹陷;
+    private Interlocking _interlocking = Interlocking.indentations_凹陷;
 
 
     /// <summary>
@@ -33,6 +35,10 @@ public class PuzzleSideData
         {
             return _sideEssence;
         }
+        set
+        {
+            _sideEssence = value;
+        }
     }
 
     public PuzzleSideData.Interlocking Interlocking_
@@ -40,6 +46,10 @@ public class PuzzleSideData
         get
         {
             return _interlocking;
+        }
+        set
+        {
+            _interlocking = value;
         }
     }
 
