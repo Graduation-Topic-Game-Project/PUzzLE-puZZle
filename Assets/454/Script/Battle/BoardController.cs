@@ -95,7 +95,7 @@ public class BoardController : MonoBehaviour
     /// <param name="j">放置位置座標Y(直列)</param>
     public void PlacePuzzle(int i, int j)
     {
-        if (battleGameController.isSpecifyPuzzle == true) //如果目前已指定拼圖
+        if (battleGameController.CanPlacePuzzle() == true) //如果目前可放置拼圖
         {
             if (Event_CheckPuzzleIsCanBePlace.Invoke(i, j, battleGameController.specifyPuzzle) == true) //檢查拼圖是否可被放置
             {
@@ -111,10 +111,6 @@ public class BoardController : MonoBehaviour
             {
                 Debug.Log("與周圍拼圖衝突，拼圖不可放置");
             }
-        }
-        else
-        {
-            Debug.Log("未指定拼圖");
         }
     }
 

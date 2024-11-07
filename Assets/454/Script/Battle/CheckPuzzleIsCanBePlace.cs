@@ -32,98 +32,6 @@ public class CheckPuzzleIsCanBePlace : MonoBehaviour
         return true;
     }
 
-    /*public bool CheckDirection(int i, int j, PuzzleData _puzzle, int di, int dj, PuzzleSideData thisSide, PuzzleSideData otherSide)
-    {
-        int newI = i + di;
-        int newJ = j + dj;
-
-        // 邊界檢查
-        if (newI < 0 || newI >= boardController.puzzles.GetLength(0) ||
-            newJ < 0 || newJ >= boardController.puzzles.GetLength(1))
-        {
-            return true;
-        }
-
-        // 如果相鄰位置沒有拼圖
-        if (boardController.puzzles[newI, newJ] == null)
-        {
-            return true;
-        }
-
-
-        // 檢查拼圖互鎖
-        if (thisSide.Interlocking_ == PuzzleSideData.Interlocking.protrusions_突起 &&
-            otherSide.Interlocking_ != PuzzleSideData.Interlocking.indentations_凹陷)
-        {
-            return false;
-        }
-
-        if (thisSide.Interlocking_ == PuzzleSideData.Interlocking.indentations_凹陷 &&
-            otherSide.Interlocking_ != PuzzleSideData.Interlocking.protrusions_突起)
-        {
-            return false;
-        }
-
-        return true;
-    }
-
-    public bool CheckUp(int i, int j, PuzzleData _puzzle)
-    {
-        PuzzleSideData _upPuzzleDownSide = null;
-
-        if (i! <= 0)
-        {
-            if (boardController.puzzles[i - 1, j] != null)
-            {
-                _upPuzzleDownSide = boardController.puzzles[i - 1, j].Down_; //上方拼圖的DownSide
-            }
-
-        }
-
-        return CheckDirection(i, j, _puzzle, -1, 0, _puzzle.Up_, _upPuzzleDownSide);
-    }
-
-    public bool CheckDown(int i, int j, PuzzleData _puzzle)
-    {
-        PuzzleSideData _downPuzzleUpSide = null;
-
-        if (i! >= 5)
-        {
-            if (boardController.puzzles[i + 1, j] != null)
-                _downPuzzleUpSide = boardController.puzzles[i + 1, j].Up_; //下方拼圖的UpSide
-        }
-
-
-        return CheckDirection(i, j, _puzzle, 1, 0, _puzzle.Down_, _downPuzzleUpSide);
-    }
-
-    public bool CheckRight(int i, int j, PuzzleData _puzzle)
-    {
-        PuzzleSideData _rightPuzzleLeftSide = null;
-
-        if (j! >= 6)
-        {
-            if (boardController.puzzles[i, j + 1] != null)
-                _rightPuzzleLeftSide = boardController.puzzles[i, j + 1].Left_; //右方拼圖的LeftSide
-        }
-
-
-        return CheckDirection(i, j, _puzzle, 0, 1, _puzzle.Right_, _rightPuzzleLeftSide);
-    }
-
-    public bool CheckLeft(int i, int j, PuzzleData _puzzle)
-    {
-        PuzzleSideData _leftPuzzleRightSide = null;
-
-        if (j! <= 0)
-        {
-            if (boardController.puzzles[i, j - 1] != null)
-                _leftPuzzleRightSide = boardController.puzzles[i, j - 1].Right_; //左方拼圖的RightSide
-        }
-
-        return CheckDirection(i, j, _puzzle, 0, -1, _puzzle.Left_, _leftPuzzleRightSide);
-    }*/
-
 
     public bool CheckUp(int i, int j, PuzzleData _puzzle)
     {
@@ -283,6 +191,97 @@ public class CheckPuzzleIsCanBePlace : MonoBehaviour
         return true;
     }
 
+    /*public bool CheckDirection(int i, int j, PuzzleData _puzzle, int di, int dj, PuzzleSideData thisSide, PuzzleSideData otherSide)
+    {
+        int newI = i + di;
+        int newJ = j + dj;
+
+        // 邊界檢查
+        if (newI < 0 || newI >= boardController.puzzles.GetLength(0) ||
+            newJ < 0 || newJ >= boardController.puzzles.GetLength(1))
+        {
+            return true;
+        }
+
+        // 如果相鄰位置沒有拼圖
+        if (boardController.puzzles[newI, newJ] == null)
+        {
+            return true;
+        }
+
+
+        // 檢查拼圖互鎖
+        if (thisSide.Interlocking_ == PuzzleSideData.Interlocking.protrusions_突起 &&
+            otherSide.Interlocking_ != PuzzleSideData.Interlocking.indentations_凹陷)
+        {
+            return false;
+        }
+
+        if (thisSide.Interlocking_ == PuzzleSideData.Interlocking.indentations_凹陷 &&
+            otherSide.Interlocking_ != PuzzleSideData.Interlocking.protrusions_突起)
+        {
+            return false;
+        }
+
+        return true;
+    }
+
+    public bool CheckUp(int i, int j, PuzzleData _puzzle)
+    {
+        PuzzleSideData _upPuzzleDownSide = null;
+
+        if (i! <= 0)
+        {
+            if (boardController.puzzles[i - 1, j] != null)
+            {
+                _upPuzzleDownSide = boardController.puzzles[i - 1, j].Down_; //上方拼圖的DownSide
+            }
+
+        }
+
+        return CheckDirection(i, j, _puzzle, -1, 0, _puzzle.Up_, _upPuzzleDownSide);
+    }
+
+    public bool CheckDown(int i, int j, PuzzleData _puzzle)
+    {
+        PuzzleSideData _downPuzzleUpSide = null;
+
+        if (i! >= 5)
+        {
+            if (boardController.puzzles[i + 1, j] != null)
+                _downPuzzleUpSide = boardController.puzzles[i + 1, j].Up_; //下方拼圖的UpSide
+        }
+
+
+        return CheckDirection(i, j, _puzzle, 1, 0, _puzzle.Down_, _downPuzzleUpSide);
+    }
+
+    public bool CheckRight(int i, int j, PuzzleData _puzzle)
+    {
+        PuzzleSideData _rightPuzzleLeftSide = null;
+
+        if (j! >= 6)
+        {
+            if (boardController.puzzles[i, j + 1] != null)
+                _rightPuzzleLeftSide = boardController.puzzles[i, j + 1].Left_; //右方拼圖的LeftSide
+        }
+
+
+        return CheckDirection(i, j, _puzzle, 0, 1, _puzzle.Right_, _rightPuzzleLeftSide);
+    }
+
+    public bool CheckLeft(int i, int j, PuzzleData _puzzle)
+    {
+        PuzzleSideData _leftPuzzleRightSide = null;
+
+        if (j! <= 0)
+        {
+            if (boardController.puzzles[i, j - 1] != null)
+                _leftPuzzleRightSide = boardController.puzzles[i, j - 1].Right_; //左方拼圖的RightSide
+        }
+
+        return CheckDirection(i, j, _puzzle, 0, -1, _puzzle.Left_, _leftPuzzleRightSide);
+    }*/
 
 
 }

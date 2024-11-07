@@ -13,6 +13,9 @@ public class BattleGameController : MonoBehaviour
     public event EventHandler Event_TestUpdatePuzzleBoard;
     public event Action<int> Event_RemovePlacedPuzzle; //移除已放置拼圖
     public event EventHandler Event_PuzzlePlaceCompleted; //拼圖放置完成
+    public event Func<int> Event_CheckActionPoint; //移除已放置拼圖
+    public event EventHandler Event_EndTurn;
+
 
     public Puzzle puzzlePrefab; //預設拼圖Prefab
 
@@ -51,6 +54,31 @@ public class BattleGameController : MonoBehaviour
     public void PlacedPuzzle()
     {
         Event_PuzzlePlaceCompleted?.Invoke(this, EventArgs.Empty);
+    }
+
+    public void EndTurn()
+    {
+        Event_EndTurn?.Invoke(this, EventArgs.Empty);
+    }
+
+    /// <summary>
+    /// 是否可放置拼圖
+    /// </summary>
+    public bool CanPlacePuzzle()
+    {
+        if (isSpecifyPuzzle == false) //如果未指定拼圖
+        {
+            Debug.Log("未指定拼圖");
+            return false;
+        }
+
+        if (ActionPoint_Controller.ActionPoint <= 0) //如果行動值為零
+        {
+            Debug.Log("行動值不足");
+            return false;
+        }
+
+        return true;
     }
 
 
