@@ -19,8 +19,7 @@ public class BoardController : MonoBehaviour
             battleGameController = FindObjectOfType<BattleGameController>();
         }
 
-
-        puzzles[0, 5] = battleGameController.puzzlePrefab.GetComponent<Puzzle>().puzzleData;
+        //puzzles[0, 5] = battleGameController.puzzlePrefab.GetComponent<Puzzle>().puzzleData;
 
         battleGameController.Event_BattleStart += this.Load_puzzlesGrids; //將場景的puzzlesGrid存進2維陣列
         battleGameController.Event_TestUpdatePuzzleBoard += this.TestUpdatePuzzleBoard;

@@ -21,9 +21,12 @@ public class MessageTextController : MonoBehaviour
     {
         messageText.text = "123";
 
-        textColor = messageText.color;
+        /*textColor = messageText.color;
 
-        textColor = new Color(textColor.r, textColor.g, textColor.b, 0f);
+        textColor = new Color(textColor.r, textColor.g, textColor.b, 0.5f);*/
+
+        messageText.color = new Color(messageText.color.r, messageText.color.g, messageText.color.b, 0f);
+
     }
 
     // Update is called once per frame

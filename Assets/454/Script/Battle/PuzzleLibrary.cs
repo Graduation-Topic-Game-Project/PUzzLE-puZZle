@@ -5,16 +5,22 @@ using System;
 
 public class PuzzleLibrary : MonoBehaviour
 {
-    public BattleGameController battleGameController;
+    private BattleGameController battleGameController;
     public GameObject puzzlePreparationsAllGameObject; //場景上的拼圖備戰區父物件
+
     public List<PuzzleData> puzzleLibrary; //拼圖庫
     public PuzzleData[] puzzlePreparations = new PuzzleData[6]; //拼圖備戰區
-
     public Parther[] parthers = new Parther[4]; //要戰鬥的夥伴
-    public GameObject[] puzzlePreparationsGameObject = new GameObject[6]; //拼圖備戰區物件位置，用來對生成時的位置的
+
+    private GameObject[] puzzlePreparationsGameObject = new GameObject[6]; //拼圖備戰區物件位置，用來對生成時的位置的
 
     private void Awake()
     {
+        if (battleGameController == null) //獲取場景上的BattleGameController
+        {
+            battleGameController = FindObjectOfType<BattleGameController>();
+        }
+
         Load_puzzlePreparationsTransform();  //獲取備戰區位置
         Array.Clear(puzzlePreparations, 0, 6); //獲取備戰區位置
         battleGameController.Event_BattleStart += this.Load_PuzzleLibrary_ForParther;
@@ -67,18 +73,6 @@ public class PuzzleLibrary : MonoBehaviour
     }
 
     /// <summary>
-    /// 刷新全部備戰區
-    /// </summary>
-    public void Load_All_Preparation(object sender, EventArgs e)
-    {
-        for (int i = 0; i < 6; i++)
-        {
-            Load_Preparation_ForParner(i);
-        }
-        UpdatePreparationPuzzle(this, EventArgs.Empty);
-    }
-
-    /// <summary>
     /// 刷新指定備戰區(移除並從拼圖庫填入)
     /// </summary>
     /// <param name="i">要ReLoad的備戰區(0~5)</param>
@@ -95,13 +89,50 @@ public class PuzzleLibrary : MonoBehaviour
     }
 
     /// <summary>
+    /// 刷新指定備戰區(移除並隨機生成)
+    /// </summary>
+    /// <param name="i">要ReLoad的備戰區(0~5)</param>
+    public void Load_Preparation_Randow(int i)
+    {
+        PuzzleData puzzle = new PuzzleData();
+        puzzle.RandomlyGeneratedPuzzleData();
+        puzzlePreparations[i] = puzzle;
+    }
+
+    /// <summary>
+    /// 刷新全部備戰區
+    /// </summary>
+    public void Load_All_Preparation(object sender, EventArgs e)
+    {
+        for (int i = 0; i < 6; i++)
+        {
+            if (battleGameController.RandowOrForParnent == true)
+            {
+                Load_Preparation_ForParner(i);
+            }
+            else
+            {
+                Load_Preparation_Randow(i);
+            }
+        }
+        UpdatePreparationPuzzle(this, EventArgs.Empty);
+    }
+
+    /// <summary>
     /// 在放置後移除並刷新第number個備戰區
     /// </summary>
     /// <param name="number">要刷新的備戰區是第幾個</param>
     public void RemovePlacedPuzzle(int number)
     {
         //Debug.Log("RemovePlacedPuzzle");
-        Load_Preparation_ForParner(number);
+        if (battleGameController.RandowOrForParnent == true)
+        {
+            Load_Preparation_ForParner(number);
+        }
+        else
+        {
+            Load_Preparation_Randow(number);
+        }
         UpdatePreparationPuzzle(this, EventArgs.Empty);
     }
 
@@ -153,7 +184,7 @@ public class PuzzleLibrary : MonoBehaviour
 
     public void ResetAllPreparationButtonColor()  //重製所有備戰區按鈕顏色為預設
     {
-        for (int i = 0; i < puzzlePreparationsGameObject.Length; i++) 
+        for (int i = 0; i < puzzlePreparationsGameObject.Length; i++)
         {
             puzzlePreparationsGameObject[i].GetComponent<PuzzlePreparation>().ResetColor();
         }

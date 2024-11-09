@@ -25,6 +25,16 @@ public class PuzzleSideData
     [Header("拼圖邊的凹凸"), Tooltip("拼圖邊的凹凸")]
     private Interlocking _interlocking = Interlocking.indentations_凹陷;
 
+    public PuzzleSideData()
+    {
+
+    }
+
+    public PuzzleSideData(PuzzleSideData.Interlocking interlocking, PuzzleSideData.SideEssence sideEssence)
+    {
+        _sideEssence = sideEssence;
+        _interlocking = interlocking;
+    }
 
     /// <summary>
     /// 獲取邊的本質屬性
@@ -68,6 +78,13 @@ public class PuzzleSideData
         None_無凹凸 = 0, //平
         indentations_凹陷 = 1, //凹
         protrusions_突起 = 2,  //凸
+    }
 
+    public PuzzleSideData RandomlyGeneratedPuzzleData(PuzzleSideData puzzleSideData) //隨機拼圖邊
+    {
+        puzzleSideData.Interlocking_ = (PuzzleSideData.Interlocking)UnityEngine.Random.Range(1, 3);
+        puzzleSideData.Essence_ = (PuzzleSideData.SideEssence)UnityEngine.Random.Range(1, 5);
+
+        return puzzleSideData;
     }
 }

@@ -40,6 +40,8 @@ public class Puzzle : MonoBehaviour
     {
         _middleImage.sprite = PuzzleEssenceImage[(int)this.Essence];
 
+        if (puzzleData.Up_ == null)
+            Debug.Log("123 puzzleData.Up_ == null");
         ReUpdate_PuzzleSide_Image(puzzleData.Up_, _upImage);
         ReUpdate_PuzzleSide_Image(puzzleData.Down_, _downImage);
         ReUpdate_PuzzleSide_Image(puzzleData.Right_, _rightImage);
@@ -73,6 +75,7 @@ public class PuzzleData
     [SerializeField]
     private PuzzleSideData _up, _down, _right, _left = new();
 
+
     public PuzzleEssence Essence { get => _essence; set { _essence = value; } }
 
     public PuzzleSideData Up_ { get { return _up; } }
@@ -89,11 +92,19 @@ public class PuzzleData
         Soul_ÆF»î = 4, //ÆF»î
     }
 
-    public void RandomlyGeneratedPuzzleData()
+    public void RandomlyGeneratedPuzzleData() //ÀH¾÷«÷¹Ï
     {
-        PuzzleData puzzleData = new PuzzleData();
-        puzzleData._essence = (PuzzleEssence)UnityEngine.Random.Range(0, 5);
-        puzzleData.Up_.Interlocking_ = (PuzzleSideData.Interlocking)UnityEngine.Random.Range(1, 3);
+        _essence = (PuzzleEssence)UnityEngine.Random.Range(0, 5);
+
+        _up = new PuzzleSideData();
+        _down = new PuzzleSideData();
+        _left = new PuzzleSideData();
+        _right = new PuzzleSideData();
+
+        _up = _up.RandomlyGeneratedPuzzleData(_up);
+        _down = _down.RandomlyGeneratedPuzzleData(_down);
+        _left = _left.RandomlyGeneratedPuzzleData(_left);
+        _right = _right.RandomlyGeneratedPuzzleData(_right);
     }
 }
 

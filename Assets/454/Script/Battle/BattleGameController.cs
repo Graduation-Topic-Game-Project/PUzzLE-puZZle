@@ -22,6 +22,9 @@ public class BattleGameController : MonoBehaviour
     public PuzzleData specifyPuzzle; //選擇的備戰區拼圖
     public int specifyPuzzleNumber; //選擇的備戰區拼圖編號
     public bool isSpecifyPuzzle = false; //是否選擇備戰區拼圖
+    [Header("隨機生成 or 從夥伴拼圖庫生成")]
+    [Tooltip("(false:隨機生成 true:夥伴拼圖庫生成)")]
+    public bool RandowOrForParnent = false; //隨機生成 or 從夥伴拼圖庫生成(默認隨機)
 
 
     private void Awake()
