@@ -7,7 +7,7 @@ using System;
 public class ActionPoint_Controller : MonoBehaviour
 {
     public BattleGameController battleGameController;
-    
+
     public TextMeshProUGUI actionPoint_Number;
 
     static public int ActionPoint; //行動值
@@ -22,13 +22,13 @@ public class ActionPoint_Controller : MonoBehaviour
         }
 
         battleGameController.Event_PuzzlePlaceCompleted += this.PuzzlePlaceCompleted_ActionPoint; //放置拼圖後減少行動值
+        battleGameController.Event_EndTurn += this.Reset_ActionPoint;
     }
     void Start()
     {
-        ActionPoint = maxActionPoint; //將行動值提升至最大值
+        Reset_ActionPoint(this, EventArgs.Empty); //將行動值提升至最大值
     }
 
-    // Update is called once per frame
     void Update()
     {
         actionPoint_Number.text = ActionPoint.ToString();
@@ -40,5 +40,13 @@ public class ActionPoint_Controller : MonoBehaviour
     void PuzzlePlaceCompleted_ActionPoint(object sender, EventArgs e)
     {
         ActionPoint--;
+    }
+
+    /// <summary>
+    /// 將行動值回復至最大值
+    /// </summary>
+    private void Reset_ActionPoint(object sender, EventArgs e)
+    {
+        ActionPoint = maxActionPoint;
     }
 }

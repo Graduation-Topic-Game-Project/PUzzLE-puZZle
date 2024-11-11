@@ -8,7 +8,7 @@ public class PuzzleSide : MonoBehaviour
 {
     public PuzzleSideData sideData = new();
 
-    public PuzzleSide(PuzzleSideData.Interlocking interlocking, PuzzleSideData.SideEssence sideEssence)
+    public PuzzleSide(PuzzleSideData.Interlocking interlocking, EssenceClass.Essence sideEssence)
     {
         sideData.Essence_ = sideEssence;
         sideData.Interlocking_ = interlocking;
@@ -20,7 +20,7 @@ public class PuzzleSideData
 {
     [SerializeField]
     [Header("拼圖邊的本質屬性"), Tooltip("拼圖邊的本質屬性")]
-    private SideEssence _sideEssence = SideEssence.Strengthe_力量;
+    private EssenceClass.Essence _sideEssence = EssenceClass.Essence.Strengthe_力量;
     [SerializeField]
     [Header("拼圖邊的凹凸"), Tooltip("拼圖邊的凹凸")]
     private Interlocking _interlocking = Interlocking.indentations_凹陷;
@@ -30,7 +30,7 @@ public class PuzzleSideData
 
     }
 
-    public PuzzleSideData(PuzzleSideData.Interlocking interlocking, PuzzleSideData.SideEssence sideEssence)
+    public PuzzleSideData(PuzzleSideData.Interlocking interlocking, EssenceClass.Essence sideEssence)
     {
         _sideEssence = sideEssence;
         _interlocking = interlocking;
@@ -39,7 +39,7 @@ public class PuzzleSideData
     /// <summary>
     /// 獲取邊的本質屬性
     /// </summary>
-    public PuzzleSideData.SideEssence Essence_
+    public EssenceClass.Essence Essence_
     {
         get
         {
@@ -64,14 +64,14 @@ public class PuzzleSideData
     }
 
 
-    public enum SideEssence
+    /*public enum SideEssence
     {
         None_無屬性 = 0,
         Strengthe_力量 = 1, //力量
         Wisdom_智慧 = 2,  //智慧
         Belief_信仰 = 3, //信仰
         Soul_靈魂 = 4, //靈魂
-    }
+    }*/
 
     public enum Interlocking //拼圖凹凸
     {
@@ -83,7 +83,7 @@ public class PuzzleSideData
     public PuzzleSideData RandomlyGeneratedPuzzleData(PuzzleSideData puzzleSideData) //隨機拼圖邊
     {
         puzzleSideData.Interlocking_ = (PuzzleSideData.Interlocking)UnityEngine.Random.Range(1, 3);
-        puzzleSideData.Essence_ = (PuzzleSideData.SideEssence)UnityEngine.Random.Range(1, 5);
+        puzzleSideData.Essence_ = (EssenceClass.Essence)UnityEngine.Random.Range(1, 5);
 
         return puzzleSideData;
     }

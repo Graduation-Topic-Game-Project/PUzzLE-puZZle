@@ -54,17 +54,17 @@ public class CheckPuzzleIsCanBePlace : MonoBehaviour
             upPuzzle = boardController.puzzles[i - 1, j];
         }
 
-        if (thisPuzzle.Up_.Interlocking_ == PuzzleSideData.Interlocking.protrusions_¬ð°_)
+        if (thisPuzzle.UpSide_.Interlocking_ == PuzzleSideData.Interlocking.protrusions_¬ð°_)
         {
-            if (upPuzzle.Down_.Interlocking_ != PuzzleSideData.Interlocking.indentations_¥W³´)
+            if (upPuzzle.DownSide_.Interlocking_ != PuzzleSideData.Interlocking.indentations_¥W³´)
             {
                 return false;
             }
         }
 
-        if (thisPuzzle.Up_.Interlocking_ == PuzzleSideData.Interlocking.indentations_¥W³´)
+        if (thisPuzzle.UpSide_.Interlocking_ == PuzzleSideData.Interlocking.indentations_¥W³´)
         {
-            if (upPuzzle.Down_.Interlocking_ != PuzzleSideData.Interlocking.protrusions_¬ð°_)
+            if (upPuzzle.DownSide_.Interlocking_ != PuzzleSideData.Interlocking.protrusions_¬ð°_)
             {
                 return false;
             }
@@ -94,17 +94,17 @@ public class CheckPuzzleIsCanBePlace : MonoBehaviour
             upPuzzle = boardController.puzzles[i + 1, j];
         }
 
-        if (thisPuzzle.Down_.Interlocking_ == PuzzleSideData.Interlocking.protrusions_¬ð°_)
+        if (thisPuzzle.DownSide_.Interlocking_ == PuzzleSideData.Interlocking.protrusions_¬ð°_)
         {
-            if (upPuzzle.Up_.Interlocking_ != PuzzleSideData.Interlocking.indentations_¥W³´)
+            if (upPuzzle.UpSide_.Interlocking_ != PuzzleSideData.Interlocking.indentations_¥W³´)
             {
                 return false;
             }
         }
 
-        if (thisPuzzle.Down_.Interlocking_ == PuzzleSideData.Interlocking.indentations_¥W³´)
+        if (thisPuzzle.DownSide_.Interlocking_ == PuzzleSideData.Interlocking.indentations_¥W³´)
         {
-            if (upPuzzle.Up_.Interlocking_ != PuzzleSideData.Interlocking.protrusions_¬ð°_)
+            if (upPuzzle.UpSide_.Interlocking_ != PuzzleSideData.Interlocking.protrusions_¬ð°_)
             {
                 return false;
             }
@@ -133,17 +133,17 @@ public class CheckPuzzleIsCanBePlace : MonoBehaviour
             upPuzzle = boardController.puzzles[i, j + 1];
         }
 
-        if (thisPuzzle.Right_.Interlocking_ == PuzzleSideData.Interlocking.protrusions_¬ð°_)
+        if (thisPuzzle.RightSide_.Interlocking_ == PuzzleSideData.Interlocking.protrusions_¬ð°_)
         {
-            if (upPuzzle.Left_.Interlocking_ != PuzzleSideData.Interlocking.indentations_¥W³´)
+            if (upPuzzle.LeftSide_.Interlocking_ != PuzzleSideData.Interlocking.indentations_¥W³´)
             {
                 return false;
             }
         }
 
-        if (thisPuzzle.Right_.Interlocking_ == PuzzleSideData.Interlocking.indentations_¥W³´)
+        if (thisPuzzle.RightSide_.Interlocking_ == PuzzleSideData.Interlocking.indentations_¥W³´)
         {
-            if (upPuzzle.Left_.Interlocking_ != PuzzleSideData.Interlocking.protrusions_¬ð°_)
+            if (upPuzzle.LeftSide_.Interlocking_ != PuzzleSideData.Interlocking.protrusions_¬ð°_)
             {
                 return false;
             }
@@ -172,17 +172,17 @@ public class CheckPuzzleIsCanBePlace : MonoBehaviour
             leftPuzzle = boardController.puzzles[i, j - 1];
         }
 
-        if (thisPuzzle.Left_.Interlocking_ == PuzzleSideData.Interlocking.protrusions_¬ð°_)
+        if (thisPuzzle.LeftSide_.Interlocking_ == PuzzleSideData.Interlocking.protrusions_¬ð°_)
         {
-            if (leftPuzzle.Right_.Interlocking_ != PuzzleSideData.Interlocking.indentations_¥W³´)
+            if (leftPuzzle.RightSide_.Interlocking_ != PuzzleSideData.Interlocking.indentations_¥W³´)
             {
                 return false;
             }
         }
 
-        if (thisPuzzle.Left_.Interlocking_ == PuzzleSideData.Interlocking.indentations_¥W³´)
+        if (thisPuzzle.LeftSide_.Interlocking_ == PuzzleSideData.Interlocking.indentations_¥W³´)
         {
-            if (leftPuzzle.Right_.Interlocking_ != PuzzleSideData.Interlocking.protrusions_¬ð°_)
+            if (leftPuzzle.RightSide_.Interlocking_ != PuzzleSideData.Interlocking.protrusions_¬ð°_)
             {
                 return false;
             }

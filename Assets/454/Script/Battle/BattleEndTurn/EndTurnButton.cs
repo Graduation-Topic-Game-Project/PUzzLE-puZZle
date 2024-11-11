@@ -4,7 +4,7 @@ using UnityEngine;
 using System;
 using UnityEngine.UI;
 
-public class EndTurn : MonoBehaviour
+public class EndTurnButton : MonoBehaviour
 {
     public BattleGameController battleGameController;
     Button _button;
@@ -24,6 +24,8 @@ public class EndTurn : MonoBehaviour
 
     private void EndTurnButtonOnClick()
     {
-        battleGameController.EndTurn();
+        battleGameController.CallEvent_SettlementBoard();
+        battleGameController.CallEvent_EndTurn();
+        //Event_EndTurn?.Invoke(this, EventArgs.Empty);
     }
 }

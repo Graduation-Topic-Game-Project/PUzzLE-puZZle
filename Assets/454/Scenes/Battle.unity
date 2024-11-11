@@ -2353,6 +2353,7 @@ GameObject:
   - component: {fileID: 683618068}
   - component: {fileID: 683618069}
   - component: {fileID: 683618070}
+  - component: {fileID: 683618071}
   m_Layer: 0
   m_Name: BattleGameController
   m_TagString: Untagged
@@ -2373,6 +2374,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   puzzlePrefab: {fileID: -2443544983015812757, guid: d01b2ccc19df3344391c843ecc473c6c, type: 3}
+  partner:
+  - {fileID: 11400000, guid: 7dee00a6bf6f2374b81b6a7457448cc4, type: 2}
+  - {fileID: 11400000, guid: 7dee00a6bf6f2374b81b6a7457448cc4, type: 2}
+  - {fileID: 11400000, guid: 7dee00a6bf6f2374b81b6a7457448cc4, type: 2}
+  - {fileID: 11400000, guid: 7dee00a6bf6f2374b81b6a7457448cc4, type: 2}
   specifyPuzzle:
     _essence: 1
     _up:
@@ -2498,11 +2504,6 @@ MonoBehaviour:
     _left:
       _sideEssence: 1
       _interlocking: 1
-  parthers:
-  - {fileID: 11400000, guid: 7dee00a6bf6f2374b81b6a7457448cc4, type: 2}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
 --- !u!114 &683618069
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2530,6 +2531,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   boardController: {fileID: 683618069}
+--- !u!114 &683618071
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 683618065}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bed0d5fd261bab741859b77986286565, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &706538719
 GameObject:
   m_ObjectHideFlags: 0
@@ -3858,7 +3871,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 6
+  m_text: '0
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5970ccdbf2db9a846ba9300ea4d22ebb, type: 2}
   m_sharedMaterial: {fileID: 5885465708149771125, guid: 5970ccdbf2db9a846ba9300ea4d22ebb, type: 2}

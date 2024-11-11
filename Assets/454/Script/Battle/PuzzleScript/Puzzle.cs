@@ -21,7 +21,7 @@ public class Puzzle : MonoBehaviour
     /// <summary>
     /// 設定拼圖屬性
     /// </summary>
-    public PuzzleData.PuzzleEssence Essence
+    public EssenceClass.Essence Essence
     {
         get
         {
@@ -40,12 +40,12 @@ public class Puzzle : MonoBehaviour
     {
         _middleImage.sprite = PuzzleEssenceImage[(int)this.Essence];
 
-        if (puzzleData.Up_ == null)
+        if (puzzleData.UpSide_ == null)
             Debug.Log("123 puzzleData.Up_ == null");
-        ReUpdate_PuzzleSide_Image(puzzleData.Up_, _upImage);
-        ReUpdate_PuzzleSide_Image(puzzleData.Down_, _downImage);
-        ReUpdate_PuzzleSide_Image(puzzleData.Right_, _rightImage);
-        ReUpdate_PuzzleSide_Image(puzzleData.Left_, _leftImage);
+        ReUpdate_PuzzleSide_Image(puzzleData.UpSide_, _upImage);
+        ReUpdate_PuzzleSide_Image(puzzleData.DownSide_, _downImage);
+        ReUpdate_PuzzleSide_Image(puzzleData.RightSide_, _rightImage);
+        ReUpdate_PuzzleSide_Image(puzzleData.LeftSide_, _leftImage);
     }
 
     public void ReUpdate_PuzzleSide_Image(PuzzleSideData _puzzleSideData, Image _sideImage)
@@ -71,30 +71,30 @@ public class PuzzleScriptableObject : ScriptableObject
 public class PuzzleData
 {
     [Header("拼圖的本質屬性"), Tooltip("拼圖的本質屬性")]
-    public PuzzleEssence _essence = PuzzleEssence.Strengthe_力量;
+    public EssenceClass.Essence _essence = EssenceClass.Essence.Strengthe_力量;
     [SerializeField]
     private PuzzleSideData _up, _down, _right, _left = new();
 
 
-    public PuzzleEssence Essence { get => _essence; set { _essence = value; } }
+    public EssenceClass.Essence Essence { get => _essence; set { _essence = value; } }
 
-    public PuzzleSideData Up_ { get { return _up; } }
-    public PuzzleSideData Down_ { get { return _down; } }
-    public PuzzleSideData Right_ { get { return _right; } }
-    public PuzzleSideData Left_ { get { return _left; } }
+    public PuzzleSideData UpSide_ { get { return _up; } }
+    public PuzzleSideData DownSide_ { get { return _down; } }
+    public PuzzleSideData RightSide_ { get { return _right; } }
+    public PuzzleSideData LeftSide_ { get { return _left; } }
 
-    public enum PuzzleEssence
+    /*public enum PuzzleEssence
     {
         None_無屬性 = 0,
         Strengthe_力量 = 1, //力量
         Wisdom_智慧 = 2,  //智慧
         Belief_信仰 = 3, //信仰
         Soul_靈魂 = 4, //靈魂
-    }
+    }*/
 
     public void RandomlyGeneratedPuzzleData() //隨機拼圖
     {
-        _essence = (PuzzleEssence)UnityEngine.Random.Range(0, 5);
+        _essence = (EssenceClass.Essence)UnityEngine.Random.Range(0, 5);
 
         _up = new PuzzleSideData();
         _down = new PuzzleSideData();

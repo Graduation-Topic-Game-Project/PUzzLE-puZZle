@@ -10,7 +10,7 @@ public class PuzzleLibrary : MonoBehaviour
 
     public List<PuzzleData> puzzleLibrary; //拼圖庫
     public PuzzleData[] puzzlePreparations = new PuzzleData[6]; //拼圖備戰區
-    public Parther[] parthers = new Parther[4]; //要戰鬥的夥伴
+    //public Partner[] partner = new Partner[4]; //要戰鬥的夥伴
 
     private GameObject[] puzzlePreparationsGameObject = new GameObject[6]; //拼圖備戰區物件位置，用來對生成時的位置的
 
@@ -32,7 +32,12 @@ public class PuzzleLibrary : MonoBehaviour
         {
             puzzlePreparationsGameObject[i].GetComponent<PuzzlePreparation>().ClickPreparationBotton += this.SpecifyPuzzle;
         }
-        //battleGameController.BattleStart += UpdatePreparationPuzzle;
+        
+
+        /*for (int i = 0; i < battleGameController.partner.Length; i++)
+        {
+
+        }*/
     }
 
     /// <summary>
@@ -56,9 +61,9 @@ public class PuzzleLibrary : MonoBehaviour
         for (int i = 0; i < 4; i++)
         {
             //Debug.Log($"載入第{i + 1}個夥伴拼圖");
-            if (parthers[i] != null)
+            if (battleGameController.partner[i] != null)
             {
-                puzzleLibrary.AddRange(parthers[i].thisParther.parthersPuzzle);
+                puzzleLibrary.AddRange(battleGameController.partner[i].thisPartner.partnersPuzzle);
                 //Debug.Log($"第{i + 1}個夥伴拼圖載入完成");
             }
             else

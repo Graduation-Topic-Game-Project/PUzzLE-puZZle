@@ -19,12 +19,9 @@ public class BoardController : MonoBehaviour
             battleGameController = FindObjectOfType<BattleGameController>();
         }
 
-        //puzzles[0, 5] = battleGameController.puzzlePrefab.GetComponent<Puzzle>().puzzleData;
-
         battleGameController.Event_BattleStart += this.Load_puzzlesGrids; //將場景的puzzlesGrid存進2維陣列
-        battleGameController.Event_TestUpdatePuzzleBoard += this.TestUpdatePuzzleBoard;
+        battleGameController.Event_EndTurn += this.ClearBoard; //回合結束時清空盤面
 
-        // Load_puzzlesGrids(this, EventArgs.Empty);  //將場景的puzzlesGrid存進2維陣列
     }
 
     public void UpdatePuzzleBoard() //更新顯示盤面上拼圖
@@ -73,8 +70,6 @@ public class BoardController : MonoBehaviour
             for (int j = 0; j < 7; j++)
             {
                 puzzlesGridGameObject[i, j] = puzzlesGrids.transform.GetChild(childNum).gameObject;
-                //Debug.Log(puzzlesGrids.transform.GetChild(childNum).gameObject);
-                //Debug.Log(puzzlesGridGameObject[i, j]);
 
                 puzzlesGridGameObject[i, j].GetComponent<PuzzleGrid>().PuzzleGridNumber[0] = i;
                 puzzlesGridGameObject[i, j].GetComponent<PuzzleGrid>().PuzzleGridNumber[1] = j;
@@ -98,13 +93,13 @@ public class BoardController : MonoBehaviour
         {
             if (Event_CheckPuzzleIsCanBePlace.Invoke(i, j, battleGameController.specifyPuzzle) == true) //檢查拼圖是否可被放置
             {
-                Debug.Log("拼圖可放置");
+                //Debug.Log("拼圖可放置");
                 puzzles[i, j] = battleGameController.specifyPuzzle;
-                Debug.Log($"已在{i}，{j}處放置{puzzles[i, j]._essence}拼圖");
+                //Debug.Log($"已在{i}，{j}處放置{puzzles[i, j]._essence}拼圖");
 
-                battleGameController.RemovePlacedPuzzle();
+                battleGameController.CallEvent_RemovePlacedPuzzle();
                 UpdatePuzzleBoard();
-                battleGameController.PlacedPuzzle(); //BattleGameController發送放置拼圖結束事件
+                battleGameController.CallEvent_PlacedPuzzle(); //BattleGameController發送放置拼圖結束事件
             }
             else
             {
@@ -112,13 +107,15 @@ public class BoardController : MonoBehaviour
             }
         }
     }
-
-
-
-    public void TestUpdatePuzzleBoard(object sender, EventArgs e)
+    void ClearBoard(object sender, EventArgs e)
     {
-        Debug.Log("test更新盤面");
-        //puzzles[1, 5] = battleGameController.puzzlePrefab.puzzleData;
+        for (int i = 0; i < 6; i++)
+        {
+            for (int j = 0; j < 7; j++)
+            {
+                puzzles[i, j] = null;
+            }
+        }
         UpdatePuzzleBoard();
     }
 }
