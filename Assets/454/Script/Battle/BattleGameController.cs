@@ -9,16 +9,17 @@ using System;
 public class BattleGameController : MonoBehaviour
 {
     public event EventHandler Event_BattleStart;
-    public event EventHandler Event_BattleAwake;
     public event Action<int> Event_RemovePlacedPuzzle; //移除已放置拼圖
     public event EventHandler Event_PuzzlePlaceCompleted; //拼圖放置完成
     public event EventHandler Event_SettlementBoard; //結算盤面
     public event EventHandler Event_EndTurn; //結束回合
-    public event EventHandler Event_BillingEssencePointForBoard;
+    //public event EventHandler Event_BillingEssencePointForBoard;
 
 
     public Puzzle puzzlePrefab; //預設拼圖Prefab
     public Partner[] partner = new Partner[4]; //要戰鬥的夥伴
+    public List<Enemy> enemy = new List<Enemy>();
+
 
     [Header("當前選擇的拼圖")]
     public PuzzleData specifyPuzzle; //選擇的備戰區拼圖
@@ -31,7 +32,7 @@ public class BattleGameController : MonoBehaviour
 
     private void Awake()
     {
-        Event_BattleAwake?.Invoke(this, EventArgs.Empty);
+
     }
 
     private void Start()
@@ -42,6 +43,7 @@ public class BattleGameController : MonoBehaviour
 
     private void Update()
     {
+       
     }
 
     /// <summary>
@@ -85,12 +87,14 @@ public class BattleGameController : MonoBehaviour
         if (isSpecifyPuzzle == false) //如果未指定拼圖
         {
             Debug.Log("未指定拼圖");
+            MessageTextController.SetMessage("未指定拼圖");
             return false;
         }
 
         if (ActionPoint_Controller.ActionPoint <= 0) //如果行動值為零
         {
             Debug.Log("行動值不足");
+            MessageTextController.SetMessage("行動值不足");
             return false;
         }
 

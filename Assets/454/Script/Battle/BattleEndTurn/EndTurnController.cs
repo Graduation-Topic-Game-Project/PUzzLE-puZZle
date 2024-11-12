@@ -19,6 +19,8 @@ public class EndTurnController : MonoBehaviour
         //battleGameController.Event_BillingEssencePointForBoard += this.BillingEssencePointForBoard;
         battleGameController.Event_SettlementBoard += this.BillingEssencePointForBoard;
 
+        //battleGameController.Event_EndTurn += Test;
+
 
     }
 
@@ -86,6 +88,13 @@ public class EndTurnController : MonoBehaviour
         }
 
         Debug.Log($"{Math.Ceiling(Red)} , {Math.Ceiling(Blue)} , {Math.Ceiling(Yellow)} , {Math.Ceiling(Purple)}");
+
+        //TestDamage((int)(Math.Ceiling(Red + Blue + Yellow + Purple)));
+    }
+
+    private void TestDamage(int damage)
+    {
+        Player.Damage(damage);
     }
 
     private (int a, int b) Test(int i)

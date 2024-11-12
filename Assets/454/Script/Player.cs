@@ -4,15 +4,21 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    static int _hp;
+    static int _maxHp = 100;
+    
+    public static int MaxHP { get => _maxHp; set => _hp = value; }
+
+    public static int Hp { get => _hp; set => _hp = value; }
+
+    public static void ResetPlayer()
     {
-        
+        Hp = MaxHP;
     }
 
-    // Update is called once per frame
-    void Update()
+    public static void Damage(int damage)
     {
-        
+        Hp = Hp - damage;
+        Debug.Log($"¨ü¨ì{damage}ÂI¶Ë®`¡A³Ñ¾l{Hp}Hp");
     }
 }

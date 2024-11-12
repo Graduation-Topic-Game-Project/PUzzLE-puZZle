@@ -7,33 +7,50 @@ using TMPro;
 public class MessageTextController : MonoBehaviour
 {
     TextMeshProUGUI messageText;
-    MessageTextController messageTextController;
+    static MessageTextController @this;
     Color textColor;
+
+    Coroutine NowSetMessange;
 
     private void Awake()
     {
-        if (messageTextController == null)
-            messageTextController = this;
+        if (@this == null)
+            @this = this;
 
         messageText = this.GetComponent<TextMeshProUGUI>();
     }
     void Start()
     {
-        messageText.text = "123";
-
-        /*textColor = messageText.color;
-
-        textColor = new Color(textColor.r, textColor.g, textColor.b, 0.5f);*/
-
-        messageText.color = new Color(messageText.color.r, messageText.color.g, messageText.color.b, 0f);
-
+        SetMessage("Game Start");
     }
 
-    // Update is called once per frame
-    void Update()
+    public void SetColorAlpha(float _alpha) //設置文字透明度
     {
-
+        messageText.color = new Color(messageText.color.r, messageText.color.g, messageText.color.b, _alpha);
     }
 
+    public static void SetMessage(string messange)
+    {
+        if (@this.NowSetMessange != null)
+            @this.StopCoroutine(@this.NowSetMessange);
+        @this.SetColorAlpha(0f);
+        @this.NowSetMessange = @this.StartCoroutine(@this.SetMessage3s(messange));
+    }
+
+
+    public IEnumerator SetMessage3s(string messange) //顯示訊息3秒
+    {
+        SetColorAlpha(1f);
+        messageText.text = messange;
+
+        yield return new WaitForSeconds(2);
+
+        for (float i = 1f; i > 0; i = i - Time.deltaTime)
+        {
+            SetColorAlpha(i);
+            yield return new WaitForFixedUpdate();
+        }
+        yield return null;
+    }
 
 }

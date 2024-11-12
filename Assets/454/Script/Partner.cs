@@ -2,12 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using System;
 using UnityEngine;
+using UnityEngine.UI;
 
 [Serializable]
 public class PartnerData
 {
-    public int _level = 1;
-    public int _hp;
+    [SerializeField]
+    private string _partnerName;
+    [SerializeField]
+    public Sprite PartnerTachie;
+    [SerializeField]
+    public Sprite PartnerCuteBattle;
+    [SerializeField]
+    private int _level = 1;
+    [SerializeField]
+    private int _hp;
     [SerializeField]
     EssenceClass.Essence _essence;
     public List<PuzzleData> partnersPuzzle;

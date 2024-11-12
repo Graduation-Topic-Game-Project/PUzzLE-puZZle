@@ -95,6 +95,7 @@ public class BoardController : MonoBehaviour
             {
                 //Debug.Log("拼圖可放置");
                 puzzles[i, j] = battleGameController.specifyPuzzle;
+                MessageTextController.SetMessage("放置拼圖");
                 //Debug.Log($"已在{i}，{j}處放置{puzzles[i, j]._essence}拼圖");
 
                 battleGameController.CallEvent_RemovePlacedPuzzle();
@@ -103,6 +104,7 @@ public class BoardController : MonoBehaviour
             }
             else
             {
+                MessageTextController.SetMessage("與周圍拼圖衝突，拼圖不可放置");
                 Debug.Log("與周圍拼圖衝突，拼圖不可放置");
             }
         }

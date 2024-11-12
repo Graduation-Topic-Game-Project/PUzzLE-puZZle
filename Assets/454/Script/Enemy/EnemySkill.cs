@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Team : MonoBehaviour
+public class EnemySkill : MonoBehaviour
 {
-    //public Partner partner1, partner2, partner3, partner4;
+    // Start is called before the first frame update
     void Start()
     {
         
