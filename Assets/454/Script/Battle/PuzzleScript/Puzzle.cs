@@ -94,7 +94,7 @@ public class PuzzleData
 
     public void RandomlyGeneratedPuzzleData() //ÀH¾÷«÷¹Ï
     {
-        _essence = (EssenceClass.Essence)UnityEngine.Random.Range(0, 5);
+        _essence = (EssenceClass.Essence)UnityEngine.Random.Range(1, 5);
 
         _up = new PuzzleSideData();
         _down = new PuzzleSideData();
