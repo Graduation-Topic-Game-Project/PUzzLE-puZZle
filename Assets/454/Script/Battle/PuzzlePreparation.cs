@@ -13,7 +13,7 @@ public class PuzzlePreparation : MonoBehaviour
 
     public event Action<int> ClickPreparationBotton;
 
-    private Button _button;
+    Button _button;
     private Color32 _buttonDefaultColor = new Color32(255, 255, 255, 255); //按鈕預設顏色
     private Color32 _buttonClickColor = new Color32(200, 200, 200, 255); //按鈕選則時顏色
 

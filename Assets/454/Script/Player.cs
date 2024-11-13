@@ -16,6 +16,10 @@ public class Player : MonoBehaviour
         Hp = MaxHP;
     }
 
+    /// <summary>
+    /// 玩家受到傷害
+    /// </summary>
+    /// <param name="damage">受到傷害值</param>
     public static void Damage(int damage)
     {
         Hp = Hp - damage;

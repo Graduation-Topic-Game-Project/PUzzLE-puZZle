@@ -32,12 +32,6 @@ public class PuzzleLibrary : MonoBehaviour
         {
             puzzlePreparationsGameObject[i].GetComponent<PuzzlePreparation>().ClickPreparationBotton += this.SpecifyPuzzle;
         }
-        
-
-        /*for (int i = 0; i < battleGameController.partner.Length; i++)
-        {
-
-        }*/
     }
 
     /// <summary>

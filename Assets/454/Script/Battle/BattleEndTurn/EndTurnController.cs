@@ -8,6 +8,8 @@ public class EndTurnController : MonoBehaviour
     private BattleGameController battleGameController;
     private BoardController boardController;
 
+    public static event Action<int,int,int,int> Event_Damage; //給予傷害
+
     private void Awake()
     {
         if (battleGameController == null) //獲取場景上的BattleGameController        
@@ -88,27 +90,16 @@ public class EndTurnController : MonoBehaviour
         }
 
         Debug.Log($"{Math.Ceiling(Red)} , {Math.Ceiling(Blue)} , {Math.Ceiling(Yellow)} , {Math.Ceiling(Purple)}");
+        Event_Damage?.Invoke(ToInt(Red), ToInt(Blue), ToInt(Yellow), ToInt(Purple));
 
         //TestDamage((int)(Math.Ceiling(Red + Blue + Yellow + Purple)));
     }
 
-    private void TestDamage(int damage)
+    private int ToInt(float num) //無條件進位成整數
     {
-        Player.Damage(damage);
+        int a = (int)Math.Ceiling(num);
+        return a;
     }
 
-    private (int a, int b) Test(int i)
-    {
-        int a, b;
-        a = i;
-        b = i + 1;
-        return (a, b);
-    }
-
-    public void Test2()
-    {
-        int c;
-        (_, c) = Test(10);
-        Debug.Log(c);
-    }
+    
 }

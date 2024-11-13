@@ -17,9 +17,11 @@ public class BattleGameController : MonoBehaviour
 
 
     public Puzzle puzzlePrefab; //預設拼圖Prefab
+    [Header("夥伴")]
     public Partner[] partner = new Partner[4]; //要戰鬥的夥伴
-    public List<Enemy> enemy = new List<Enemy>();
 
+    [Header("對手")]
+    public List<Enemy> enemy = new List<Enemy>();
 
     [Header("當前選擇的拼圖")]
     public PuzzleData specifyPuzzle; //選擇的備戰區拼圖
