@@ -158,12 +158,11 @@ public class PuzzleLibrary : MonoBehaviour
                 Debug.Log("errortest_puzzlePreparationsGameObject" + i);
 
 
-            Puzzle nowPuzzle = battleGameController.puzzlePrefab;
-            nowPuzzle.puzzleData = puzzlePreparations[i];
+            //Puzzle nowPuzzle = battleGameController.puzzlePrefab;
 
+            Puzzle nowPuzzle = Instantiate(battleGameController.puzzlePrefab, puzzlePreparationsGameObject[i].transform.position, transform.rotation, puzzlePreparationsGameObject[i].transform.GetChild(1));
+            nowPuzzle.puzzleData = puzzlePreparations[i];
             nowPuzzle.ReUpdate_PuzzleEssence_Image();
-            Instantiate(nowPuzzle, puzzlePreparationsGameObject[i].transform.position, transform.rotation, puzzlePreparationsGameObject[i].transform.GetChild(1));
-            //nowPuzzle.ReUpdate_PuzzleEssence_Image();
         }
     }
 
