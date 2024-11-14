@@ -10,6 +10,7 @@ public class ActionPoint_Controller : MonoBehaviour
 
     public TextMeshProUGUI actionPoint_Number;
 
+    [SerializeField]
     static public int ActionPoint; //¦æ°Ê­È
     public int maxActionPoint;
 

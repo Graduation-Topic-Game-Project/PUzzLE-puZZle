@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public static class EssenceClass
+public static class EssenceEnum
 {
     public enum Essence
     {

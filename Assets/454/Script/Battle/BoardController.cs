@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using System;
 
 public class BoardController : MonoBehaviour
@@ -9,6 +10,7 @@ public class BoardController : MonoBehaviour
     public PuzzleData[,] puzzles = new PuzzleData[6, 7];
     public GameObject puzzlesGrids; //場景上的盤面格子父物件
     public GameObject[,] puzzlesGridGameObject = new GameObject[6, 7]; //拼圖盤面框物件，用來對生成時的位置的
+    public GameObject puzzleInstanceGameObject;
 
     public event Func<int, int, PuzzleData, bool> Event_CheckPuzzleIsCanBePlace; //檢查拼圖是否可被放置
 
@@ -34,7 +36,14 @@ public class BoardController : MonoBehaviour
                 for (int childCount = 0; childCount < puzzlesGridGameObject[i, j].transform.GetChild(1).childCount; childCount++)
                 {
                     Destroy(puzzlesGridGameObject[i, j].transform.GetChild(1).GetChild(childCount).gameObject);
+
                 }
+                for (int childCount = 0; childCount < puzzleInstanceGameObject.transform.childCount; childCount++)
+                {
+                    Destroy(puzzleInstanceGameObject.transform.GetChild(childCount).gameObject);
+
+                }
+
             }
         }
 
@@ -44,13 +53,26 @@ public class BoardController : MonoBehaviour
             {
                 if (puzzles[i, j] != null)
                 {
-                    //Debug.Log($"顯示更新拼圖格{i}，{j}");
-                    Puzzle nowPuzzle = battleGameController.puzzlePrefab;
+                    /*Puzzle nowPuzzle = new Puzzle();
+                    nowPuzzle = battleGameController.puzzlePrefab;
                     nowPuzzle.puzzleData = puzzles[i, j];
 
                     nowPuzzle.ReUpdate_PuzzleEssence_Image();
                     //                                                                                         //拼圖物件生成的資料夾
                     Instantiate(nowPuzzle, puzzlesGridGameObject[i, j].transform.position, transform.rotation, puzzlesGridGameObject[i, j].transform.GetChild(1));
+                    */
+
+                    //                                                                                         //拼圖物件生成的資料夾
+                    Puzzle nowPuzzle = Instantiate(battleGameController.puzzlePrefab, puzzlesGridGameObject[i, j].transform.position, transform.rotation, puzzlesGridGameObject[i, j].transform.GetChild(1));
+                    nowPuzzle.puzzleData = puzzles[i, j];
+                    nowPuzzle.ReUpdate_PuzzleEssence_Image();
+
+
+                    Puzzle nowPuzzle2 = Instantiate(battleGameController.puzzlePrefab, puzzlesGridGameObject[i, j].transform.position, transform.rotation, puzzleInstanceGameObject.transform);
+                    nowPuzzle2.puzzleData = puzzles[i, j];
+                    nowPuzzle2.ReUpdate_PuzzleEssence_Image();
+                    nowPuzzle2.Hide_BgImage_and_MidImage();
+
                 }
                 /*else
                     Debug.Log($"error_UpdatePuzzleBoard_puzzles[{i}, {j}] == null");*/

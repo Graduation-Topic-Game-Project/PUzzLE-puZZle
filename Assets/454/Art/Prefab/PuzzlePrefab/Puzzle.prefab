@@ -85,7 +85,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8677770127906116186}
   - component: {fileID: 7895058437897693669}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Up
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -234,24 +234,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   puzzleData:
-    _essence: 1
+    _essence: 2
     _up:
-      _sideEssence: 1
+      _sideEssence: 0
       _interlocking: 2
     _down:
-      _sideEssence: 1
+      _sideEssence: 0
       _interlocking: 2
     _right:
-      _sideEssence: 1
+      _sideEssence: 0
       _interlocking: 2
     _left:
-      _sideEssence: 1
+      _sideEssence: 0
       _interlocking: 2
   _upImage: {fileID: 5091287995779515649}
   _downImage: {fileID: 3575560854768146671}
   _rightImage: {fileID: 1695729801470337725}
   _leftImage: {fileID: 3607062338995200861}
   _middleImage: {fileID: 7849055816979757713}
+  _bgImage: {fileID: 2461364556405714994}
   PuzzleEssenceImage:
   - {fileID: 21300000, guid: bac2e37993faf2a4a93fa419e24bc16e, type: 3}
   - {fileID: 21300000, guid: 793d7c9efc48d884d9d9ccca9cd68072, type: 3}
@@ -265,6 +266,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: cdd1fac0d6ef77247b6c5a313e987792, type: 3}
   - {fileID: 21300000, guid: fc758e38783cf2c45ab916e58c6faaef, type: 3}
   - {fileID: 21300000, guid: bac2e37993faf2a4a93fa419e24bc16e, type: 3}
+  NoneSprite: {fileID: 21300000, guid: bac2e37993faf2a4a93fa419e24bc16e, type: 3}
 --- !u!1 &2678841385961278183
 GameObject:
   m_ObjectHideFlags: 0

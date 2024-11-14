@@ -18,10 +18,10 @@ public class PartnerData
     [SerializeField]
     private int _hp;
     [SerializeField]
-    EssenceClass.Essence _essence;
+    EssenceEnum.Essence _essence;
     public List<PuzzleData> partnersPuzzle;
 
-    public EssenceClass.Essence Essence { get => _essence; }
+    public EssenceEnum.Essence Essence { get => _essence; }
     public int Hp { get => Hp; }
     public int Lv { get => _level; }
 }

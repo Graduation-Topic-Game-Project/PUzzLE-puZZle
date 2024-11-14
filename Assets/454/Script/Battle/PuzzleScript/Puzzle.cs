@@ -8,9 +8,10 @@ using UnityEngine.UI;
 public class Puzzle : MonoBehaviour
 {
     public PuzzleData puzzleData = new();
-    public Image _upImage, _downImage, _rightImage, _leftImage, _middleImage;
+    public Image _upImage, _downImage, _rightImage, _leftImage, _middleImage, _bgImage;
     public List<Sprite> PuzzleEssenceImage = new List<Sprite>();
     public List<Sprite> PuzzleSideEssenceImage = new List<Sprite>();
+    public Sprite NoneSprite;
 
     /// <param name="puzzleData_">指定拚圖的PuzzleData</param>
     public Puzzle(PuzzleData puzzleData_)
@@ -21,7 +22,7 @@ public class Puzzle : MonoBehaviour
     /// <summary>
     /// 設定拼圖屬性
     /// </summary>
-    public EssenceClass.Essence Essence
+    public EssenceEnum.Essence Essence
     {
         get
         {
@@ -48,7 +49,7 @@ public class Puzzle : MonoBehaviour
         ReUpdate_PuzzleSide_Image(puzzleData.LeftSide_, _leftImage);
     }
 
-    public void ReUpdate_PuzzleSide_Image(PuzzleSideData _puzzleSideData, Image _sideImage)
+    public void ReUpdate_PuzzleSide_Image(PuzzleSideData _puzzleSideData, Image _sideImage) //更新拼圖邊圖示
     {
         if (_puzzleSideData.Interlocking_ == PuzzleSideData.Interlocking.indentations_凹陷)
         {
@@ -58,6 +59,12 @@ public class Puzzle : MonoBehaviour
         {
             _sideImage.sprite = PuzzleSideEssenceImage[(int)_puzzleSideData.Essence_];
         }
+    }
+
+    public void Hide_BgImage_and_MidImage() //隱藏拼圖圖板與主要寶石
+    {
+        _middleImage.sprite = NoneSprite;
+        _bgImage.sprite = NoneSprite;
     }
 }
 
@@ -71,12 +78,12 @@ public class PuzzleScriptableObject : ScriptableObject
 public class PuzzleData
 {
     [Header("拼圖的本質屬性"), Tooltip("拼圖的本質屬性")]
-    public EssenceClass.Essence _essence = EssenceClass.Essence.Strengthe_力量;
+    public EssenceEnum.Essence _essence = EssenceEnum.Essence.Strengthe_力量;
     [SerializeField]
     private PuzzleSideData _up, _down, _right, _left = new();
 
 
-    public EssenceClass.Essence Essence { get => _essence; set { _essence = value; } }
+    public EssenceEnum.Essence Essence { get => _essence; set { _essence = value; } }
 
     public PuzzleSideData UpSide_ { get { return _up; } }
     public PuzzleSideData DownSide_ { get { return _down; } }
@@ -94,7 +101,7 @@ public class PuzzleData
 
     public void RandomlyGeneratedPuzzleData() //隨機拼圖
     {
-        _essence = (EssenceClass.Essence)UnityEngine.Random.Range(1, 5);
+        _essence = (EssenceEnum.Essence)UnityEngine.Random.Range(1, 5);
 
         _up = new PuzzleSideData();
         _down = new PuzzleSideData();

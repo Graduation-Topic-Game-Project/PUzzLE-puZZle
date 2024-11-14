@@ -43,16 +43,16 @@ public class EndTurnController : MonoBehaviour
                     PuzzleData puzzle = boardController.puzzles[i, j];
                     switch (puzzle.Essence)
                     {
-                        case EssenceClass.Essence.Strengthe_秖:
+                        case EssenceEnum.Essence.Strengthe_秖:
                             Red++;
                             break;
-                        case EssenceClass.Essence.Wisdom_醇紌:
+                        case EssenceEnum.Essence.Wisdom_醇紌:
                             Blue++;
                             break;
-                        case EssenceClass.Essence.Belief_獺ヵ:
+                        case EssenceEnum.Essence.Belief_獺ヵ:
                             Yellow++;
                             break;
-                        case EssenceClass.Essence.Soul_艶活:
+                        case EssenceEnum.Essence.Soul_艶活:
                             Purple++;
                             break;
                         default:
@@ -72,16 +72,16 @@ public class EndTurnController : MonoBehaviour
         {
             switch (battleGameController.partner[1].thisPartner.Essence)
             {
-                case EssenceClass.Essence.Strengthe_秖:
+                case EssenceEnum.Essence.Strengthe_秖:
                     Red = Red * 1.5f;
                     break;
-                case EssenceClass.Essence.Wisdom_醇紌:
+                case EssenceEnum.Essence.Wisdom_醇紌:
                     Blue = Blue * 1.5f; ;
                     break;
-                case EssenceClass.Essence.Belief_獺ヵ:
+                case EssenceEnum.Essence.Belief_獺ヵ:
                     Yellow = Yellow * 1.5f;
                     break;
-                case EssenceClass.Essence.Soul_艶活:
+                case EssenceEnum.Essence.Soul_艶活:
                     Purple = Purple * 1.5f;
                     break;
                 default:
