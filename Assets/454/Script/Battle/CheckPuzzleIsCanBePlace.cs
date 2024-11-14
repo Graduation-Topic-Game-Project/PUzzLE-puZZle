@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 /// <summary>
 /// 檢查拼圖是否可被放置
@@ -9,7 +10,7 @@ public class CheckPuzzleIsCanBePlace : MonoBehaviour
 {
     public BoardController boardController;
 
-    (int, int)[] directions = { (-1, 0), (1, 0), (0, 1), (0, -1) }; // 分別代表上、下、右、左
+    (int, int)[] directionOffset = { (-1, 0), (1, 0), (0, 1), (0, -1) }; // 分別代表上、下、右、左 的方向座標差值
     enum Direction { Up, Down, Right, Left }
 
     private void Awake()
@@ -32,6 +33,7 @@ public class CheckPuzzleIsCanBePlace : MonoBehaviour
                 return false;
         }*/
 
+
         if (!CheckDirection(i, j, _thisPuzzle, Direction.Up))
             return false;
         if (!CheckDirection(i, j, _thisPuzzle, Direction.Down))
@@ -44,9 +46,12 @@ public class CheckPuzzleIsCanBePlace : MonoBehaviour
         return true;
     }
 
+
+    /// <param name="direction">檢查的方向</param>
+    /// <returns></returns>
     private bool CheckDirection(int i, int j, PuzzleData thisPuzzle, Direction direction)
     {
-        (int di, int dj) = directions[(int)direction];
+        (int di, int dj) = directionOffset[(int)direction]; //依照方向direction的列舉值，取得座標差值陣列
         int newI = i + di, newJ = j + dj;
 
         // 檢查邊界
@@ -271,7 +276,7 @@ public class CheckPuzzleIsCanBePlace : MonoBehaviour
         return true;
     }*/
 
- 
+
 
 
 }
