@@ -25,7 +25,7 @@ public class BattleGameController : MonoBehaviour
 
     [Header("當前選擇的拼圖")]
     public PuzzleData specifyPuzzle; //選擇的備戰區拼圖
-    public int specifyPuzzleNumber; //選擇的備戰區拼圖編號
+    public int specifyPuzzleNumber; //選擇的備戰區編號(第幾格)
     public bool isSpecifyPuzzle = false; //是否選擇備戰區拼圖
     [Header("隨機生成 or 從夥伴拼圖庫生成")]
     [Tooltip("(false:隨機生成 true:夥伴拼圖庫生成)")]
@@ -54,7 +54,7 @@ public class BattleGameController : MonoBehaviour
     public void CallEvent_RemovePlacedPuzzle()
     {
         Event_RemovePlacedPuzzle?.Invoke(specifyPuzzleNumber); 
-        isSpecifyPuzzle = false;
+
     }
 
     /// <summary>

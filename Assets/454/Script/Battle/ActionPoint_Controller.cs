@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using System;
+using UnityEngine.UI;
+using UnityEngine.EventSystems;
+
 
 public class ActionPoint_Controller : MonoBehaviour
 {
@@ -50,4 +53,11 @@ public class ActionPoint_Controller : MonoBehaviour
     {
         ActionPoint = maxActionPoint;
     }
+
+    private void OnMouseEnter()
+    {
+        Debug.Log("OnMouseEnter");
+    }
+
+
 }

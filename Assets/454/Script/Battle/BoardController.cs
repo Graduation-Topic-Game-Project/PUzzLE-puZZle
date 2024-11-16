@@ -21,7 +21,7 @@ public class BoardController : MonoBehaviour
             battleGameController = FindObjectOfType<BattleGameController>();
         }
 
-        battleGameController.Event_BattleStart += this.Load_puzzlesGrids; //將場景的puzzlesGrid存進2維陣列
+        battleGameController.Event_BattleStart += this.Load_puzzlesGrids; //將場景的puzzlesGrid存進2維陣列 && 訂閱ClickPuzzleGridBotton事件
         battleGameController.Event_EndTurn += this.ClearBoard; //回合結束時清空盤面
 
     }
@@ -121,13 +121,14 @@ public class BoardController : MonoBehaviour
                 //Debug.Log($"已在{i}，{j}處放置{puzzles[i, j]._essence}拼圖");
 
                 battleGameController.CallEvent_RemovePlacedPuzzle();
+                battleGameController.isSpecifyPuzzle = false; //取消選擇備戰區拼圖
                 UpdatePuzzleBoard();
                 battleGameController.CallEvent_PlacedPuzzle(); //BattleGameController發送放置拼圖結束事件
             }
             else
             {
                 MessageTextController.SetMessage("與周圍拼圖衝突，拼圖不可放置");
-                Debug.Log("與周圍拼圖衝突，拼圖不可放置");
+                //Debug.Log("與周圍拼圖衝突，拼圖不可放置");
             }
         }
     }

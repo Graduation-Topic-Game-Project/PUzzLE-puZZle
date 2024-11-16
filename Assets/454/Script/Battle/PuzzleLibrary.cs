@@ -172,12 +172,23 @@ public class PuzzleLibrary : MonoBehaviour
     /// <param name="number">第幾個備戰區格子</param>
     public void SpecifyPuzzle(int number)
     {
-        battleGameController.specifyPuzzle = puzzlePreparations[number];
-        battleGameController.specifyPuzzleNumber = number;
-        battleGameController.isSpecifyPuzzle = true;
+        if (battleGameController.specifyPuzzleNumber != number)
+        {
+            ResetAllPreparationButtonColor(); //重製所有備戰區按鈕顏色為預設
+            battleGameController.specifyPuzzle = puzzlePreparations[number];  //更改選擇的備戰區拼圖
+            battleGameController.specifyPuzzleNumber = number;  // 更改選擇的備戰區編號(第幾格)
+            battleGameController.isSpecifyPuzzle = true;
+            puzzlePreparationsGameObject[number].GetComponent<PuzzlePreparation>().SetColorForSpecifying(); //將點擊按鈕顏色為ClickColor
+        }
+        else
+        {
+            battleGameController.specifyPuzzleNumber = -1;
+            battleGameController.isSpecifyPuzzle = false;
+            ResetAllPreparationButtonColor(); //重製所有備戰區按鈕顏色為預設
+        }
 
-        ResetAllPreparationButtonColor();
-        //puzzlePreparationsGameObject[number].GetComponent<PuzzlePreparation>().SetClickColor(); //將點擊按鈕顏色為ClickColor
+
+
     }
 
     public void ResetAllPreparationButtonColor()  //重製所有備戰區按鈕顏色為預設
