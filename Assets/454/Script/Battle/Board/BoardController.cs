@@ -106,6 +106,7 @@ public class BoardController : MonoBehaviour
             if (Event_CheckPuzzleIsCanBePlace.Invoke(i, j, battleGameController.specifyPuzzle) == true) //檢查拼圖是否可被放置
             {
                 puzzles[i, j] = battleGameController.specifyPuzzle;
+                puzzles[i, j].puzzlePosition = (i, j); //更新PuzzleData內的拼圖位置
                 MessageTextController.SetMessage("放置拼圖");
 
                 battleGameController.CallEvent_RemovePlacedPuzzle(); //移除備戰區那塊已經被放上去的拼圖

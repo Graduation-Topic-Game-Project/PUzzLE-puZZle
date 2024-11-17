@@ -85,7 +85,7 @@ public class PuzzleData
     public EssenceEnum.Essence _essence = EssenceEnum.Essence.Strengthe_¤O¶q;
     [SerializeField]
     private PuzzleSideData _up, _down, _right, _left = new();
-
+    public (int, int) puzzlePosition = (-1, -1);
 
     public EssenceEnum.Essence Essence { get => _essence; set { _essence = value; } }
 

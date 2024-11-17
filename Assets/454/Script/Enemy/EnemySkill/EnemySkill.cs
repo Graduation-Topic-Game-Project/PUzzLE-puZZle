@@ -5,9 +5,11 @@ using System;
 
 public class EnemySkill : MonoBehaviour
 {
-    BattleGameController battleGameController;
+    public BattleGameController battleGameController;
 
-    private void Awake()
+    public bool isBreak;
+
+    protected virtual void Awake()
     {
         if (battleGameController == null) //獲取場景上的BattleGameController
         {
@@ -17,7 +19,7 @@ public class EnemySkill : MonoBehaviour
         battleGameController.Event_SettlementEnemySkill += this.Settlement;
     }
 
-    private void OnDestroy()  //物件銷毀時取消訂閱
+    protected virtual void OnDestroy()  //物件銷毀時取消訂閱
     {
         if (battleGameController != null)
         {
@@ -30,9 +32,12 @@ public class EnemySkill : MonoBehaviour
     /// </summary>
     private void Settlement(object sender, EventArgs e) 
     {
-
+        SettlementSkill();
     }
 
+    /// <summary>
+    /// 此處寫結算事件
+    /// </summary>
     protected virtual void SettlementSkill()
     {
 

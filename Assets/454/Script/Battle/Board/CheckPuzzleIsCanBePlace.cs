@@ -27,13 +27,6 @@ public class CheckPuzzleIsCanBePlace : MonoBehaviour
     /// <returns></returns>
     public bool Check(int i, int j, PuzzleData _thisPuzzle)
     {
-        /*foreach (Direction dir in Enum.GetValues(typeof(Direction)))
-        {
-            if (!CheckDirection(i, j, _thisPuzzle, dir))
-                return false;
-        }*/
-
-
         if (!CheckDirection(i, j, _thisPuzzle, Direction.Up))
             return false;
         if (!CheckDirection(i, j, _thisPuzzle, Direction.Down))

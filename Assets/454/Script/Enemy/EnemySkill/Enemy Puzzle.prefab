@@ -436,10 +436,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5313483935690433494}
-  - component: {fileID: 479311263815762077}
+  - component: {fileID: 5904276761806270034}
   - component: {fileID: 3729083136551933159}
   m_Layer: 5
-  m_Name: Enemy Puzzle Test
+  m_Name: Enemy Puzzle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -452,7 +452,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5543932324951897785}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -470,7 +470,7 @@ RectTransform:
   m_AnchoredPosition: {x: 288, y: 216.7}
   m_SizeDelta: {x: 144, y: 144}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &479311263815762077
+--- !u!114 &5904276761806270034
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -479,9 +479,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 5543932324951897785}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2c2a5703a5cf9e647a6e485417473c79, type: 3}
+  m_Script: {fileID: 11500000, guid: ac0ee8be1687e0e4b89ee4716de4e1cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyPuzzle: {fileID: 3729083136551933159}
 --- !u!114 &3729083136551933159
 MonoBehaviour:
   m_ObjectHideFlags: 0
