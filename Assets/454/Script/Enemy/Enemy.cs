@@ -10,50 +10,40 @@ public class Enemy : MonoBehaviour
 {
     private BattleGameController battleGameController;
 
+    [Header("敵方名稱")]
     public string enemyName;
+    [Header("敵方圖片")]
     public Sprite EnemyImage;
-    public TextMeshProUGUI HpText;
-
-    public GameObject InformationPlane;
-    bool isOpenInformation = false;
 
     public int _enemyAtk;
     public int _enemyHp;
 
-    public Button _button;
+    public List<EnemySkill> enemySkills;
 
     protected void Awake()
     {
         if (battleGameController == null) //獲取場景上的BattleGameController        
             battleGameController = FindObjectOfType<BattleGameController>();
 
-        _button = this.gameObject.GetComponent<Button>();
-        _button.onClick.AddListener(OpenInformation);
-
-        //battleGameController.Event_EndTurn += this.
+        battleGameController.Event_BattleStart += this.SkillLoad;
     }
     private void Start()
     {
         this.GetComponent<Image>().sprite = EnemyImage;
         EndTurnController.Event_Damage += this.Damage;
-
     }
-    private void Update()
+
+    public void SkillLoad(object sender, EventArgs e)
     {
-        HpText.text = _enemyHp.ToString();
+        //enemySkills
     }
-
+    
     protected virtual void Damage(int R, int B, int Y, int P) //受傷
     {
         _enemyHp -= R + B + Y + P;
     }
 
-    public void OpenInformation()
-    {
-        Debug.Log("button 123test");
-        isOpenInformation = !isOpenInformation; //切換isOpen的true&false
-        InformationPlane.SetActive(isOpenInformation);
-    }
+
 
 }
 

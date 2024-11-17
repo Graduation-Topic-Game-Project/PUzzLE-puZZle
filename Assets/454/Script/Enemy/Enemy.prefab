@@ -35,7 +35,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 183.7955, y: 255.2716}
+  m_SizeDelta: {x: 155.9327, y: 216.5733}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5877921112584259000
 CanvasRenderer:
@@ -87,6 +87,7 @@ GameObject:
   - component: {fileID: 317232274413102196}
   - component: {fileID: 4194113835293316176}
   - component: {fileID: 7504747802191047721}
+  - component: {fileID: 8164249773128086196}
   - component: {fileID: 7657217160911991053}
   m_Layer: 5
   m_Name: Enemy
@@ -169,10 +170,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyName: 
   EnemyImage: {fileID: 21300000, guid: 3c8a056bf74f8e947ac7a55fc4123904, type: 3}
-  HpText: {fileID: 8948341649163169160}
-  InformationPlane: {fileID: 4451559396653805704}
   _enemyAtk: 0
   _enemyHp: 0
+  enemySkills:
+  - {fileID: 0}
+--- !u!114 &8164249773128086196
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 672645965533383465}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a422600a12d1d59449bbb7ce25619a85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HpText: {fileID: 8948341649163169160}
+  InformationPlane: {fileID: 4451559396653805704}
   _button: {fileID: 0}
 --- !u!114 &7657217160911991053
 MonoBehaviour:

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class FairyA : Enemy
 {
-    EnemySkill enemySkill;
+
     private void Awake()
     {
         base.Awake();

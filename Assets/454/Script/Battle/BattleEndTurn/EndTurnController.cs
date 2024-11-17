@@ -68,9 +68,9 @@ public class EndTurnController : MonoBehaviour
     /// </summary>
     private void PartnerEssenceBonus(float Red, float Blue, float Yellow, float Purple)
     {
-        for (int i = 0; i < battleGameController.partner.Length; i++)
+        for (int i = 0; i < battleGameController.partners.Length; i++)
         {
-            switch (battleGameController.partner[1].thisPartner.Essence)
+            switch (battleGameController.partners[1].thisPartner.Essence)
             {
                 case EssenceEnum.Essence.Strengthe_¤O¶q:
                     Red = Red * 1.5f;

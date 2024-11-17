@@ -22,7 +22,7 @@ public class BattlePartnerController : MonoBehaviour
             {
                 PartnersGameObject[i] = this.gameObject.transform.GetChild(i).gameObject;
                 PartnersGameObject[i].GetComponent<BattlePartner>().PartnerNumber = i;
-                PartnersGameObject[i].GetComponent<BattlePartner>().PartnerImage.sprite = battleGameController.partner[i].thisPartner.PartnerCuteBattle;
+                PartnersGameObject[i].GetComponent<BattlePartner>().PartnerImage.sprite = battleGameController.partners[i].thisPartner.PartnerCuteBattle;
             }
 
         }

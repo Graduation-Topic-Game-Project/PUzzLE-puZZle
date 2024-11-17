@@ -18,6 +18,10 @@ public class Puzzle : MonoBehaviour
     {
         puzzleData = puzzleData_;
     }
+    public Puzzle()
+    {
+
+    }
 
     /// <summary>
     /// 設定拼圖屬性

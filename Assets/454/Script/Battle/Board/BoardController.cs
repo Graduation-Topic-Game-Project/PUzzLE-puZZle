@@ -53,16 +53,7 @@ public class BoardController : MonoBehaviour
             {
                 if (puzzles[i, j] != null)
                 {
-                    /*Puzzle nowPuzzle = new Puzzle();
-                    nowPuzzle = battleGameController.puzzlePrefab;
-                    nowPuzzle.puzzleData = puzzles[i, j];
-
-                    nowPuzzle.ReUpdate_PuzzleEssence_Image();
-                    //                                                                                         //拼圖物件生成的資料夾
-                    Instantiate(nowPuzzle, puzzlesGridGameObject[i, j].transform.position, transform.rotation, puzzlesGridGameObject[i, j].transform.GetChild(1));
-                    */
-
-                    //                                                                                         //拼圖物件生成的資料夾
+                    //                                                                                                                                    //拼圖物件生成的資料夾
                     Puzzle nowPuzzle = Instantiate(battleGameController.puzzlePrefab, puzzlesGridGameObject[i, j].transform.position, transform.rotation, puzzlesGridGameObject[i, j].transform.GetChild(1));
                     nowPuzzle.puzzleData = puzzles[i, j];
                     nowPuzzle.ReUpdate_PuzzleEssence_Image();
@@ -72,7 +63,6 @@ public class BoardController : MonoBehaviour
                     nowPuzzle2.puzzleData = puzzles[i, j];
                     nowPuzzle2.ReUpdate_PuzzleEssence_Image();
                     nowPuzzle2.Hide_BgImage_and_MidImage();
-
                 }
                 /*else
                     Debug.Log($"error_UpdatePuzzleBoard_puzzles[{i}, {j}] == null");*/
@@ -115,12 +105,10 @@ public class BoardController : MonoBehaviour
         {
             if (Event_CheckPuzzleIsCanBePlace.Invoke(i, j, battleGameController.specifyPuzzle) == true) //檢查拼圖是否可被放置
             {
-                //Debug.Log("拼圖可放置");
                 puzzles[i, j] = battleGameController.specifyPuzzle;
                 MessageTextController.SetMessage("放置拼圖");
-                //Debug.Log($"已在{i}，{j}處放置{puzzles[i, j]._essence}拼圖");
 
-                battleGameController.CallEvent_RemovePlacedPuzzle();
+                battleGameController.CallEvent_RemovePlacedPuzzle(); //移除備戰區那塊已經被放上去的拼圖
                 battleGameController.isSpecifyPuzzle = false; //取消選擇備戰區拼圖
                 UpdatePuzzleBoard();
                 battleGameController.CallEvent_PlacedPuzzle(); //BattleGameController發送放置拼圖結束事件
