@@ -16,9 +16,13 @@ public class ActionPoint_Controller : MonoBehaviour
     [SerializeField]
     static public int ActionPoint; //行動值
     public int maxActionPoint; //最大行動值
-    float actionPointTextAlpha = 0.5f; //行動值文字預設透明度
+    public float actionPointTextAlpha = 0.1f; //行動值文字預設透明度
+    [Header("是否開啟控制器功能")]
+    [Tooltip("啟用後才有作為控制器功能，關閉時作為單純展示行動值用。請確保場景內只有一個開啟")]
+    public bool isController;
 
     Coroutine NowSetCoroutine;
+    
 
 
     private void Awake()
@@ -32,8 +36,11 @@ public class ActionPoint_Controller : MonoBehaviour
             canvasGroup = this.gameObject.transform.GetComponent<CanvasGroup>();
         }
 
-        battleGameController.Event_PuzzlePlaceCompleted += this.PuzzlePlaceCompleted_ActionPoint; //放置拼圖後減少行動值
-        battleGameController.Event_EndTurn += this.Reset_ActionPoint;
+        if (isController == true)
+        {
+            battleGameController.Event_PuzzlePlaceCompleted += this.PuzzlePlaceCompleted_ActionPoint; //放置拼圖後減少行動值
+            battleGameController.Event_EndTurn += this.Reset_ActionPoint;
+        }
     }
     void Start()
     {
@@ -86,7 +93,9 @@ public class ActionPoint_Controller : MonoBehaviour
         }
         yield return null;
     }
-
+    /// <summary>
+    /// 停止協程
+    /// </summary>
     public void StopCoroutine()
     {
         if (NowSetCoroutine != null)

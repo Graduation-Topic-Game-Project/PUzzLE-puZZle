@@ -7,6 +7,8 @@ using System;
 public class BoardController : MonoBehaviour
 {
     public BattleGameController battleGameController;
+    public PuzzleSpecifyController puzzleSpecifyController;
+
     public PuzzleData[,] puzzles = new PuzzleData[6, 7];
     public GameObject puzzlesGrids; //場景上的盤面格子父物件
     public GameObject[,] puzzlesGridGameObject = new GameObject[6, 7]; //拼圖盤面框物件，用來對生成時的位置的
@@ -19,6 +21,10 @@ public class BoardController : MonoBehaviour
         if (battleGameController == null) //獲取場景上的BattleGameController
         {
             battleGameController = FindObjectOfType<BattleGameController>();
+        }
+        if (puzzleSpecifyController == null) //獲取場景上的PuzzleSpecifyController
+        {
+            puzzleSpecifyController = FindObjectOfType<PuzzleSpecifyController>();
         }
 
         battleGameController.Event_BattleStart += this.Load_puzzlesGrids; //將場景的puzzlesGrid存進2維陣列 && 訂閱ClickPuzzleGridBotton事件
@@ -54,12 +60,12 @@ public class BoardController : MonoBehaviour
                 if (puzzles[i, j] != null)
                 {
                     //                                                                                                                                    //拼圖物件生成的資料夾
-                    Puzzle nowPuzzle = Instantiate(battleGameController.puzzlePrefab, puzzlesGridGameObject[i, j].transform.position, transform.rotation, puzzlesGridGameObject[i, j].transform.GetChild(1));
+                    Puzzle nowPuzzle = Instantiate(puzzleSpecifyController.puzzlePrefab, puzzlesGridGameObject[i, j].transform.position, transform.rotation, puzzlesGridGameObject[i, j].transform.GetChild(1));
                     nowPuzzle.puzzleData = puzzles[i, j];
                     nowPuzzle.ReUpdate_PuzzleEssence_Image();
 
 
-                    Puzzle nowPuzzle2 = Instantiate(battleGameController.puzzlePrefab, puzzlesGridGameObject[i, j].transform.position, transform.rotation, puzzleInstanceGameObject.transform);
+                    Puzzle nowPuzzle2 = Instantiate(puzzleSpecifyController.puzzlePrefab, puzzlesGridGameObject[i, j].transform.position, transform.rotation, puzzleInstanceGameObject.transform);
                     nowPuzzle2.puzzleData = puzzles[i, j];
                     nowPuzzle2.ReUpdate_PuzzleEssence_Image();
                     nowPuzzle2.Hide_BgImage_and_MidImage();
@@ -101,22 +107,22 @@ public class BoardController : MonoBehaviour
     /// <param name="j">放置位置座標Y(直列)</param>
     public void PlacePuzzle(int i, int j)
     {
-        if (battleGameController.CanPlacePuzzle() == true) //如果目前可放置拼圖
+        if (puzzleSpecifyController.CanPlacePuzzle() == true) //如果目前可放置拼圖
         {
-            if (Event_CheckPuzzleIsCanBePlace.Invoke(i, j, battleGameController.specifyPuzzle) == true) //檢查拼圖是否可被放置
+            if (Event_CheckPuzzleIsCanBePlace.Invoke(i, j, puzzleSpecifyController.specifyPuzzle) == true) //檢查拼圖是否可被放置
             {
-                puzzles[i, j] = battleGameController.specifyPuzzle;
+                puzzles[i, j] = puzzleSpecifyController.specifyPuzzle;
                 puzzles[i, j].puzzlePosition = (i, j); //更新PuzzleData內的拼圖位置
                 MessageTextController.SetMessage("放置拼圖");
 
-                battleGameController.CallEvent_RemovePlacedPuzzle(); //移除備戰區那塊已經被放上去的拼圖
-                battleGameController.isSpecifyPuzzle = false; //取消選擇備戰區拼圖
+                puzzleSpecifyController.CallEvent_RemovePlacedPuzzle(); //移除備戰區那塊已經被放上去的拼圖
+                puzzleSpecifyController.isSpecifyPuzzle = false; //取消選擇備戰區拼圖
                 UpdatePuzzleBoard();
                 battleGameController.CallEvent_PlacedPuzzle(); //BattleGameController發送放置拼圖結束事件
             }
             else
             {
-                MessageTextController.SetMessage("與周圍拼圖衝突，拼圖不可放置");
+                //MessageTextController.SetMessage("與周圍拼圖衝突，拼圖不可放置");
                 //Debug.Log("與周圍拼圖衝突，拼圖不可放置");
             }
         }

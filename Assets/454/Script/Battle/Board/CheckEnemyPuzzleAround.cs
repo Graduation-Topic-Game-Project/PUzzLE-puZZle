@@ -21,6 +21,7 @@ public class CheckEnemyPuzzleAround : MonoBehaviour
     {
         int x; int y;
         (x, y) = puzzleData.puzzlePosition;
+        Debug.Log($"¿À¨dEnemyPuzzle{x},{y}");
 
         if (boardController.puzzles[x - 1, y] == null || boardController.puzzles[x + 1, y] == null ||
             boardController.puzzles[x, y + 1] == null || boardController.puzzles[x, y - 1] == null)

@@ -14,7 +14,7 @@ public class EnemySkill : MonoBehaviour
             battleGameController = FindObjectOfType<BattleGameController>();
         }
 
-        battleGameController.Event_SettlementEnemySkill += this.Settlement;
+        battleGameController.Event_SettlementEnemySkill += this.Settlement; //回合結束時觸發結算事件
     }
 
     protected virtual void OnDestroy()  //物件銷毀時取消訂閱
@@ -38,7 +38,7 @@ public class EnemySkill : MonoBehaviour
     /// </summary>
     protected virtual void SettlementSkill()
     {
-
+        Debug.Log("123");
     }
 
 }

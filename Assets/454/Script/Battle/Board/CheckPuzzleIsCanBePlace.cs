@@ -27,14 +27,23 @@ public class CheckPuzzleIsCanBePlace : MonoBehaviour
     /// <returns></returns>
     public bool Check(int i, int j, PuzzleData _thisPuzzle)
     {
-        if (!CheckDirection(i, j, _thisPuzzle, Direction.Up))
+        /*if (!CheckDirection(i, j, _thisPuzzle, Direction.Up))
             return false;
         if (!CheckDirection(i, j, _thisPuzzle, Direction.Down))
             return false;
         if (!CheckDirection(i, j, _thisPuzzle, Direction.Right))
             return false;
         if (!CheckDirection(i, j, _thisPuzzle, Direction.Left))
-            return false;
+            return false;*/
+
+        foreach (Direction direction in Enum.GetValues(typeof(Direction)))  //將Direction內的每個選項都套用以下程式
+        {
+            if (!CheckDirection(i, j, _thisPuzzle, direction))  //檢查指定方向是否衝突
+            {
+
+                return false;
+            }
+        }
 
         return true;
     }
@@ -44,6 +53,12 @@ public class CheckPuzzleIsCanBePlace : MonoBehaviour
     /// <returns></returns>
     private bool CheckDirection(int i, int j, PuzzleData thisPuzzle, Direction direction)
     {
+        if (boardController.puzzles[i, j] != null)
+        {
+            MessageTextController.SetMessage("那裏已經有拼圖了!");
+            return false;
+        }
+
         (int di, int dj) = directionOffset[(int)direction]; //依照方向direction的列舉值，取得座標差值陣列
         int newI = i + di, newJ = j + dj;
 
@@ -61,9 +76,9 @@ public class CheckPuzzleIsCanBePlace : MonoBehaviour
         switch (direction)
         {
             case Direction.Up:
-                return thisPuzzle.UpSide_.Interlocking_ == PuzzleSideData.Interlocking.protrusions_突起
-                    ? adjacentPuzzle.DownSide_.Interlocking_ == PuzzleSideData.Interlocking.indentations_凹陷
-                    : adjacentPuzzle.DownSide_.Interlocking_ == PuzzleSideData.Interlocking.protrusions_突起;
+                return thisPuzzle.UpSide_.Interlocking_ == PuzzleSideData.Interlocking.protrusions_突起       //檢查上邊，若為突起執行第二行，反之執行第三行
+                    ? adjacentPuzzle.DownSide_.Interlocking_ == PuzzleSideData.Interlocking.indentations_凹陷 //若上邊為突起，則對接處必須為凹陷，凹陷回傳true，反之則回傳flase
+                    : adjacentPuzzle.DownSide_.Interlocking_ == PuzzleSideData.Interlocking.protrusions_突起; //若上邊為凹陷，則對接處必須為突起，突起回傳true，反之則回傳flase
 
             case Direction.Down:
                 return thisPuzzle.DownSide_.Interlocking_ == PuzzleSideData.Interlocking.protrusions_突起
@@ -81,6 +96,7 @@ public class CheckPuzzleIsCanBePlace : MonoBehaviour
                     : adjacentPuzzle.RightSide_.Interlocking_ == PuzzleSideData.Interlocking.protrusions_突起;
 
             default:
+                MessageTextController.SetMessage("與周圍拼圖衝突，拼圖不可放置");
                 return false;
         }
     }

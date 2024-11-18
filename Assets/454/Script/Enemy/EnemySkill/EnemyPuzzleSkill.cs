@@ -11,7 +11,7 @@ public class EnemyPuzzleSkill : EnemySkill
     protected override void Awake()
     {
         base.Awake();
-        if (enemyPuzzle = null)
+        if (enemyPuzzle == null)
             enemyPuzzle = this.gameObject.transform.GetComponent<EnemyPuzzle>();
 
         isBreak = false;
@@ -26,9 +26,22 @@ public class EnemyPuzzleSkill : EnemySkill
     /// </summary>
     protected override void SettlementSkill()
     {
+        /*if(enemyPuzzle.puzzleData != null)
+        {
+            if (enemyPuzzle.puzzleData.puzzlePosition == (-1, -1))
+            {
+                Debug.Log("於盤面外，未觸發結算事件");
+                return;
+            }
+        }*/
+
         if(isBreak == false)
         {
             Debug.Log("未被破壞，對我方隊伍造成傷害");
+        }
+        else
+        {
+            Debug.Log("已被破壞，未造成傷害");
         }
 
     }

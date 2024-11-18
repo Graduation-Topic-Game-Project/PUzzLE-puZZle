@@ -3,7 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-public class EndTurnController : MonoBehaviour
+/// <summary>
+/// 結算盤面拼圖&計算屬性加成&對敵人造成傷害
+/// </summary>
+public class SettlementBoardController : MonoBehaviour
 {
     private BattleGameController battleGameController;
     private BoardController boardController;
@@ -22,8 +25,6 @@ public class EndTurnController : MonoBehaviour
         battleGameController.Event_SettlementBoard += this.BillingEssencePointForBoard;
 
         //battleGameController.Event_EndTurn += Test;
-
-
     }
 
     /// <summary>

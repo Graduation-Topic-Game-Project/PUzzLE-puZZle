@@ -30,7 +30,7 @@ public class Enemy : MonoBehaviour
     private void Start()
     {
         this.GetComponent<Image>().sprite = EnemyImage;
-        EndTurnController.Event_Damage += this.Damage;
+        SettlementBoardController.Event_Damage += this.Damage;
     }
 
     public void SkillLoad(object sender, EventArgs e)
