@@ -36,11 +36,17 @@ public class CheckPuzzleIsCanBePlace : MonoBehaviour
         if (!CheckDirection(i, j, _thisPuzzle, Direction.Left))
             return false;*/
 
+        if (boardController.puzzles[i, j] != null)  //檢查該位置是否有拼圖
+        {
+            MessageTextController.SetMessage("那裏已經有拼圖了!");
+            return false;
+        }
+
         foreach (Direction direction in Enum.GetValues(typeof(Direction)))  //將Direction內的每個選項都套用以下程式
         {
             if (!CheckDirection(i, j, _thisPuzzle, direction))  //檢查指定方向是否衝突
             {
-
+                MessageTextController.SetMessage("與周圍拼圖衝突，拼圖不可放置");
                 return false;
             }
         }
@@ -53,12 +59,6 @@ public class CheckPuzzleIsCanBePlace : MonoBehaviour
     /// <returns></returns>
     private bool CheckDirection(int i, int j, PuzzleData thisPuzzle, Direction direction)
     {
-        if (boardController.puzzles[i, j] != null)
-        {
-            MessageTextController.SetMessage("那裏已經有拼圖了!");
-            return false;
-        }
-
         (int di, int dj) = directionOffset[(int)direction]; //依照方向direction的列舉值，取得座標差值陣列
         int newI = i + di, newJ = j + dj;
 
@@ -96,7 +96,6 @@ public class CheckPuzzleIsCanBePlace : MonoBehaviour
                     : adjacentPuzzle.RightSide_.Interlocking_ == PuzzleSideData.Interlocking.protrusions_突起;
 
             default:
-                MessageTextController.SetMessage("與周圍拼圖衝突，拼圖不可放置");
                 return false;
         }
     }
