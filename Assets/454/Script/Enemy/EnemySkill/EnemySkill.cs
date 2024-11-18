@@ -7,8 +7,6 @@ public class EnemySkill : MonoBehaviour
 {
     public BattleGameController battleGameController;
 
-    public bool isBreak;
-
     protected virtual void Awake()
     {
         if (battleGameController == null) //獲取場景上的BattleGameController

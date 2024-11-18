@@ -46,7 +46,7 @@ public class BoardController : MonoBehaviour
 
             }
         }
-
+        // 依照Puzzles的資料，將拼圖Prefab生成到盤面上，
         for (int i = 0; i < 6; i++)
         {
             for (int j = 0; j < 7; j++)

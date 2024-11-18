@@ -10,9 +10,8 @@ public class PuzzleLibrary : MonoBehaviour
 
     public List<PuzzleData> puzzleLibrary; //拼圖庫
     public PuzzleData[] puzzlePreparations = new PuzzleData[6]; //拼圖備戰區
-    //public Partner[] partner = new Partner[4]; //要戰鬥的夥伴
 
-    private GameObject[] puzzlePreparationsGameObject = new GameObject[6]; //拼圖備戰區物件位置，用來對生成時的位置的
+    private GameObject[] puzzlePreparationsGameObject = new GameObject[6]; //拼圖備戰區物件，用來對生成時的位置的
 
     private void Awake()
     {
@@ -21,8 +20,10 @@ public class PuzzleLibrary : MonoBehaviour
             battleGameController = FindObjectOfType<BattleGameController>();
         }
 
+
         Load_puzzlePreparationsTransform();  //獲取備戰區位置
-        Array.Clear(puzzlePreparations, 0, 6); //獲取備戰區位置
+        Array.Clear(puzzlePreparations, 0, puzzlePreparations.Length); //清空備戰區內拼圖資料
+
         battleGameController.Event_BattleStart += this.Load_PuzzleLibrary_ForParther;
         battleGameController.Event_BattleStart += this.Load_All_Preparation;
         battleGameController.Event_RemovePlacedPuzzle += this.RemovePlacedPuzzle;
@@ -39,8 +40,9 @@ public class PuzzleLibrary : MonoBehaviour
     /// </summary>
     public void Load_puzzlePreparationsTransform() //獲取備戰區位置
     {
-        //puzzlePreparationsTransform[0] = puzzlePreparations.transform.GetChild(0).gameObject.transform.position;
-        for (int i = 0; i < 6; i++)
+        int PreLength = puzzlePreparationsGameObject.Length;
+
+        for (int i = 0; i < PreLength; i++)
         {
             puzzlePreparationsGameObject[i] = puzzlePreparationsAllGameObject.transform.GetChild(i).gameObject;
             puzzlePreparationsGameObject[i].GetComponent<PuzzlePreparation>().PreparationNumber = i;
@@ -103,7 +105,9 @@ public class PuzzleLibrary : MonoBehaviour
     /// </summary>
     public void Load_All_Preparation(object sender, EventArgs e)
     {
-        for (int i = 0; i < 6; i++)
+        int PreLength = puzzlePreparationsGameObject.Length; //備戰區長度
+
+        for (int i = 0; i < PreLength; i++)
         {
             if (battleGameController.RandowOrForParnent == true)
             {
@@ -140,8 +144,10 @@ public class PuzzleLibrary : MonoBehaviour
     /// </summary>
     public void UpdatePreparationPuzzle(object sender, EventArgs e)
     {
+        int PreLength = puzzlePreparationsGameObject.Length; //備戰區長度
+
         //清空舊拼圖
-        for (int i = 0; i < 6; i++)
+        for (int i = 0; i < PreLength; i++)
         {
             for (int childCount = 0; childCount < puzzlePreparationsGameObject[i].transform.GetChild(1).childCount; childCount++)
             {
@@ -149,7 +155,7 @@ public class PuzzleLibrary : MonoBehaviour
             }
         }
 
-        for (int i = 0; i < 6; i++)
+        for (int i = 0; i < PreLength; i++)
         {
             if (puzzlePreparations[i] == null)
                 Debug.Log("errortest_puzzlePreparations" + i);
@@ -186,9 +192,6 @@ public class PuzzleLibrary : MonoBehaviour
             battleGameController.isSpecifyPuzzle = false;
             ResetAllPreparationButtonColor(); //重製所有備戰區按鈕顏色為預設
         }
-
-
-
     }
 
     public void ResetAllPreparationButtonColor()  //重製所有備戰區按鈕顏色為預設
@@ -204,7 +207,7 @@ public class PuzzleLibrary : MonoBehaviour
     }
 
 
-    public void TestReloadPreparation()
+    /*public void TestReloadPreparation()
     {
         if (Input.GetKeyDown(KeyCode.S))
         {
@@ -215,5 +218,5 @@ public class PuzzleLibrary : MonoBehaviour
     private void Update()
     {
         TestReloadPreparation();
-    }
+    }*/
 }

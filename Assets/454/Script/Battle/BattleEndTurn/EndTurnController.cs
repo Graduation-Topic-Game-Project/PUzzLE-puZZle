@@ -8,7 +8,7 @@ public class EndTurnController : MonoBehaviour
     private BattleGameController battleGameController;
     private BoardController boardController;
 
-    public static event Action<int,int,int,int> Event_Damage; //µ¹¤©¶Ë®`
+    public static event Action<int,int,int,int> Event_Damage; //µ¹¤©¼Ä¤è¶Ë®`
 
     private void Awake()
     {

@@ -12,11 +12,11 @@ public class HpBarController : MonoBehaviour
 
     void Start()
     {
-        Player.ResetPlayer();
+        PlayerBattleData.ResetPlayer();
     }
     private void Update()
     {
-        Hp_value.GetComponent<Image>().fillAmount = ((float)Player.Hp / Player.MaxHP);
+        Hp_value.GetComponent<Image>().fillAmount = ((float)PlayerBattleData.Hp / PlayerBattleData.MaxHP);
         //Debug.Log((float)Player.Hp / Player.MaxHP);
     }
 }

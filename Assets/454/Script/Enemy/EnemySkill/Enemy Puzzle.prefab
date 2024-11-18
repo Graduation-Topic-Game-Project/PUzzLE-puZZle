@@ -32,10 +32,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 3712360506886593263}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 72, y: 72}
+  m_SizeDelta: {x: -84, y: -84}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4490101182632762403
 CanvasRenderer:
@@ -140,7 +140,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 9e4fbe2490ac85c49b30c52f0288cab2, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 53e444b32fbfe1e4698e348817147433, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -237,7 +237,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 72}
-  m_SizeDelta: {x: -96, y: -96}
+  m_SizeDelta: {x: -74, y: -74}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &715226804733468910
 CanvasRenderer:
@@ -312,7 +312,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 72}
-  m_SizeDelta: {x: -96, y: -96}
+  m_SizeDelta: {x: -74, y: -74}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8874508554388799834
 CanvasRenderer:
@@ -387,7 +387,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 72}
-  m_SizeDelta: {x: -96, y: -96}
+  m_SizeDelta: {x: -74, y: -74}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5184735835790265260
 CanvasRenderer:
@@ -482,7 +482,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac0ee8be1687e0e4b89ee4716de4e1cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  battleGameController: {fileID: 0}
   enemyPuzzle: {fileID: 3729083136551933159}
+  isBreak: 0
 --- !u!114 &3729083136551933159
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -505,7 +507,7 @@ MonoBehaviour:
       _interlocking: 2
     _right:
       _sideEssence: 0
-      _interlocking: 2
+      _interlocking: 1
     _left:
       _sideEssence: 0
       _interlocking: 2
@@ -522,11 +524,11 @@ MonoBehaviour:
   - {fileID: 21300000, guid: fbb09b4976796d1408cb39686b314f49, type: 3}
   - {fileID: 21300000, guid: bc96cbf227813cb439de55f4691af766, type: 3}
   PuzzleSideEssenceImage:
-  - {fileID: 21300000, guid: 23f3618149ccb1d45a766ed4787c80a6, type: 3}
-  - {fileID: 21300000, guid: 5a0bbc6309776584281dd7802e0cffb9, type: 3}
-  - {fileID: 21300000, guid: 864b8b042563a114d8f9da3a86af24d2, type: 3}
-  - {fileID: 21300000, guid: cdd1fac0d6ef77247b6c5a313e987792, type: 3}
-  - {fileID: 21300000, guid: fc758e38783cf2c45ab916e58c6faaef, type: 3}
+  - {fileID: 21300000, guid: 89a5015614bec18428ecf9c6b62656a1, type: 3}
+  - {fileID: 21300000, guid: 07560ef3129c8e74e99e5b25190f7140, type: 3}
+  - {fileID: 21300000, guid: 31a5d09e2924a614e935309f0d82af12, type: 3}
+  - {fileID: 21300000, guid: e4f31516fbeeb2b45a69f60f16f496dd, type: 3}
+  - {fileID: 21300000, guid: e82ec07b87e40314abdd95042a2c3959, type: 3}
   - {fileID: 21300000, guid: bac2e37993faf2a4a93fa419e24bc16e, type: 3}
   NoneSprite: {fileID: 21300000, guid: bac2e37993faf2a4a93fa419e24bc16e, type: 3}
 --- !u!1 &6236970894564151124
@@ -688,7 +690,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 72}
-  m_SizeDelta: {x: -96, y: -96}
+  m_SizeDelta: {x: -74, y: -74}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5413956566277092957
 CanvasRenderer:
