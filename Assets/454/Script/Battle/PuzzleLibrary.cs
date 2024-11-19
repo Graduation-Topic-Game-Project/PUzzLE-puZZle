@@ -6,7 +6,7 @@ using System;
 public class PuzzleLibrary : MonoBehaviour
 {
     private BattleGameController battleGameController;
-    private PuzzleSpecifyController puzzleSpecifyController;
+    private PuzzleMasterController puzzleMasterController;
     public GameObject puzzlePreparationsAllGameObject; //場景上的拼圖備戰區父物件
 
     public List<PuzzleData> puzzleLibrary; //拼圖庫
@@ -20,9 +20,9 @@ public class PuzzleLibrary : MonoBehaviour
         {
             battleGameController = FindObjectOfType<BattleGameController>();
         }
-        if (puzzleSpecifyController == null) //獲取場景上的PuzzleSpecifyController
+        if (puzzleMasterController == null) //獲取場景上的PuzzleSpecifyController
         {
-            puzzleSpecifyController = FindObjectOfType<PuzzleSpecifyController>();
+            puzzleMasterController = FindObjectOfType<PuzzleMasterController>();
         }
 
 
@@ -31,7 +31,7 @@ public class PuzzleLibrary : MonoBehaviour
 
         battleGameController.Event_BattleStart += this.Load_PuzzleLibrary_ForParther;
         battleGameController.Event_BattleStart += this.Load_All_Preparation;
-        puzzleSpecifyController.Event_RemovePlacedPuzzle += this.RemovePlacedPuzzle;
+        puzzleMasterController.Event_RemovePlacedPuzzle += this.RemovePlacedPuzzle;
         battleGameController.Event_PuzzlePlaceCompleted += this.ResetAllPreparationButtonColor;
 
         for (int i = 0; i < puzzlePreparationsGameObject.Length; i++) //訂閱所有備戰區按鈕事件
@@ -114,7 +114,7 @@ public class PuzzleLibrary : MonoBehaviour
 
         for (int i = 0; i < PreLength; i++)
         {
-            if (puzzleSpecifyController.RandowOrForParnent == true)
+            if (puzzleMasterController.RandowOrForParnent == true)
             {
                 Load_Preparation_ForParner(i);
             }
@@ -133,7 +133,7 @@ public class PuzzleLibrary : MonoBehaviour
     public void RemovePlacedPuzzle(int number)
     {
         //Debug.Log("RemovePlacedPuzzle");
-        if (puzzleSpecifyController.RandowOrForParnent == true)
+        if (puzzleMasterController.RandowOrForParnent == true)
         {
             Load_Preparation_ForParner(number);
         }
@@ -171,7 +171,7 @@ public class PuzzleLibrary : MonoBehaviour
 
             //Puzzle nowPuzzle = battleGameController.puzzlePrefab;
 
-            Puzzle nowPuzzle = Instantiate(puzzleSpecifyController.puzzlePrefab, puzzlePreparationsGameObject[i].transform.position, transform.rotation, puzzlePreparationsGameObject[i].transform.GetChild(1));
+            Puzzle nowPuzzle = Instantiate(puzzleMasterController.puzzlePrefab, puzzlePreparationsGameObject[i].transform.position, transform.rotation, puzzlePreparationsGameObject[i].transform.GetChild(1));
             nowPuzzle.puzzleData = puzzlePreparations[i];
             nowPuzzle.ReUpdate_PuzzleEssence_Image();
         }
@@ -183,18 +183,18 @@ public class PuzzleLibrary : MonoBehaviour
     /// <param name="number">第幾個備戰區格子</param>
     public void SpecifyPuzzle(int number)
     {
-        if (puzzleSpecifyController.specifyPuzzleNumber != number)
+        if (puzzleMasterController.specifyPuzzleNumber != number)
         {
             ResetAllPreparationButtonColor(); //重製所有備戰區按鈕顏色為預設
-            puzzleSpecifyController.specifyPuzzle = puzzlePreparations[number];  //更改選擇的備戰區拼圖
-            puzzleSpecifyController.specifyPuzzleNumber = number;  // 更改選擇的備戰區編號(第幾格)
-            puzzleSpecifyController.isSpecifyPuzzle = true;
+            puzzleMasterController.specifyPuzzle = puzzlePreparations[number];  //更改選擇的備戰區拼圖
+            puzzleMasterController.specifyPuzzleNumber = number;  // 更改選擇的備戰區編號(第幾格)
+            puzzleMasterController.isSpecifyPuzzle = true;
             puzzlePreparationsGameObject[number].GetComponent<PuzzlePreparation>().SetColorForSpecifying(); //將點擊按鈕顏色為ClickColor
         }
         else
         {
-            puzzleSpecifyController.specifyPuzzleNumber = -1;
-            puzzleSpecifyController.isSpecifyPuzzle = false;
+            puzzleMasterController.specifyPuzzleNumber = -1;
+            puzzleMasterController.isSpecifyPuzzle = false;
             ResetAllPreparationButtonColor(); //重製所有備戰區按鈕顏色為預設
         }
     }

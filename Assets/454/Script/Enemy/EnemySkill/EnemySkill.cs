@@ -41,4 +41,12 @@ public class EnemySkill : MonoBehaviour
         Debug.Log("123");
     }
 
+    /// <summary>
+    /// 產生技能(回合開始時觸發)
+    /// </summary>
+    protected virtual void GenerateSkills()
+    {
+
+    }
+
 }

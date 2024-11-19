@@ -1620,7 +1620,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: be99e2165509cfb4eb94ab55a6dadf21, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7a6d154f530332d49adb90afa5225c46, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2930,6 +2930,7 @@ GameObject:
   - component: {fileID: 683618072}
   - component: {fileID: 683618073}
   - component: {fileID: 683618074}
+  - component: {fileID: 683618076}
   m_Layer: 0
   m_Name: BattleGameController
   m_TagString: Untagged
@@ -3080,7 +3081,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   battleGameController: {fileID: 683618066}
-  puzzleSpecifyController: {fileID: 0}
+  puzzleMasterController: {fileID: 0}
   puzzlesGrids: {fileID: 191730163}
   puzzleInstanceGameObject: {fileID: 429514139}
 --- !u!114 &683618070
@@ -3163,6 +3164,20 @@ MonoBehaviour:
   specifyPuzzleNumber: -1
   isSpecifyPuzzle: 0
   RandowOrForParnent: 0
+--- !u!114 &683618076
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 683618065}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed6550f8e0b1cbd4bad8823382bd43b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  battleGameController: {fileID: 0}
+  enemySkills: []
 --- !u!224 &706538720 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4880572691354605769, guid: 0715369398bb9ff46b2e8ed8e3cc2bea, type: 3}
@@ -10081,6 +10096,10 @@ PrefabInstance:
     - target: {fileID: 4880572691354605769, guid: 0715369398bb9ff46b2e8ed8e3cc2bea, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7504747802191047721, guid: 0715369398bb9ff46b2e8ed8e3cc2bea, type: 3}
+      propertyPath: enemySkillsPrefab.Array.size
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

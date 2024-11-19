@@ -19,10 +19,6 @@ public class MessageTextController : MonoBehaviour
 
         messageText = this.GetComponent<TextMeshProUGUI>();
     }
-    void Start()
-    {
-        SetMessage("Game Start");
-    }
 
     public void SetColorAlpha(float _alpha) //設置文字透明度
     {

@@ -18,7 +18,7 @@ public class Enemy : MonoBehaviour
     public int _enemyAtk;
     public int _enemyHp;
 
-    public List<GameObject> enemySkills;
+    public List<GameObject> enemySkillsPrefab;
 
     protected void Awake()
     {

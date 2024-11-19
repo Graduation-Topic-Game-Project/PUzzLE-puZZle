@@ -27,16 +27,7 @@ public class CheckPuzzleIsCanBePlace : MonoBehaviour
     /// <returns></returns>
     public bool Check(int i, int j, PuzzleData _thisPuzzle)
     {
-        /*if (!CheckDirection(i, j, _thisPuzzle, Direction.Up))
-            return false;
-        if (!CheckDirection(i, j, _thisPuzzle, Direction.Down))
-            return false;
-        if (!CheckDirection(i, j, _thisPuzzle, Direction.Right))
-            return false;
-        if (!CheckDirection(i, j, _thisPuzzle, Direction.Left))
-            return false;*/
-
-        if (boardController.puzzles[i, j] != null)  //檢查該位置是否有拼圖
+        if (boardController.board[i, j].puzzle != null)  //檢查該位置是否有拼圖
         {
             MessageTextController.SetMessage("那裏已經有拼圖了!");
             return false;
@@ -63,12 +54,12 @@ public class CheckPuzzleIsCanBePlace : MonoBehaviour
         int newI = i + di, newJ = j + dj;
 
         // 檢查邊界
-        if (newI < 0 || newI >= boardController.puzzles.GetLength(0) ||
-            newJ < 0 || newJ >= boardController.puzzles.GetLength(1))
+        if (newI < 0 || newI >= boardController.board.GetLength(0) ||
+            newJ < 0 || newJ >= boardController.board.GetLength(1))
             return true;
 
         // 檢查是否存在拼圖
-        PuzzleData adjacentPuzzle = boardController.puzzles[newI, newJ];
+        PuzzleData adjacentPuzzle = boardController.board[newI, newJ].puzzle;
         if (adjacentPuzzle == null)
             return true;
 

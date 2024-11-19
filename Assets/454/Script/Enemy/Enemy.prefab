@@ -172,8 +172,7 @@ MonoBehaviour:
   EnemyImage: {fileID: 21300000, guid: 3c8a056bf74f8e947ac7a55fc4123904, type: 3}
   _enemyAtk: 0
   _enemyHp: 0
-  enemySkills:
-  - {fileID: 0}
+  enemySkillsPrefab: []
 --- !u!114 &8164249773128086196
 MonoBehaviour:
   m_ObjectHideFlags: 0

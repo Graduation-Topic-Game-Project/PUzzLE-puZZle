@@ -39,9 +39,9 @@ public class SettlementBoardController : MonoBehaviour
         {
             for (int j = 0; j < 7; j++)
             {
-                if (boardController.puzzles[i, j] != null)
+                if (boardController.board[i, j].puzzle != null)
                 {
-                    PuzzleData puzzle = boardController.puzzles[i, j];
+                    PuzzleData puzzle = boardController.board[i, j].puzzle;
                     switch (puzzle.Essence)
                     {
                         case EssenceEnum.Essence.Strengthe_¤O¶q:

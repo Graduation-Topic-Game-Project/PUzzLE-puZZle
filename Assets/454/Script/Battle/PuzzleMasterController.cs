@@ -6,7 +6,7 @@ using System;
 /// <summary>
 /// 選擇，放置，生成拼圖的總控制器
 /// </summary>
-public class PuzzleSpecifyController : MonoBehaviour
+public class PuzzleMasterController : MonoBehaviour
 {
     BattleGameController battleGameController;
 
@@ -16,9 +16,22 @@ public class PuzzleSpecifyController : MonoBehaviour
     public PuzzleData specifyPuzzle; //選擇的備戰區拼圖
     public int specifyPuzzleNumber = -1; //選擇的備戰區編號(第幾格)
     public bool isSpecifyPuzzle = false; //是否選擇備戰區拼圖
+
     [Header("隨機生成 or 從夥伴拼圖庫生成")]
     [Tooltip("(false:隨機生成 true:夥伴拼圖庫生成)")]
     public bool RandowOrForParnent = false; //隨機生成 or 從夥伴拼圖庫生成(默認隨機)
+
+    static int _boardX = 6;
+    static int _boardY = 7;
+
+    /// <summary>
+    /// 盤面X的最大值(從上往下有幾橫行)
+    /// </summary>
+    public static int BoardX { get => _boardX; }
+    /// <summary>
+    /// 盤面Y的最大值(從左往右有幾直列)
+    /// </summary>
+    public static int BoardY { get => _boardY; }
 
     public event Action<int> Event_RemovePlacedPuzzle; //移除已放置完畢的備戰區拼圖
     private void Awake()

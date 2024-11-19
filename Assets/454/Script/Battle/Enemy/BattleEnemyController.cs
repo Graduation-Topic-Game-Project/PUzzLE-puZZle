@@ -70,10 +70,10 @@ public class BattleEnemyController : MonoBehaviour
         }
 
         EnemiesNumber = enemiesNum;
-        InstantiateEnemies(enemiesNum);
+        InstantiateEnemies(enemiesNum); // 生成敵人Prefab
     }
     /// <summary>
-    /// 
+    /// 生成敵人Prefab
     /// </summary>
     /// <param name="enemiesNum">敵人數量</param>
     void InstantiateEnemies(int enemiesNum)

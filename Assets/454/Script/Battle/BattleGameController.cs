@@ -9,13 +9,11 @@ using System;
 public class BattleGameController : MonoBehaviour
 {
     public event EventHandler Event_BattleStart;
+    public event EventHandler Event_StartTurn; //回合開始
     public event EventHandler Event_PuzzlePlaceCompleted; //拼圖放置完成
     public event EventHandler Event_SettlementBoard; //結算盤面
     public event EventHandler Event_SettlementEnemySkill; //結算敵人技能
     public event EventHandler Event_EndTurn; //結束回合
-
-
-
 
     [Header("關卡資訊")]
     public BattleInformation battleInformation;
@@ -30,7 +28,15 @@ public class BattleGameController : MonoBehaviour
     private void Start()
     {
         Event_BattleStart?.Invoke(this, EventArgs.Empty);
+        CallEvent_StartTurn(); //回合開始事件
+    }
 
+    /// <summary>
+    /// 發送回合開始事件
+    /// </summary>
+    public void CallEvent_StartTurn()
+    {
+        Event_StartTurn?.Invoke(this, EventArgs.Empty);
     }
 
     /// <summary>

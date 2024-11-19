@@ -27,6 +27,7 @@ public class EndTurnButton : MonoBehaviour
         battleGameController.CallEvent_SettlementBoard(); //結算盤面
         battleGameController.CallEvent_SettlementEnemySkill(); //結算敵人技能
         battleGameController.CallEvent_EndTurn(); //結束回合
+        battleGameController.CallEvent_StartTurn(); //回合開始
         //Event_EndTurn?.Invoke(this, EventArgs.Empty);
     }
 }

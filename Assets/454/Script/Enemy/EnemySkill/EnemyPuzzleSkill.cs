@@ -7,6 +7,11 @@ public class EnemyPuzzleSkill : EnemySkill
 {
     public EnemyPuzzle enemyPuzzle;
     public bool isBreak;
+    int _minX = 0;
+    int _maxX = 5;
+    int _minY = 0;
+    int _maxY = 6;
+
 
     protected override void Awake()
     {
@@ -35,7 +40,7 @@ public class EnemyPuzzleSkill : EnemySkill
             }
         }*/
 
-        if(isBreak == false)
+        if (isBreak == false)
         {
             Debug.Log("未被破壞，對我方隊伍造成傷害");
         }
@@ -43,6 +48,15 @@ public class EnemyPuzzleSkill : EnemySkill
         {
             Debug.Log("已被破壞，未造成傷害");
         }
+    }
 
+    /// <summary>
+    /// 產生技能
+    /// </summary>
+    protected override void GenerateSkills()
+    {
+        int x = UnityEngine.Random.Range(_minX, _maxX);
+        int y = UnityEngine.Random.Range(_minY, _maxY);
+        
     }
 }
