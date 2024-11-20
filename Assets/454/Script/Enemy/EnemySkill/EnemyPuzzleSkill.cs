@@ -5,6 +5,9 @@ using System;
 
 public class EnemyPuzzleSkill : EnemySkill
 {
+    BoardController boardController;
+
+    protected override int damage { get; } = 10;
     public EnemyPuzzle enemyPuzzle;
     public bool isBreak;
     int _minX = 0;
@@ -12,37 +15,31 @@ public class EnemyPuzzleSkill : EnemySkill
     int _minY = 0;
     int _maxY = 6;
 
+    //event EventHandler Event_PullEnemyPuzzle;
 
-    protected override void Awake()
+
+    protected void Awake()
     {
-        base.Awake();
+        if (boardController == null) //獲取場景上的BoardController
+        {
+            boardController = FindObjectOfType<BoardController>();
+        }
+        //base.Awake();
         if (enemyPuzzle == null)
             enemyPuzzle = this.gameObject.transform.GetComponent<EnemyPuzzle>();
 
         isBreak = false;
     }
-    protected override void OnDestroy()  //物件銷毀時取消訂閱
-    {
-        base.OnDestroy();
-    }
 
     /// <summary>
     /// 此處寫結算事件
     /// </summary>
-    protected override void SettlementSkill()
+    public override void SettlementSkill()
     {
-        /*if(enemyPuzzle.puzzleData != null)
-        {
-            if (enemyPuzzle.puzzleData.puzzlePosition == (-1, -1))
-            {
-                Debug.Log("於盤面外，未觸發結算事件");
-                return;
-            }
-        }*/
-
         if (isBreak == false)
         {
             Debug.Log("未被破壞，對我方隊伍造成傷害");
+            PlayerBattleData.Damage(damage);
         }
         else
         {
@@ -51,12 +48,40 @@ public class EnemyPuzzleSkill : EnemySkill
     }
 
     /// <summary>
-    /// 產生技能
+    /// 實例化技能
     /// </summary>
-    protected override void GenerateSkills()
+    public override void InstantiateSkill()
     {
+        if (boardController == null) //獲取場景上的BoardController
+        {
+            boardController = FindObjectOfType<BoardController>();
+        }
+
         int x = UnityEngine.Random.Range(_minX, _maxX);
         int y = UnityEngine.Random.Range(_minY, _maxY);
-        
+
+
+        if (boardController.board[x, y].Puzzle == null)
+        {
+            boardController.board[x, y].Puzzle = enemyPuzzle.puzzleData; //更新PuzzleData內的拼圖座標
+            boardController.board[x, y].Puzzle.puzzlePosition = (x, y);
+        }
+        else
+            Debug.Log("錯誤，該地方已有拼圖，無法放置敵方拼圖技能");
+
+        boardController.UpdatePuzzleBoard();
+    }
+
+    public void CheckIsBreak() //檢查是否被破壞
+    {
+        if (isBreak == false)
+        {
+            if (CheckEnemyPuzzleAround.Check(enemyPuzzle.puzzleData))
+            {
+                isBreak = true;
+                MessageTextController.SetMessage("敵方拼圖已被破壞");
+                Debug.Log("敵方拼圖已被破壞");
+            }
+        }
     }
 }

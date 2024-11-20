@@ -15,7 +15,7 @@ public class Enemy : MonoBehaviour
     [Header("¼Ä¤è¹Ï¤ù")]
     public Sprite EnemyImage;
 
-    public int _enemyAtk;
+    //public int _enemyAtk;
     public int _enemyHp;
 
     public List<GameObject> enemySkillsPrefab;

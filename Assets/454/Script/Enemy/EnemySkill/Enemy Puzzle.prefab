@@ -482,7 +482,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac0ee8be1687e0e4b89ee4716de4e1cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  battleGameController: {fileID: 0}
   enemyPuzzle: {fileID: 3729083136551933159}
   isBreak: 0
 --- !u!114 &3729083136551933159
@@ -499,6 +498,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   puzzleData:
     _essence: 0
+    _puzzleType: 1
     _up:
       _sideEssence: 0
       _interlocking: 2

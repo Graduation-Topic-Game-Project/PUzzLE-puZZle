@@ -111,7 +111,7 @@ PrefabInstance:
     - target: {fileID: 7504747802191047721, guid: 0715369398bb9ff46b2e8ed8e3cc2bea, type: 3}
       propertyPath: enemySkillsPrefab.Array.data[0]
       value: 
-      objectReference: {fileID: 5543932324951897785, guid: 449c1dd25e8968840836abcfda9a9e63, type: 3}
+      objectReference: {fileID: 8399906006465747466, guid: 6a7e0ba4cdd740f468ef8a6143167bb1, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

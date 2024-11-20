@@ -83,25 +83,29 @@ public class PuzzleData
 {
     [Header("拼圖的本質屬性"), Tooltip("拼圖的本質屬性")]
     public EssenceEnum.Essence _essence = EssenceEnum.Essence.Strengthe_力量;
+    [Header("拼圖類型"), Tooltip("拼圖類型"), SerializeField]
+    private PuzzleType _puzzleType;
     [SerializeField]
     private PuzzleSideData _up, _down, _right, _left = new();
     public (int, int) puzzlePosition = (-1, -1);
 
+    /// <summary>拼圖屬性</summary>
     public EssenceEnum.Essence Essence { get => _essence; set { _essence = value; } }
 
-    public PuzzleSideData UpSide_ { get { return _up; } }
-    public PuzzleSideData DownSide_ { get { return _down; } }
-    public PuzzleSideData RightSide_ { get { return _right; } }
-    public PuzzleSideData LeftSide_ { get { return _left; } }
+    /// <summary>拼圖類型</summary>
+    public PuzzleType Type { get => _puzzleType; set { _puzzleType = value; } }
 
-    /*public enum PuzzleEssence
+    public PuzzleSideData UpSide_ { get { return _up; } set { _up = value; } }
+    public PuzzleSideData DownSide_ { get { return _down; } set { _down = value; } }
+    public PuzzleSideData RightSide_ { get { return _right; } set { _right = value; } }
+    public PuzzleSideData LeftSide_ { get { return _left; } set { _left = value; } }
+
+    public enum PuzzleType
     {
-        None_無屬性 = 0,
-        Strengthe_力量 = 1, //力量
-        Wisdom_智慧 = 2,  //智慧
-        Belief_信仰 = 3, //信仰
-        Soul_靈魂 = 4, //靈魂
-    }*/
+        Puzzle_普通拼圖 = 0, //普通拼圖
+        EnemyPuzzle_敵方拼圖 = 1, //敵方拼圖
+        PartnerPuzzle_夥伴拼圖 = 2, //夥伴拼圖
+    }
 
     public void RandomlyGeneratedPuzzleData() //隨機拼圖
     {

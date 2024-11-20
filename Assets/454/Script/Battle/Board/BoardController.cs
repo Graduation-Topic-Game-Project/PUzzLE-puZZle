@@ -12,9 +12,11 @@ public class BoardController : MonoBehaviour
     public Board[,] board = new Board[PuzzleMasterController.BoardX, PuzzleMasterController.BoardY]; //盤面[6,7]
     public GameObject puzzlesGrids; //場景上的盤面格子父物件
     public GameObject[,] puzzlesGridGameObject = new GameObject[PuzzleMasterController.BoardX, PuzzleMasterController.BoardY]; //拼圖盤面框物件，用來對生成時的位置的
-    public GameObject puzzleInstanceGameObject;
+    public GameObject puzzleSideInstanceGameObject; //拼圖卡榫生成位置
 
     public event Func<int, int, PuzzleData, bool> Event_CheckPuzzleIsCanBePlace; //檢查拼圖是否可被放置
+    //public static event Func<PuzzleData, bool> Event_CheckEnemyPuzzleAround; //檢查敵方拼圖是否包圍
+
 
     private void Awake()
     {
@@ -27,7 +29,6 @@ public class BoardController : MonoBehaviour
             puzzleMasterController = FindObjectOfType<PuzzleMasterController>();
         }
 
-
         for (int i = 0; i < 6; i++)
         {
             for (int j = 0; j < 7; j++)
@@ -38,7 +39,6 @@ public class BoardController : MonoBehaviour
 
         battleGameController.Event_BattleStart += this.Load_puzzlesGrids; //將場景的puzzlesGrid存進2維陣列 && 訂閱ClickPuzzleGridBotton事件
         battleGameController.Event_EndTurn += this.ClearBoard; //回合結束時清空盤面
-
     }
 
     public void UpdatePuzzleBoard() //更新顯示盤面上拼圖
@@ -51,12 +51,10 @@ public class BoardController : MonoBehaviour
                 for (int childCount = 0; childCount < puzzlesGridGameObject[i, j].transform.GetChild(1).childCount; childCount++)
                 {
                     Destroy(puzzlesGridGameObject[i, j].transform.GetChild(1).GetChild(childCount).gameObject);
-
                 }
-                for (int childCount = 0; childCount < puzzleInstanceGameObject.transform.childCount; childCount++)
+                for (int childCount = 0; childCount < puzzleSideInstanceGameObject.transform.childCount; childCount++)
                 {
-                    Destroy(puzzleInstanceGameObject.transform.GetChild(childCount).gameObject);
-
+                    Destroy(puzzleSideInstanceGameObject.transform.GetChild(childCount).gameObject);
                 }
             }
         }
@@ -65,23 +63,55 @@ public class BoardController : MonoBehaviour
         {
             for (int j = 0; j < 7; j++)
             {
-                if (board[i, j].puzzle != null)
+                if (board[i, j].Puzzle != null)
                 {
-                    //                                                                                                                                    //拼圖物件生成的資料夾
-                    Puzzle nowPuzzle = Instantiate(puzzleMasterController.puzzlePrefab, puzzlesGridGameObject[i, j].transform.position, transform.rotation, puzzlesGridGameObject[i, j].transform.GetChild(1));
-                    nowPuzzle.puzzleData = board[i, j].puzzle;
-                    nowPuzzle.ReUpdate_PuzzleEssence_Image();
-
-
-                    Puzzle nowPuzzle2 = Instantiate(puzzleMasterController.puzzlePrefab, puzzlesGridGameObject[i, j].transform.position, transform.rotation, puzzleInstanceGameObject.transform);
-                    nowPuzzle2.puzzleData = board[i, j].puzzle;
-                    nowPuzzle2.ReUpdate_PuzzleEssence_Image();
-                    nowPuzzle2.Hide_BgImage_and_MidImage();
+                    switch (board[i, j].Puzzle.Type)
+                    {
+                        case PuzzleData.PuzzleType.Puzzle_普通拼圖: //普通拼圖，普通生成
+                            InstantiatePuzzle(i, j);
+                            break;
+                        case PuzzleData.PuzzleType.EnemyPuzzle_敵方拼圖:
+                            InstantiateEnemyPuzzle(i, j);
+                            break;
+                        default://以上都不符合走這個
+                            Debug.Log("錯誤，puzzle內有夥伴拼圖");
+                            break;
+                    }
                 }
-                /*else
-                    Debug.Log($"error_UpdatePuzzleBoard_puzzles[{i}, {j}] == null");*/
             }
         }
+    }
+
+    /// <summary>實例化拼圖(單個)</summary>
+    void InstantiatePuzzle(int i, int j)
+    {
+        //                                                                                                                                    //拼圖物件生成的資料夾
+        Puzzle nowPuzzle = Instantiate(puzzleMasterController.puzzlePrefab, puzzlesGridGameObject[i, j].transform.position, transform.rotation, puzzlesGridGameObject[i, j].transform.GetChild(1));
+        nowPuzzle.puzzleData = board[i, j].Puzzle;
+        nowPuzzle.ReUpdate_PuzzleEssence_Image();
+
+        //生成只有卡榫的拼圖Prefab在另一個
+        Puzzle nowPuzzleSide = Instantiate(puzzleMasterController.puzzlePrefab, puzzlesGridGameObject[i, j].transform.position, transform.rotation, puzzleSideInstanceGameObject.transform);
+        nowPuzzleSide.puzzleData = board[i, j].Puzzle;
+        nowPuzzleSide.ReUpdate_PuzzleEssence_Image();
+        nowPuzzleSide.Hide_BgImage_and_MidImage();
+    }
+
+    /// <summary>實例化敵方拼圖(單個)</summary>
+    void InstantiateEnemyPuzzle(int i, int j)
+    {
+        //                                                                                                                                    //拼圖物件生成的資料夾
+        EnemyPuzzle nowPuzzle = Instantiate(puzzleMasterController.EnemyPuzzlePrefab, puzzlesGridGameObject[i, j].transform.position, transform.rotation, puzzlesGridGameObject[i, j].transform.GetChild(1));
+        nowPuzzle.puzzleData = board[i, j].Puzzle;
+        nowPuzzle.ReUpdate_PuzzleEssence_Image();
+        EnemyPuzzleSkill enemyPuzzleSkill = nowPuzzle.GetComponent<EnemyPuzzleSkill>();
+        enemyPuzzleSkill.enabled = false;
+
+        //生成只有卡榫的拼圖Prefab在另一個
+        Puzzle nowPuzzleSide = Instantiate(puzzleMasterController.puzzlePrefab, puzzlesGridGameObject[i, j].transform.position, transform.rotation, puzzleSideInstanceGameObject.transform);
+        nowPuzzleSide.puzzleData = board[i, j].Puzzle;
+        nowPuzzleSide.ReUpdate_PuzzleEssence_Image();
+        nowPuzzleSide.Hide_BgImage_and_MidImage();
     }
 
     /// <summary>
@@ -117,11 +147,11 @@ public class BoardController : MonoBehaviour
     {
         if (puzzleMasterController.CanPlacePuzzle() == true) //如果目前可放置拼圖
         {
-            Debug.Log($"PlacePuzzle座標位置{i},{j}");
+
             if (Event_CheckPuzzleIsCanBePlace.Invoke(i, j, puzzleMasterController.specifyPuzzle) == true) //檢查拼圖是否可被放置
             {
-                board[i, j].puzzle = puzzleMasterController.specifyPuzzle;
-                board[i, j].puzzle.puzzlePosition = (i, j); //更新PuzzleData內的拼圖位置
+                board[i, j].Puzzle = puzzleMasterController.specifyPuzzle;
+                board[i, j].Puzzle.puzzlePosition = (i, j); //更新PuzzleData內的拼圖座標
                 MessageTextController.SetMessage("放置拼圖");
 
                 puzzleMasterController.CallEvent_RemovePlacedPuzzle(); //移除備戰區那塊已經被放上去的拼圖
@@ -131,13 +161,15 @@ public class BoardController : MonoBehaviour
             }
         }
     }
+
+
     void ClearBoard(object sender, EventArgs e)
     {
         for (int i = 0; i < 6; i++)
         {
             for (int j = 0; j < 7; j++)
             {
-                board[i, j].puzzle = null;
+                board[i, j].Puzzle = null;
             }
         }
         UpdatePuzzleBoard();

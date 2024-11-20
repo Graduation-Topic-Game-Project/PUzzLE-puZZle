@@ -37,6 +37,7 @@ public class BattleGameController : MonoBehaviour
     public void CallEvent_StartTurn()
     {
         Event_StartTurn?.Invoke(this, EventArgs.Empty);
+        //Debug.Log("新的回合開始");
     }
 
     /// <summary>

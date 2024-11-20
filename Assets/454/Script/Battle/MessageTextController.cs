@@ -32,7 +32,7 @@ public class MessageTextController : MonoBehaviour
         @this.SetColorAlpha(0f);
         @this.NowSetMessange = @this.StartCoroutine(@this.SetMessage3s(messange));
 
-        Debug.Log(messange);
+        //Debug.Log(messange);
     }
 
 

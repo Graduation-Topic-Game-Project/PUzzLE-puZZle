@@ -10,7 +10,6 @@ public class FairyA : Enemy
         base.Awake();
         enemyName = "§¯ºë";
         _enemyHp = 20;
-        _enemyAtk = 10;
     }
 
     protected override void Damage(int R, int B, int Y, int P)

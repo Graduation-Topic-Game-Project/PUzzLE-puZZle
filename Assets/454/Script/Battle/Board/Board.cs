@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class Board
 {
-    public PuzzleData puzzle;
+    private PuzzleData puzzle;
+
+    public PuzzleData Puzzle { get => puzzle; set { puzzle = value; } }
 
     public Board()
     {
-        puzzle = null;
+        //puzzle = null;
     }
 }

@@ -49,18 +49,18 @@ public class BattleEnemyController : MonoBehaviour
         switch (enemiesNum)
         {
             case 1:
-                Debug.Log("1位敵人");
+                //Debug.Log("1位敵人");
                 //NowEnemyPosition = Instantiate(EnemyPositionPrefab[0], transform.position, transform.rotation, EnemyPlane.transform);
                 NowEnemyPosition = EnemyPositionGameObject[0];
                 NowEnemyPosition.SetActive(true);
                 break;
             case 2:
-                Debug.Log("2位敵人");
+                //Debug.Log("2位敵人");
                 NowEnemyPosition = EnemyPositionGameObject[1];
                 NowEnemyPosition.SetActive(true);
                 break;
             case 3:
-                Debug.Log("3位敵人");
+                //Debug.Log("3位敵人");
                 NowEnemyPosition = EnemyPositionGameObject[2];
                 NowEnemyPosition.SetActive(true);
                 break;

@@ -11,6 +11,7 @@ public class PuzzleMasterController : MonoBehaviour
     BattleGameController battleGameController;
 
     public Puzzle puzzlePrefab; //預設拼圖Prefab
+    public EnemyPuzzle EnemyPuzzlePrefab; //敵方拼圖Prefab
 
     [Header("當前選擇的拼圖")]
     public PuzzleData specifyPuzzle; //選擇的備戰區拼圖

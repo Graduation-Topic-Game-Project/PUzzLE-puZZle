@@ -5,30 +5,12 @@ using System;
 
 public class EnemySkill : MonoBehaviour
 {
-    public BattleGameController battleGameController;
-
-    protected virtual void Awake()
-    {
-        if (battleGameController == null) //獲取場景上的BattleGameController
-        {
-            battleGameController = FindObjectOfType<BattleGameController>();
-        }
-
-        battleGameController.Event_SettlementEnemySkill += this.Settlement; //回合結束時觸發結算事件
-    }
-
-    protected virtual void OnDestroy()  //物件銷毀時取消訂閱
-    {
-        if (battleGameController != null)
-        {
-            battleGameController.Event_SettlementEnemySkill -= Settlement;
-        }
-    }
+    protected virtual int damage { get; }
 
     /// <summary>
     /// 結算
     /// </summary>
-    private void Settlement(object sender, EventArgs e) 
+    private void Settlement(object sender, EventArgs e)
     {
         SettlementSkill();
     }
@@ -36,15 +18,15 @@ public class EnemySkill : MonoBehaviour
     /// <summary>
     /// 此處寫結算事件
     /// </summary>
-    protected virtual void SettlementSkill()
+    public virtual void SettlementSkill()
     {
         Debug.Log("123");
     }
 
     /// <summary>
-    /// 產生技能(回合開始時觸發)
+    /// 實例化技能(回合開始時觸發)
     /// </summary>
-    protected virtual void GenerateSkills()
+    public virtual void InstantiateSkill()
     {
 
     }

@@ -8,13 +8,18 @@ using System;
 /// </summary>
 public class CheckPuzzleIsCanBePlace : MonoBehaviour
 {
-    public BoardController boardController;
+    BoardController boardController;
 
     (int, int)[] directionOffset = { (-1, 0), (1, 0), (0, 1), (0, -1) }; // 分別代表上、下、右、左 的方向座標差值
     enum Direction { Up, Down, Right, Left }
 
     private void Awake()
     {
+        if (boardController == null) //獲取場景上的PuzzleSpecifyController
+        {
+            boardController = FindObjectOfType<BoardController>();
+        }
+
         boardController.Event_CheckPuzzleIsCanBePlace += this.Check;
     }
 
@@ -27,7 +32,7 @@ public class CheckPuzzleIsCanBePlace : MonoBehaviour
     /// <returns></returns>
     public bool Check(int i, int j, PuzzleData _thisPuzzle)
     {
-        if (boardController.board[i, j].puzzle != null)  //檢查該位置是否有拼圖
+        if (boardController.board[i, j].Puzzle != null)  //檢查該位置是否有拼圖
         {
             MessageTextController.SetMessage("那裏已經有拼圖了!");
             return false;
@@ -59,7 +64,7 @@ public class CheckPuzzleIsCanBePlace : MonoBehaviour
             return true;
 
         // 檢查是否存在拼圖
-        PuzzleData adjacentPuzzle = boardController.board[newI, newJ].puzzle;
+        PuzzleData adjacentPuzzle = boardController.board[newI, newJ].Puzzle;
         if (adjacentPuzzle == null)
             return true;
 

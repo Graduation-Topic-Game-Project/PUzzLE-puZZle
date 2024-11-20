@@ -5,7 +5,9 @@ using System;
 
 public class CheckEnemyPuzzleAround : MonoBehaviour
 {
-    public BoardController boardController;
+    BoardController boardController;
+
+    public static event Func<PuzzleData, bool> Event_CheckEnemyPuzzleAround; //檢查敵方拼圖是否包圍
 
     private void Awake()
     {
@@ -14,7 +16,16 @@ public class CheckEnemyPuzzleAround : MonoBehaviour
             boardController = FindObjectOfType<BoardController>();
         }
 
-        EnemyPuzzle.Event_CheckEnemyPuzzleAround += Check;
+        Event_CheckEnemyPuzzleAround += IsAround; //檢查四方向是否都有連接
+    }
+
+    public static bool Check(PuzzleData puzzle)
+    {
+        if (Event_CheckEnemyPuzzleAround?.Invoke(puzzle) == true)
+        {
+            return true;
+        }
+        return false;
     }
 
     /// <summary>
@@ -22,25 +33,26 @@ public class CheckEnemyPuzzleAround : MonoBehaviour
     /// </summary>
     /// <param name="puzzleData"></param>
     /// <returns></returns>
-    private bool Check(PuzzleData puzzleData)
+    private bool IsAround(PuzzleData puzzleData)
     {
         int x; int y;
         (x, y) = puzzleData.puzzlePosition;
-        Debug.Log($"檢查EnemyPuzzle{x},{y}");
+        //Debug.Log($"檢查EnemyPuzzle{x},{y}");
 
-        if (x != 0 && boardController.board[x - 1, y].puzzle == null)
+        if (x != 0 && boardController.board[x - 1, y].Puzzle == null)
             return false; // 如果上方不為邊界且沒有拼圖，回傳flase
 
-        if (x != PuzzleMasterController.BoardX && boardController.board[x - 1, y].puzzle == null)
+        if (x != PuzzleMasterController.BoardX && boardController.board[x + 1, y].Puzzle == null)
             return false; // 如果下方不為邊界且沒有拼圖，回傳flase
 
-        if (y != 0 && boardController.board[x - 1, y].puzzle == null)
+        if (y != 0 && boardController.board[x, y + 1].Puzzle == null)
             return false; // 如果右方不為邊界且沒有拼圖，回傳flase
 
-        if (y != PuzzleMasterController.BoardY && boardController.board[x - 1, y].puzzle == null)
+        if (y != PuzzleMasterController.BoardY && boardController.board[x, y - 1].Puzzle == null)
             return false; // 如果左方不為邊界且沒有拼圖，回傳flase
-
 
         return true;
     }
+
+
 }

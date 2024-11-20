@@ -5,10 +5,19 @@ using System;
 
 public class EnemyPuzzle : Puzzle
 {
-    public static event Func<PuzzleData,bool> Event_CheckEnemyPuzzleAround; //檢查EnemyPuzzle四方向拼圖
 
-    public void CallEvent_CheckEnemyPuzzleAround()
+    public void RandomlyEnemyPuzzleData() //隨機化敵方拼圖凹凸
     {
-        Event_CheckEnemyPuzzleAround?.Invoke(this.puzzleData);
+        puzzleData.UpSide_ = new PuzzleSideData();
+        puzzleData.DownSide_ = new PuzzleSideData();
+        puzzleData.RightSide_ = new PuzzleSideData();
+        puzzleData.LeftSide_ = new PuzzleSideData();
+
+        puzzleData.UpSide_ = puzzleData.UpSide_.RandomlyGeneratedPuzzleData(puzzleData.UpSide_);
+        puzzleData.DownSide_ = puzzleData.DownSide_.RandomlyGeneratedPuzzleData(puzzleData.DownSide_);
+        puzzleData.RightSide_ = puzzleData.RightSide_.RandomlyGeneratedPuzzleData(puzzleData.RightSide_);
+        puzzleData.LeftSide_ = puzzleData.LeftSide_.RandomlyGeneratedPuzzleData(puzzleData.LeftSide_);
+
+        //puzzleSideData.Interlocking_ = (PuzzleSideData.Interlocking)UnityEngine.Random.Range(1, 3);
     }
 }
