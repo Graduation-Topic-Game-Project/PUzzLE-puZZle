@@ -5,6 +5,7 @@ using System;
 
 public class EnemySkill : MonoBehaviour
 {
+    public string SkillName;
     protected virtual int damage { get; }
 
     /// <summary>
@@ -21,6 +22,15 @@ public class EnemySkill : MonoBehaviour
     public virtual void SettlementSkill()
     {
         Debug.Log("123");
+    }
+
+
+    /// <summary>
+    /// 初始化技能(回合開始時觸發)
+    /// </summary>
+    public virtual void InitializeSkill()
+    {
+
     }
 
     /// <summary>

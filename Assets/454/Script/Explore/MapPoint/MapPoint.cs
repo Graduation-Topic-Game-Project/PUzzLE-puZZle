@@ -32,7 +32,7 @@ public class MapPoint : MonoBehaviour
     /// <summary>
     /// 執行探索點事件
     /// </summary>
-    protected virtual void MapPointEvent()
+    public virtual void MapPointEvent()
     {
 
     }

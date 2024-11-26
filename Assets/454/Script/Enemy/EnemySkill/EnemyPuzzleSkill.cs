@@ -10,10 +10,10 @@ public class EnemyPuzzleSkill : EnemySkill
     protected override int damage { get; } = 10;
     public EnemyPuzzle enemyPuzzle;
     public bool isBreak;
-    int _minX = 0;
-    int _maxX = 5;
-    int _minY = 0;
-    int _maxY = 6;
+    protected int _minX = 0;
+    protected int _maxX = 5;
+    protected int _minY = 0;
+    protected int _maxY = 6;
 
     //event EventHandler Event_PullEnemyPuzzle;
 
@@ -45,6 +45,14 @@ public class EnemyPuzzleSkill : EnemySkill
         {
             Debug.Log("已被破壞，未造成傷害");
         }
+    }
+
+    /// <summary>
+    /// 初始化技能
+    /// </summary>
+    public override void InitializeSkill()
+    {
+        isBreak = false;
     }
 
     /// <summary>

@@ -6,8 +6,9 @@ using System;
 public class CheckEnemyPuzzleAround : MonoBehaviour
 {
     BoardController boardController;
+    private static CheckEnemyPuzzleAround checkEnemyPuzzleAround;
 
-    public static event Func<PuzzleData, bool> Event_CheckEnemyPuzzleAround; //檢查敵方拼圖是否包圍
+    //private static event Func<PuzzleData, bool> Event_CheckEnemyPuzzleAround; //檢查敵方拼圖是否包圍
 
     private void Awake()
     {
@@ -16,12 +17,22 @@ public class CheckEnemyPuzzleAround : MonoBehaviour
             boardController = FindObjectOfType<BoardController>();
         }
 
-        Event_CheckEnemyPuzzleAround += IsAround; //檢查四方向是否都有連接
+        if (checkEnemyPuzzleAround == null)
+        {
+            checkEnemyPuzzleAround = this;
+        }
+        else
+        {
+            Destroy(this.gameObject);
+        }
+
+        //Event_CheckEnemyPuzzleAround += IsAround; //檢查四方向是否都有連接
     }
 
     public static bool Check(PuzzleData puzzle)
     {
-        if (Event_CheckEnemyPuzzleAround?.Invoke(puzzle) == true)
+        //if (Event_CheckEnemyPuzzleAround?.Invoke(puzzle) == true)
+        if (checkEnemyPuzzleAround.IsAround(puzzle) == true)
         {
             return true;
         }

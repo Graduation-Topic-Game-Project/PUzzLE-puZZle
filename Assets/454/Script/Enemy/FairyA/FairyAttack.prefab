@@ -101,6 +101,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5904276761806270034, guid: 449c1dd25e8968840836abcfda9a9e63, type: 3}
+      propertyPath: SkillName
+      value: "\u5996\u7CBE\u5B09\u9B27"
+      objectReference: {fileID: 0}
+    - target: {fileID: 5904276761806270034, guid: 449c1dd25e8968840836abcfda9a9e63, type: 3}
       propertyPath: enemyPuzzle
       value: 
       objectReference: {fileID: 838278983958952020}

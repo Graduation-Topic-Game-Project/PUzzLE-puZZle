@@ -22,7 +22,7 @@ public class EnemySkillController : MonoBehaviour
         }
 
         battleGameController.Event_StartTurn += this.RamdomSkill; //回合開始時，從每個敵人上隨機選一個技能
-        battleGameController.Event_StartTurn += this.InstantiateAllSkill;  // 回合開始時，觸發每個技能的實例化效果
+        battleGameController.Event_StartTurn += this.InitializeAndInstantiateAllSkill;  // 回合開始時，觸發每個技能的初始化與實例化效果
         battleGameController.Event_PuzzlePlaceCompleted += this.PuzzlePlaceOver;
         battleGameController.Event_SettlementEnemySkill += this.Settlement; //回合結束時觸發結算事件
     }
@@ -53,13 +53,14 @@ public class EnemySkillController : MonoBehaviour
     }
 
     /// <summary>
-    /// 回合開始時，觸發每個技能的實例化效果
+    /// 回合開始時，觸發每個技能的初始化與實例化效果
     /// </summary>
-    private void InstantiateAllSkill(object sender, EventArgs e)
+    private void InitializeAndInstantiateAllSkill(object sender, EventArgs e)
     {
         foreach (EnemySkill enemySkill in enemySkillsThisTurn)
         {
-            enemySkill.InstantiateSkill();
+            enemySkill.InitializeSkill(); //初始化技能
+            enemySkill.InstantiateSkill(); //實例化技能
         }
     }
 

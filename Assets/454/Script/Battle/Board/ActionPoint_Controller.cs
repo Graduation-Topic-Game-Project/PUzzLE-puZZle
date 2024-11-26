@@ -39,7 +39,7 @@ public class ActionPoint_Controller : MonoBehaviour
         if (isController == true) //是否作為控制器
         {
             battleGameController.Event_PuzzlePlaceCompleted += this.PuzzlePlaceCompleted_ActionPoint; //放置拼圖後減少行動值
-            battleGameController.Event_EndTurn += this.Reset_ActionPoint; //回合結束重製行動值
+            battleGameController.Event_StartTurn += this.Reset_ActionPoint; //回合開始重製行動值
         }
     }
     void Start()

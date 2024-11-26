@@ -16,7 +16,7 @@ public class ExplorePoint : MapPoint
 
 
 
-    protected override void MapPointEvent()
+    public override void MapPointEvent()
     {
         //«ö¶s°õ¦æ¨Æ¥ó
         switch (exploreType)

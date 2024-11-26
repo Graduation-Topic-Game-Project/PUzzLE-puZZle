@@ -71,12 +71,12 @@ public class ExplorePlayerMove : MonoBehaviour
     }
 
 
-    private IEnumerator PlayerMove(MapPoint target)
+    private IEnumerator PlayerMove(MapPoint targetMapPoint)
     {
         float speed = 900f; //速度
         GameObject player = exploreMapController.player;
 
-        Vector3 targetPosition = target.gameObject.transform.position;
+        Vector3 targetPosition = targetMapPoint.gameObject.transform.position;
 
         // 當物件未到達目標位置時持續移動
         while (Vector3.Distance(player.transform.position, targetPosition) > 0.01f)
@@ -87,11 +87,14 @@ public class ExplorePlayerMove : MonoBehaviour
             yield return null; // 等待下一幀
         }
 
-
         player.transform.position = targetPosition; // 確保最終位置精確為目標位置
-        isPlayerMove = false; // 移動完畢
+        isPlayerMove = false; // 移動完畢 
+        exploreMapController.PlayerTransform = targetMapPoint.PointTrasform; // 玩家位置設置為移動目標位置
+
+        yield return new WaitForSeconds(1);
+
         ExploreMapController.isCanClickExploreMapUI = true; //重新打開UI互動
-        exploreMapController.PlayerTransform = target.PointTrasform; // 玩家位置設置為移動目標位置
+        targetMapPoint.MapPointEvent();
 
         yield return null;
     }
