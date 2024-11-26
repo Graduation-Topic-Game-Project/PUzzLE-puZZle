@@ -4,13 +4,19 @@ using UnityEngine;
 
 public class ExplorePlayerMove : MonoBehaviour
 {
+    ExploreMapController exploreMapController;
     static ExplorePlayerMove explorePlayerMove;
-    public GameObject player;
+
     /// <summary>是否可以執行PlayerMove協程</summary>
     bool isPlayerMove;
 
     private void Awake()
     {
+        if (exploreMapController == null) //獲取場景上的ExploreMapController
+        {
+            exploreMapController = FindObjectOfType<ExploreMapController>();
+        }
+
         if (explorePlayerMove == null)
         {
             explorePlayerMove = this;
@@ -23,8 +29,13 @@ public class ExplorePlayerMove : MonoBehaviour
         isPlayerMove = false;
     }
 
-    public static void StartCoroutine_PlayerMove(Transform target)
+    /// <summary>
+    /// 開始協程[玩家移動]
+    /// </summary>
+    /// <param name="target">移動位置</param>
+    public static void StartCoroutine_PlayerMove(MapPoint target)
     {
+        ExploreMapController.isCanClickExploreMapUI = false; //暫時關閉UI互動
 
         if (explorePlayerMove.isPlayerMove != true)
         {
@@ -38,12 +49,34 @@ public class ExplorePlayerMove : MonoBehaviour
     }
 
 
-    private IEnumerator PlayerMove(Transform target)
+    public static bool IsCanMove(MapPoint mapPoint)
     {
-        float speed = 1000f; //速度
-        GameObject player = explorePlayerMove.player;
+        (int playX, int playY) = explorePlayerMove.exploreMapController.PlayerTransform; //獲取玩家位置的X
 
-        Vector3 targetPosition = target.position;
+        (int tragetX, int tragetY) = mapPoint.PointTrasform; //獲取點擊的格子的X
+
+        if (tragetX != playX + 1)
+        {
+            Debug.Log("太遠了，還不能走到那裏");
+            return false;
+        }
+
+        if(playX != 0 && playY != tragetY)
+        {
+            Debug.Log("無法通往那裏");
+            return false;
+        }
+
+        return true;
+    }
+
+
+    private IEnumerator PlayerMove(MapPoint target)
+    {
+        float speed = 900f; //速度
+        GameObject player = exploreMapController.player;
+
+        Vector3 targetPosition = target.gameObject.transform.position;
 
         // 當物件未到達目標位置時持續移動
         while (Vector3.Distance(player.transform.position, targetPosition) > 0.01f)
@@ -51,14 +84,14 @@ public class ExplorePlayerMove : MonoBehaviour
             // 移動物件
             player.transform.position = Vector3.MoveTowards(player.transform.position, targetPosition, speed * Time.deltaTime);
 
-            // 等待下一幀
-            yield return null;
+            yield return null; // 等待下一幀
         }
 
-        // 確保最終位置精確為目標位置
-        player.transform.position = targetPosition;
-        isPlayerMove = false;
-        Debug.Log("Reached the target position!");
+
+        player.transform.position = targetPosition; // 確保最終位置精確為目標位置
+        isPlayerMove = false; // 移動完畢
+        ExploreMapController.isCanClickExploreMapUI = true; //重新打開UI互動
+        exploreMapController.PlayerTransform = target.PointTrasform; // 玩家位置設置為移動目標位置
 
         yield return null;
     }

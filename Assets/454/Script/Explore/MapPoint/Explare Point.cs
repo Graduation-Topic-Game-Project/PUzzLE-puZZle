@@ -4,32 +4,19 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;//<--重要
 
-public class ExplorePoint : MonoBehaviour
+public class ExplorePoint : MapPoint
 {
-    private Button button;
-
     public ExploreType exploreType = ExploreType.Battle_戰鬥;
 
-    public (int, int) PointTrasform;
 
-    private void Awake()
+    protected override void Click()
     {
-        button = GetComponent<Button>();
-        button.onClick.AddListener(Click);
-    }
-
-    private void Click()
-    {
-        ExplorePlayerMove.StartCoroutine_PlayerMove(this.gameObject.transform);
-
-        //ExplareEventJudge();
+        base.Click();
     }
 
 
-    /// <summary>
-    /// 依照探索點類型執行事件
-    /// </summary>
-    private void ExplareEventJudge()
+
+    protected override void MapPointEvent()
     {
         //按鈕執行事件
         switch (exploreType)
