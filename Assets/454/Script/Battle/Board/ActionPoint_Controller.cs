@@ -36,10 +36,10 @@ public class ActionPoint_Controller : MonoBehaviour
             canvasGroup = this.gameObject.transform.GetComponent<CanvasGroup>();
         }
 
-        if (isController == true)
+        if (isController == true) //是否作為控制器
         {
             battleGameController.Event_PuzzlePlaceCompleted += this.PuzzlePlaceCompleted_ActionPoint; //放置拼圖後減少行動值
-            battleGameController.Event_EndTurn += this.Reset_ActionPoint;
+            battleGameController.Event_EndTurn += this.Reset_ActionPoint; //回合結束重製行動值
         }
     }
     void Start()
@@ -72,7 +72,7 @@ public class ActionPoint_Controller : MonoBehaviour
     /// <summary>
     /// 行動值文字降至半透明
     /// </summary>
-    public void ShowActionPoint()
+    public void ShowActionPoint() // 行動值文字降至半透明
     {
         /*if (NowSetCoroutine != null)
             StopCoroutine(NowSetCoroutine);*/
