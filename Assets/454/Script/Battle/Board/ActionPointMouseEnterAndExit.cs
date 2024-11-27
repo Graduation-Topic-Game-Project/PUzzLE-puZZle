@@ -41,11 +41,19 @@ public class ActionPointMouseEnterAndExit : MonoBehaviour
         RectTransform rectTransform = GetComponent<RectTransform>();
         if (rectTransform == null) return false;
 
+        // 獲取 Canvas 的相關 Camera
+        Canvas canvas = GetComponentInParent<Canvas>();
+        if (canvas == null || canvas.renderMode != RenderMode.ScreenSpaceCamera || canvas.worldCamera == null)
+        {
+            Debug.LogWarning("Canvas 或攝影機未設置正確");
+            return false;
+        }
+
         Vector2 localMousePosition;
         RectTransformUtility.ScreenPointToLocalPointInRectangle(
             rectTransform,
             Input.mousePosition,
-            null,
+            canvas.worldCamera, // 攝影機參數需要指定正確的 Camera
             out localMousePosition // 修正：提供變數接收計算結果
         );
 
@@ -54,7 +62,7 @@ public class ActionPointMouseEnterAndExit : MonoBehaviour
 
     private void OnPointerEnter() // 在此處執行滑鼠進入的邏輯
     {
-        //Debug.Log("Pointer entered manually!");
+        Debug.Log("Pointer entered manually!");
         actionPoint_Controller.StopCoroutine();
         //actionPoint_Controller.StopAllCoroutines();
         actionPoint_Controller.canvasGroup.alpha = 1f;
@@ -62,7 +70,7 @@ public class ActionPointMouseEnterAndExit : MonoBehaviour
 
     private void OnPointerExit() // 在此處執行滑鼠離開的邏輯
     {
-        //Debug.Log("Pointer exited manually!");
+        Debug.Log("Pointer exited manually!");
         actionPoint_Controller.ShowActionPoint(); 
     }
 

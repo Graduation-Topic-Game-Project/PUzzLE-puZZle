@@ -11,6 +11,9 @@ public class EnemyUIController : MonoBehaviour
     public TextMeshProUGUI HpText;
 
     public GameObject InformationPlane;
+    public TextMeshProUGUI InformationText;
+    public Image InformationImage;
+
     bool isOpenInformation = false;
 
     public Button _button;
@@ -21,6 +24,9 @@ public class EnemyUIController : MonoBehaviour
 
         _button = this.gameObject.GetComponent<Button>();
         _button.onClick.AddListener(OpenInformation);
+
+        isOpenInformation = false;
+        InformationPlane.SetActive(false);
     }
 
     void Update()
@@ -30,8 +36,10 @@ public class EnemyUIController : MonoBehaviour
 
     public void OpenInformation()
     {
-        Debug.Log("button 123test");
+        //Debug.Log("button 123test");
         isOpenInformation = !isOpenInformation; //¤Á´«isOpenªºtrue&false
         InformationPlane.SetActive(isOpenInformation);
+
+        InformationText.text = _enemy.Information;
     }
 }

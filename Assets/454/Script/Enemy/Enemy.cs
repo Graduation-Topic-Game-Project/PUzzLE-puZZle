@@ -17,6 +17,8 @@ public class Enemy : MonoBehaviour
 
     //public int _enemyAtk;
     public int _enemyHp;
+    [TextArea]
+    public string Information;
 
     public List<GameObject> enemySkillsPrefab;
 
@@ -37,10 +39,26 @@ public class Enemy : MonoBehaviour
     {
         //enemySkills
     }
-    
+
     protected virtual void Damage(int R, int B, int Y, int P) //¨ü¶Ë
     {
+        DamageFormula(R, B, Y, P);
+        IsDead();
+    }
+
+    protected virtual void DamageFormula(int R, int B, int Y, int P)
+    {
         _enemyHp -= R + B + Y + P;
+    }
+
+    protected virtual bool IsDead()
+    {
+        if (_enemyHp > 0)
+        {
+            return true;
+        }
+        else
+            return false;
     }
 
 

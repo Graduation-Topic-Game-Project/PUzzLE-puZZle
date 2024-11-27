@@ -16,6 +16,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1973331698219708545, guid: 0715369398bb9ff46b2e8ed8e3cc2bea, type: 3}
+      propertyPath: m_text
+      value: "\u7576\u7D50\u7B97\u6642\uFF0C\u4FE1\u4EF0\u8207\u9748\u9B42\u672C\u8CEA\u7684\u7D50\u7B97\u503C\u8996\u70BA\u5169\u500D"
+      objectReference: {fileID: 0}
+    - target: {fileID: 4451559396653805704, guid: 0715369398bb9ff46b2e8ed8e3cc2bea, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4880572691354605769, guid: 0715369398bb9ff46b2e8ed8e3cc2bea, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -101,6 +109,10 @@ PrefabInstance:
       value: "\u5996\u7CBE"
       objectReference: {fileID: 0}
     - target: {fileID: 7504747802191047721, guid: 0715369398bb9ff46b2e8ed8e3cc2bea, type: 3}
+      propertyPath: Information
+      value: "\u7576\u7D50\u7B97\u6642\uFF0C\u4FE1\u4EF0\u8207\u9748\u9B42\u672C\u8CEA\u7684\u7D50\u7B97\u503C\u8996\u70BA\u5169\u500D"
+      objectReference: {fileID: 0}
+    - target: {fileID: 7504747802191047721, guid: 0715369398bb9ff46b2e8ed8e3cc2bea, type: 3}
       propertyPath: enemySkills.Array.data[0]
       value: 
       objectReference: {fileID: 5543932324951897785, guid: 449c1dd25e8968840836abcfda9a9e63, type: 3}
@@ -112,6 +124,10 @@ PrefabInstance:
       propertyPath: enemySkillsPrefab.Array.data[0]
       value: 
       objectReference: {fileID: 8399906006465747466, guid: 6a7e0ba4cdd740f468ef8a6143167bb1, type: 3}
+    - target: {fileID: 8164249773128086196, guid: 0715369398bb9ff46b2e8ed8e3cc2bea, type: 3}
+      propertyPath: Information
+      value: "\u7576\u7D50\u7B97\u6642\uFF0C\u4FE1\u4EF0\u8207\u9748\u9B42\u672C\u8CEA\u7684\u7D50\u7B97\u503C\u8996\u70BA\u5169\u500D"
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

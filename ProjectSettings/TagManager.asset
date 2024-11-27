@@ -51,6 +51,3 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Puzzle Side
-    uniqueID: 2040631223
-    locked: 0

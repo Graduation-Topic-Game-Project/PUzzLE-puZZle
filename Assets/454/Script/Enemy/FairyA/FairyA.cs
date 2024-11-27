@@ -12,8 +12,8 @@ public class FairyA : Enemy
         _enemyHp = 20;
     }
 
-    protected override void Damage(int R, int B, int Y, int P)
+    protected override void DamageFormula(int R, int B, int Y, int P)
     {
-        _enemyHp -= R + B + Y + P;
+        _enemyHp -= R + B + Y * 2 + P * 2;
     }
 }
