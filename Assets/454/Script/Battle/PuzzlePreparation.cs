@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public class PuzzlePreparation : MonoBehaviour
 {
-    public BattleGameController battleGameController;
+    //public BattleGameController battleGameController;
     [SerializeField]
     private int _preparationNumber; //第幾個備戰區
 
@@ -22,10 +22,10 @@ public class PuzzlePreparation : MonoBehaviour
 
     private void Awake()
     {
-        if (battleGameController == null) //獲取場景上的BattleGameController
+        /*if (battleGameController == null) //獲取場景上的BattleGameController
         {
             battleGameController = FindObjectOfType<BattleGameController>();
-        }
+        }*/
 
         _button = GetComponent<Button>();
         _button.onClick.AddListener(ClickPreparation);

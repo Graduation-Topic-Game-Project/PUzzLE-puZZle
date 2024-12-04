@@ -10,6 +10,7 @@ public class BattleGameController : MonoBehaviour
 {
     public event EventHandler Event_BattleStart;
     public event EventHandler Event_StartTurn; //回合開始
+    public event EventHandler Event_SpecifyPuzzle; //選擇拼圖
     public event EventHandler Event_PuzzlePlaceCompleted; //拼圖放置完成
     public event EventHandler Event_SettlementBoard; //結算盤面
     public event EventHandler Event_SettlementEnemySkill; //結算敵人技能
@@ -31,6 +32,12 @@ public class BattleGameController : MonoBehaviour
         CallEvent_StartTurn(); //回合開始事件
     }
 
+    /*public void CallEvent(EventHandler _event)
+    {
+        _event?.Invoke(this, EventArgs.Empty);
+    }*/
+
+
     /// <summary>
     /// 發送回合開始事件
     /// </summary>
@@ -38,6 +45,14 @@ public class BattleGameController : MonoBehaviour
     {
         Event_StartTurn?.Invoke(this, EventArgs.Empty);
         //Debug.Log("新的回合開始");
+    }
+
+    /// <summary>
+    /// 發送選擇拼圖事件
+    /// </summary>
+    public void CallEvent_SpecifyPuzzle()
+    {
+        Event_SpecifyPuzzle?.Invoke(this, EventArgs.Empty);
     }
 
     /// <summary>

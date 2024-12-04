@@ -190,6 +190,8 @@ public class PuzzleLibrary : MonoBehaviour
             puzzleMasterController.specifyPuzzleNumber = number;  // 更改選擇的備戰區編號(第幾格)
             puzzleMasterController.isSpecifyPuzzle = true;
             puzzlePreparationsGameObject[number].GetComponent<PuzzlePreparation>().SetColorForSpecifying(); //將點擊按鈕顏色為ClickColor
+
+            battleGameController.CallEvent_SpecifyPuzzle(); //發送選擇拼圖事件
         }
         else
         {

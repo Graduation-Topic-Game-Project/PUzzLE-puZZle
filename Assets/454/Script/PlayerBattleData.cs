@@ -38,5 +38,7 @@ public class PlayerBattleData : MonoBehaviour
     {
         Hp = Hp - damage;
         Debug.Log($"¨ü¨ì{damage}ÂI¶Ë®`¡A³Ñ¾l{Hp}Hp");
+
+        BattleAudioController.PlayAudio_PlayerAttacked();
     }
 }

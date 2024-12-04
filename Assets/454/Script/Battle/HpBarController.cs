@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class HpBarController : MonoBehaviour
 {
     public GameObject Hp_value;
+    public bool reverse;
 
     /*int maxHP = Player.MaxHP;
     int hP = Player.Hp;*/
@@ -17,6 +18,10 @@ public class HpBarController : MonoBehaviour
     private void Update()
     {
         Hp_value.GetComponent<Image>().fillAmount = ((float)PlayerBattleData.Hp / PlayerBattleData.MaxHP);
-        //Debug.Log((float)Player.Hp / Player.MaxHP);
+
+        if (reverse)
+        {
+            Hp_value.GetComponent<Image>().fillAmount = (1f - (float)PlayerBattleData.Hp / PlayerBattleData.MaxHP);
+        }
     }
 }
