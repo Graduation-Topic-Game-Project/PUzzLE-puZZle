@@ -15,7 +15,7 @@ MonoBehaviour:
   thisPartner:
     _partnerName: Test
     PartnerTachie: {fileID: 21300000, guid: bf0cfab93b487fd40b606e631a4b3bcc, type: 3}
-    PartnerCuteBattle: {fileID: 21300000, guid: bf0cfab93b487fd40b606e631a4b3bcc, type: 3}
+    PartnerCuteBattle: {fileID: 21300000, guid: 6de54af1d81b8dc44a33584b868d4129, type: 3}
     _level: 1
     _hp: 0
     _essence: 1

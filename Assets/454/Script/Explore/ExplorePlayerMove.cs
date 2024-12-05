@@ -73,7 +73,7 @@ public class ExplorePlayerMove : MonoBehaviour
 
     private IEnumerator PlayerMove(MapPoint targetMapPoint)
     {
-        float speed = 900f; //速度
+        float speed = 1f; //速度
         GameObject player = exploreMapController.player;
 
         Vector3 targetPosition = targetMapPoint.gameObject.transform.position;

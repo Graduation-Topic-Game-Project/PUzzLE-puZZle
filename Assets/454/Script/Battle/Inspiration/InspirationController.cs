@@ -3,29 +3,25 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System;
 
 public class InspirationController : MonoBehaviour
 {
+    static InspirationButtonController @this;
+
     BattleGameController battleGameController;
-    Button _button;
+    Animator animator;
 
     int InspirationValue; //靈感值
     public int defaultInspirationValue = 3; //靈感值預設值
 
     public TextMeshProUGUI inspirationValue_Number; //靈感值文字
-    public GameObject EndTurnButton;
-    public GameObject Bal_And_Sword_Button;
-    public bool isOpen;
 
-    private void Awake()
-    {
-        _button = GetComponent<Button>(); //訂閱按紐點擊事件
-        _button.onClick.AddListener(OpenButton);
-        isOpen = false;
-    }
+    //public static event Action<bool> Event_; //開關
 
     private void Start()
     {
+        animator = GetComponent<Animator>();
         InspirationValue = defaultInspirationValue;
     }
     void Update()
@@ -33,11 +29,9 @@ public class InspirationController : MonoBehaviour
         inspirationValue_Number.text = InspirationValue.ToString();
     }
 
-    void OpenButton()
+    void OpenAnimation(bool OpenOrClose)
     {
-        isOpen = !isOpen;
-        EndTurnButton.SetActive(isOpen);
-        Bal_And_Sword_Button.SetActive(isOpen);
+        animator.SetBool("IsOpen", OpenOrClose);
     }
 
 }

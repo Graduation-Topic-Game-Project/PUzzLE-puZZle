@@ -15,5 +15,6 @@ public class BattleInformation : ScriptableObject
 [Serializable]
 public class BattleData
 {
+    [Header("本關卡會出現的敵人")]
     public List<GameObject> EnemyPrefab;
 }

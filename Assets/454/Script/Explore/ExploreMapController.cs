@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class ExploreMapController : MonoBehaviour
 {
-    public GameObject ExploreLayersGameObject;
-    public GameObject PathLayersGameObject;
+    public ExploreInformation exploreInformation;
 
-    public ExplorePoint[,] ExplorePoints = new ExplorePoint[4, 3];
-    public PathPoint[,] PathPoints = new PathPoint[3, 3];
+    public GameObject ExploreLayersGameObject; //事件層Prefab物件
+    public GameObject PathLayersGameObject; //道路層Prefab物件
+
+    public ExplorePoint[,] ExplorePoints;//探索點
+    public PathPoint[,] PathPoints; //道路點
 
     public GameObject player;
     public (int, int) PlayerTransform; //玩家位置
@@ -16,7 +18,11 @@ public class ExploreMapController : MonoBehaviour
     /// <summary>是否可互動探索地圖</summary>
     static public bool isCanClickExploreMapUI; //是否可互動探索地圖
 
-
+    private void Awake()
+    {
+        ExplorePoints = new ExplorePoint[exploreInformation.Layers, exploreInformation.LayerWidth]; //探索格有四層
+        PathPoints = new PathPoint[exploreInformation.Layers - 1, exploreInformation.LayerWidth]; //道路格有三層
+    }
     private void Start()
     {
         GetAllExplorePoint(); // 獲取所有探索格並標記座標

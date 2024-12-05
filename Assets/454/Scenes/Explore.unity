@@ -152,6 +152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03e83e449515c5a4eba3cc824c68ee00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  exploreInformation: {fileID: 11400000, guid: afbe6518413ba94489cc9afa7b6259e7, type: 2}
   ExploreLayersGameObject: {fileID: 1422040842}
   PathLayersGameObject: {fileID: 74861418}
   player: {fileID: 3520355688351327192}
@@ -503,7 +504,6 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 361722562}
   - {fileID: 1275327041}
   m_Father: {fileID: 1544100532}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -682,6 +682,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 361722562}
   - {fileID: 568872004}
   m_Father: {fileID: 1067953948}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -753,17 +754,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 361722561}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 124177627}
+  m_Father: {fileID: 263449195}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -4, y: -400}
+  m_SizeDelta: {x: 8, y: -800}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &361722563
 MonoBehaviour:
@@ -2070,8 +2071,8 @@ Canvas:
   m_GameObject: {fileID: 1544100528}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
-  m_Camera: {fileID: 0}
+  m_RenderMode: 1
+  m_Camera: {fileID: 1580340543}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
