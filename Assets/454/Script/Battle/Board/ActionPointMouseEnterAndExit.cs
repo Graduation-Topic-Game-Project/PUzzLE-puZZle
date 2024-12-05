@@ -62,7 +62,7 @@ public class ActionPointMouseEnterAndExit : MonoBehaviour
 
     private void OnPointerEnter() // 在此處執行滑鼠進入的邏輯
     {
-        Debug.Log("Pointer entered manually!");
+        //Debug.Log("Pointer entered manually!");
         actionPoint_Controller.StopCoroutine();
         //actionPoint_Controller.StopAllCoroutines();
         actionPoint_Controller.canvasGroup.alpha = 1f;
@@ -70,7 +70,7 @@ public class ActionPointMouseEnterAndExit : MonoBehaviour
 
     private void OnPointerExit() // 在此處執行滑鼠離開的邏輯
     {
-        Debug.Log("Pointer exited manually!");
+        //Debug.Log("Pointer exited manually!");
         actionPoint_Controller.ShowActionPoint(); 
     }
 
