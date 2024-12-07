@@ -12,7 +12,6 @@ public class EnterExplore : MonoBehaviour
 
     private void Awake()
     {
-
         _button = GetComponent<Button>(); //­q¾\«ö¯ÃÂIÀ»¨Æ¥ó
         _button.onClick.AddListener(LoadExplore);
     }
