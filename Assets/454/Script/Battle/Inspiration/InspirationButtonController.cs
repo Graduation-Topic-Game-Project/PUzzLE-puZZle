@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System;
 
 public class InspirationButtonController : MonoBehaviour
 {
@@ -23,6 +24,7 @@ public class InspirationButtonController : MonoBehaviour
         _button.onClick.AddListener(OpenButton);
         isOpen = false;
 
+        EndTurnButton.GetComponent<EndTurnButton>().Event_CloseInspiration += this.CloseButton;
     }
 
     void OpenButton()
@@ -31,7 +33,7 @@ public class InspirationButtonController : MonoBehaviour
 
         if (isOpen)
         {
-            animator.SetBool("IsOpen",true);
+            animator.SetBool("IsOpen", true);
             animator2.SetBool("IsOpen", true);
         }
         else
@@ -43,7 +45,13 @@ public class InspirationButtonController : MonoBehaviour
         EndTurnButton.SetActive(isOpen);
         Bal_And_Sword_Button.SetActive(isOpen);
         Shodow.SetActive(isOpen);
+    }
 
+    void CloseButton()
+    {
+        if (isOpen == false) //若本來就關閉了，無效
+            return;
 
+        OpenButton();
     }
 }
