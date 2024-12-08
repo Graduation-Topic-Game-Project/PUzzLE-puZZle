@@ -25,6 +25,8 @@ public class PuzzleSideData
     [Header("拼圖邊的凹凸"), Tooltip("拼圖邊的凹凸")]
     private Interlocking _interlocking = Interlocking.indentations_凹陷;
 
+    private int[] IndentationsHaveEssence_Probability = new int[] { 20, 80 }; //凹槽帶有屬性機率(20%)
+
     public PuzzleSideData()
     {
 
@@ -83,8 +85,27 @@ public class PuzzleSideData
     public PuzzleSideData RandomlyGeneratedPuzzleData(PuzzleSideData puzzleSideData) //隨機拼圖邊
     {
         puzzleSideData.Interlocking_ = (PuzzleSideData.Interlocking)UnityEngine.Random.Range(1, 3);
-        puzzleSideData.Essence_ = (EssenceEnum.Essence)UnityEngine.Random.Range(1, 5);
 
-        return puzzleSideData;
+        if(puzzleSideData.Interlocking_ == Interlocking.protrusions_突起)
+            puzzleSideData.Essence_ = (EssenceEnum.Essence)UnityEngine.Random.Range(1, 5);
+
+        if(puzzleSideData.Interlocking_ == Interlocking.indentations_凹陷)
+        {          
+            int RandowResults = GetRandow.Randow(IndentationsHaveEssence_Probability); //若為凹陷，則20%機率帶有屬性
+            switch (RandowResults)
+            {
+                case 1: //回傳1，沒有屬性
+                    puzzleSideData.Essence_ = EssenceEnum.Essence.None_無屬性;
+                    break;
+                case 0: //回傳0，帶有屬性
+                    puzzleSideData.Essence_ = (EssenceEnum.Essence)UnityEngine.Random.Range(1, 5);
+                    break;
+                default://以上都不符合走這個
+                    Debug.LogError("隨機拼圖邊時，邊為凹陷時隨機屬性出問題");
+                    break;
+            }
+        }
+
+            return puzzleSideData;
     }
 }

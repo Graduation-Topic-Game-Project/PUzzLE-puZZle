@@ -11,6 +11,7 @@ public class Puzzle : MonoBehaviour
     public Image _upImage, _downImage, _rightImage, _leftImage, _middleImage, _bgImage;
     public List<Sprite> PuzzleEssenceImage = new List<Sprite>();
     public List<Sprite> PuzzleSideEssenceImage = new List<Sprite>();
+    public List<Sprite> PuzzleSideIndentationImage = new List<Sprite>();
     public Sprite NoneSprite;
 
     /// <param name="puzzleData_">指定拚圖的PuzzleData</param>
@@ -57,7 +58,8 @@ public class Puzzle : MonoBehaviour
     {
         if (_puzzleSideData.Interlocking_ == PuzzleSideData.Interlocking.indentations_凹陷)
         {
-            _sideImage.sprite = PuzzleSideEssenceImage[5];
+            //_sideImage.sprite = PuzzleSideEssenceImage[5];
+            _sideImage.sprite = PuzzleSideIndentationImage[(int)_puzzleSideData.Essence_];
         }
         else
         {

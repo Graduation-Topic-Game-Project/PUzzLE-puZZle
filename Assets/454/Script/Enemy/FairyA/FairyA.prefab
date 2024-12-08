@@ -20,13 +20,33 @@ PrefabInstance:
       propertyPath: m_text
       value: "\u7576\u7D50\u7B97\u6642\uFF0C\u4FE1\u4EF0\u8207\u9748\u9B42\u672C\u8CEA\u7684\u7D50\u7B97\u503C\u8996\u70BA\u5169\u500D"
       objectReference: {fileID: 0}
+    - target: {fileID: 3141707895994981132, guid: 0715369398bb9ff46b2e8ed8e3cc2bea, type: 3}
+      propertyPath: m_text
+      value: "\u5996\u7CBE"
+      objectReference: {fileID: 0}
+    - target: {fileID: 3141707895994981132, guid: 0715369398bb9ff46b2e8ed8e3cc2bea, type: 3}
+      propertyPath: m_fontColor.b
+      value: 0.5165734
+      objectReference: {fileID: 0}
+    - target: {fileID: 3141707895994981132, guid: 0715369398bb9ff46b2e8ed8e3cc2bea, type: 3}
+      propertyPath: m_fontColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3141707895994981132, guid: 0715369398bb9ff46b2e8ed8e3cc2bea, type: 3}
+      propertyPath: m_fontColor.r
+      value: 0.4509434
+      objectReference: {fileID: 0}
+    - target: {fileID: 3141707895994981132, guid: 0715369398bb9ff46b2e8ed8e3cc2bea, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4286906227
+      objectReference: {fileID: 0}
     - target: {fileID: 4001276425440290067, guid: 0715369398bb9ff46b2e8ed8e3cc2bea, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4451559396653805704, guid: 0715369398bb9ff46b2e8ed8e3cc2bea, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4880572691354605769, guid: 0715369398bb9ff46b2e8ed8e3cc2bea, type: 3}
       propertyPath: m_Pivot.x
@@ -127,7 +147,7 @@ PrefabInstance:
     - target: {fileID: 7504747802191047721, guid: 0715369398bb9ff46b2e8ed8e3cc2bea, type: 3}
       propertyPath: enemySkillsPrefab.Array.data[0]
       value: 
-      objectReference: {fileID: 8399906006465747466, guid: 6a7e0ba4cdd740f468ef8a6143167bb1, type: 3}
+      objectReference: {fileID: 4796933317568352855, guid: ad5b5ee3eaa252f44bb39de8f5f78270, type: 3}
     - target: {fileID: 7738338713474822678, guid: 0715369398bb9ff46b2e8ed8e3cc2bea, type: 3}
       propertyPath: m_IsActive
       value: 0

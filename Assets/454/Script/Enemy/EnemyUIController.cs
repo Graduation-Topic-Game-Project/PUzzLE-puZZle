@@ -11,6 +11,7 @@ public class EnemyUIController : MonoBehaviour
     public TextMeshProUGUI HpText;
 
     public GameObject InformationPlane;
+    public TextMeshProUGUI InformationEnemyName;
     public TextMeshProUGUI InformationText;
     public Image InformationImage;
 
@@ -41,5 +42,6 @@ public class EnemyUIController : MonoBehaviour
         InformationPlane.SetActive(isOpenInformation);
 
         InformationText.text = _enemy.Information;
+        InformationEnemyName.text = _enemy.enemyName;
     }
 }
