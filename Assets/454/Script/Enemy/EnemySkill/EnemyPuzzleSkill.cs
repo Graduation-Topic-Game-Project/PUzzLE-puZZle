@@ -10,12 +10,10 @@ public class EnemyPuzzleSkill : EnemySkill
     protected override int damage { get; } = 10;
     public EnemyPuzzle enemyPuzzle;
     public bool isBreak;
-    protected int _minX = 0;
-    protected int _maxX = 5;
-    protected int _minY = 0;
-    protected int _maxY = 6;
-
-    //event EventHandler Event_PullEnemyPuzzle;
+    protected virtual int _minX { get; } = 0;
+    protected virtual int _maxX { get; } = 5;
+    protected virtual int _minY { get; } = 0;
+    protected virtual int _maxY { get; } = 6;
 
 
     protected void Awake()

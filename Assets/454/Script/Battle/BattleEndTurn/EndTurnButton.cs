@@ -24,10 +24,34 @@ public class EndTurnButton : MonoBehaviour
 
     private void EndTurnButtonOnClick()
     {
-        battleGameController.CallEvent_SettlementBoard(); //結算盤面
+        /*battleGameController.CallEvent_SettlementBoard(); //結算盤面
         battleGameController.CallEvent_SettlementEnemySkill(); //結算敵人技能
         battleGameController.CallEvent_EndTurn(); //結束回合
         battleGameController.CallEvent_StartTurn(); //回合開始
-        //Event_EndTurn?.Invoke(this, EventArgs.Empty);
+        */
+
+        StartCoroutine(EndTurnCoroutine());
+    }
+
+    /// <summary>
+    /// <協程>結束回合
+    /// </summary>
+    /// <returns></returns>
+    private IEnumerator EndTurnCoroutine()
+    {
+        // 結算盤面
+        battleGameController.CallEvent_SettlementBoard();
+        yield return new WaitForSeconds(0.5f); // 可根據需求調整延遲時間
+
+        // 結算敵人技能
+        battleGameController.CallEvent_SettlementEnemySkill();
+        yield return new WaitForSeconds(0.5f);
+
+        // 結束回合
+        battleGameController.CallEvent_EndTurn();
+        yield return new WaitForSeconds(0.5f);
+
+        // 開始新回合
+        battleGameController.CallEvent_StartTurn();
     }
 }
