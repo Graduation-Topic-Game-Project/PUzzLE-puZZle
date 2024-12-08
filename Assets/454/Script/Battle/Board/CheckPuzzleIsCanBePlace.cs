@@ -72,25 +72,13 @@ public class CheckPuzzleIsCanBePlace : MonoBehaviour
         switch (direction)
         {
             case Direction.Up:
-                ///               return thisPuzzle.UpSide_.Interlocking_ == PuzzleSideData.Interlocking.protrusions_突起       //檢查上邊，若為突起執行第二行，反之執行第三行
-                ///                   ? adjacentPuzzle.DownSide_.Interlocking_ == PuzzleSideData.Interlocking.indentations_凹陷 //若上邊為突起，則對接處必須為凹陷，凹陷回傳true，反之則回傳flase
-                ///                  : adjacentPuzzle.DownSide_.Interlocking_ == PuzzleSideData.Interlocking.protrusions_突起; //若上邊為凹陷，則對接處必須為突起，突起回傳true，反之則回傳flase
                 return CheckSide(thisPuzzle.UpSide_, adjacentPuzzle.DownSide_);
             case Direction.Down:
-                return thisPuzzle.DownSide_.Interlocking_ == PuzzleSideData.Interlocking.protrusions_突起
-                    ? adjacentPuzzle.UpSide_.Interlocking_ == PuzzleSideData.Interlocking.indentations_凹陷
-                    : adjacentPuzzle.UpSide_.Interlocking_ == PuzzleSideData.Interlocking.protrusions_突起;
-
+                return CheckSide(thisPuzzle.DownSide_, adjacentPuzzle.UpSide_);
             case Direction.Right:
-                return thisPuzzle.RightSide_.Interlocking_ == PuzzleSideData.Interlocking.protrusions_突起
-                    ? adjacentPuzzle.LeftSide_.Interlocking_ == PuzzleSideData.Interlocking.indentations_凹陷
-                    : adjacentPuzzle.LeftSide_.Interlocking_ == PuzzleSideData.Interlocking.protrusions_突起;
-
+                return CheckSide(thisPuzzle.RightSide_, adjacentPuzzle.LeftSide_);
             case Direction.Left:
-                return thisPuzzle.LeftSide_.Interlocking_ == PuzzleSideData.Interlocking.protrusions_突起
-                    ? adjacentPuzzle.RightSide_.Interlocking_ == PuzzleSideData.Interlocking.indentations_凹陷
-                    : adjacentPuzzle.RightSide_.Interlocking_ == PuzzleSideData.Interlocking.protrusions_突起;
-
+                return CheckSide(thisPuzzle.LeftSide_, adjacentPuzzle.RightSide_);
             default:
                 return false;
         }
@@ -104,194 +92,34 @@ public class CheckPuzzleIsCanBePlace : MonoBehaviour
     /// <returns></returns>
     private bool CheckSide(PuzzleSideData thisPuzzleSide, PuzzleSideData adjacentPuzzleSide)
     {
-        return thisPuzzleSide.Interlocking_ == PuzzleSideData.Interlocking.protrusions_突起       //檢查上邊，若為突起執行第二行，反之執行第三行
-                    ? adjacentPuzzleSide.Interlocking_ == PuzzleSideData.Interlocking.indentations_凹陷 //若上邊為突起，則對接處必須為凹陷，凹陷回傳true，反之則回傳flase
-                    : adjacentPuzzleSide.Interlocking_ == PuzzleSideData.Interlocking.protrusions_突起; //若上邊為凹陷，則對接處必須為突起，突起回傳true，反之則回傳flase
-    }
 
-
-
-
-
-
-    /// <summary>
-    /// 檢查放置拼圖是否可以跟周圍拼圖拼起來
-    /// </summary>
-    /// <param name="i">放置位置座標X</param>
-    /// <param name="j">放置位置座標Y</param>
-    /// <param name="_thisPuzzle">放置的拼圖</param>
-    /// <returns></returns>
-    /*public bool Check(int i, int j, PuzzleData _thisPuzzle)
-    {
-        if (!CheckUp(i, j, _thisPuzzle) || !CheckDown(i, j, _thisPuzzle) ||
-           !CheckRight(i, j, _thisPuzzle) || !CheckLeft(i, j, _thisPuzzle))
+        if (thisPuzzleSide.Interlocking_ == PuzzleSideData.Interlocking.protrusions_突起) //若thisPuzzle為突起，則對接處必須為凹陷
         {
-            return false;
+            if (adjacentPuzzleSide.Interlocking_ != PuzzleSideData.Interlocking.indentations_凹陷) //若對接處不是凹陷，回傳flase
+            {
+                return false;
+            }
         }
-
-        return true;
-    }
-
-    
-    public bool CheckUp(int i, int j, PuzzleData _puzzle)
-    {
-        PuzzleData thisPuzzle = _puzzle;
-        PuzzleData upPuzzle = null;
-
-        if (i == 0)
+        else if (thisPuzzleSide.Interlocking_ == PuzzleSideData.Interlocking.indentations_凹陷)//若thisPuzzle為凹陷
         {
-            //Debug.Log("上方為邊界");
-            return true;
-        }
-
-        if (boardController.puzzles[i - 1, j] == null) //如果上方沒有拼圖
-        {
-            //Debug.Log("上方為空");
-            return true;
+            if (adjacentPuzzleSide.Interlocking_ != PuzzleSideData.Interlocking.protrusions_突起) //若對接處不是凸起，回傳flase
+            {
+                return false;
+            }
         }
         else
         {
-            upPuzzle = boardController.puzzles[i - 1, j];
+            Debug.LogError("CheckSide出現例外");
         }
 
-        if (thisPuzzle.UpSide_.Interlocking_ == PuzzleSideData.Interlocking.protrusions_突起)
+        if (adjacentPuzzleSide.Essence_ != EssenceEnum.Essence.None_無屬性) //若對接處的凹槽帶有屬性
         {
-            if (upPuzzle.DownSide_.Interlocking_ != PuzzleSideData.Interlocking.indentations_凹陷)
-            {
-                return false;
-            }
-        }
-
-        if (thisPuzzle.UpSide_.Interlocking_ == PuzzleSideData.Interlocking.indentations_凹陷)
-        {
-            if (upPuzzle.DownSide_.Interlocking_ != PuzzleSideData.Interlocking.protrusions_突起)
-            {
-                return false;
-            }
-        }
-
-        return true;
-    }
-
-    public bool CheckDown(int i, int j, PuzzleData _puzzle)
-    {
-        PuzzleData thisPuzzle = _puzzle;
-        PuzzleData upPuzzle = null;
-
-        if (i == 5)
-        {
-            //Debug.Log("下方為邊界");
-            return true;
-        }
-
-        if (boardController.puzzles[i + 1, j] == null) //如果下方沒有拼圖
-        {
-            //Debug.Log("下方為空");
-            return true;
+            //若比較的凸起與對接的凹槽屬性相同，回傳true，反之回傳false
+            return adjacentPuzzleSide.Essence_ == thisPuzzleSide.Essence_;
         }
         else
         {
-            upPuzzle = boardController.puzzles[i + 1, j];
+            return true;
         }
-
-        if (thisPuzzle.DownSide_.Interlocking_ == PuzzleSideData.Interlocking.protrusions_突起)
-        {
-            if (upPuzzle.UpSide_.Interlocking_ != PuzzleSideData.Interlocking.indentations_凹陷)
-            {
-                return false;
-            }
-        }
-
-        if (thisPuzzle.DownSide_.Interlocking_ == PuzzleSideData.Interlocking.indentations_凹陷)
-        {
-            if (upPuzzle.UpSide_.Interlocking_ != PuzzleSideData.Interlocking.protrusions_突起)
-            {
-                return false;
-            }
-        }
-
-        return true;
     }
-    public bool CheckRight(int i, int j, PuzzleData _puzzle)
-    {
-        PuzzleData thisPuzzle = _puzzle;
-        PuzzleData upPuzzle = null;
-
-        if (j == 6)
-        {
-            //Debug.Log("右方為邊界");
-            return true;
-        }
-
-        if (boardController.puzzles[i, j + 1] == null) //如果右方沒有拼圖
-        {
-            //Debug.Log("右方為空");
-            return true;
-        }
-        else
-        {
-            upPuzzle = boardController.puzzles[i, j + 1];
-        }
-
-        if (thisPuzzle.RightSide_.Interlocking_ == PuzzleSideData.Interlocking.protrusions_突起)
-        {
-            if (upPuzzle.LeftSide_.Interlocking_ != PuzzleSideData.Interlocking.indentations_凹陷)
-            {
-                return false;
-            }
-        }
-
-        if (thisPuzzle.RightSide_.Interlocking_ == PuzzleSideData.Interlocking.indentations_凹陷)
-        {
-            if (upPuzzle.LeftSide_.Interlocking_ != PuzzleSideData.Interlocking.protrusions_突起)
-            {
-                return false;
-            }
-        }
-
-        return true;
-    }
-    public bool CheckLeft(int i, int j, PuzzleData _puzzle)
-    {
-        PuzzleData thisPuzzle = _puzzle;
-        PuzzleData leftPuzzle = null;
-
-        if (j == 0)
-        {
-            //Debug.Log("左方為邊界");
-            return true;
-        }
-
-        if (boardController.puzzles[i, j - 1] == null) //如果左方沒有拼圖
-        {
-            //Debug.Log("左方為空");
-            return true;
-        }
-        else
-        {
-            leftPuzzle = boardController.puzzles[i, j - 1];
-        }
-
-        if (thisPuzzle.LeftSide_.Interlocking_ == PuzzleSideData.Interlocking.protrusions_突起)
-        {
-            if (leftPuzzle.RightSide_.Interlocking_ != PuzzleSideData.Interlocking.indentations_凹陷)
-            {
-                return false;
-            }
-        }
-
-        if (thisPuzzle.LeftSide_.Interlocking_ == PuzzleSideData.Interlocking.indentations_凹陷)
-        {
-            if (leftPuzzle.RightSide_.Interlocking_ != PuzzleSideData.Interlocking.protrusions_突起)
-            {
-                return false;
-            }
-        }
-
-        return true;
-    }*/
-
-
-
-
 }
