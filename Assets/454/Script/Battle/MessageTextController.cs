@@ -24,7 +24,7 @@ public class MessageTextController : MonoBehaviour
         messageText.text = "";
     }
 
-    public void SetColorAlpha(float _alpha) //設置文字透明度
+    void SetColorAlpha(float _alpha) //設置文字透明度
     {
         messageText.color = new Color(messageText.color.r, messageText.color.g, messageText.color.b, _alpha);
     }

@@ -8,7 +8,8 @@ public class EndTurnButton : MonoBehaviour
 {
     public BattleGameController battleGameController;
     Button _button;
-    //public GameObject EndTurnButton;
+    Coroutine Coroutine_EndTurn;
+
 
 
     private void Awake()
@@ -24,13 +25,10 @@ public class EndTurnButton : MonoBehaviour
 
     private void EndTurnButtonOnClick()
     {
-        /*battleGameController.CallEvent_SettlementBoard(); //結算盤面
-        battleGameController.CallEvent_SettlementEnemySkill(); //結算敵人技能
-        battleGameController.CallEvent_EndTurn(); //結束回合
-        battleGameController.CallEvent_StartTurn(); //回合開始
-        */
-
-        StartCoroutine(EndTurnCoroutine());
+        if (Coroutine_EndTurn == null)
+            Coroutine_EndTurn = StartCoroutine(EndTurnCoroutine());
+        else
+            Debug.Log("太急了");
     }
 
     /// <summary>
@@ -53,5 +51,17 @@ public class EndTurnButton : MonoBehaviour
 
         // 開始新回合
         battleGameController.CallEvent_StartTurn();
+
+        // 協程執行完畢，清空引用
+        Coroutine_EndTurn = null;
+    }
+
+    private void OnDestroy()
+    {
+        if (Coroutine_EndTurn != null)
+        {
+            StopCoroutine(Coroutine_EndTurn);
+            Coroutine_EndTurn = null;
+        }
     }
 }
