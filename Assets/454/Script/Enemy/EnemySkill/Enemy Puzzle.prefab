@@ -234,11 +234,11 @@ MonoBehaviour:
   - {fileID: 21300000, guid: e4f31516fbeeb2b45a69f60f16f496dd, type: 3}
   - {fileID: 21300000, guid: e82ec07b87e40314abdd95042a2c3959, type: 3}
   PuzzleSideIndentationImage:
-  - {fileID: 21300000, guid: 0081045eccd7b0d4286a2d1ea43430e6, type: 3}
-  - {fileID: 21300000, guid: ba20258c80c5c084da359397eb28a3df, type: 3}
-  - {fileID: 21300000, guid: 745e36fd0134c2c428725bfb3b798d2f, type: 3}
-  - {fileID: 21300000, guid: b741bf63b28d1294ebe0b0329906f404, type: 3}
-  - {fileID: 21300000, guid: 54dfb209c3ab6d645bc9b2ed5ffa0a6c, type: 3}
+  - {fileID: 21300000, guid: bac2e37993faf2a4a93fa419e24bc16e, type: 3}
+  - {fileID: 21300000, guid: 4e8fde10dd765804f94a883f90e25f22, type: 3}
+  - {fileID: 21300000, guid: 05414a26f5ac9b84b8ad1ef1b57ea212, type: 3}
+  - {fileID: 21300000, guid: 110d60035f3eccc4aaf9aee4820c914c, type: 3}
+  - {fileID: 21300000, guid: df3ed9191423d194480826b9448e24b3, type: 3}
   NoneSprite: {fileID: 21300000, guid: bac2e37993faf2a4a93fa419e24bc16e, type: 3}
 --- !u!114 &5398906914461083848 stripped
 MonoBehaviour:

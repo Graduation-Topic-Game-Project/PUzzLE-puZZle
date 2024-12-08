@@ -268,11 +268,11 @@ MonoBehaviour:
   - {fileID: 21300000, guid: e82ec07b87e40314abdd95042a2c3959, type: 3}
   - {fileID: 21300000, guid: bac2e37993faf2a4a93fa419e24bc16e, type: 3}
   PuzzleSideIndentationImage:
-  - {fileID: 21300000, guid: 0081045eccd7b0d4286a2d1ea43430e6, type: 3}
+  - {fileID: 21300000, guid: bac2e37993faf2a4a93fa419e24bc16e, type: 3}
   - {fileID: 21300000, guid: 4e8fde10dd765804f94a883f90e25f22, type: 3}
-  - {fileID: 21300000, guid: 05414a26f5ac9b84b8ad1ef1b57ea212, type: 3}
+  - {fileID: 21300000, guid: 24da11116c737a3479d4c0e8822adefe, type: 3}
   - {fileID: 21300000, guid: 110d60035f3eccc4aaf9aee4820c914c, type: 3}
-  - {fileID: 21300000, guid: df3ed9191423d194480826b9448e24b3, type: 3}
+  - {fileID: 21300000, guid: 87e78aa15867f0b4e9842fec04b7a86d, type: 3}
   NoneSprite: {fileID: 21300000, guid: bac2e37993faf2a4a93fa419e24bc16e, type: 3}
 --- !u!1 &2678841385961278183
 GameObject:

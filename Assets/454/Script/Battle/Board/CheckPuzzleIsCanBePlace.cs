@@ -72,10 +72,10 @@ public class CheckPuzzleIsCanBePlace : MonoBehaviour
         switch (direction)
         {
             case Direction.Up:
-                return thisPuzzle.UpSide_.Interlocking_ == PuzzleSideData.Interlocking.protrusions_突起       //檢查上邊，若為突起執行第二行，反之執行第三行
-                    ? adjacentPuzzle.DownSide_.Interlocking_ == PuzzleSideData.Interlocking.indentations_凹陷 //若上邊為突起，則對接處必須為凹陷，凹陷回傳true，反之則回傳flase
-                    : adjacentPuzzle.DownSide_.Interlocking_ == PuzzleSideData.Interlocking.protrusions_突起; //若上邊為凹陷，則對接處必須為突起，突起回傳true，反之則回傳flase
-
+                ///               return thisPuzzle.UpSide_.Interlocking_ == PuzzleSideData.Interlocking.protrusions_突起       //檢查上邊，若為突起執行第二行，反之執行第三行
+                ///                   ? adjacentPuzzle.DownSide_.Interlocking_ == PuzzleSideData.Interlocking.indentations_凹陷 //若上邊為突起，則對接處必須為凹陷，凹陷回傳true，反之則回傳flase
+                ///                  : adjacentPuzzle.DownSide_.Interlocking_ == PuzzleSideData.Interlocking.protrusions_突起; //若上邊為凹陷，則對接處必須為突起，突起回傳true，反之則回傳flase
+                return CheckSide(thisPuzzle.UpSide_, adjacentPuzzle.DownSide_);
             case Direction.Down:
                 return thisPuzzle.DownSide_.Interlocking_ == PuzzleSideData.Interlocking.protrusions_突起
                     ? adjacentPuzzle.UpSide_.Interlocking_ == PuzzleSideData.Interlocking.indentations_凹陷
@@ -96,7 +96,18 @@ public class CheckPuzzleIsCanBePlace : MonoBehaviour
         }
     }
 
-
+    /// <summary>
+    /// 比較指定邊與相鄰的邊是否可以拼得起來
+    /// </summary>
+    /// <param name="放置拼圖要比較的那個邊"></param>
+    /// <param name="與前者相鄰的邊"></param>
+    /// <returns></returns>
+    private bool CheckSide(PuzzleSideData thisPuzzleSide, PuzzleSideData adjacentPuzzleSide)
+    {
+        return thisPuzzleSide.Interlocking_ == PuzzleSideData.Interlocking.protrusions_突起       //檢查上邊，若為突起執行第二行，反之執行第三行
+                    ? adjacentPuzzleSide.Interlocking_ == PuzzleSideData.Interlocking.indentations_凹陷 //若上邊為突起，則對接處必須為凹陷，凹陷回傳true，反之則回傳flase
+                    : adjacentPuzzleSide.Interlocking_ == PuzzleSideData.Interlocking.protrusions_突起; //若上邊為凹陷，則對接處必須為突起，突起回傳true，反之則回傳flase
+    }
 
 
 
