@@ -34,20 +34,20 @@ public class EnemySkillController : MonoBehaviour
     {
         enemySkillsThisTurn.Clear(); //清空上回合的技能
 
-        foreach (Enemy enemy in battleGameController.enemies) //每位敵人觸發一次
+        foreach (Enemy enemy in battleGameController.InstancedEnemy) //每位敵人觸發一次
         {
-            int r = UnityEngine.Random.Range(0, enemy.enemySkillsPrefab.Count);  //隨機挑一個技能
-
-            if (enemy.enemySkillsPrefab[r] != null)
-            {               
-                enemySkillsThisTurn.Add(enemy.enemySkillsPrefab[r].GetComponent<EnemySkill>()); //程式碼1
-
-                /*EnemySkill enemySkill = enemy.enemySkillsPrefab[r].GetComponent<EnemySkill>(); //程式碼2
-                enemySkillsThisTurn.Add(enemySkill);*/
-            }
-            else
+            for (int i = 0; i < enemy._attackNum; i++)
             {
-                Debug.LogError("錯誤，有敵人Prefab上沒有技能");
+                int r = UnityEngine.Random.Range(0, enemy.enemySkillsPrefab.Count);  //隨機挑一個技能
+
+                if (enemy.enemySkillsPrefab[r] != null)
+                {
+                    enemySkillsThisTurn.Add(enemy.enemySkillsPrefab[r].GetComponent<EnemySkill>()); //程式碼1
+                }
+                else
+                {
+                    Debug.LogError("錯誤，有敵人Prefab上沒有技能");
+                }
             }
         }
     }

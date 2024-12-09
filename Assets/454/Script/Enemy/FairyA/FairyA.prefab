@@ -141,6 +141,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 3c8a056bf74f8e947ac7a55fc4123904, type: 3}
     - target: {fileID: 7504747802191047721, guid: 0715369398bb9ff46b2e8ed8e3cc2bea, type: 3}
+      propertyPath: _attackNum
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7504747802191047721, guid: 0715369398bb9ff46b2e8ed8e3cc2bea, type: 3}
       propertyPath: Information
       value: "\u7576\u7D50\u7B97\u6642\uFF0C\u4FE1\u4EF0\u8207\u9748\u9B42\u672C\u8CEA\u7684\u7D50\u7B97\u503C\u8996\u70BA\u5169\u500D"
       objectReference: {fileID: 0}

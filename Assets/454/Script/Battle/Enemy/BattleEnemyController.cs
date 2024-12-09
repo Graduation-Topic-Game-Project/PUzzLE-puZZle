@@ -7,6 +7,8 @@ public class BattleEnemyController : MonoBehaviour
     private BattleGameController battleGameController;
 
     public GameObject EnemyPlane;
+
+
     public GameObject[] EnemyPositionGameObject = new GameObject[3]; //依照敵方總數來選擇生成位置
     GameObject NowEnemyPosition;
     public int EnemiesNumber; //敵方總數
@@ -79,9 +81,19 @@ public class BattleEnemyController : MonoBehaviour
     void InstantiateEnemies(int enemiesNum)
     {
         for (int i = 0; i < enemiesNum; i++)
-            Instantiate(battleGameController.battleInformation.Enemies[i],
-                NowEnemyPosition.transform.GetChild(i).transform.position,
-                transform.rotation, 
-                NowEnemyPosition.transform.GetChild(i));
+        {
+            GameObject enemy = Instantiate(battleGameController.battleInformation.Enemies[i],
+             NowEnemyPosition.transform.GetChild(i).transform.position,
+             transform.rotation,
+             NowEnemyPosition.transform.GetChild(i));
+
+            battleGameController.InstancedEnemy.Add(enemy.GetComponent<Enemy>());
+
+            /*Instantiate(battleGameController.enemies[i],
+            NowEnemyPosition.transform.GetChild(i).transform.position,
+            transform.rotation,
+            NowEnemyPosition.transform.GetChild(i));*/
+        }
+
     }
 }

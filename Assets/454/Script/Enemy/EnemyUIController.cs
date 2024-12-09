@@ -57,6 +57,6 @@ public class EnemyUIController : MonoBehaviour
     private void DeadUIController()
     {
         Debug.Log("執行死亡動畫");
-        EnemyImage.sprite = null;
+        EnemyImage.sprite = _enemy.DeadImage;
     }
 }

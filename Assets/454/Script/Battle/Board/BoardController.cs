@@ -12,6 +12,7 @@ public class BoardController : MonoBehaviour
     public Board[,] board = new Board[PuzzleMasterController.BoardX, PuzzleMasterController.BoardY]; //盤面[6,7]
     public GameObject puzzlesGrids; //場景上的盤面格子父物件
     public GameObject[,] puzzlesGridGameObject = new GameObject[PuzzleMasterController.BoardX, PuzzleMasterController.BoardY]; //拼圖盤面框物件，用來對生成時的位置的
+    public GameObject puzzleInstanceGameObject; //拼圖生成位置
     public GameObject puzzleSideInstanceGameObject; //拼圖卡榫生成位置
 
     public event Func<int, int, PuzzleData, bool> Event_CheckPuzzleIsCanBePlace; //檢查拼圖是否可被放置
@@ -43,6 +44,11 @@ public class BoardController : MonoBehaviour
 
     public void UpdatePuzzleBoard() //更新顯示盤面上拼圖
     {
+        foreach (Transform child in puzzleInstanceGameObject.transform)
+        {         
+            Destroy(child.gameObject);
+        }
+
         //清空舊拼圖
         for (int i = 0; i < 6; i++)
         {
@@ -86,7 +92,7 @@ public class BoardController : MonoBehaviour
     void InstantiatePuzzle(int i, int j)
     {
         //                                                                                                                                    //拼圖物件生成的資料夾
-        Puzzle nowPuzzle = Instantiate(puzzleMasterController.puzzlePrefab, puzzlesGridGameObject[i, j].transform.position, transform.rotation, puzzlesGridGameObject[i, j].transform.GetChild(1));
+        Puzzle nowPuzzle = Instantiate(puzzleMasterController.puzzlePrefab, puzzlesGridGameObject[i, j].transform.position, transform.rotation, puzzleInstanceGameObject.transform);
         nowPuzzle.puzzleData = board[i, j].Puzzle;
         nowPuzzle.ReUpdate_PuzzleEssence_Image();
 
@@ -101,7 +107,7 @@ public class BoardController : MonoBehaviour
     void InstantiateEnemyPuzzle(int i, int j)
     {
         //                                                                                                                                    //拼圖物件生成的資料夾
-        EnemyPuzzle nowPuzzle = Instantiate(puzzleMasterController.EnemyPuzzlePrefab, puzzlesGridGameObject[i, j].transform.position, transform.rotation, puzzlesGridGameObject[i, j].transform.GetChild(1));
+        EnemyPuzzle nowPuzzle = Instantiate(puzzleMasterController.EnemyPuzzlePrefab, puzzlesGridGameObject[i, j].transform.position, transform.rotation, puzzleInstanceGameObject.transform);
         nowPuzzle.puzzleData = board[i, j].Puzzle;
         nowPuzzle.ReUpdate_PuzzleEssence_Image();
         EnemyPuzzleSkill enemyPuzzleSkill = nowPuzzle.GetComponent<EnemyPuzzleSkill>();

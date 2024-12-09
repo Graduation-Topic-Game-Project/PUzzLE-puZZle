@@ -14,6 +14,7 @@ public class Enemy : MonoBehaviour
     public string enemyName;
     [Header("敵方圖片")]
     public Sprite EnemyImage;
+    public Sprite DeadImage;
 
     [Header("血量")]
     public int _enemyHp;
@@ -22,10 +23,10 @@ public class Enemy : MonoBehaviour
     public bool _isLife;
 
     [Header("攻擊次數")]
-    public int _attackNum;
+    public int _attackNum = 1;
 
     /// <summary> 攻擊次數 </summary>
-    public virtual int AttackNum { get => _attackNum; set => _attackNum = value; }
+    //public virtual int AttackNum { get => _attackNum; set => _attackNum = value; }
 
     [TextArea]
     public string Information; //敵方介紹
@@ -39,16 +40,23 @@ public class Enemy : MonoBehaviour
         if (battleGameController == null) //獲取場景上的BattleGameController        
             battleGameController = FindObjectOfType<BattleGameController>();
 
-        _isLife = false;
-        //_isLife = !Application.isPlaying; // 在執行模式下禁用
+        _isLife = true;
+        AwakeNumericSetting(); //初使數值設定
+    }
+
+    /// <summary>
+    /// 數值設定
+    /// </summary>
+    protected virtual void AwakeNumericSetting()
+    {
+
     }
     private void Start()
     {
-        //this.GetComponent<Image>().sprite = EnemyImage;
         SettlementBoardController.Event_Damage += this.Damage;
     }
 
-    protected virtual void Damage(int R, int B, int Y, int P) //受傷
+    public virtual void Damage(int R, int B, int Y, int P) //受傷
     {
         if (_isLife == true)
         {
@@ -79,13 +87,12 @@ public class Enemy : MonoBehaviour
             Event_IsDead?.Invoke();
             return false;
         }
-
     }
 
-    void OnDestroy() //刪除時，解除訂閱
+    /*void OnDestroy() //刪除時，解除訂閱
     {
         SettlementBoardController.Event_Damage -= this.Damage;
-    }
+    }*/
 }
 
 

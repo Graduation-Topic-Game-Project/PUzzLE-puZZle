@@ -66,11 +66,23 @@ public class Puzzle : MonoBehaviour
             _sideImage.sprite = PuzzleSideEssenceImage[(int)_puzzleSideData.Essence_];
         }
     }
-
-    public void Hide_BgImage_and_MidImage() //隱藏拼圖圖板與主要寶石
+    /// <summary>隱藏拼圖圖板與主要寶石與凹槽圖片</summary>
+    public void Hide_BgImage_and_MidImage() //隱藏拼圖圖板與主要寶石與凹槽圖片
     {
         _middleImage.sprite = NoneSprite;
         _bgImage.sprite = NoneSprite;
+
+        if (puzzleData.UpSide_.Interlocking_ == PuzzleSideData.Interlocking.indentations_凹陷)
+            _upImage.sprite = NoneSprite;
+
+        if (puzzleData.DownSide_.Interlocking_ == PuzzleSideData.Interlocking.indentations_凹陷)
+            _downImage.sprite = NoneSprite;
+
+        if (puzzleData.RightSide_.Interlocking_ == PuzzleSideData.Interlocking.indentations_凹陷)
+            _rightImage.sprite = NoneSprite;
+
+        if (puzzleData.LeftSide_.Interlocking_ == PuzzleSideData.Interlocking.indentations_凹陷)
+            _leftImage.sprite = NoneSprite;
     }
 }
 

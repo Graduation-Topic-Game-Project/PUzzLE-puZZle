@@ -21,10 +21,7 @@ public class SettlementBoardController : MonoBehaviour
         if (boardController == null) //獲取場景上的BoardController   
             boardController = FindObjectOfType<BoardController>();
 
-        //battleGameController.Event_BillingEssencePointForBoard += this.BillingEssencePointForBoard;
         battleGameController.Event_SettlementBoard += this.BillingEssencePointForBoard;
-
-        //battleGameController.Event_EndTurn += Test;
     }
 
     /// <summary>

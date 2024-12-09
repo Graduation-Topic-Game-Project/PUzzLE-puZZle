@@ -24,7 +24,9 @@ public class BattleGameController : MonoBehaviour
 
     [Header("對手")]
     public List<Enemy> enemies = new List<Enemy>();
+    //只有開始遊戲生成敵人和施放技能時會用，傷害計算等在BattleEnemyController的EnemyInstance
 
+    public List<Enemy> InstancedEnemy; //實例化的敵人
 
     private void Start()
     {
