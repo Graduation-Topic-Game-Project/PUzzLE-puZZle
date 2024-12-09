@@ -79,6 +79,9 @@ public class BattleEnemyController : MonoBehaviour
     void InstantiateEnemies(int enemiesNum)
     {
         for (int i = 0; i < enemiesNum; i++)
-            Instantiate(battleGameController.battleInformation.Enemies[i], NowEnemyPosition.transform.GetChild(i).transform.position, transform.rotation, NowEnemyPosition.transform.GetChild(i));
+            Instantiate(battleGameController.battleInformation.Enemies[i],
+                NowEnemyPosition.transform.GetChild(i).transform.position,
+                transform.rotation, 
+                NowEnemyPosition.transform.GetChild(i));
     }
 }

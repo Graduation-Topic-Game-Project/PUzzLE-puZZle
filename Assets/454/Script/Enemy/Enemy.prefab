@@ -169,8 +169,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyName: 
-  EnemyImage: {fileID: 21300000, guid: 3c8a056bf74f8e947ac7a55fc4123904, type: 3}
+  EnemyImage: {fileID: 21300000, guid: 4ff1aa1b9c5faf94d9409ad8695cb0d4, type: 3}
   _enemyHp: 0
+  _isLife: 0
+  _attackNum: 0
   Information: "Test\u7BC4\u672C"
   enemySkillsPrefab: []
 --- !u!114 &8164249773128086196
@@ -185,6 +187,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a422600a12d1d59449bbb7ce25619a85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  EnemyImage: {fileID: 4509880757742937835}
   HpText: {fileID: 8948341649163169160}
   InformationPlane: {fileID: 4451559396653805704}
   InformationEnemyName: {fileID: 3141707895994981132}
@@ -304,8 +307,8 @@ MonoBehaviour:
 
 '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 5970ccdbf2db9a846ba9300ea4d22ebb, type: 2}
-  m_sharedMaterial: {fileID: 5885465708149771125, guid: 5970ccdbf2db9a846ba9300ea4d22ebb, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

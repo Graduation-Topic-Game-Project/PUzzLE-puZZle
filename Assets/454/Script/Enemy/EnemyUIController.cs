@@ -8,6 +8,7 @@ public class EnemyUIController : MonoBehaviour
 {
     Enemy _enemy;
 
+    public Image EnemyImage;
     public TextMeshProUGUI HpText;
 
     public GameObject InformationPlane;
@@ -28,6 +29,14 @@ public class EnemyUIController : MonoBehaviour
 
         isOpenInformation = false;
         InformationPlane.SetActive(false);
+
+        _enemy.Event_IsDead += DeadUIController;
+
+    }
+
+    private void Start()
+    {
+        EnemyImage.sprite = _enemy.EnemyImage;
     }
 
     void Update()
@@ -43,5 +52,11 @@ public class EnemyUIController : MonoBehaviour
 
         InformationText.text = _enemy.Information;
         InformationEnemyName.text = _enemy.enemyName;
+    }
+
+    private void DeadUIController()
+    {
+        Debug.Log("執行死亡動畫");
+        EnemyImage.sprite = null;
     }
 }

@@ -46,8 +46,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4451559396653805704, guid: 0715369398bb9ff46b2e8ed8e3cc2bea, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4509880757742937835, guid: 0715369398bb9ff46b2e8ed8e3cc2bea, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 3c8a056bf74f8e947ac7a55fc4123904, type: 3}
     - target: {fileID: 4880572691354605769, guid: 0715369398bb9ff46b2e8ed8e3cc2bea, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -133,6 +137,10 @@ PrefabInstance:
       value: "\u5996\u7CBE"
       objectReference: {fileID: 0}
     - target: {fileID: 7504747802191047721, guid: 0715369398bb9ff46b2e8ed8e3cc2bea, type: 3}
+      propertyPath: EnemyImage
+      value: 
+      objectReference: {fileID: 21300000, guid: 3c8a056bf74f8e947ac7a55fc4123904, type: 3}
+    - target: {fileID: 7504747802191047721, guid: 0715369398bb9ff46b2e8ed8e3cc2bea, type: 3}
       propertyPath: Information
       value: "\u7576\u7D50\u7B97\u6642\uFF0C\u4FE1\u4EF0\u8207\u9748\u9B42\u672C\u8CEA\u7684\u7D50\u7B97\u503C\u8996\u70BA\u5169\u500D"
       objectReference: {fileID: 0}
@@ -142,16 +150,24 @@ PrefabInstance:
       objectReference: {fileID: 5543932324951897785, guid: 449c1dd25e8968840836abcfda9a9e63, type: 3}
     - target: {fileID: 7504747802191047721, guid: 0715369398bb9ff46b2e8ed8e3cc2bea, type: 3}
       propertyPath: enemySkillsPrefab.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7504747802191047721, guid: 0715369398bb9ff46b2e8ed8e3cc2bea, type: 3}
       propertyPath: enemySkillsPrefab.Array.data[0]
       value: 
       objectReference: {fileID: 4796933317568352855, guid: ad5b5ee3eaa252f44bb39de8f5f78270, type: 3}
+    - target: {fileID: 7504747802191047721, guid: 0715369398bb9ff46b2e8ed8e3cc2bea, type: 3}
+      propertyPath: enemySkillsPrefab.Array.data[1]
+      value: 
+      objectReference: {fileID: 4796933317568352855, guid: 7d7116f59d84aad468bdac736603d7f3, type: 3}
     - target: {fileID: 7738338713474822678, guid: 0715369398bb9ff46b2e8ed8e3cc2bea, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8164249773128086196, guid: 0715369398bb9ff46b2e8ed8e3cc2bea, type: 3}
+      propertyPath: EnemyImage
+      value: 
+      objectReference: {fileID: 1204216587141069802}
     - target: {fileID: 8164249773128086196, guid: 0715369398bb9ff46b2e8ed8e3cc2bea, type: 3}
       propertyPath: Information
       value: "\u7576\u7D50\u7B97\u6642\uFF0C\u4FE1\u4EF0\u8207\u9748\u9B42\u672C\u8CEA\u7684\u7D50\u7B97\u503C\u8996\u70BA\u5169\u500D"
@@ -172,6 +188,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 3130845693935057064, guid: 0715369398bb9ff46b2e8ed8e3cc2bea, type: 3}
   m_PrefabInstance: {fileID: 3323775532999253249}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1204216587141069802 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4509880757742937835, guid: 0715369398bb9ff46b2e8ed8e3cc2bea, type: 3}
+  m_PrefabInstance: {fileID: 3323775532999253249}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &6282128960607343592
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -8,6 +8,7 @@ public class EnemyPuzzleSkill : EnemySkill
     BoardController boardController;
 
     protected override int damage { get; } = 10;
+
     public EnemyPuzzle enemyPuzzle;
     public bool isBreak;
     protected virtual int _minX { get; } = 0;

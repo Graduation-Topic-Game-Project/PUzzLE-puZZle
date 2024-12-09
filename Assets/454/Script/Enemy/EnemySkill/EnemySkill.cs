@@ -6,6 +6,7 @@ using System;
 public class EnemySkill : MonoBehaviour
 {
     public string SkillName;
+
     protected virtual int damage { get; }
 
     /// <summary>

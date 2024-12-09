@@ -8350,6 +8350,7 @@ GameObject:
   - component: {fileID: 683618068}
   - component: {fileID: 683618073}
   - component: {fileID: 683618076}
+  - component: {fileID: 683618077}
   m_Layer: 0
   m_Name: BattleGameController
   m_TagString: Untagged
@@ -8554,6 +8555,19 @@ MonoBehaviour:
   battleGameController: {fileID: 0}
   boardController: {fileID: 0}
   enemySkillsThisTurn: []
+--- !u!114 &683618077
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 683618065}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 365f8637bf29b784b84ff0d7b9379cb0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  battleGameController: {fileID: 0}
 --- !u!1 &683836309
 GameObject:
   m_ObjectHideFlags: 0
@@ -15203,6 +15217,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   battleGameController: {fileID: 0}
+  endTurnController: {fileID: 0}
 --- !u!1001 &942275692
 PrefabInstance:
   m_ObjectHideFlags: 0

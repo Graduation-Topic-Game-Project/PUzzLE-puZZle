@@ -15,42 +15,59 @@ public class Enemy : MonoBehaviour
     [Header("敵方圖片")]
     public Sprite EnemyImage;
 
-    //public int _enemyAtk;
+    [Header("血量")]
     public int _enemyHp;
+
+    [Header("是否活著"), Tooltip("True:活著 False死亡")]
+    public bool _isLife;
+
+    [Header("攻擊次數")]
+    public int _attackNum;
+
+    /// <summary> 攻擊次數 </summary>
+    public virtual int AttackNum { get => _attackNum; set => _attackNum = value; }
+
     [TextArea]
-    public string Information;
+    public string Information; //敵方介紹
 
     public List<GameObject> enemySkillsPrefab;
+
+    public event Action Event_IsDead;
 
     protected void Awake()
     {
         if (battleGameController == null) //獲取場景上的BattleGameController        
             battleGameController = FindObjectOfType<BattleGameController>();
 
-        battleGameController.Event_BattleStart += this.SkillLoad;
+        _isLife = false;
+        //_isLife = !Application.isPlaying; // 在執行模式下禁用
     }
     private void Start()
     {
-        this.GetComponent<Image>().sprite = EnemyImage;
+        //this.GetComponent<Image>().sprite = EnemyImage;
         SettlementBoardController.Event_Damage += this.Damage;
-    }
-
-    public void SkillLoad(object sender, EventArgs e)
-    {
-        //enemySkills
     }
 
     protected virtual void Damage(int R, int B, int Y, int P) //受傷
     {
-        DamageFormula(R, B, Y, P);
-        IsDead();
+        if (_isLife == true)
+        {
+            DamageFormula(R, B, Y, P); //執行傷害公式
+            _isLife = IsDead();
+        }
     }
 
+    /// <summary>
+    /// 傷害計算公式
+    /// </summary>
     protected virtual void DamageFormula(int R, int B, int Y, int P)
     {
         _enemyHp -= R + B + Y + P;
     }
 
+    /// <summary>
+    /// 判定:是否死亡
+    /// </summary>
     protected virtual bool IsDead()
     {
         if (_enemyHp > 0)
@@ -58,11 +75,17 @@ public class Enemy : MonoBehaviour
             return true;
         }
         else
+        {
+            Event_IsDead?.Invoke();
             return false;
+        }
+
     }
 
-
-
+    void OnDestroy() //刪除時，解除訂閱
+    {
+        SettlementBoardController.Event_Damage -= this.Damage;
+    }
 }
 
 

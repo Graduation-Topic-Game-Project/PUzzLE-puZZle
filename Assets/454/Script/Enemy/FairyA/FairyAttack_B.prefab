@@ -9,12 +9,28 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 2311983873258995316, guid: 2e6561285470966469e6c62dcef36b06, type: 3}
-      propertyPath: puzzleData._down._sideEssence
+      propertyPath: puzzleData._up._sideEssence
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2311983873258995316, guid: 2e6561285470966469e6c62dcef36b06, type: 3}
+      propertyPath: puzzleData._down._sideEssence
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2311983873258995316, guid: 2e6561285470966469e6c62dcef36b06, type: 3}
+      propertyPath: puzzleData._left._sideEssence
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2311983873258995316, guid: 2e6561285470966469e6c62dcef36b06, type: 3}
       propertyPath: puzzleData._down._interlocking
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2311983873258995316, guid: 2e6561285470966469e6c62dcef36b06, type: 3}
+      propertyPath: puzzleData._left._interlocking
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2311983873258995316, guid: 2e6561285470966469e6c62dcef36b06, type: 3}
+      propertyPath: puzzleData._right._sideEssence
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2311983873258995316, guid: 2e6561285470966469e6c62dcef36b06, type: 3}
       propertyPath: puzzleData._right._interlocking
@@ -110,7 +126,7 @@ PrefabInstance:
       objectReference: {fileID: 6554951725611283252}
     - target: {fileID: 4066800662355746583, guid: 2e6561285470966469e6c62dcef36b06, type: 3}
       propertyPath: m_Name
-      value: FairyAttack_A
+      value: FairyAttack_B
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3143763128708506844, guid: 2e6561285470966469e6c62dcef36b06, type: 3}
@@ -119,14 +135,14 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 4066800662355746583, guid: 2e6561285470966469e6c62dcef36b06, type: 3}
       insertIndex: 1
-      addedObject: {fileID: 4808162659604013340}
+      addedObject: {fileID: 666228118188351300}
   m_SourcePrefab: {fileID: 100100000, guid: 2e6561285470966469e6c62dcef36b06, type: 3}
 --- !u!1 &4796933317568352855 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4066800662355746583, guid: 2e6561285470966469e6c62dcef36b06, type: 3}
   m_PrefabInstance: {fileID: 8854653871317601600}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &4808162659604013340
+--- !u!114 &666228118188351300
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -135,10 +151,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 4796933317568352855}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d40cec67146cd324db5a1a57d04bf84a, type: 3}
+  m_Script: {fileID: 11500000, guid: 2ea614c4427a6f04cbf57e2e80f3b007, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SkillName: "\u5996\u7CBE\u5B09\u9B27"
+  SkillName: "\u9C57\u7C89"
   enemyPuzzle: {fileID: 6554951725611283252}
   isBreak: 0
 --- !u!114 &6554951725611283252 stripped
