@@ -11,9 +11,14 @@ public class EnemyPuzzleSkill : EnemySkill
 
     public EnemyPuzzle enemyPuzzle;
     public bool isBreak;
+
+    /// <summary>敵方拼圖生成的最上橫行(0~5) </summary>
     protected virtual int _minX { get; } = 0;
+    /// <summary>敵方拼圖生成的最下橫行(0~5) </summary>
     protected virtual int _maxX { get; } = 5;
+    /// <summary>敵方拼圖生成的最左直列(0~6) </summary>
     protected virtual int _minY { get; } = 0;
+    /// <summary>敵方拼圖生成的最右直列(0~6) </summary>
     protected virtual int _maxY { get; } = 6;
 
 
@@ -64,8 +69,8 @@ public class EnemyPuzzleSkill : EnemySkill
             boardController = FindObjectOfType<BoardController>();
         }
 
-        int x = UnityEngine.Random.Range(_minX, _maxX);
-        int y = UnityEngine.Random.Range(_minY, _maxY);
+        int x = UnityEngine.Random.Range(_minX, _maxX + 1);
+        int y = UnityEngine.Random.Range(_minY, _maxY + 1);
 
 
         if (boardController.board[x, y].Puzzle == null)

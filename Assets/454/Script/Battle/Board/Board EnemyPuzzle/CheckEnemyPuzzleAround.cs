@@ -56,10 +56,10 @@ public class CheckEnemyPuzzleAround : MonoBehaviour
         if (x != PuzzleMasterController.BoardX && boardController.board[x + 1, y].Puzzle == null)
             return false; // 如果下方不為邊界且沒有拼圖，回傳flase
 
-        if (y != 0 && boardController.board[x, y + 1].Puzzle == null)
+        if (y != PuzzleMasterController.BoardY && boardController.board[x, y + 1].Puzzle == null)
             return false; // 如果右方不為邊界且沒有拼圖，回傳flase
 
-        if (y != PuzzleMasterController.BoardY && boardController.board[x, y - 1].Puzzle == null)
+        if (y != 0 && boardController.board[x, y - 1].Puzzle == null)
             return false; // 如果左方不為邊界且沒有拼圖，回傳flase
 
         return true;

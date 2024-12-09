@@ -92,12 +92,21 @@ public class CheckPuzzleIsCanBePlace : MonoBehaviour
     /// <returns></returns>
     private bool CheckSide(PuzzleSideData thisPuzzleSide, PuzzleSideData adjacentPuzzleSide)
     {
-
         if (thisPuzzleSide.Interlocking_ == PuzzleSideData.Interlocking.protrusions_突起) //若thisPuzzle為突起，則對接處必須為凹陷
         {
             if (adjacentPuzzleSide.Interlocking_ != PuzzleSideData.Interlocking.indentations_凹陷) //若對接處不是凹陷，回傳flase
             {
                 return false;
+            }
+
+            if (adjacentPuzzleSide.Essence_ != EssenceEnum.Essence.None_無屬性) //若對接處的凹槽帶有屬性
+            {
+                //若比較的凸起與對接的凹槽屬性相同，回傳true，反之回傳false
+                return adjacentPuzzleSide.Essence_ == thisPuzzleSide.Essence_;
+            }
+            else
+            {
+                return true;
             }
         }
         else if (thisPuzzleSide.Interlocking_ == PuzzleSideData.Interlocking.indentations_凹陷)//若thisPuzzle為凹陷
@@ -106,20 +115,23 @@ public class CheckPuzzleIsCanBePlace : MonoBehaviour
             {
                 return false;
             }
+
+            if (thisPuzzleSide.Essence_ != EssenceEnum.Essence.None_無屬性) //若thisPuzzle的凹槽帶有屬性
+            {
+                //若比較的凸起與對接的凹槽屬性相同，回傳true，反之回傳false
+                return adjacentPuzzleSide.Essence_ == thisPuzzleSide.Essence_;
+            }
+            else
+            {
+                return true;
+            }
         }
         else
         {
             Debug.LogError("CheckSide出現例外");
         }
 
-        if (adjacentPuzzleSide.Essence_ != EssenceEnum.Essence.None_無屬性) //若對接處的凹槽帶有屬性
-        {
-            //若比較的凸起與對接的凹槽屬性相同，回傳true，反之回傳false
-            return adjacentPuzzleSide.Essence_ == thisPuzzleSide.Essence_;
-        }
-        else
-        {
-            return true;
-        }
+        Debug.LogError("CheckSide出現例外");
+        return false;
     }
 }

@@ -8,4 +8,6 @@ public class FairyAttack_B : EnemyPuzzleSkill
 
     protected override int _minX { get; } = 3;
 
+    protected override int _minY { get; } = 6;
+
 }

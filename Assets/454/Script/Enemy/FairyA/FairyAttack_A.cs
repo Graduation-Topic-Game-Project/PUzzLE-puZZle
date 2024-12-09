@@ -6,6 +6,6 @@ public class FairyAttack_A : EnemyPuzzleSkill
 {
     protected override int damage { get; } = 30;
 
-    protected override int _maxX { get; } = 3;
+    protected override int _maxX { get; } = 2;
 
 }
