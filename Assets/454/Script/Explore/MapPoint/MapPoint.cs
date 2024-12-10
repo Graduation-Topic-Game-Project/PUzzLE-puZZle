@@ -19,6 +19,7 @@ public class MapPoint : MonoBehaviour
     {
         if(ExploreMapController.isCanClickExploreMapUI == false)
         {
+            Debug.Log("UI¤¬°ÊÃö³¬¤¤");
             return;
         }
         if (ExplorePlayerMove.IsCanMove(this) == false)
@@ -26,6 +27,7 @@ public class MapPoint : MonoBehaviour
             return;
         }
         ExplorePlayerMove.StartCoroutine_PlayerMove(this);
+        Debug.Log(PointTrasform);
     }
 
 

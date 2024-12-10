@@ -8,9 +8,11 @@ public class ExplorePoint : MapPoint
 {
     public ExploreType exploreType = ExploreType.Battle_戰鬥;
 
-    public Image image;
-    public Sprite Battle;
-    public Sprite Event;
+    public Image ExplarePointImage;
+
+    public Sprite NoneSprite;
+    public Sprite BattleSprite;
+    public Sprite EvenSpritet;
 
 
 
@@ -19,11 +21,21 @@ public class ExplorePoint : MapPoint
         base.Click();
     }
 
-    private void Awake()
+    private void Start()
     {
-        
-    }
+        switch (exploreType)
+        {
+            case ExploreType.None_無:
 
+                break;
+            case ExploreType.Battle_戰鬥:
+                ExplarePointImage.sprite = BattleSprite;
+                break;
+            case ExploreType.Event_事件:
+                ExplarePointImage.sprite = EvenSpritet;
+                break;
+        }
+    }
 
     public override void MapPointEvent()
     {

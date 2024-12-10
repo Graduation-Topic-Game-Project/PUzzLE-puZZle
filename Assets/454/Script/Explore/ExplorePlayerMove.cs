@@ -7,7 +7,7 @@ public class ExplorePlayerMove : MonoBehaviour
     ExploreMapController exploreMapController;
     static ExplorePlayerMove explorePlayerMove;
 
-    /// <summary>是否可以執行PlayerMove協程</summary>
+    /// <summary>玩家是否正在移動&是否可以執行PlayerMove協程</summary>
     bool isPlayerMove;
 
     private void Awake()
@@ -73,7 +73,7 @@ public class ExplorePlayerMove : MonoBehaviour
 
     private IEnumerator PlayerMove(MapPoint targetMapPoint)
     {
-        float speed = 1f; //速度
+        float speed = 2f; //速度
         GameObject player = exploreMapController.player;
 
         Vector3 targetPosition = targetMapPoint.gameObject.transform.position;
@@ -83,7 +83,6 @@ public class ExplorePlayerMove : MonoBehaviour
         {
             // 移動物件
             player.transform.position = Vector3.MoveTowards(player.transform.position, targetPosition, speed * Time.deltaTime);
-
             yield return null; // 等待下一幀
         }
 
@@ -91,7 +90,7 @@ public class ExplorePlayerMove : MonoBehaviour
         isPlayerMove = false; // 移動完畢 
         exploreMapController.PlayerTransform = targetMapPoint.PointTrasform; // 玩家位置設置為移動目標位置
 
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(0.5f);
 
         ExploreMapController.isCanClickExploreMapUI = true; //重新打開UI互動
         targetMapPoint.MapPointEvent();

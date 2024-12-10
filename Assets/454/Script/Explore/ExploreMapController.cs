@@ -22,6 +22,8 @@ public class ExploreMapController : MonoBehaviour
     {
         ExplorePoints = new ExplorePoint[exploreInformation.Layers, exploreInformation.LayerWidth]; //探索格有四層
         PathPoints = new PathPoint[exploreInformation.Layers - 1, exploreInformation.LayerWidth]; //道路格有三層
+
+        //Debug.Log(PlayerTransform);
     }
     private void Start()
     {
