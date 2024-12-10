@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class BattleEnemyController : MonoBehaviour
 {
@@ -36,16 +37,19 @@ public class BattleEnemyController : MonoBehaviour
                 Debug.LogWarning($"敵人物件 {i} 缺少 Enemy 元件");
             }
         }
+
+        battleGameController.Event_BattleStart += CheckTheNumberOfEnemies;
+        battleGameController.Event_IsAllEnemyDead += IsAllEnemyDead; //
     }
     void Start()
     {
-        CheckTheNumberOfEnemies();
+        //CheckTheNumberOfEnemies();
     }
 
     /// <summary>
     /// 檢查敵人數量，並啟用對應EnemyPosition
     /// </summary>
-    void CheckTheNumberOfEnemies()
+    void CheckTheNumberOfEnemies(object sender, EventArgs e)
     {
         int enemiesNum = battleGameController.battleInformation.Enemies.Count;
         switch (enemiesNum)
@@ -88,12 +92,18 @@ public class BattleEnemyController : MonoBehaviour
              NowEnemyPosition.transform.GetChild(i));
 
             battleGameController.InstancedEnemy.Add(enemy.GetComponent<Enemy>());
+        }
+    }
 
-            /*Instantiate(battleGameController.enemies[i],
-            NowEnemyPosition.transform.GetChild(i).transform.position,
-            transform.rotation,
-            NowEnemyPosition.transform.GetChild(i));*/
+    public void IsAllEnemyDead() //檢查是否全部敵方皆死亡
+    {
+        foreach (Enemy enemy in battleGameController.InstancedEnemy)
+        {
+            Debug.Log(enemy);
+            if (enemy._LifeOrDead == true)
+                return;
         }
 
+        battleGameController.CallEvent_Win();
     }
 }

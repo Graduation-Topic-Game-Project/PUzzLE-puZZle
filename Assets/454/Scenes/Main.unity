@@ -361,8 +361,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\u5192\u96AA"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 40d795fbeddf58e498d11cebc4fd7a28, type: 2}
-  m_sharedMaterial: {fileID: 7943390587169535110, guid: 40d795fbeddf58e498d11cebc4fd7a28, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 62050f2c3c422074bac0455ca7388ca1, type: 2}
+  m_sharedMaterial: {fileID: -1803069751564130377, guid: 62050f2c3c422074bac0455ca7388ca1, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

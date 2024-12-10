@@ -20,7 +20,7 @@ public class Enemy : MonoBehaviour
     public int _enemyHp;
 
     [Header("是否活著"), Tooltip("True:活著 False死亡")]
-    public bool _isLife;
+    public bool _LifeOrDead;
 
     [Header("攻擊次數")]
     public int _attackNum = 1;
@@ -40,7 +40,7 @@ public class Enemy : MonoBehaviour
         if (battleGameController == null) //獲取場景上的BattleGameController        
             battleGameController = FindObjectOfType<BattleGameController>();
 
-        _isLife = true;
+        _LifeOrDead = true;
         AwakeNumericSetting(); //初使數值設定
     }
 
@@ -58,10 +58,10 @@ public class Enemy : MonoBehaviour
 
     public virtual void Damage(int R, int B, int Y, int P) //受傷
     {
-        if (_isLife == true)
+        if (_LifeOrDead == true)
         {
             DamageFormula(R, B, Y, P); //執行傷害公式
-            _isLife = IsDead();
+            IsDead();
         }
     }
 
@@ -84,7 +84,9 @@ public class Enemy : MonoBehaviour
         }
         else
         {
-            Event_IsDead?.Invoke();
+            _LifeOrDead = false; //死亡
+            Event_IsDead?.Invoke(); //發送事件給EnemyUiController，撥放死亡動畫
+            battleGameController.CallEvent_IsAllEnemyDead(); //查看是否所有敵人皆死亡
             return false;
         }
     }
