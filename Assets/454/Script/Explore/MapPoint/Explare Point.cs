@@ -8,12 +8,21 @@ public class ExplorePoint : MapPoint
 {
     public ExploreType exploreType = ExploreType.Battle_¾Ô°«;
 
+    public Image image;
+    public Sprite Battle;
+    public Sprite Event;
+
+
 
     protected override void Click()
     {
         base.Click();
     }
 
+    private void Awake()
+    {
+        
+    }
 
 
     public override void MapPointEvent()
