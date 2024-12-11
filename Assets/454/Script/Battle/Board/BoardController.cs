@@ -16,6 +16,7 @@ public class BoardController : MonoBehaviour
     public GameObject puzzleSideInstanceGameObject; //拼圖卡榫生成位置
 
     public event Func<int, int, PuzzleData, bool> Event_CheckPuzzleIsCanBePlace; //檢查拼圖是否可被放置
+    public event Action<int, int> Event_CheckPuzzleLinkage; //檢查拼圖連鎖
     //public static event Func<PuzzleData, bool> Event_CheckEnemyPuzzleAround; //檢查敵方拼圖是否包圍
 
 
@@ -154,11 +155,13 @@ public class BoardController : MonoBehaviour
         if (puzzleMasterController.CanPlacePuzzle() == true) //如果目前可放置拼圖
         {
 
-            if (Event_CheckPuzzleIsCanBePlace.Invoke(i, j, puzzleMasterController.specifyPuzzle) == true) //檢查拼圖是否可被放置
+            if (Event_CheckPuzzleIsCanBePlace?.Invoke(i, j, puzzleMasterController.specifyPuzzle) == true) //檢查拼圖是否可被放置
             {
                 board[i, j].Puzzle = puzzleMasterController.specifyPuzzle;
                 board[i, j].Puzzle.puzzlePosition = (i, j); //更新PuzzleData內的拼圖座標
                 MessageTextController.SetMessage("放置拼圖");
+
+                Event_CheckPuzzleLinkage?.Invoke(i, j);
 
                 puzzleMasterController.CallEvent_RemovePlacedPuzzle(); //移除備戰區那塊已經被放上去的拼圖
                 puzzleMasterController.isSpecifyPuzzle = false; //取消選擇備戰區拼圖

@@ -48,7 +48,7 @@ public class PuzzleMasterController : MonoBehaviour
     }
 
     /// <summary>
-    /// 是否可放置拼圖
+    /// 是否可放置拼圖(是否指定拼圖&是否行動值為零)
     /// </summary>
     public bool CanPlacePuzzle()
     {

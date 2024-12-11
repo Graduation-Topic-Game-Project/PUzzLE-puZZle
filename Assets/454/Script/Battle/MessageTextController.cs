@@ -6,7 +6,8 @@ using TMPro;
 
 public class MessageTextController : MonoBehaviour
 {
-    TextMeshProUGUI messageText;
+    public TextMeshProUGUI messageText;
+    public TextMeshProUGUI linkageText;
     static MessageTextController @this;
     Color textColor;
 
@@ -14,6 +15,7 @@ public class MessageTextController : MonoBehaviour
     public int secondsDisplayed;
 
     Coroutine NowSetMessange;
+    Coroutine NowSetLinkageMessange;
 
     private void Awake()
     {
@@ -22,34 +24,57 @@ public class MessageTextController : MonoBehaviour
 
         messageText = this.GetComponent<TextMeshProUGUI>();
         messageText.text = "";
+        linkageText.text = "";
     }
 
-    void SetColorAlpha(float _alpha) //設置文字透明度
-    {
-        messageText.color = new Color(messageText.color.r, messageText.color.g, messageText.color.b, _alpha);
-    }
+
 
     public static void SetMessage(string messange)
     {
         if (@this.NowSetMessange != null)
             @this.StopCoroutine(@this.NowSetMessange);
-        @this.SetColorAlpha(0f);
-        @this.NowSetMessange = @this.StartCoroutine(@this.SetMessage3s(messange));
-
-        //Debug.Log(messange);
+        @this.SetColorAlpha(0f, @this.messageText);
+        @this.NowSetMessange = @this.StartCoroutine(@this.SetMessage2s(messange));
     }
 
-
-    public IEnumerator SetMessage3s(string messange) //顯示訊息2秒
+    public static void SetLinkageMessage(string messange)
     {
-        SetColorAlpha(1f);
+        if (@this.NowSetLinkageMessange != null)
+            @this.StopCoroutine(@this.NowSetLinkageMessange);
+        @this.SetColorAlpha(0f, @this.linkageText);
+        @this.NowSetLinkageMessange = @this.StartCoroutine(@this.SetLinkageMessage2s(messange));
+    }
+
+    void SetColorAlpha(float _alpha, TextMeshProUGUI textObject) //設置文字透明度
+    {
+        textObject.color = new Color(textObject.color.r, textObject.color.g, textObject.color.b, _alpha);
+    }
+
+    public IEnumerator SetMessage2s(string messange) //顯示訊息2秒
+    {
+        SetColorAlpha(1f, messageText);
         messageText.text = messange;
 
         yield return new WaitForSeconds(secondsDisplayed);
 
         for (float i = 1f; i > 0; i = i - Time.deltaTime) //在1秒內淡出
         {
-            SetColorAlpha(i);
+            SetColorAlpha(i, messageText);
+            yield return new WaitForFixedUpdate();
+        }
+        yield return null;
+    }
+
+    public IEnumerator SetLinkageMessage2s(string messange) //顯示訊息2秒
+    {
+        SetColorAlpha(1f, linkageText);
+        linkageText.text = messange;
+
+        yield return new WaitForSeconds(secondsDisplayed);
+
+        for (float i = 1f; i > 0; i = i - Time.deltaTime) //在1秒內淡出
+        {
+            SetColorAlpha(i, linkageText);
             yield return new WaitForFixedUpdate();
         }
         yield return null;
