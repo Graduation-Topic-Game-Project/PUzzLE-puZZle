@@ -50,12 +50,12 @@ public class MessageTextController : MonoBehaviour
         textObject.color = new Color(textObject.color.r, textObject.color.g, textObject.color.b, _alpha);
     }
 
-    public IEnumerator SetMessage2s(string messange) //顯示訊息2秒
+    public IEnumerator SetMessage2s(string messange) //顯示訊息1.5秒
     {
         SetColorAlpha(1f, messageText);
         messageText.text = messange;
 
-        yield return new WaitForSeconds(secondsDisplayed);
+        yield return new WaitForSeconds(0.5F);
 
         for (float i = 1f; i > 0; i = i - Time.deltaTime) //在1秒內淡出
         {

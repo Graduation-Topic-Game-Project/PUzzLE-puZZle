@@ -8426,7 +8426,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 0}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -18446,7 +18446,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: New Text
+  m_text: "\u6D88\u8017"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 62050f2c3c422074bac0455ca7388ca1, type: 2}
   m_sharedMaterial: {fileID: -1803069751564130377, guid: 62050f2c3c422074bac0455ca7388ca1, type: 2}
@@ -21744,7 +21744,7 @@ MonoBehaviour:
   m_text: "\u6539\u8B8A\u62FC\u5716\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 62050f2c3c422074bac0455ca7388ca1, type: 2}
-  m_sharedMaterial: {fileID: 5885465708149771125, guid: 5970ccdbf2db9a846ba9300ea4d22ebb, type: 2}
+  m_sharedMaterial: {fileID: -1803069751564130377, guid: 62050f2c3c422074bac0455ca7388ca1, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -21807,7 +21807,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 1
+  m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &1986359552

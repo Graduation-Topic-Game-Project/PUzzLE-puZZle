@@ -65,11 +65,15 @@ public class PuzzleLinkage : MonoBehaviour
                 break;
             case 2:
                 ActionPoint_Controller.ActionPoint = ActionPoint_Controller.ActionPoint + 1;
-                MessageTextController.SetLinkageMessage("2重連鎖，行動值+1");
+                MessageTextController.SetLinkageMessage("2重連鎖，不消耗行動值");
                 break;
             case 3:
+                ActionPoint_Controller.ActionPoint = ActionPoint_Controller.ActionPoint + 2;
+                MessageTextController.SetLinkageMessage("3重連鎖，行動值+1");
                 break;
             case 4:
+                ActionPoint_Controller.ActionPoint = ActionPoint_Controller.ActionPoint + 4;
+                MessageTextController.SetLinkageMessage("3重連鎖，行動值+3");
                 break;
         }
     }
