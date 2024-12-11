@@ -14,7 +14,7 @@ public class ExplorePlayerProgress : MonoBehaviour
             {
                 GameObject singleton = new GameObject();
                 _instance = singleton.AddComponent<ExplorePlayerProgress>();
-                singleton.name = "[Singleton] PlayerDataManager";
+                singleton.name = "[Singleton] ExplorePlayerProgress";
 
                 DontDestroyOnLoad(singleton);
             }
@@ -27,15 +27,31 @@ public class ExplorePlayerProgress : MonoBehaviour
     public (int, int) PlayerTransform { get; private set; }
 
     // 設定玩家的座標
-    public void SetPlayerTransform(int x, int y)
+    public void SetPlayerTransform((int, int) Transform)
     {
-        PlayerTransform = (x, y);
-        Debug.Log($"PlayerTransform updated to: ({x}, {y})");
+        PlayerTransform = (Transform);
+       // Debug.Log($"PlayerTransform updated to: ({Transform})");
     }
 
     // 取得玩家的座標
     public (int, int) GetPlayerTransform()
     {
         return PlayerTransform;
+    }
+
+    // 儲存玩家物件位置
+    public Vector3 PlayerGameObjectPosition { get; private set; }
+
+    // 
+    public void SetPlayerGameObjectPosition(Vector3 transform)
+    {
+        PlayerGameObjectPosition = (transform);
+        Debug.Log($"PlayerGameObjectTransform updated to: ({transform})");
+    }
+
+    // 
+    public Vector3 GetPlayerGameObjectPosition()
+    {
+        return PlayerGameObjectPosition;
     }
 }

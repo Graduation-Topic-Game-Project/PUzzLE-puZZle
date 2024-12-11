@@ -36,4 +36,12 @@ public class BattleWin : MonoBehaviour
     {
         SceneManager.LoadScene("Explore");
     }
+
+    void Update()
+    {
+        if (Input.GetKeyDown("a"))
+        {
+            Win();
+        }
+    }
 }

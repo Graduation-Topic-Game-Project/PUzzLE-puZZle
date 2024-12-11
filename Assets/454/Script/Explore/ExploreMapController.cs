@@ -12,7 +12,7 @@ public class ExploreMapController : MonoBehaviour
     public ExplorePoint[,] ExplorePoints;//探索點
     public PathPoint[,] PathPoints; //道路點
 
-    public GameObject player;
+    public GameObject player; //玩家物件
     public (int, int) PlayerTransform; //玩家位置
 
     /// <summary>是否可互動探索地圖</summary>
@@ -29,8 +29,26 @@ public class ExploreMapController : MonoBehaviour
     {
         GetAllExplorePoint(); // 獲取所有探索格並標記座標
         GetAllPathPoint(); // 獲取所有道路格並標記座標
-        PlayerTransform = (0, 0);
+
+        PlayerSetProgress();
+
         isCanClickExploreMapUI = true;
+    }
+
+    private void PlayerSetProgress() //將玩家資料依儲存資料來設置
+    {
+        PlayerTransform = (ExplorePlayerProgress.Instance.GetPlayerTransform()); //玩家座標設定為儲存的座標
+        Debug.Log(PlayerTransform);
+
+        Vector3 playerGameObjectTransform = ExplorePlayerProgress.Instance.GetPlayerGameObjectPosition();
+        if (playerGameObjectTransform != null && PlayerTransform != (0, 0))
+        {
+            player.transform.position = playerGameObjectTransform;
+        }
+        else
+        {
+            Debug.Log("回到起點");
+        }
     }
 
     /// <summary>

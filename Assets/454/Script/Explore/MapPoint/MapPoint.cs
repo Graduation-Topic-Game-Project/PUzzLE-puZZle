@@ -17,17 +17,21 @@ public class MapPoint : MonoBehaviour
 
     protected virtual void Click()
     {
-        if(ExploreMapController.isCanClickExploreMapUI == false)
+        if (ExploreMapController.isCanClickExploreMapUI == false)
         {
             Debug.Log("UI¤¬°ÊÃö³¬¤¤");
             return;
         }
         if (ExplorePlayerMove.IsCanMove(this) == false)
-        {           
+        {
             return;
         }
         ExplorePlayerMove.StartCoroutine_PlayerMove(this);
-        Debug.Log(PointTrasform);
+
+        ExplorePlayerProgress.Instance.SetPlayerTransform(PointTrasform);
+        ExplorePlayerProgress.Instance.SetPlayerGameObjectPosition(this.gameObject.transform.position);
+
+
     }
 
 
