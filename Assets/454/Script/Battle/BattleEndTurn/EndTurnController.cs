@@ -38,7 +38,7 @@ public class EndTurnController : MonoBehaviour
 
         // 結算敵人技能
         battleGameController.CallEvent_SettlementEnemySkill();
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.1f);
 
         // 結束回合
         battleGameController.CallEvent_EndTurn();

@@ -70,10 +70,14 @@ public class EnemySkillController : MonoBehaviour
     /// </summary>
     private void Settlement(object sender, EventArgs e)
     {
-        foreach (EnemySkill enemySkill in enemySkillsThisTurn)
+        if(battleGameController.IsWin == false) //如果還沒贏
         {
-            enemySkill.SettlementSkill();
+            foreach (EnemySkill enemySkill in enemySkillsThisTurn)
+            {
+                enemySkill.SettlementSkill();
+            }
         }
+        
     }
 
     /// <summary>

@@ -8,12 +8,9 @@ public class HpBarController : MonoBehaviour
     public GameObject Hp_value;
     public bool reverse;
 
-    /*int maxHP = Player.MaxHP;
-    int hP = Player.Hp;*/
-
     void Start()
     {
-        PlayerBattleData.ResetPlayer();
+        //PlayerBattleData.ResetPlayer();
     }
     private void Update()
     {
@@ -23,5 +20,11 @@ public class HpBarController : MonoBehaviour
         {
             Hp_value.GetComponent<Image>().fillAmount = (1f - (float)PlayerBattleData.Hp / PlayerBattleData.MaxHP);
         }
+
+        if (Input.GetKeyDown("h"))
+        {
+            PlayerBattleData.ResetPlayer();
+        }
     }
+
 }

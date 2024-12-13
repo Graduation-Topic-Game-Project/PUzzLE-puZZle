@@ -6,6 +6,8 @@ public class PlayerBattleData : MonoBehaviour
 {
     public static PlayerBattleData playerBattleData;
 
+    static bool FirstInitialized = false;
+
     private void Awake()
     {
         if (playerBattleData == null)
@@ -16,14 +18,20 @@ public class PlayerBattleData : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
+
+        if (!FirstInitialized)
+        {
+            FirstInitialized = true;
+            Hp = MaxHP;
+        }
     }
 
-    int _hp;
+    static int _hp;
     int _maxHp = 100;
 
-    public static int MaxHP { get => playerBattleData._maxHp; set => playerBattleData._hp = value; }
+    public static int MaxHP { get => playerBattleData._maxHp; set => PlayerBattleData._hp = value; }
 
-    public static int Hp { get => playerBattleData._hp; set => playerBattleData._hp = value; }
+    public static int Hp { get => PlayerBattleData._hp; set => PlayerBattleData._hp = value; }
 
     public static void ResetPlayer()
     {

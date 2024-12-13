@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BattlePartnerController : MonoBehaviour
+public class BattlePartnerUiController : MonoBehaviour
 {
     BattleGameController battleGameController;
     public GameObject[] PartnersGameObject = new GameObject[4];
