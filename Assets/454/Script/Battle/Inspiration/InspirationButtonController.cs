@@ -8,8 +8,8 @@ using System;
 public class InspirationButtonController : MonoBehaviour
 {
     Button _button;
-    private Animator animator;
-    private Animator animator2;
+    private Animator animator; //靈感值按鈕animator
+    private Animator animator2; //整個靈感值介面animator，漂浮用
 
     public GameObject EndTurnButton;
     public GameObject Bal_And_Sword_Button;

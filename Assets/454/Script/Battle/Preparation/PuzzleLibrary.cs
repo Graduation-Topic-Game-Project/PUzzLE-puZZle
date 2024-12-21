@@ -189,7 +189,7 @@ public class PuzzleLibrary : MonoBehaviour
             puzzleMasterController.specifyPuzzle = puzzlePreparations[number];  //更改選擇的備戰區拼圖
             puzzleMasterController.specifyPuzzleNumber = number;  // 更改選擇的備戰區編號(第幾格)
             puzzleMasterController.isSpecifyPuzzle = true;
-            puzzlePreparationsGameObject[number].GetComponent<PuzzlePreparation>().SetColorForSpecifying(); //將點擊按鈕顏色為ClickColor
+            puzzlePreparationsGameObject[number].GetComponent<PuzzlePreparation>().SetToSpecifying(); //將備戰區切換成選擇時狀態
 
             battleGameController.CallEvent_SpecifyPuzzle(); //發送選擇拼圖事件
         }
@@ -205,25 +205,11 @@ public class PuzzleLibrary : MonoBehaviour
     {
         for (int i = 0; i < puzzlePreparationsGameObject.Length; i++)
         {
-            puzzlePreparationsGameObject[i].GetComponent<PuzzlePreparation>().ResetColor();
+            puzzlePreparationsGameObject[i].GetComponent<PuzzlePreparation>().ResetToNoSpecifying();
         }
     }
     public void ResetAllPreparationButtonColor(object sender, EventArgs e)
     {
         ResetAllPreparationButtonColor();
     }
-
-
-    /*public void TestReloadPreparation()
-    {
-        if (Input.GetKeyDown(KeyCode.S))
-        {
-            Debug.Log("test更新備戰區");
-            Load_All_Preparation(this, EventArgs.Empty);
-        }
-    }
-    private void Update()
-    {
-        TestReloadPreparation();
-    }*/
 }

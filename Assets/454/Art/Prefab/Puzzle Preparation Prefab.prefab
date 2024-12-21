@@ -123,8 +123,9 @@ GameObject:
   - component: {fileID: 7994091349878035213}
   - component: {fileID: 282836542050468010}
   - component: {fileID: 8609443683607407945}
+  - component: {fileID: 2015407073377981019}
   m_Layer: 5
-  m_Name: Puzzle Preparation1 (0)
+  m_Name: Puzzle Preparation Prefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -245,5 +246,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d6a4ec9c37db25468971d5088c0f41e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  battleGameController: {fileID: 0}
   _preparationNumber: 0
+  _puzzleInstance: {fileID: 5091524054541084890}
+--- !u!95 &2015407073377981019
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7240086704813519408}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 10d50fc475f3d564784563e251d09d00, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

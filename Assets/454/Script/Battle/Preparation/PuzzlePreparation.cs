@@ -9,6 +9,8 @@ public class PuzzlePreparation : MonoBehaviour
 {
     [SerializeField]
     private int _preparationNumber; //第幾個備戰區
+    public GameObject _puzzleInstance; //拼圖圖片生成區域
+    private Animator animator;
 
     public event Action<int> ClickPreparationBotton;
 
@@ -23,6 +25,8 @@ public class PuzzlePreparation : MonoBehaviour
     {
         _button = GetComponent<Button>();
         _button.onClick.AddListener(ClickPreparation);
+
+        animator = GetComponent<Animator>();
     }
 
     /// <summary>
@@ -35,19 +39,21 @@ public class PuzzlePreparation : MonoBehaviour
     }
 
     /// <summary>
-    /// 重製按鈕顏色為預設顏色
+    /// 重製備戰區為非選擇時狀態
     /// </summary>
-    public void ResetColor()
+    public void ResetToNoSpecifying()
     {
         this.gameObject.transform.GetChild(0).GetComponent<Image>().color = _buttonDefaultColor;
+        animator.SetBool("isSpecify", false);
     }
 
     /// <summary>
-    /// 將按鈕顏色變成選擇時顏色
+    /// 將備戰區切換成選擇時狀態(動畫&顏色)
     /// </summary>
-    public void SetColorForSpecifying()
+    public void SetToSpecifying()
     {
         this.gameObject.transform.GetChild(0).GetComponent<Image>().color = _buttonClickColor;
+        animator.SetBool("isSpecify", true);
     }
 
 
