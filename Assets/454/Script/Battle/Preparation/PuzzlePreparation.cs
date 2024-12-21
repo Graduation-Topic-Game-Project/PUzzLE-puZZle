@@ -7,7 +7,6 @@ using UnityEngine.UI;
 
 public class PuzzlePreparation : MonoBehaviour
 {
-    //public BattleGameController battleGameController;
     [SerializeField]
     private int _preparationNumber; //第幾個備戰區
 
@@ -22,11 +21,6 @@ public class PuzzlePreparation : MonoBehaviour
 
     private void Awake()
     {
-        /*if (battleGameController == null) //獲取場景上的BattleGameController
-        {
-            battleGameController = FindObjectOfType<BattleGameController>();
-        }*/
-
         _button = GetComponent<Button>();
         _button.onClick.AddListener(ClickPreparation);
     }
@@ -36,7 +30,6 @@ public class PuzzlePreparation : MonoBehaviour
     /// </summary>
     private void ClickPreparation()
     {
-        //battleGameController.otherPuzzle = PuzzleLibrary.puzzlePreparations[number];
         ClickPreparationBotton?.Invoke(_preparationNumber);
         //SetColorForSpecifying(); //將按鈕顏色變成選擇時顏色
     }

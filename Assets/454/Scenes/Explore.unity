@@ -156,6 +156,7 @@ MonoBehaviour:
   ExploreLayersGameObject: {fileID: 1422040842}
   PathLayersGameObject: {fileID: 74861418}
   player: {fileID: 3520355688351327192}
+  ScrollPanel: {fileID: 263449194}
 --- !u!4 &35215065
 Transform:
   m_ObjectHideFlags: 0

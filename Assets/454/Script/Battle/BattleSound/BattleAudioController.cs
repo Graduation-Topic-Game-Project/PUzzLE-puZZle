@@ -53,7 +53,7 @@ public class BattleAudioController : MonoBehaviour
     /// <summary>撥放放置拼圖音效 </summary>
     public void PlayAudio_PuzzlePlace(object sender, EventArgs e)
     {
-        audioSource.PlayOneShot(PuzzlePlace);
+        audioSource.PlayOneShot(PuzzlePlace, 2.1f);
     }
 
     /// <summary>撥放玩家受傷音效 </summary>

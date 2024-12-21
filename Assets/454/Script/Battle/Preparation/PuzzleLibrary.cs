@@ -29,10 +29,10 @@ public class PuzzleLibrary : MonoBehaviour
         Load_puzzlePreparationsTransform();  //獲取備戰區位置
         Array.Clear(puzzlePreparations, 0, puzzlePreparations.Length); //清空備戰區內拼圖資料
 
-        battleGameController.Event_BattleStart += this.Load_PuzzleLibrary_ForParther;
-        battleGameController.Event_BattleStart += this.Load_All_Preparation;
-        puzzleMasterController.Event_RemovePlacedPuzzle += this.RemovePlacedPuzzle;
-        battleGameController.Event_PuzzlePlaceCompleted += this.ResetAllPreparationButtonColor;
+        battleGameController.Event_BattleStart += this.Load_PuzzleLibrary_ForParther; //把夥伴所持的拼圖填入拼圖庫
+        battleGameController.Event_BattleStart += this.Load_All_Preparation; //刷新全部備戰區
+        puzzleMasterController.Event_RemovePlacedPuzzle += this.RemovePlacedPuzzle; //在放置後移除並刷新第number個備戰區
+        battleGameController.Event_PuzzlePlaceCompleted += this.ResetAllPreparationButtonColor; //重製所有備戰區按鈕顏色為預設
 
         for (int i = 0; i < puzzlePreparationsGameObject.Length; i++) //訂閱所有備戰區按鈕事件
         {

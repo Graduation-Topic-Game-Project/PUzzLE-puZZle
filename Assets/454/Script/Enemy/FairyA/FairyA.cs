@@ -10,7 +10,7 @@ public class FairyA : Enemy
     {
         _attackNum = 2;
         enemyName = "§¯ºë";
-        _enemyHp = 20;
+        _enemyHp = 30;
     }
 
     protected override void DamageFormula(int R, int B, int Y, int P)

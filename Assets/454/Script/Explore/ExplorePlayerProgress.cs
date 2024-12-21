@@ -54,4 +54,18 @@ public class ExplorePlayerProgress : MonoBehaviour
     {
         return PlayerGameObjectPosition;
     }
+
+    public Vector3 ScrollPanelTransform { get; private set; }
+
+    // 
+    public void SetScrollPanelTransform(Vector3 transform)
+    {
+        ScrollPanelTransform = (transform);      
+    }
+
+    // 
+    public Vector3 GetScrollPanelTransform()
+    {
+        return ScrollPanelTransform;
+    }
 }
