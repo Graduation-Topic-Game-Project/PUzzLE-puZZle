@@ -22,7 +22,7 @@ public class MessageTextController : MonoBehaviour
         if (@this == null)
             @this = this;
 
-        messageText = this.GetComponent<TextMeshProUGUI>();
+        //messageText = this.GetComponent<TextMeshProUGUI>();
         messageText.text = "";
         linkageText.text = "";
     }

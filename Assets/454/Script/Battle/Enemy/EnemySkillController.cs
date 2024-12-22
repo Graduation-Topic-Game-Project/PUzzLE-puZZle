@@ -33,7 +33,7 @@ public class EnemySkillController : MonoBehaviour
     private void RamdomSkill(object sender, EventArgs e)
     {
         enemySkillsThisTurn.Clear(); //清空上回合的技能
-        Debug.Log("123:");
+        //Debug.Log("123:");
         foreach (Enemy enemy in battleGameController.InstancedEnemy) //每位敵人觸發一次
         {
  
