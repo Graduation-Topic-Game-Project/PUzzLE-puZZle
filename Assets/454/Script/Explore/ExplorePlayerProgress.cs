@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ExplorePlayerProgress : MonoBehaviour
+public class ExplorePlayerProgress : MonoBehaviour //探索地圖玩家進度
 {
     private static ExplorePlayerProgress _instance;
 

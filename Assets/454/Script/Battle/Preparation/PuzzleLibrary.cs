@@ -31,8 +31,9 @@ public class PuzzleLibrary : MonoBehaviour
 
         battleGameController.Event_BattleStart += this.Load_PuzzleLibrary_ForParther; //把夥伴所持的拼圖填入拼圖庫
         battleGameController.Event_BattleStart += this.Load_All_Preparation; //刷新全部備戰區
+        puzzleMasterController.Event_RemovePlacedPuzzle += this.ResetAllPreparationToNoSpecifying; //重製所有備戰區為非選擇
         puzzleMasterController.Event_RemovePlacedPuzzle += this.RemovePlacedPuzzle; //在放置後移除並刷新第number個備戰區
-        battleGameController.Event_PuzzlePlaceCompleted += this.ResetAllPreparationButtonColor; //重製所有備戰區按鈕顏色為預設
+        battleGameController.Event_PuzzlePlaceCompleted += this.UpdatePreparationPuzzle; //重製所有備戰區
 
         for (int i = 0; i < puzzlePreparationsGameObject.Length; i++) //訂閱所有備戰區按鈕事件
         {
@@ -132,7 +133,6 @@ public class PuzzleLibrary : MonoBehaviour
     /// <param name="number">要刷新的備戰區是第幾個</param>
     public void RemovePlacedPuzzle(int number)
     {
-        //Debug.Log("RemovePlacedPuzzle");
         if (puzzleMasterController.RandowOrForParnent == true)
         {
             Load_Preparation_ForParner(number);
@@ -145,7 +145,7 @@ public class PuzzleLibrary : MonoBehaviour
     }
 
     /// <summary>
-    /// 更新並顯示備戰區拼圖
+    /// 更新並顯示全部備戰區拼圖
     /// </summary>
     public void UpdatePreparationPuzzle(object sender, EventArgs e)
     {
@@ -168,10 +168,7 @@ public class PuzzleLibrary : MonoBehaviour
             if (puzzlePreparationsGameObject[i] == null)
                 Debug.Log("errortest_puzzlePreparationsGameObject" + i);
 
-
-            //Puzzle nowPuzzle = battleGameController.puzzlePrefab;
-
-            Puzzle nowPuzzle = Instantiate(puzzleMasterController.puzzlePrefab, puzzlePreparationsGameObject[i].transform.position, transform.rotation, puzzlePreparationsGameObject[i].transform.GetChild(1));
+            Puzzle nowPuzzle = Instantiate(puzzleMasterController.puzzlePrefab, puzzlePreparationsGameObject[i].transform.position, transform.rotation, puzzlePreparationsGameObject[i].GetComponent<PuzzlePreparation>()._puzzleInstance.transform);
             nowPuzzle.puzzleData = puzzlePreparations[i];
             nowPuzzle.ReUpdate_PuzzleEssence_Image();
         }
@@ -185,7 +182,7 @@ public class PuzzleLibrary : MonoBehaviour
     {
         if (puzzleMasterController.specifyPuzzleNumber != number)
         {
-            ResetAllPreparationButtonColor(); //重製所有備戰區按鈕顏色為預設
+            ResetAllPreparationToNoSpecifying(); //重製所有備戰區按鈕顏色為預設
             puzzleMasterController.specifyPuzzle = puzzlePreparations[number];  //更改選擇的備戰區拼圖
             puzzleMasterController.specifyPuzzleNumber = number;  // 更改選擇的備戰區編號(第幾格)
             puzzleMasterController.isSpecifyPuzzle = true;
@@ -197,19 +194,24 @@ public class PuzzleLibrary : MonoBehaviour
         {
             puzzleMasterController.specifyPuzzleNumber = -1;
             puzzleMasterController.isSpecifyPuzzle = false;
-            ResetAllPreparationButtonColor(); //重製所有備戰區按鈕顏色為預設
+            ResetAllPreparationToNoSpecifying(); //重製所有備戰區按鈕顏色為預設
         }
     }
 
-    public void ResetAllPreparationButtonColor()  //重製所有備戰區按鈕顏色為預設
+    public void ResetAllPreparationToNoSpecifying()  //重製所有備戰區為非選擇
     {
         for (int i = 0; i < puzzlePreparationsGameObject.Length; i++)
         {
             puzzlePreparationsGameObject[i].GetComponent<PuzzlePreparation>().ResetToNoSpecifying();
         }
     }
-    public void ResetAllPreparationButtonColor(object sender, EventArgs e)
+    public void ResetAllPreparationToNoSpecifying(object sender, EventArgs e)
     {
-        ResetAllPreparationButtonColor();
+        ResetAllPreparationToNoSpecifying();
+    }
+
+    public void ResetAllPreparationToNoSpecifying(int noUse)
+    {
+        ResetAllPreparationToNoSpecifying();
     }
 }

@@ -23,7 +23,7 @@ public class HpBarController : MonoBehaviour
 
         if (Input.GetKeyDown("h"))
         {
-            PlayerBattleData.ResetPlayer();
+            PlayerBattleData.ResetPlayerHp();
         }
     }
 

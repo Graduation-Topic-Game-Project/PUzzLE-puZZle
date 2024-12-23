@@ -10,7 +10,7 @@ public class InspirationController : MonoBehaviour
     static InspirationButtonController @this;
 
     BattleGameController battleGameController;
-    Animator animator;
+    //Animator animator;
 
     int InspirationValue; //靈感值
     public int defaultInspirationValue = 3; //靈感值預設值
@@ -21,7 +21,7 @@ public class InspirationController : MonoBehaviour
 
     private void Start()
     {
-        animator = GetComponent<Animator>();
+        //animator = GetComponent<Animator>();
         InspirationValue = defaultInspirationValue;
     }
     void Update()
@@ -31,7 +31,8 @@ public class InspirationController : MonoBehaviour
 
     void OpenAnimation(bool OpenOrClose)
     {
-        animator.SetBool("IsOpen", OpenOrClose);
+        //animator.SetBool("IsOpen", OpenOrClose);
+        Debug.Log("OpenAnimation");
     }
 
 }

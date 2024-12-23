@@ -34,6 +34,7 @@ public class PuzzleMasterController : MonoBehaviour
     /// </summary>
     public static int BoardY { get => _boardY; }
 
+    /// <summary> 移除已放置完畢的備戰區拼圖 </summary>
     public event Action<int> Event_RemovePlacedPuzzle; //移除已放置完畢的備戰區拼圖
     private void Awake()
     {

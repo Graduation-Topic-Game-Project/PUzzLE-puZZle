@@ -165,9 +165,9 @@ public class BoardController : MonoBehaviour
 
                 puzzleMasterController.CallEvent_RemovePlacedPuzzle(); //移除備戰區那塊已經被放上去的拼圖
                 puzzleMasterController.isSpecifyPuzzle = false; //取消選擇備戰區拼圖
-                puzzleMasterController.specifyPuzzleNumber = -1; 
-                UpdatePuzzleBoard();
+                puzzleMasterController.specifyPuzzleNumber = -1;             
                 battleGameController.CallEvent_PlacedPuzzle(); //BattleGameController發送放置拼圖結束事件
+                UpdatePuzzleBoard();
             }
         }
     }

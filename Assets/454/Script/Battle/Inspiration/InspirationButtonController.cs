@@ -14,6 +14,7 @@ public class InspirationButtonController : MonoBehaviour
     public GameObject EndTurnButton;
     public GameObject Bal_And_Sword_Button;
     public GameObject Shodow;
+    public GameObject Particle_System; //²É¤l®ÄªG
     public bool isOpen;
     private void Awake()
     {
@@ -45,6 +46,7 @@ public class InspirationButtonController : MonoBehaviour
         EndTurnButton.SetActive(isOpen);
         Bal_And_Sword_Button.SetActive(isOpen);
         Shodow.SetActive(isOpen);
+        Particle_System.SetActive(!isOpen);
     }
 
     void CloseButton()
