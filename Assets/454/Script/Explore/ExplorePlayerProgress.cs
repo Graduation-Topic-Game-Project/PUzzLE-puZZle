@@ -4,23 +4,23 @@ using UnityEngine;
 
 public class ExplorePlayerProgress : MonoBehaviour //探索地圖玩家進度
 {
-    private static ExplorePlayerProgress _instance;
-
-    public static ExplorePlayerProgress Instance
+    public static ExplorePlayerProgress Instance { get; private set; }
+    private void Awake()
     {
-        get
+        if (Instance == null)
         {
-            if (_instance == null)
-            {
-                GameObject singleton = new GameObject();
-                _instance = singleton.AddComponent<ExplorePlayerProgress>();
-                singleton.name = "[Singleton] ExplorePlayerProgress";
-
-                DontDestroyOnLoad(singleton);
-            }
-
-            return _instance;
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
         }
+        else
+        {
+            Destroy(this.gameObject);
+        }
+    }
+
+    public void ResetPlayerProgress()
+    {
+        
     }
 
     // 儲存玩家的座標 (int, int)

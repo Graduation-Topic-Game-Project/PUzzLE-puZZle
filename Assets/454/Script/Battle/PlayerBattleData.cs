@@ -4,32 +4,18 @@ using UnityEngine;
 
 public class PlayerBattleData : MonoBehaviour
 {
-    static PlayerBattleData _instance;
+    public static PlayerBattleData Instance { get; private set; }
 
     static bool FirstInitialized = false;
 
-    public static PlayerBattleData Instance
-    {
-        get
-        {
-            if (_instance == null)
-            {
-                GameObject singleton = new GameObject();
-                _instance = singleton.AddComponent<PlayerBattleData>();
-                singleton.name = "[Singleton] PlayerBattleData";
-
-                DontDestroyOnLoad(singleton);
-            }
-
-            return _instance;
-        }
-    }
+   
 
     private void Awake()
     {
-        if (_instance == null)
+        if (Instance == null)
         {
-            _instance = this;
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
         }
         else
         {
@@ -47,7 +33,7 @@ public class PlayerBattleData : MonoBehaviour
     static int _hp;
     int _maxHp = 100;
 
-    public  int MaxHP { get => _instance._maxHp; set => PlayerBattleData._hp = value; }
+    public  int MaxHP { get => Instance._maxHp; set => PlayerBattleData._hp = value; }
 
     public  int Hp { get => PlayerBattleData._hp; set => PlayerBattleData._hp = value; }
 
