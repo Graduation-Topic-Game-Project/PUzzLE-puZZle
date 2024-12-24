@@ -20,7 +20,9 @@ public class ExplorePlayerProgress : MonoBehaviour //探索地圖玩家進度
 
     public void ResetPlayerProgress()
     {
-        
+        PlayerTransform = (0, 0);
+        ScrollPanelTransform = new Vector3(0, 400, 0);
+        PlayerGameObjectPosition = new Vector3(0, -400, 0);
     }
 
     // 儲存玩家的座標 (int, int)

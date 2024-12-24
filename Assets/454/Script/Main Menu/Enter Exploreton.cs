@@ -21,6 +21,7 @@ public class EnterExplore : MonoBehaviour
     public void LoadExplore()
     {
         PlayerBattleData.Instance.ResetPlayerHp();
+        ExplorePlayerProgress.Instance.ResetPlayerProgress();
         SceneManager.LoadScene("Explore");
     }
 }
