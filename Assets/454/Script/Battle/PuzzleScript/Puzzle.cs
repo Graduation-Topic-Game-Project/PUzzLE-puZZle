@@ -8,10 +8,15 @@ using UnityEngine.UI;
 public class Puzzle : MonoBehaviour
 {
     public PuzzleData puzzleData = new();
-    public Image _upImage, _downImage, _rightImage, _leftImage, _middleImage, _bgImage;
+    public PuzzleSideObject _upSide, _downSide, _rightSide, _leftSide;
+    public Image _middleImage, _bgImage; //_upImage, _downImage, _rightImage, _leftImage, 
+    /// <summary> 拼圖中央寶石圖片 </summary>
     public List<Sprite> PuzzleEssenceImage = new List<Sprite>();
+    /// <summary> 拼圖卡榫寶石圖片 </summary>
     public List<Sprite> PuzzleSideEssenceImage = new List<Sprite>();
+    /// <summary> 拼圖凹槽圖片 </summary>
     public List<Sprite> PuzzleSideIndentationImage = new List<Sprite>();
+    /// <summary> 空白圖片 </summary>
     public Sprite NoneSprite;
 
     /// <param name="puzzleData_">指定拚圖的PuzzleData</param>
@@ -48,22 +53,23 @@ public class Puzzle : MonoBehaviour
 
         if (puzzleData.UpSide_ == null)
             Debug.Log("123 puzzleData.Up_ == null");
-        ReUpdate_PuzzleSide_Image(puzzleData.UpSide_, _upImage);
-        ReUpdate_PuzzleSide_Image(puzzleData.DownSide_, _downImage);
-        ReUpdate_PuzzleSide_Image(puzzleData.RightSide_, _rightImage);
-        ReUpdate_PuzzleSide_Image(puzzleData.LeftSide_, _leftImage);
+        ReUpdate_PuzzleSide_Image(puzzleData.UpSide_, _upSide);
+        ReUpdate_PuzzleSide_Image(puzzleData.DownSide_, _downSide);
+        ReUpdate_PuzzleSide_Image(puzzleData.RightSide_, _rightSide);
+        ReUpdate_PuzzleSide_Image(puzzleData.LeftSide_, _leftSide);
     }
 
-    public void ReUpdate_PuzzleSide_Image(PuzzleSideData _puzzleSideData, Image _sideImage) //更新拼圖邊圖示
+    public void ReUpdate_PuzzleSide_Image(PuzzleSideData _puzzleSideData, PuzzleSideObject _side) //更新拼圖邊圖示
     {
         if (_puzzleSideData.Interlocking_ == PuzzleSideData.Interlocking.indentations_凹陷)
         {
             //_sideImage.sprite = PuzzleSideEssenceImage[5];
-            _sideImage.sprite = PuzzleSideIndentationImage[(int)_puzzleSideData.Essence_];
+            _side.sideImage.sprite = PuzzleSideIndentationImage[(int)_puzzleSideData.Essence_];
         }
         else
         {
-            _sideImage.sprite = PuzzleSideEssenceImage[(int)_puzzleSideData.Essence_];
+            _side.sideImage.sprite = PuzzleSideEssenceImage[(int)_puzzleSideData.Essence_];
+            _side.sideLightImage.sprite = _side.PuzzleSideLightSprite[(int)_puzzleSideData.Essence_];
         }
     }
     /// <summary>隱藏拼圖圖板與主要寶石與凹槽圖片</summary>
@@ -73,16 +79,16 @@ public class Puzzle : MonoBehaviour
         _bgImage.sprite = NoneSprite;
 
         if (puzzleData.UpSide_.Interlocking_ == PuzzleSideData.Interlocking.indentations_凹陷)
-            _upImage.sprite = NoneSprite;
+            _upSide.sideImage.sprite = NoneSprite;
 
         if (puzzleData.DownSide_.Interlocking_ == PuzzleSideData.Interlocking.indentations_凹陷)
-            _downImage.sprite = NoneSprite;
+            _downSide.sideImage.sprite = NoneSprite;
 
         if (puzzleData.RightSide_.Interlocking_ == PuzzleSideData.Interlocking.indentations_凹陷)
-            _rightImage.sprite = NoneSprite;
+            _rightSide.sideImage.sprite = NoneSprite;
 
         if (puzzleData.LeftSide_.Interlocking_ == PuzzleSideData.Interlocking.indentations_凹陷)
-            _leftImage.sprite = NoneSprite;
+            _leftSide.sideImage.sprite = NoneSprite;
     }
 }
 

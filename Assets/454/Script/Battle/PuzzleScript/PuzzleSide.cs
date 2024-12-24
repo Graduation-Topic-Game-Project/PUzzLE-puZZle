@@ -82,6 +82,7 @@ public class PuzzleSideData
         protrusions_突起 = 2,  //凸
     }
 
+    /// <summary> 隨機拼圖邊 </summary>
     public PuzzleSideData RandomlyGeneratedPuzzleData(PuzzleSideData puzzleSideData) //隨機拼圖邊
     {
         puzzleSideData.Interlocking_ = (PuzzleSideData.Interlocking)UnityEngine.Random.Range(1, 3);

@@ -161,7 +161,7 @@ public class BoardController : MonoBehaviour
                 board[i, j].Puzzle.puzzlePosition = (i, j); //更新PuzzleData內的拼圖座標
                 MessageTextController.SetMessage("放置拼圖");
 
-                Event_CheckPuzzleLinkage?.Invoke(i, j);
+                Event_CheckPuzzleLinkage?.Invoke(i, j); //檢查拼圖連鎖
 
                 puzzleMasterController.CallEvent_RemovePlacedPuzzle(); //移除備戰區那塊已經被放上去的拼圖
                 puzzleMasterController.isSpecifyPuzzle = false; //取消選擇備戰區拼圖

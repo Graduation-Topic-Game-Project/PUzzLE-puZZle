@@ -15,7 +15,9 @@ public class PuzzleMasterController : MonoBehaviour
 
     [Header("當前選擇的拼圖")]
     public PuzzleData specifyPuzzle; //選擇的備戰區拼圖
+    /// <summary>選擇的備戰區編號(第幾格，未選擇為-1)</summary>
     public int specifyPuzzleNumber = -1; //選擇的備戰區編號(第幾格)
+    /// <summary>是否選擇備戰區拼圖</summary>
     public bool isSpecifyPuzzle = false; //是否選擇備戰區拼圖
 
     [Header("隨機生成 or 從夥伴拼圖庫生成")]
