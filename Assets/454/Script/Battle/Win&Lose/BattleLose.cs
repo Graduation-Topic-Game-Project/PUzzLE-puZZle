@@ -26,7 +26,7 @@ public class BattleLose : MonoBehaviour
 
     private void IsLose(object sender, EventArgs e)
     {
-        if (PlayerBattleData.Hp <= 0)
+        if (PlayerBattleData.Instance.Hp <= 0)
         {
             Lose();
         }

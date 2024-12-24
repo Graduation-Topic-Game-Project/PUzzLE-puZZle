@@ -20,7 +20,7 @@ public class EnterExplore : MonoBehaviour
 
     public void LoadExplore()
     {
-        //PlayerBattleData.ResetPlayerHp();
+        PlayerBattleData.Instance.ResetPlayerHp();
         SceneManager.LoadScene("Explore");
     }
 }

@@ -14,16 +14,16 @@ public class HpBarController : MonoBehaviour
     }
     private void Update()
     {
-        Hp_value.GetComponent<Image>().fillAmount = ((float)PlayerBattleData.Hp / PlayerBattleData.MaxHP);
+        Hp_value.GetComponent<Image>().fillAmount = ((float)PlayerBattleData.Instance.Hp / PlayerBattleData.Instance.MaxHP);
 
         if (reverse)
         {
-            Hp_value.GetComponent<Image>().fillAmount = (1f - (float)PlayerBattleData.Hp / PlayerBattleData.MaxHP);
+            Hp_value.GetComponent<Image>().fillAmount = (1f - (float)PlayerBattleData.Instance.Hp / PlayerBattleData.Instance.MaxHP);
         }
 
         if (Input.GetKeyDown("h"))
         {
-            PlayerBattleData.ResetPlayerHp();
+            PlayerBattleData.Instance.ResetPlayerHp();
         }
     }
 

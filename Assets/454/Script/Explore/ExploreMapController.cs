@@ -43,10 +43,11 @@ public class ExploreMapController : MonoBehaviour
 
     private void PlayerSetProgress() //將玩家資料依儲存資料來設置
     {
-        Vector3 newPosition = ScrollPanel.transform.position;
-        newPosition.x = ExplorePlayerProgress.Instance.GetScrollPanelTransform().x;
-        newPosition.y = ExplorePlayerProgress.Instance.GetScrollPanelTransform().y;
-        ScrollPanel.transform.position = newPosition;
+        //將ScrollPanel的座標設定為儲存時
+        Vector3 scrollPanelPosition = ScrollPanel.transform.position;
+        scrollPanelPosition.x = ExplorePlayerProgress.Instance.GetScrollPanelTransform().x;
+        scrollPanelPosition.y = ExplorePlayerProgress.Instance.GetScrollPanelTransform().y;
+        ScrollPanel.transform.position = scrollPanelPosition;
 
 
 

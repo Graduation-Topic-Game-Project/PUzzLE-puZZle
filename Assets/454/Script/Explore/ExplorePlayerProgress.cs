@@ -55,6 +55,7 @@ public class ExplorePlayerProgress : MonoBehaviour //探索地圖玩家進度
         return PlayerGameObjectPosition;
     }
 
+    // 儲存ScrollPanel位置
     public Vector3 ScrollPanelTransform { get; private set; }
 
     // 

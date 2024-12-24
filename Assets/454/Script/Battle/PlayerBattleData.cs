@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class PlayerBattleData : MonoBehaviour
 {
-    static PlayerBattleData @this;
+    static PlayerBattleData _instance;
 
     static bool FirstInitialized = false;
 
-    /*public static PlayerBattleData Instance
+    public static PlayerBattleData Instance
     {
         get
         {
@@ -23,13 +23,13 @@ public class PlayerBattleData : MonoBehaviour
 
             return _instance;
         }
-    }*/
+    }
 
     private void Awake()
     {
-        if (@this == null)
+        if (_instance == null)
         {
-            @this = this;
+            _instance = this;
         }
         else
         {
@@ -47,11 +47,11 @@ public class PlayerBattleData : MonoBehaviour
     static int _hp;
     int _maxHp = 100;
 
-    public static int MaxHP { get => @this._maxHp; set => PlayerBattleData._hp = value; }
+    public  int MaxHP { get => _instance._maxHp; set => PlayerBattleData._hp = value; }
 
-    public static int Hp { get => PlayerBattleData._hp; set => PlayerBattleData._hp = value; }
+    public  int Hp { get => PlayerBattleData._hp; set => PlayerBattleData._hp = value; }
 
-    public static void ResetPlayerHp()
+    public  void ResetPlayerHp()
     {
         Hp = MaxHP;
     }
@@ -60,7 +60,7 @@ public class PlayerBattleData : MonoBehaviour
     /// 玩家受到傷害
     /// </summary>
     /// <param name="damage">受到傷害值</param>
-    public static void Damage(int damage)
+    public  void Damage(int damage)
     {
         Hp = Hp - damage;
         Debug.Log($"受到{damage}點傷害，剩餘{Hp}Hp");
