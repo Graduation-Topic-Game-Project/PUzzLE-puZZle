@@ -55,7 +55,7 @@ MonoBehaviour:
   sideLightImage: {fileID: 2046115824725119567}
   PuzzleSideLightSprite:
   - {fileID: 21300000, guid: bac2e37993faf2a4a93fa419e24bc16e, type: 3}
-  - {fileID: 21300000, guid: ef8be1ef98682c74189b5a65d8e52cba, type: 3}
+  - {fileID: 21300000, guid: 5742c114deb6b35489bf9e6afd62ebda, type: 3}
   - {fileID: 21300000, guid: 0f521e317d063f5439de453a16808efc, type: 3}
   - {fileID: 21300000, guid: 82d27af88c5d58f49ad6a9593d610432, type: 3}
   - {fileID: 21300000, guid: f538e3f80b7517e469d5f27a3b1b813d, type: 3}

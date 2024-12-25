@@ -66,10 +66,15 @@ public class Puzzle : MonoBehaviour
             //_sideImage.sprite = PuzzleSideEssenceImage[5];
             _side.sideImage.sprite = PuzzleSideIndentationImage[(int)_puzzleSideData.Essence_];
         }
-        else
+        else //若為突起
         {
             _side.sideImage.sprite = PuzzleSideEssenceImage[(int)_puzzleSideData.Essence_];
             _side.sideLightImage.sprite = _side.PuzzleSideLightSprite[(int)_puzzleSideData.Essence_];
+
+            if (_puzzleSideData.Linkage) //若該邊連鎖
+            {
+                _side.LinkGlowing();
+            }
         }
     }
     /// <summary>隱藏拼圖圖板與主要寶石與凹槽圖片</summary>

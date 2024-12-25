@@ -9,4 +9,9 @@ public class PuzzleSideObject : MonoBehaviour
     public GameObject sideLinkLight;
     public Image sideLightImage;
     public List<Sprite> PuzzleSideLightSprite = new List<Sprite>();
+
+    public void LinkGlowing()
+    {
+        sideLinkLight.GetComponent<CanvasGroup>().alpha = 0.25f;
+    }
 }

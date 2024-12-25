@@ -27,6 +27,9 @@ public class PuzzleSideData
 
     private int[] IndentationsHaveEssence_Probability = new int[] { 20, 80 }; //凹槽帶有屬性機率(20%)
 
+    /// <summary> 此拼圖邊是否連鎖 </summary>
+    public bool Linkage { get; set; }
+
     public PuzzleSideData()
     {
 
@@ -65,16 +68,6 @@ public class PuzzleSideData
         }
     }
 
-
-    /*public enum SideEssence
-    {
-        None_無屬性 = 0,
-        Strengthe_力量 = 1, //力量
-        Wisdom_智慧 = 2,  //智慧
-        Belief_信仰 = 3, //信仰
-        Soul_靈魂 = 4, //靈魂
-    }*/
-
     public enum Interlocking //拼圖凹凸
     {
         None_無凹凸 = 0, //平
@@ -87,11 +80,11 @@ public class PuzzleSideData
     {
         puzzleSideData.Interlocking_ = (PuzzleSideData.Interlocking)UnityEngine.Random.Range(1, 3);
 
-        if(puzzleSideData.Interlocking_ == Interlocking.protrusions_突起)
+        if (puzzleSideData.Interlocking_ == Interlocking.protrusions_突起)
             puzzleSideData.Essence_ = (EssenceEnum.Essence)UnityEngine.Random.Range(1, 5);
 
-        if(puzzleSideData.Interlocking_ == Interlocking.indentations_凹陷)
-        {          
+        if (puzzleSideData.Interlocking_ == Interlocking.indentations_凹陷)
+        {
             int RandowResults = GetRandow.Randow(IndentationsHaveEssence_Probability); //若為凹陷，則20%機率帶有屬性
             switch (RandowResults)
             {
@@ -107,6 +100,6 @@ public class PuzzleSideData
             }
         }
 
-            return puzzleSideData;
+        return puzzleSideData;
     }
 }
