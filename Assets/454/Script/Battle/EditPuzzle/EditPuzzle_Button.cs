@@ -2,10 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bal_And_Sword_Button : MonoBehaviour
+public class EditPuzzle_Button : MonoBehaviour
 {
-    public GameObject sword;
-    public GameObject balance;
     public GameObject S_and_B_Interface;
     bool isOpen = false;
 

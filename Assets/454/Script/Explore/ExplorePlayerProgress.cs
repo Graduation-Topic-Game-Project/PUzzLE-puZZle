@@ -18,6 +18,9 @@ public class ExplorePlayerProgress : MonoBehaviour //探索地圖玩家進度
         }
     }
 
+    /// <summary>
+    /// 重製探索地圖存檔
+    /// </summary>
     public void ResetPlayerProgress()
     {
         PlayerTransform = (0, 0);
@@ -25,8 +28,10 @@ public class ExplorePlayerProgress : MonoBehaviour //探索地圖玩家進度
         PlayerGameObjectPosition = new Vector3(0, -400, 0);
     }
 
-    // 儲存玩家的座標 (int, int)
-    public (int, int) PlayerTransform { get; private set; }
+    /// <summary>
+    /// 儲存玩家的座標 (int, int) (第幾行, 左邊數來第幾個)
+    /// </summary>
+    public (int playerTransform_x, int playerTransform_y) PlayerTransform { get; private set; }
 
     // 設定玩家的座標
     public void SetPlayerTransform((int, int) Transform)
