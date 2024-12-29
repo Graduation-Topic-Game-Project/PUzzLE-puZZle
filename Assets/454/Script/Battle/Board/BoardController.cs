@@ -159,7 +159,7 @@ public class BoardController : MonoBehaviour
             {
                 board[i, j].Puzzle = puzzleMasterController.specifyPuzzle;
                 board[i, j].Puzzle.puzzlePosition = (i, j); //更新PuzzleData內的拼圖座標
-                MessageTextController.SetMessage("放置拼圖");
+                BattleMainMessage.SetMessage("放置拼圖");
 
                 Event_CheckPuzzleLinkage?.Invoke(i, j); //檢查拼圖連鎖
 

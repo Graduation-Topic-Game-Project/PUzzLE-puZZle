@@ -41,14 +41,14 @@ public class EditPuzzleController : MonoBehaviour
 
         if(puzzleMasterController.specifyPuzzleNumber == -1)
         {
-            MessageTextController.SetMessage("未選擇");
+            BattleMainMessage.SetMessage("未選擇");
             return;
         }
 
         if (newNum == 0 && newNum == 5)
         {
             Debug.Log("超出範圍");
-            MessageTextController.SetMessage("超出範圍");
+            BattleMainMessage.SetMessage("超出範圍");
             return;
         }
 

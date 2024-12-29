@@ -7,55 +7,42 @@ using TMPro;
 public class MessageTextController : MonoBehaviour
 {
     public TextMeshProUGUI messageText;
-    public TextMeshProUGUI linkageText;
-    static MessageTextController @this;
-    Color textColor;
 
-    [Header("訊息顯示秒數"), Tooltip("")]
+    //static MessageTextController @this;
+
+    [Header("訊息顯示秒數"), Tooltip("顯示n秒後淡出，淡出時間固定1秒")]
     public int secondsDisplayed;
 
-    Coroutine NowSetMessange;
-    Coroutine NowSetLinkageMessange;
+    Coroutine NowSetMessangeCoroutine;
 
-    private void Awake()
+
+    protected void Open_and_SetMessage(string messange)
     {
-        if (@this == null)
-            @this = this;
-
-        //messageText = this.GetComponent<TextMeshProUGUI>();
-        messageText.text = "";
-        linkageText.text = "";
+        if (NowSetMessangeCoroutine != null)
+            StopCoroutine(NowSetMessangeCoroutine); //停止目前協程
+        SetColorAlpha(0f, messageText); //文字變透明
+        NowSetMessangeCoroutine = StartCoroutine(SetMessageCoroutine(messange, secondsDisplayed));
     }
 
-
-
-    public static void SetMessage(string messange)
-    {
-        if (@this.NowSetMessange != null)
-            @this.StopCoroutine(@this.NowSetMessange);
-        @this.SetColorAlpha(0f, @this.messageText);
-        @this.NowSetMessange = @this.StartCoroutine(@this.SetMessage2s(messange));
-    }
-
-    public static void SetLinkageMessage(string messange)
+    /*public static void SetLinkageMessage(string messange)
     {
         if (@this.NowSetLinkageMessange != null)
             @this.StopCoroutine(@this.NowSetLinkageMessange);
         @this.SetColorAlpha(0f, @this.linkageText);
         @this.NowSetLinkageMessange = @this.StartCoroutine(@this.SetLinkageMessage2s(messange));
-    }
+    }*/
 
     void SetColorAlpha(float _alpha, TextMeshProUGUI textObject) //設置文字透明度
     {
         textObject.color = new Color(textObject.color.r, textObject.color.g, textObject.color.b, _alpha);
     }
 
-    public IEnumerator SetMessage2s(string messange) //顯示訊息1.5秒
+    protected virtual IEnumerator SetMessageCoroutine(string messange,int second) //顯示訊息協程
     {
         SetColorAlpha(1f, messageText);
         messageText.text = messange;
 
-        yield return new WaitForSeconds(0.5F);
+        yield return new WaitForSeconds(second);
 
         for (float i = 1f; i > 0; i = i - Time.deltaTime) //在1秒內淡出
         {
@@ -65,7 +52,7 @@ public class MessageTextController : MonoBehaviour
         yield return null;
     }
 
-    public IEnumerator SetLinkageMessage2s(string messange) //顯示訊息2秒
+    /*public IEnumerator SetLinkageMessage2s(string messange) //顯示訊息2秒
     {
         SetColorAlpha(1f, linkageText);
         linkageText.text = messange;
@@ -78,6 +65,6 @@ public class MessageTextController : MonoBehaviour
             yield return new WaitForFixedUpdate();
         }
         yield return null;
-    }
+    }*/
 
 }

@@ -8,10 +8,8 @@ public class EndTurnButton : MonoBehaviour
 {
     public BattleGameController battleGameController;
     public EndTurnController endTurnController;
+    public InspirationButtonController inspirationButtonController;
     Button _button;
-
-
-    public event Action Event_CloseInspiration;
 
     private void Awake()
     {
@@ -23,6 +21,10 @@ public class EndTurnButton : MonoBehaviour
         {
             endTurnController = FindObjectOfType<EndTurnController>();
         }
+        if (inspirationButtonController == null) //獲取場景上的InspirationButtonController
+        {
+            inspirationButtonController = FindObjectOfType<InspirationButtonController>();
+        }
 
         _button = GetComponent<Button>(); //訂閱按紐點擊事件
         _button.onClick.AddListener(EndTurnButtonOnClick);
@@ -31,7 +33,7 @@ public class EndTurnButton : MonoBehaviour
     private void EndTurnButtonOnClick()
     {
         endTurnController.StartEndTurn();
-        Event_CloseInspiration?.Invoke();
+        inspirationButtonController.CloseButton();
     }
 
 

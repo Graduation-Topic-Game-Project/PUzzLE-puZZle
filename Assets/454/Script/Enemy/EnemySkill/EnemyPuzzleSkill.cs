@@ -91,7 +91,7 @@ public class EnemyPuzzleSkill : EnemySkill
             if (CheckEnemyPuzzleAround.Check(enemyPuzzle.puzzleData))
             {
                 isBreak = true;
-                MessageTextController.SetMessage("敵方拼圖已被破壞");
+                BattleMainMessage.SetMessage("敵方拼圖已被破壞");
                 Debug.Log("敵方拼圖已被破壞");
             }
         }

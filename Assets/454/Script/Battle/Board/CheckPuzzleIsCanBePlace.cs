@@ -34,7 +34,7 @@ public class CheckPuzzleIsCanBePlace : MonoBehaviour
     {
         if (boardController.board[i, j].Puzzle != null)  //檢查該位置是否有拼圖
         {
-            MessageTextController.SetMessage("那裏已經有拼圖了!");
+            BattleMainMessage.SetMessage("那裏已經有拼圖了!");
             return false;
         }
 
@@ -42,7 +42,7 @@ public class CheckPuzzleIsCanBePlace : MonoBehaviour
         {
             if (!CheckDirection(i, j, _thisPuzzle, direction))  //檢查指定方向是否衝突
             {
-                MessageTextController.SetMessage("與周圍拼圖衝突，拼圖不可放置");
+                BattleMainMessage.SetMessage("與周圍拼圖衝突，拼圖不可放置");
                 return false;
             }
         }

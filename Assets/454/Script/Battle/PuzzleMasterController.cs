@@ -57,13 +57,13 @@ public class PuzzleMasterController : MonoBehaviour
     {
         if (isSpecifyPuzzle == false) //如果未指定拼圖
         {
-            MessageTextController.SetMessage("未指定拼圖");
+            BattleMainMessage.SetMessage("未指定拼圖");
             return false;
         }
 
         if (ActionPoint_Controller.ActionPoint <= 0) //如果行動值為零
         {
-            MessageTextController.SetMessage("行動值不足");
+            BattleMainMessage.SetMessage("行動值不足");
             return false;
         }
 

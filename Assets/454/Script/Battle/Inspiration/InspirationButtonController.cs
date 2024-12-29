@@ -24,8 +24,6 @@ public class InspirationButtonController : MonoBehaviour
         _button = GetComponent<Button>(); //訂閱按紐點擊事件
         _button.onClick.AddListener(OpenButton);
         isOpen = false;
-
-        EndTurnButton.GetComponent<EndTurnButton>().Event_CloseInspiration += this.CloseButton;
     }
 
     void OpenButton()
@@ -49,7 +47,7 @@ public class InspirationButtonController : MonoBehaviour
         Particle_System.SetActive(!isOpen);
     }
 
-    void CloseButton()
+    public void CloseButton()
     {
         if (isOpen == false) //若本來就關閉了，無效
             return;
