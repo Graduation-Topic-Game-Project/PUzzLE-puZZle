@@ -35,7 +35,7 @@ public class EditPuzzle_SpecifyPuzzle : MonoBehaviour
     {
         if (puzzleMasterController.specifyPuzzleNumber == -1)
         {
-            Debug.Log("UpdateSpecifyPuzzleImage return");
+            //Debug.Log("UpdateSpecifyPuzzleImage return");
             return;
         }
 
