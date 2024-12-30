@@ -43,9 +43,9 @@ public class EditPuzzleController : MonoBehaviour
     /// </summary>
     private void Specify(int num)
     {
-        int newNum = puzzleMasterController.specifyPuzzleNumber + num;
+        int newNum = puzzleMasterController.SpecifyPuzzleNumber + num;
 
-        if (puzzleMasterController.specifyPuzzleNumber == -1)
+        if (puzzleMasterController.SpecifyPuzzleNumber == -1)
         {
             BattleMainMessage.SetMessage("未選擇");
             return;
@@ -60,15 +60,20 @@ public class EditPuzzleController : MonoBehaviour
             return;
         }
 
-        puzzleLibrary.SpecifyPuzzle(puzzleMasterController.specifyPuzzleNumber + num);
+        puzzleLibrary.SpecifyPuzzle(puzzleMasterController.SpecifyPuzzleNumber + num);
     }
 
 
     public void RightRotating() //按鈕用右轉拼圖
     {
-        int i = puzzleMasterController.specifyPuzzleNumber;
-        PuzzleData newPuzzledata = puzzleLibrary.puzzlePreparations[i];
+        int i = puzzleMasterController.SpecifyPuzzleNumber;
+        if(i <0 || i > 5)
+        {
+            BattleMainMessage.SetMessage("未選擇，無法旋轉");
+            return;
+        }
 
+        PuzzleData newPuzzledata = puzzleLibrary.puzzlePreparations[i];
         newPuzzledata.RotatingPuzzleRight();
         puzzleLibrary.puzzlePreparations[i] = newPuzzledata;
 
@@ -78,13 +83,26 @@ public class EditPuzzleController : MonoBehaviour
 
     public void LeftRotating() //按鈕用左轉拼圖
     {
-        int i = puzzleMasterController.specifyPuzzleNumber;
-        PuzzleData newPuzzledata = puzzleLibrary.puzzlePreparations[i];
+        int i = puzzleMasterController.SpecifyPuzzleNumber;
+        if (i < 0 || i > 5)
+        {
+            BattleMainMessage.SetMessage("未選擇，無法旋轉");
+            return;
+        }
 
+        PuzzleData newPuzzledata = puzzleLibrary.puzzlePreparations[i];
         newPuzzledata.RotatingPuzzleLeft();
         puzzleLibrary.puzzlePreparations[i] = newPuzzledata;
 
         editPuzzle_SpecifyPuzzle.UpdateSpecifyPuzzleImage(); //更新編輯介面拼圖圖片
         puzzleLibrary.UpdatePreparationPuzzle(this, EventArgs.Empty); //更新備戰區拼圖圖片
+    }
+
+    public void DestoryPuzzle()
+    {
+        int i = puzzleMasterController.SpecifyPuzzleNumber; //目前選擇的備戰區編號
+        PuzzleData newPuzzledata = puzzleLibrary.puzzlePreparations[i];
+
+        puzzleLibrary.RemovePlacedPuzzle(i);
     }
 }

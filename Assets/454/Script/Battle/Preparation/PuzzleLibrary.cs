@@ -180,11 +180,11 @@ public class PuzzleLibrary : MonoBehaviour
     /// <param name="number">第幾個備戰區格子</param>
     public void SpecifyPuzzle(int number)
     {
-        if (puzzleMasterController.specifyPuzzleNumber != number)
+        if (puzzleMasterController.SpecifyPuzzleNumber != number)
         {
             ResetAllPreparationToNoSpecifying(); //重製所有備戰區按鈕顏色為預設
-            puzzleMasterController.specifyPuzzle = puzzlePreparations[number];  //更改選擇的備戰區拼圖
-            puzzleMasterController.specifyPuzzleNumber = number;  // 更改選擇的備戰區編號(第幾格)
+            puzzleMasterController.specifyPuzzle = puzzlePreparations[number];  //更改選擇的備戰區拼圖           
+            puzzleMasterController.SpecifyPuzzleNumber = number;  // 更改選擇的備戰區編號(第幾格)
             puzzleMasterController.isSpecifyPuzzle = true;
             puzzlePreparationsGameObject[number].GetComponent<PuzzlePreparation>().SetToSpecifying(); //將備戰區切換成選擇時狀態
 
@@ -192,7 +192,7 @@ public class PuzzleLibrary : MonoBehaviour
         }
         else
         {
-            puzzleMasterController.specifyPuzzleNumber = -1;
+            puzzleMasterController.SpecifyPuzzleNumber = -1;
             puzzleMasterController.isSpecifyPuzzle = false;
             ResetAllPreparationToNoSpecifying(); //重製所有備戰區按鈕顏色為預設
         }
@@ -210,6 +210,7 @@ public class PuzzleLibrary : MonoBehaviour
         ResetAllPreparationToNoSpecifying();
     }
 
+    /// <param name="noUse">沒有用處，只是為了符合事件格式</param>
     public void ResetAllPreparationToNoSpecifying(int noUse)
     {
         ResetAllPreparationToNoSpecifying();

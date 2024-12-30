@@ -6,7 +6,7 @@ public class EditPuzzle_Button : MonoBehaviour
 {
     public InspirationButtonController inspirationButtonController;
 
-    public GameObject S_and_B_Interface;
+    public EditPuzzleUI editPuzzleUI;
     bool isOpen = false;
 
     private void Awake()
@@ -19,7 +19,7 @@ public class EditPuzzle_Button : MonoBehaviour
     public void open()
     {
         isOpen = !isOpen;
-        S_and_B_Interface.SetActive(isOpen);
+        editPuzzleUI.InterfaceOpenAndClose(isOpen);
         //Debug.Log("Bal_And_Sword_Button");
 
         inspirationButtonController.CloseButton();

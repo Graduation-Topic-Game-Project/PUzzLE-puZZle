@@ -15,8 +15,11 @@ public class PuzzleMasterController : MonoBehaviour
 
     [Header("當前選擇的拼圖")]
     public PuzzleData specifyPuzzle; //選擇的備戰區拼圖
+    [SerializeField]
     /// <summary>選擇的備戰區編號(第幾格，未選擇為-1)</summary>
     public int specifyPuzzleNumber = -1; //選擇的備戰區編號(第幾格)
+    /// <summary>選擇的備戰區編號(第幾格，未選擇為-1)</summary>
+    public int SpecifyPuzzleNumber { get => specifyPuzzleNumber; set => specifyPuzzleNumber = value; }
     /// <summary>是否選擇備戰區拼圖</summary>
     public bool isSpecifyPuzzle = false; //是否選擇備戰區拼圖
 
@@ -75,6 +78,6 @@ public class PuzzleMasterController : MonoBehaviour
     /// </summary>
     public void CallEvent_RemovePlacedPuzzle()
     {
-        Event_RemovePlacedPuzzle?.Invoke(specifyPuzzleNumber);
+        Event_RemovePlacedPuzzle?.Invoke(SpecifyPuzzleNumber);
     }
 }

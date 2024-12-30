@@ -23,25 +23,28 @@ public class EditPuzzle_SpecifyPuzzle : MonoBehaviour
             puzzleMasterController = FindObjectOfType<PuzzleMasterController>();
         }
 
+
         battleGameController.Event_SpecifyPuzzle += UpdateSpecifyPuzzleImage;
     }
 
-    private void Start()
+    private void OnEnable() //當SetActive(true)時觸發一次
     {
         UpdateSpecifyPuzzleImage();
+
     }
 
     /// <summary>更新拼圖圖片</summary>
     public void UpdateSpecifyPuzzleImage(object sender, EventArgs e)
     {
-        if (puzzleMasterController.specifyPuzzleNumber == -1)
-        {
-            //Debug.Log("UpdateSpecifyPuzzleImage return");
-            return;
-        }
+        Debug.Log(puzzleMasterController.specifyPuzzleNumber);
 
         if (nowSpecifyPuzzle != null)
             Destroy(nowSpecifyPuzzle.gameObject);
+
+        if (puzzleMasterController.specifyPuzzleNumber == -1)
+        {
+            return;
+        }
 
         nowSpecifyPuzzle = Instantiate(puzzleMasterController.puzzlePrefab, InstanceLocation.transform.position, InstanceLocation.transform.rotation, InstanceLocation.transform);
         nowSpecifyPuzzle.puzzleData = puzzleMasterController.specifyPuzzle;
