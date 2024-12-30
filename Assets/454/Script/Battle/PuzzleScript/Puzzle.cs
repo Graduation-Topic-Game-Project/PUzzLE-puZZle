@@ -146,5 +146,33 @@ public class PuzzleData
         _left = _left.RandomlyGeneratedPuzzleData(_left);
         _right = _right.RandomlyGeneratedPuzzleData(_right);
     }
+
+    /// <summary> 順時針旋轉拼圖</summary>
+    public void RotatingPuzzleRight()
+    {
+        PuzzleSideData new_up = _up;
+        PuzzleSideData new_down = _down;
+        PuzzleSideData new_right = _right;
+        PuzzleSideData new_left = _left;
+
+        _up = new_left;
+        _down = new_right;
+        _right = new_up;
+        _left = new_down;
+    }
+
+    /// <summary> 逆時針旋轉拼圖</summary>
+    public void RotatingPuzzleLeft()
+    {
+        PuzzleSideData new_up = _up;
+        PuzzleSideData new_down = _down;
+        PuzzleSideData new_right = _right;
+        PuzzleSideData new_left = _left;
+
+        _up = new_right;
+        _down = new_left;
+        _right = new_down;
+        _left = new_up;
+    }
 }
 

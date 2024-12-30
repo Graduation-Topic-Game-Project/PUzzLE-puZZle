@@ -31,6 +31,7 @@ public class EditPuzzle_SpecifyPuzzle : MonoBehaviour
         UpdateSpecifyPuzzleImage();
     }
 
+    /// <summary>更新拼圖圖片</summary>
     public void UpdateSpecifyPuzzleImage(object sender, EventArgs e)
     {
         if (puzzleMasterController.specifyPuzzleNumber == -1)
@@ -46,7 +47,7 @@ public class EditPuzzle_SpecifyPuzzle : MonoBehaviour
         nowSpecifyPuzzle.puzzleData = puzzleMasterController.specifyPuzzle;
         nowSpecifyPuzzle.ReUpdate_PuzzleEssence_Image();
     }
-
+    /// <summary>更新拼圖圖片</summary>
     public void UpdateSpecifyPuzzleImage()
     {
         UpdateSpecifyPuzzleImage(this, EventArgs.Empty);

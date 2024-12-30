@@ -24,13 +24,6 @@ public class MessageTextController : MonoBehaviour
         NowSetMessangeCoroutine = StartCoroutine(SetMessageCoroutine(messange, secondsDisplayed));
     }
 
-    /*public static void SetLinkageMessage(string messange)
-    {
-        if (@this.NowSetLinkageMessange != null)
-            @this.StopCoroutine(@this.NowSetLinkageMessange);
-        @this.SetColorAlpha(0f, @this.linkageText);
-        @this.NowSetLinkageMessange = @this.StartCoroutine(@this.SetLinkageMessage2s(messange));
-    }*/
 
     void SetColorAlpha(float _alpha, TextMeshProUGUI textObject) //設置文字透明度
     {
@@ -42,7 +35,7 @@ public class MessageTextController : MonoBehaviour
         SetColorAlpha(1f, messageText);
         messageText.text = messange;
 
-        yield return new WaitForSeconds(second);
+        yield return new WaitForSeconds(second); //顯示n秒後
 
         for (float i = 1f; i > 0; i = i - Time.deltaTime) //在1秒內淡出
         {
