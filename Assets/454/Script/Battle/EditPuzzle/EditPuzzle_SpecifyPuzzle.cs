@@ -55,7 +55,7 @@ public class EditPuzzle_SpecifyPuzzle : MonoBehaviour
     }
 
     /// <summary>更新拼圖圖片，事件用</summary>
-    public void UpdateSpecifyPuzzleImage(object sender, bool noUse)
+    public void UpdateSpecifyPuzzleImage(bool noUse)
     {
         UpdateSpecifyPuzzleImage();
     }

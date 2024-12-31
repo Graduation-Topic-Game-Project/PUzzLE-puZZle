@@ -13,7 +13,7 @@ public class BattleGameController : MonoBehaviour
     /// <summary>回合開始</summary>
     public event EventHandler Event_StartTurn; //回合開始
     /// <summary>選擇備戰區拼圖 [true = 選擇 false = 取消選擇]</summary>
-    public event EventHandler<bool> Event_SpecifyPuzzle; //選擇拼圖
+    public event Action<bool> Event_SpecifyPuzzle; //選擇拼圖
     /// <summary>拼圖放置完成</summary>
     public event EventHandler Event_PuzzlePlaceCompleted; //拼圖放置完成
     /// <summary>結算盤面</summary>
@@ -62,7 +62,7 @@ public class BattleGameController : MonoBehaviour
     /// </summary>
     public void CallEvent_SpecifyPuzzle(bool Specify_Or_NoSpecify)
     {
-        Event_SpecifyPuzzle?.Invoke(this, Specify_Or_NoSpecify);
+        Event_SpecifyPuzzle?.Invoke( Specify_Or_NoSpecify);
     }
 
     /// <summary>
