@@ -45,8 +45,9 @@ public class BattleAudioController : MonoBehaviour
     }
 
     /// <summary>撥放選擇備戰區拼圖音效 </summary>
-    public void PlayAudio_SpecifyPuzzle(object sender, EventArgs e)
+    public void PlayAudio_SpecifyPuzzle(object sender, bool isSpecify)
     {
+        if(isSpecify == true) //若事件是由選擇拼圖觸發的
         audioSource.PlayOneShot(SpecifyPuzzle);
     }
 

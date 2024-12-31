@@ -188,18 +188,23 @@ public class PuzzleLibrary : MonoBehaviour
             puzzleMasterController.isSpecifyPuzzle = true;
             puzzlePreparationsGameObject[number].GetComponent<PuzzlePreparation>().SetToSpecifying(); //將備戰區切換成選擇時狀態
 
-            battleGameController.CallEvent_SpecifyPuzzle(); //發送選擇拼圖事件
+            battleGameController.CallEvent_SpecifyPuzzle(true); //發送選擇拼圖事件
         }
         else
         {
-            puzzleMasterController.SpecifyPuzzleNumber = -1;
-            puzzleMasterController.isSpecifyPuzzle = false;
-            ResetAllPreparationToNoSpecifying(); //重製所有備戰區按鈕顏色為預設
+            //puzzleMasterController.SpecifyPuzzleNumber = -1;
+            //puzzleMasterController.isSpecifyPuzzle = false;
+            ResetAllPreparationToNoSpecifying(); //重製所有備戰區為非選擇
+
+            battleGameController.CallEvent_SpecifyPuzzle(false); //發送選擇拼圖事件，注意!此事件呼叫可能導致Bug
         }
     }
 
     public void ResetAllPreparationToNoSpecifying()  //重製所有備戰區為非選擇
     {
+        puzzleMasterController.SpecifyPuzzleNumber = -1;
+        puzzleMasterController.isSpecifyPuzzle = false;
+
         for (int i = 0; i < puzzlePreparationsGameObject.Length; i++)
         {
             puzzlePreparationsGameObject[i].GetComponent<PuzzlePreparation>().ResetToNoSpecifying();

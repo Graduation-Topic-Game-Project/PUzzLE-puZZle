@@ -101,8 +101,16 @@ public class EditPuzzleController : MonoBehaviour
     public void DestoryPuzzle()
     {
         int i = puzzleMasterController.SpecifyPuzzleNumber; //目前選擇的備戰區編號
-        PuzzleData newPuzzledata = puzzleLibrary.puzzlePreparations[i];
+        if (i < 0 || i > 5)
+        {
+            BattleMainMessage.SetMessage("未選擇，無法旋轉");
+            return;
+        }
 
+        PuzzleData newPuzzledata = puzzleLibrary.puzzlePreparations[i];
         puzzleLibrary.RemovePlacedPuzzle(i);
+
+        puzzleLibrary.ResetAllPreparationToNoSpecifying(); //重製所有備戰區為非選擇
+        editPuzzle_SpecifyPuzzle.UpdateSpecifyPuzzleImage(); //更新編輯介面拼圖圖片
     }
 }

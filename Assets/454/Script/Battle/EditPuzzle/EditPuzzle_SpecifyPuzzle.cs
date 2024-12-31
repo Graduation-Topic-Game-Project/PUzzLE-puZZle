@@ -27,22 +27,25 @@ public class EditPuzzle_SpecifyPuzzle : MonoBehaviour
         battleGameController.Event_SpecifyPuzzle += UpdateSpecifyPuzzleImage;
     }
 
+    private void Update()
+    {
+        //UpdateSpecifyPuzzleImage();
+    }
+
     private void OnEnable() //當SetActive(true)時觸發一次
     {
         UpdateSpecifyPuzzleImage();
-
     }
 
     /// <summary>更新拼圖圖片</summary>
-    public void UpdateSpecifyPuzzleImage(object sender, EventArgs e)
+    public void UpdateSpecifyPuzzleImage()
     {
-        Debug.Log(puzzleMasterController.specifyPuzzleNumber);
-
         if (nowSpecifyPuzzle != null)
             Destroy(nowSpecifyPuzzle.gameObject);
 
         if (puzzleMasterController.specifyPuzzleNumber == -1)
         {
+            //Debug.Log("puzzleMasterController.specifyPuzzleNumber == -1");
             return;
         }
 
@@ -50,9 +53,10 @@ public class EditPuzzle_SpecifyPuzzle : MonoBehaviour
         nowSpecifyPuzzle.puzzleData = puzzleMasterController.specifyPuzzle;
         nowSpecifyPuzzle.ReUpdate_PuzzleEssence_Image();
     }
-    /// <summary>更新拼圖圖片</summary>
-    public void UpdateSpecifyPuzzleImage()
+
+    /// <summary>更新拼圖圖片，事件用</summary>
+    public void UpdateSpecifyPuzzleImage(object sender, bool noUse)
     {
-        UpdateSpecifyPuzzleImage(this, EventArgs.Empty);
+        UpdateSpecifyPuzzleImage();
     }
 }
