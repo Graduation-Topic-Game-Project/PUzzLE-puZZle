@@ -11,16 +11,9 @@ public class ActionPoint_Controller : MonoBehaviour
 {
     public BattleGameController battleGameController;
 
-
     [SerializeField]
     static public int ActionPoint; //行動值
     public int maxActionPoint; //最大行動值
-
-
-
-
-
-
 
     private void Awake()
     {
