@@ -6,13 +6,13 @@ using UnityEngine.EventSystems;
 public class ActionPointMouseEnterAndExit : MonoBehaviour
 {
     private bool isPointerInside = false; // 標記滑鼠是否已進入
-    public ActionPoint_Controller actionPoint_Controller;
+    public ActionPoint_UI_Controller actionPoint_UI_Controller;
 
     private void Awake()
     {
-        if (actionPoint_Controller == null) //獲取場景上的ActionPoint_Controller
+        if (actionPoint_UI_Controller == null) //獲取此物件上的ActionPoint_UI_Controller
         {
-            actionPoint_Controller = this.gameObject.transform.GetComponent<ActionPoint_Controller>();
+            actionPoint_UI_Controller = this.gameObject.transform.GetComponent<ActionPoint_UI_Controller>();
         }
     }
     void Update()
@@ -63,15 +63,15 @@ public class ActionPointMouseEnterAndExit : MonoBehaviour
     private void OnPointerEnter() // 在此處執行滑鼠進入的邏輯
     {
         //Debug.Log("Pointer entered manually!");
-        actionPoint_Controller.StopCoroutine();
+        actionPoint_UI_Controller.StopCoroutine();
         //actionPoint_Controller.StopAllCoroutines();
-        actionPoint_Controller.canvasGroup.alpha = 1f;
+        actionPoint_UI_Controller.canvasGroup.alpha = 1f;
     }
 
     private void OnPointerExit() // 在此處執行滑鼠離開的邏輯
     {
         //Debug.Log("Pointer exited manually!");
-        actionPoint_Controller.ShowActionPoint(); 
+        actionPoint_UI_Controller.ShowActionPoint(); 
     }
 
 

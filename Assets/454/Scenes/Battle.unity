@@ -8676,6 +8676,7 @@ GameObject:
   - component: {fileID: 656933887}
   - component: {fileID: 656933884}
   - component: {fileID: 656933888}
+  - component: {fileID: 656933889}
   m_Layer: 5
   m_Name: Action points Panel
   m_TagString: Untagged
@@ -8715,7 +8716,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c2920fb05cd5634f8b325811cd0a6da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actionPoint_Controller: {fileID: 656933887}
+  actionPoint_UI_Controller: {fileID: 656933889}
 --- !u!114 &656933885
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8784,6 +8785,21 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &656933889
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 656933882}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f881433d4b0ebb42949d4b4a5feb5e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvasGroup: {fileID: 656933888}
+  actionPoint_Number: {fileID: 1023281351}
+  actionPointTextAlpha: 0.1
 --- !u!1 &665565130
 GameObject:
   m_ObjectHideFlags: 0
@@ -10652,6 +10668,7 @@ GameObject:
   - component: {fileID: 843403865}
   - component: {fileID: 843403866}
   - component: {fileID: 843403867}
+  - component: {fileID: 843403868}
   m_Layer: 5
   m_Name: Inspiration
   m_TagString: Untagged
@@ -10714,8 +10731,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7fe89d8deaffb943b31e01db39c6646, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultInspirationValue: 3
+  inspirationController: {fileID: 843403868}
   inspirationValue_Number: {fileID: 425288679}
+--- !u!114 &843403868
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 843403864}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0982a7a4c85fea48b714cb600990798, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  battleGameController: {fileID: 683618066}
+  Inspiration: 0
+  defaultInspirationValue: 3
 --- !u!1 &856421222
 GameObject:
   m_ObjectHideFlags: 0
@@ -22292,6 +22324,7 @@ GameObject:
   - component: {fileID: 1819300227}
   - component: {fileID: 1819300226}
   - component: {fileID: 1819300225}
+  - component: {fileID: 1819300230}
   m_Layer: 5
   m_Name: Action points Panel (BG)
   m_TagString: Untagged
@@ -22343,7 +22376,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c2920fb05cd5634f8b325811cd0a6da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actionPoint_Controller: {fileID: 1819300227}
+  actionPoint_UI_Controller: {fileID: 1819300230}
 --- !u!114 &1819300227
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22400,6 +22433,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1819300223}
   m_CullTransparentMesh: 1
+--- !u!114 &1819300230
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1819300223}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f881433d4b0ebb42949d4b4a5feb5e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvasGroup: {fileID: 1819300225}
+  actionPoint_Number: {fileID: 910138654}
+  actionPointTextAlpha: 0.1
 --- !u!1001 &1825097386
 PrefabInstance:
   m_ObjectHideFlags: 0
