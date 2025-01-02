@@ -8,7 +8,7 @@ public class InspirationController : MonoBehaviour
     public BattleGameController battleGameController;
 
     public int Inspiration; //靈感值
-    public int defaultInspirationValue = 3; //靈感值預設值
+    public int defaultInspirationValue = 6; //靈感值預設值
 
     private void Awake()
     {
