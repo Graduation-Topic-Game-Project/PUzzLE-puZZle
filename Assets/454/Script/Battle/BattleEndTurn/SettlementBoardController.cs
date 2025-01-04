@@ -10,8 +10,8 @@ public class SettlementBoardController : MonoBehaviour
 {
     private BattleGameController battleGameController;
     private BoardController boardController;
-
-    public static event Action<int,int,int,int> Event_Damage; //給予敵方傷害
+    /// <summary> 給予敵方傷害 </summary>
+    public static event Action<int, int, int, int> Event_Damage; //給予敵方傷害
 
     private void Awake()
     {
@@ -21,16 +21,27 @@ public class SettlementBoardController : MonoBehaviour
         if (boardController == null) //獲取場景上的BoardController   
             boardController = FindObjectOfType<BoardController>();
 
-        battleGameController.Event_SettlementBoard += this.BillingEssencePointForBoard;
+        battleGameController.Event_SettlementBoard += this.BillingEndTurnAttack;
     }
+
+    /// <summary>
+    /// 回合結束時結算並攻擊
+    /// </summary>
+    private void BillingEndTurnAttack(object sender, EventArgs e)
+    {
+        BillingEssencePointForBoard(out float Red, out float Blue, out float Yellow, out float Purple); //結算盤面
+        PartnerEssenceBonus(Red, Blue, Yellow, Purple);
+    }
+
+
 
     /// <summary>
     /// 結算盤面上的本質點
     /// </summary>
     /// <returns>(力量本質點,智慧本質點,信仰本質點,靈魂本質點)</returns>
-    private void BillingEssencePointForBoard(object sender, EventArgs e)
+    private void BillingEssencePointForBoard(out float Red_num, out float Blue_num, out float Yellow_num, out float Purple_num)
     {
-        float Red = 0, Blue = 0, Yellow = 0, Purple = 0;
+        Red_num = 0; Blue_num = 0; Yellow_num = 0; Purple_num = 0;
 
         for (int i = 0; i < 6; i++)
         {
@@ -42,16 +53,16 @@ public class SettlementBoardController : MonoBehaviour
                     switch (puzzle.Essence)
                     {
                         case EssenceEnum.Essence.Strengthe_力量:
-                            Red++;
+                            Red_num++;
                             break;
                         case EssenceEnum.Essence.Wisdom_智慧:
-                            Blue++;
+                            Blue_num++;
                             break;
                         case EssenceEnum.Essence.Belief_信仰:
-                            Yellow++;
+                            Yellow_num++;
                             break;
                         case EssenceEnum.Essence.Soul_靈魂:
-                            Purple++;
+                            Purple_num++;
                             break;
                         default:
                             break;
@@ -59,7 +70,7 @@ public class SettlementBoardController : MonoBehaviour
                 }
             }
         }
-        PartnerEssenceBonus(Red, Blue, Yellow, Purple);
+        //PartnerEssenceBonus(Red, Blue, Yellow, Purple);
     }
     /// <summary>
     /// 夥伴本質加成
@@ -89,8 +100,6 @@ public class SettlementBoardController : MonoBehaviour
 
         Debug.Log($"{Math.Ceiling(Red)} , {Math.Ceiling(Blue)} , {Math.Ceiling(Yellow)} , {Math.Ceiling(Purple)}");
         Event_Damage?.Invoke(ToInt(Red), ToInt(Blue), ToInt(Yellow), ToInt(Purple));
-
-        //TestDamage((int)(Math.Ceiling(Red + Blue + Yellow + Purple)));
     }
 
     private int ToInt(float num) //無條件進位成整數
@@ -99,5 +108,5 @@ public class SettlementBoardController : MonoBehaviour
         return a;
     }
 
-    
+
 }
