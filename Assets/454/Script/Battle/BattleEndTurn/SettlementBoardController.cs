@@ -33,13 +33,11 @@ public class SettlementBoardController : MonoBehaviour
         PartnerEssenceBonus(Red, Blue, Yellow, Purple);
     }
 
-
-
     /// <summary>
     /// 結算盤面上的本質點
     /// </summary>
     /// <returns>(力量本質點,智慧本質點,信仰本質點,靈魂本質點)</returns>
-    private void BillingEssencePointForBoard(out float Red_num, out float Blue_num, out float Yellow_num, out float Purple_num)
+    public void BillingEssencePointForBoard(out float Red_num, out float Blue_num, out float Yellow_num, out float Purple_num)
     {
         Red_num = 0; Blue_num = 0; Yellow_num = 0; Purple_num = 0;
 
