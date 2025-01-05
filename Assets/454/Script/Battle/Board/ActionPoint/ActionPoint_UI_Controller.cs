@@ -13,7 +13,7 @@ public class ActionPoint_UI_Controller : MonoBehaviour
 
     private void Awake()
     {
-        if (canvasGroup == null) //獲取場景上的CanvasGroup
+        if (canvasGroup == null) //獲取此物件上的CanvasGroup
         {
             canvasGroup = this.gameObject.transform.GetComponent<CanvasGroup>();
         }
@@ -21,7 +21,7 @@ public class ActionPoint_UI_Controller : MonoBehaviour
 
     void Start()
     {
-        canvasGroup.alpha = actionPointTextAlpha;
+        canvasGroup.alpha = actionPointTextAlpha; //透明度設為默認
     }
 
     void Update()
