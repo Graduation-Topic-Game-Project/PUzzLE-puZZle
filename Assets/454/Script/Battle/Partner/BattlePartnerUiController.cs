@@ -18,9 +18,9 @@ public class BattlePartnerUiController : MonoBehaviour
     {
         for(int i = 0; i < 4; i++)
         {
-            if (this.gameObject.transform.GetChild(i).gameObject != null)
+            //if (this.gameObject.transform.GetChild(i).gameObject != null)
             {
-                PartnersGameObject[i] = this.gameObject.transform.GetChild(i).gameObject;
+                //PartnersGameObject[i] = this.gameObject.transform.GetChild(i).gameObject;
                 PartnersGameObject[i].GetComponent<BattlePartner>().PartnerNumber = i;
                 PartnersGameObject[i].GetComponent<BattlePartner>().PartnerImage.sprite = battleGameController.partners[i].thisPartner.PartnerCuteBattle;
             }

@@ -15,7 +15,7 @@ MonoBehaviour:
   thisPartner:
     _partnerName: Blacat & Girl
     PartnerTachie: {fileID: 21300000, guid: 497dd46de220aee4d8c9b90da6a8d333, type: 3}
-    PartnerCuteBattle: {fileID: 21300000, guid: 27892ec2e065c5c4c8ca06ae0de79301, type: 3}
+    PartnerCuteBattle: {fileID: 21300000, guid: d378a3ae649c95b4787019a8efc1b8c3, type: 3}
     _level: 1
     _hp: 0
     _essence: 4
