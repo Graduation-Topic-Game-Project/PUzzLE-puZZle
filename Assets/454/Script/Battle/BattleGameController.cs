@@ -20,6 +20,8 @@ public class BattleGameController : MonoBehaviour
     public event EventHandler Event_SettlementBoard; //結算盤面
     /// <summary>結算敵人技能</summary>
     public event EventHandler Event_SettlementEnemySkill; //結算敵人技能
+    /// <summary>衝突階段</summary>
+    public event Action Event_Confrontation; //衝突階段
     /// <summary>判定:是否全部敵方皆死亡</summary>
     public event Action Event_IsAllEnemyDead; //判定:是否全部敵方皆死亡
     /// <summary>勝利</summary>
@@ -35,11 +37,11 @@ public class BattleGameController : MonoBehaviour
 
     [Header("對手")]
     public List<Enemy> enemies = new List<Enemy>();
-    //只有開始遊戲生成敵人和施放技能時會用，傷害計算等在BattleEnemyController的EnemyInstance
+    //只有開始遊戲生成敵人和施放技能時會用，傷害計算等在BattleGameController的InstancedEnemy
 
     public List<Enemy> InstancedEnemy; //實例化的敵人
 
-    [Header("是否勝利"),Tooltip("true = win")]
+    [Header("是否勝利"), Tooltip("true = win")]
     public bool IsWin;
 
     private void Start()
@@ -62,7 +64,7 @@ public class BattleGameController : MonoBehaviour
     /// </summary>
     public void CallEvent_SpecifyPuzzle(bool Specify_Or_NoSpecify)
     {
-        Event_SpecifyPuzzle?.Invoke( Specify_Or_NoSpecify);
+        Event_SpecifyPuzzle?.Invoke(Specify_Or_NoSpecify);
     }
 
     /// <summary>
@@ -90,12 +92,20 @@ public class BattleGameController : MonoBehaviour
     }
 
     /// <summary>
+    /// 發送衝突事件
+    /// </summary>
+    public void CallEvent_Confrontation()
+    {
+        Event_Confrontation?.Invoke();
+    }
+
+    /// <summary>
     /// 發送是否全部敵方皆死亡判定事件
     /// </summary>
     public void CallEvent_IsAllEnemyDead()
     {
         Event_IsAllEnemyDead?.Invoke();
-       // Debug.Log("CallEvent_IsWin()");
+        // Debug.Log("CallEvent_IsWin()");
     }
 
     /// <summary>

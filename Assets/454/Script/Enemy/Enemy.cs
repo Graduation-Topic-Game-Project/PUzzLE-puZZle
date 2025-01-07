@@ -51,10 +51,6 @@ public class Enemy : MonoBehaviour
     {
 
     }
-    private void Start()
-    {
-        SettlementBoardController.Event_Damage += this.Damage;
-    }
 
     public virtual void Damage(int R, int B, int Y, int P) //受傷
     {
@@ -91,10 +87,6 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    /*void OnDestroy() //刪除時，解除訂閱
-    {
-        SettlementBoardController.Event_Damage -= this.Damage;
-    }*/
 }
 
 

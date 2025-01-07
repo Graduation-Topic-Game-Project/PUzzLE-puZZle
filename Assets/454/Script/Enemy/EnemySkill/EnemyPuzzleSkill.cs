@@ -43,7 +43,8 @@ public class EnemyPuzzleSkill : EnemySkill
         if (isBreak == false)
         {
             Debug.Log("未被破壞，對我方隊伍造成傷害");
-            PlayerBattleData.Instance.Damage(damage);
+            BattleConfrontationController.AddEnemyAttack(damage);
+            //PlayerBattleData.Instance.Damage(damage);
         }
         else
         {

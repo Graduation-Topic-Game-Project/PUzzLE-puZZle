@@ -33,10 +33,9 @@ public class EnemySkillController : MonoBehaviour
     private void RamdomSkill(object sender, EventArgs e)
     {
         enemySkillsThisTurn.Clear(); //清空上回合的技能
-        //Debug.Log("123:");
+        
         foreach (Enemy enemy in battleGameController.InstancedEnemy) //每位敵人觸發一次
         {
- 
             for (int i = 0; i < enemy._attackNum; i++)
             {
                 int r = UnityEngine.Random.Range(0, enemy.enemySkillsPrefab.Count);  //隨機挑一個技能
@@ -76,8 +75,7 @@ public class EnemySkillController : MonoBehaviour
             {
                 enemySkill.SettlementSkill();
             }
-        }
-        
+        }       
     }
 
     /// <summary>
@@ -85,7 +83,7 @@ public class EnemySkillController : MonoBehaviour
     /// </summary>
     private void PuzzlePlaceOver(object sender, EventArgs e)
     {
-        foreach (EnemyPuzzleSkill enemyPuzzleSkill in enemySkillsThisTurn)
+        foreach (EnemyPuzzleSkill enemyPuzzleSkill in enemySkillsThisTurn) //檢查敵方拼圖是否破壞
         {
             if (enemyPuzzleSkill.isBreak == false)
             {

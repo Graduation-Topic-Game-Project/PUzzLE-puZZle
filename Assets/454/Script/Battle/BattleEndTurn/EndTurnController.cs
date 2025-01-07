@@ -40,6 +40,10 @@ public class EndTurnController : MonoBehaviour
         battleGameController.CallEvent_SettlementEnemySkill();
         yield return new WaitForSeconds(0.1f);
 
+        // 技能衝突
+        battleGameController.CallEvent_Confrontation();
+        yield return new WaitForSeconds(0.5f);
+
         // 結束回合
         battleGameController.CallEvent_EndTurn();
         yield return new WaitForSeconds(0.5f);

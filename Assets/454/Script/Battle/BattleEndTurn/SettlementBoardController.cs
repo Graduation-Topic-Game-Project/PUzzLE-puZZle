@@ -11,7 +11,7 @@ public class SettlementBoardController : MonoBehaviour
     private BattleGameController battleGameController;
     private BoardController boardController;
     /// <summary> 給予敵方傷害 </summary>
-    public static event Action<int, int, int, int> Event_Damage; //給予敵方傷害
+    //public static event Action<int, int, int, int> Event_DamageToEnemy; //給予敵方傷害
 
     private void Awake()
     {
@@ -77,7 +77,7 @@ public class SettlementBoardController : MonoBehaviour
     {
         for (int i = 0; i < battleGameController.partners.Length; i++)
         {
-            switch (battleGameController.partners[1].thisPartner.Essence)
+            switch (battleGameController.partners[i].thisPartner.Essence)
             {
                 case EssenceEnum.Essence.Strengthe_力量:
                     Red = Red * 1.5f;
@@ -97,7 +97,8 @@ public class SettlementBoardController : MonoBehaviour
         }
 
         Debug.Log($"{Math.Ceiling(Red)} , {Math.Ceiling(Blue)} , {Math.Ceiling(Yellow)} , {Math.Ceiling(Purple)}");
-        Event_Damage?.Invoke(ToInt(Red), ToInt(Blue), ToInt(Yellow), ToInt(Purple));
+        //Event_DamageToEnemy?.Invoke(ToInt(Red), ToInt(Blue), ToInt(Yellow), ToInt(Purple));
+        EnemyDameged.Call_Event_DamageToEnemy(ToInt(Red), ToInt(Blue), ToInt(Yellow), ToInt(Purple)); //給予敵人傷害
     }
 
     private int ToInt(float num) //無條件進位成整數
