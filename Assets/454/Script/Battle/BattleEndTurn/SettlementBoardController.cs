@@ -31,6 +31,7 @@ public class SettlementBoardController : MonoBehaviour
     {
         BillingEssencePointForBoard(out float Red, out float Blue, out float Yellow, out float Purple); //結算盤面
         PartnerEssenceBonus(Red, Blue, Yellow, Purple);
+
     }
 
     /// <summary>
@@ -68,12 +69,43 @@ public class SettlementBoardController : MonoBehaviour
                 }
             }
         }
-        //PartnerEssenceBonus(Red, Blue, Yellow, Purple);
     }
+
     /// <summary>
-    /// 夥伴本質加成
+    /// 夥伴本質屬性加成
     /// </summary>
     private void PartnerEssenceBonus(float Red, float Blue, float Yellow, float Purple)
+    {
+        for (int i = 0; i < battleGameController.partners.Length; i++)
+        {
+            switch (battleGameController.partners[i].thisPartner.Essence)
+            {
+                case EssenceEnum.Essence.Strengthe_力量:
+                    Red = Red * 1.5f;
+                    break;
+                case EssenceEnum.Essence.Wisdom_智慧:
+                    Blue = Blue * 1.5f; ;
+                    break;
+                case EssenceEnum.Essence.Belief_信仰:
+                    Yellow = Yellow * 1.5f;
+                    break;
+                case EssenceEnum.Essence.Soul_靈魂:
+                    Purple = Purple * 1.5f;
+                    break;
+                default:
+                    break;
+            }
+            int damage = ToInt(Red) + ToInt(Blue) + ToInt(Yellow) + ToInt(Purple);
+            BattleConfrontationController.AddPartnerAttack(damage,i);
+        }
+
+        //Debug.Log($"{Math.Ceiling(Red)} , {Math.Ceiling(Blue)} , {Math.Ceiling(Yellow)} , {Math.Ceiling(Purple)}");
+    }
+
+    /// <summary>
+    /// 夥伴本質加成(舊版
+    /// </summary>
+    private void PartnerEssenceBonus_old(float Red, float Blue, float Yellow, float Purple)
     {
         for (int i = 0; i < battleGameController.partners.Length; i++)
         {
@@ -97,10 +129,11 @@ public class SettlementBoardController : MonoBehaviour
         }
 
         Debug.Log($"{Math.Ceiling(Red)} , {Math.Ceiling(Blue)} , {Math.Ceiling(Yellow)} , {Math.Ceiling(Purple)}");
-        //Event_DamageToEnemy?.Invoke(ToInt(Red), ToInt(Blue), ToInt(Yellow), ToInt(Purple));
-        EnemyDameged.Call_Event_DamageToEnemy(ToInt(Red), ToInt(Blue), ToInt(Yellow), ToInt(Purple)); //給予敵人傷害
+
+        //EnemyDameged.Call_Event_DamageToEnemy(ToInt(Red), ToInt(Blue), ToInt(Yellow), ToInt(Purple)); //給予敵人傷害
     }
 
+    /// <summary>無條件進位成整數 </summary>
     private int ToInt(float num) //無條件進位成整數
     {
         int a = (int)Math.Ceiling(num);

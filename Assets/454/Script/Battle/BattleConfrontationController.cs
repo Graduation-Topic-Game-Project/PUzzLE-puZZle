@@ -8,7 +8,7 @@ public class BattleConfrontationController : MonoBehaviour
     public BattleGameController battleGameController;
     static BattleConfrontationController @this;
 
-    List<int> PartnerAttack = new List<int>();
+    int[] PartnerAttack = new int[4];
     int EnemyAttack = 0;
 
     Coroutine Coroutine_Confrontation;
@@ -34,6 +34,14 @@ public class BattleConfrontationController : MonoBehaviour
     public static void AddEnemyAttack(int damage)
     {
         @this.EnemyAttack += damage;
+    }
+
+    /// <summary> 第{1}位夥伴造成{0}點戰力值 </summary>
+    /// <param name="damage">戰力值</param>
+    /// <param name="partnerNum">夥伴編號</param>
+    public static void AddPartnerAttack(int damage, int partnerNum)
+    {
+        @this.PartnerAttack[partnerNum] = damage;
     }
 
     public void StartConfrontation()
@@ -62,12 +70,12 @@ public class BattleConfrontationController : MonoBehaviour
     /// </summary>
     private IEnumerator ConfrontationCoroutine()
     {
-        if (PartnerAttack.Count == 0)
+        /*if (PartnerAttack.Length == 0)
         {
             BattleMainMessage.SetMessage($"單方面受擊，我方受到{EnemyAttack}點傷害");
             PlayerBattleData.Instance.Damage(EnemyAttack);
             Stop_Coroutine_Confrontation();
-        }
+        }*/
 
         foreach (int partnerAttack in PartnerAttack)
         {
@@ -75,7 +83,7 @@ public class BattleConfrontationController : MonoBehaviour
             {
                 Debug.Log($"對敵方造成{partnerAttack - EnemyAttack}點傷害");
                 BattleMainMessage.SetMessage($"對敵方造成{partnerAttack - EnemyAttack}點傷害");
-                //EnemyDameged
+                EnemyDameged.Call_Event_DamageToEnemy(partnerAttack - EnemyAttack);
             }
 
             if (partnerAttack < EnemyAttack)
@@ -100,7 +108,11 @@ public class BattleConfrontationController : MonoBehaviour
     }
     private void ResetConfronatationData(object sender, EventArgs e) //重置
     {
-        PartnerAttack.Clear();
+        for (int i = 0; i >= PartnerAttack.Length; i++)
+        {
+            PartnerAttack[i] = 0;
+        }
+
         //EnemyAttack.Clear();
         EnemyAttack = 0;
     }

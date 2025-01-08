@@ -176,6 +176,10 @@ PrefabInstance:
       propertyPath: Information
       value: "\u7576\u7D50\u7B97\u6642\uFF0C\u4FE1\u4EF0\u8207\u9748\u9B42\u672C\u8CEA\u7684\u7D50\u7B97\u503C\u8996\u70BA\u5169\u500D"
       objectReference: {fileID: 0}
+    - target: {fileID: 8666947352471917637, guid: 0715369398bb9ff46b2e8ed8e3cc2bea, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 4001276425440290067, guid: 0715369398bb9ff46b2e8ed8e3cc2bea, type: 3}
@@ -213,6 +217,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2014291353569127628, guid: 5e1f5f32096d41040aa6b81bac14d0cb, type: 3}
       propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3889163090267719376, guid: 5e1f5f32096d41040aa6b81bac14d0cb, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4446680674996137089, guid: 5e1f5f32096d41040aa6b81bac14d0cb, type: 3}
@@ -298,6 +306,10 @@ PrefabInstance:
     - target: {fileID: 7702702428328851766, guid: 5e1f5f32096d41040aa6b81bac14d0cb, type: 3}
       propertyPath: m_Name
       value: FairyA Hp Image
+      objectReference: {fileID: 0}
+    - target: {fileID: 7702702428328851766, guid: 5e1f5f32096d41040aa6b81bac14d0cb, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

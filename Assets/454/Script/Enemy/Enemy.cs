@@ -61,12 +61,25 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    /// <summary>
-    /// 傷害計算公式
-    /// </summary>
+    public virtual void Damage(int damage) //受傷(無屬性)
+    {
+        if (_LifeOrDead == true)
+        {
+            DamageFormula(damage); //執行傷害公式
+            IsDead();
+        }
+    }
+
+    /// <summary>傷害計算公式 </summary>
     protected virtual void DamageFormula(int R, int B, int Y, int P)
     {
         _enemyHp -= R + B + Y + P;
+    }
+
+    /// <summary>傷害計算公式(無屬性) </summary>
+    protected virtual void DamageFormula(int damage)
+    {
+        _enemyHp -= damage;
     }
 
     /// <summary>

@@ -8,10 +8,8 @@ public class EnemyDameged : MonoBehaviour
 {
     public BattleGameController battleGameController;
 
-    /// <summary>
-    /// µ¹¤©¼Ä¤è¶Ë®`
-    /// </summary>
-    public static event Action<int, int, int, int> Event_DamageToEnemy; //µ¹¤©¼Ä¤è¶Ë®`
+    /// <summary>µ¹¤©¼Ä¤è¶Ë®`</summary>
+    public static event Action<int> Event_DamageToEnemy; //µ¹¤©¼Ä¤è¶Ë®`
 
     private void Awake()
     {
@@ -23,18 +21,18 @@ public class EnemyDameged : MonoBehaviour
         EnemyDameged.Event_DamageToEnemy += this.DamageForAllEnemy;
     }
 
-    public static void Call_Event_DamageToEnemy(int Red, int Blue, int Yellow, int Purple)
+    public static void Call_Event_DamageToEnemy(int damage)
     {
-        Event_DamageToEnemy?.Invoke(Red, Blue, Yellow, Purple);
+        Event_DamageToEnemy?.Invoke(damage);
         //DamageForAllEnemy(Red, Blue, Yellow, Purple);
     }
 
-    void DamageForAllEnemy(int R, int B, int Y, int P)
+    void DamageForAllEnemy(int damage)
     {
         Debug.Log("test EnemyDameged");
         foreach (Enemy enemy in battleGameController.InstancedEnemy)
         {
-            enemy.Damage(R, B, Y, P);
+            enemy.Damage(damage);
         }
     }
 

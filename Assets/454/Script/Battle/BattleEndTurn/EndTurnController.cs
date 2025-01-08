@@ -42,7 +42,7 @@ public class EndTurnController : MonoBehaviour
 
         // 技能衝突
         battleGameController.CallEvent_Confrontation();
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(1.5f); //數值太低會bug,之後要改掉
 
         // 結束回合
         battleGameController.CallEvent_EndTurn();
