@@ -68,7 +68,7 @@ public class EditPuzzleController : MonoBehaviour
             return;
         }
 
-        Debug.Log(newNum);
+        //Debug.Log(newNum);
 
         if (newNum < 0 || newNum > 5)
         {

@@ -32,7 +32,7 @@ public class MouseEnterAndExit : MonoBehaviour
 
         // 獲取 Canvas 的相關 Camera
         Canvas canvas = GetComponentInParent<Canvas>();
-        if (canvas == null || canvas.renderMode != RenderMode.ScreenSpaceCamera || canvas.worldCamera == null)
+        if (canvas == null || canvas.renderMode != RenderMode.WorldSpace || canvas.worldCamera == null)
         {
             Debug.LogWarning("Canvas 或攝影機未設置正確");
             return false;

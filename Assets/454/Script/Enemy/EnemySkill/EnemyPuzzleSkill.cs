@@ -94,6 +94,7 @@ public class EnemyPuzzleSkill : EnemySkill
                 isBreak = true;
                 BattleMainMessage.SetMessage("敵方拼圖已被破壞");
                 Debug.Log("敵方拼圖已被破壞");
+                //enemyPuzzle.
             }
         }
     }

@@ -5,6 +5,7 @@ using System;
 
 public class EnemyPuzzle : Puzzle
 {
+    public GameObject breakImage;
 
     public void RandomlyEnemyPuzzleData() //隨機化敵方拼圖凹凸
     {
@@ -19,5 +20,10 @@ public class EnemyPuzzle : Puzzle
         puzzleData.LeftSide_ = puzzleData.LeftSide_.RandomlyGeneratedPuzzleData(puzzleData.LeftSide_);
 
         //puzzleSideData.Interlocking_ = (PuzzleSideData.Interlocking)UnityEngine.Random.Range(1, 3);
+    }
+
+    public void BreakImage_OpenOrClose(bool Open_or_Close)
+    {
+        breakImage.SetActive(Open_or_Close);
     }
 }

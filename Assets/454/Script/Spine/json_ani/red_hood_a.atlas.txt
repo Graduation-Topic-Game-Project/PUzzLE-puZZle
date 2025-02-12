@@ -1,0 +1,186 @@
+
+red_hood_a.png
+size: 2007,1747
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+back
+  rotate: false
+  xy: 1557, 1295
+  size: 291, 277
+  orig: 1572, 2054
+  offset: 892, 1449
+  index: -1
+bag
+  rotate: true
+  xy: 524, 1107
+  size: 295, 431
+  orig: 1572, 2054
+  offset: 833, 955
+  index: -1
+chest
+  rotate: false
+  xy: 556, 1408
+  size: 290, 239
+  orig: 290, 239
+  offset: 0, 0
+  index: -1
+clo
+  rotate: false
+  xy: 2, 785
+  size: 909, 320
+  orig: 909, 320
+  offset: 0, 0
+  index: -1
+clo_1
+  rotate: true
+  xy: 447, 1654
+  size: 91, 121
+  orig: 1572, 2054
+  offset: 697, 1382
+  index: -1
+eye_1
+  rotate: false
+  xy: 275, 1685
+  size: 170, 60
+  orig: 1572, 2054
+  offset: 682, 1663
+  index: -1
+eye_2
+  rotate: false
+  xy: 2, 1701
+  size: 120, 44
+  orig: 1572, 2054
+  offset: 707, 1668
+  index: -1
+eye_3
+  rotate: false
+  xy: 124, 1695
+  size: 149, 50
+  orig: 1572, 2054
+  offset: 695, 1666
+  index: -1
+face1
+  rotate: true
+  xy: 2, 1508
+  size: 185, 203
+  orig: 1572, 2054
+  offset: 678, 1581
+  index: -1
+hair_m
+  rotate: false
+  xy: 1615, 1574
+  size: 258, 171
+  orig: 1572, 2054
+  offset: 645, 1669
+  index: -1
+head_clo
+  rotate: false
+  xy: 913, 611
+  size: 457, 433
+  orig: 457, 451
+  offset: 0, 18
+  index: -1
+left_hair
+  rotate: true
+  xy: 771, 1649
+  size: 96, 188
+  orig: 1572, 2054
+  offset: 643, 1602
+  index: -1
+left_hair_tail
+  rotate: true
+  xy: 2, 1165
+  size: 293, 520
+  orig: 293, 520
+  offset: 0, 0
+  index: -1
+left_hand
+  rotate: false
+  xy: 1372, 2
+  size: 633, 919
+  orig: 634, 919
+  offset: 1, 0
+  index: -1
+left_leg
+  rotate: true
+  xy: 957, 1046
+  size: 356, 579
+  orig: 356, 579
+  offset: 0, 0
+  index: -1
+neck
+  rotate: false
+  xy: 961, 1638
+  size: 127, 107
+  orig: 194, 1474
+  offset: 45, 1318
+  index: -1
+right_hair
+  rotate: true
+  xy: 570, 1650
+  size: 95, 199
+  orig: 1572, 2054
+  offset: 804, 1627
+  index: -1
+right_hair_tail
+  rotate: true
+  xy: 1538, 923
+  size: 370, 374
+  orig: 527, 375
+  offset: 157, 0
+  index: -1
+right_hand
+  rotate: false
+  xy: 207, 1460
+  size: 347, 192
+  orig: 1572, 2054
+  offset: 703, 1269
+  index: -1
+right_leg
+  rotate: true
+  xy: 848, 1404
+  size: 225, 707
+  orig: 244, 707
+  offset: 19, 0
+  index: -1
+skirt
+  rotate: false
+  xy: 2, 248
+  size: 698, 535
+  orig: 698, 535
+  offset: 0, 0
+  index: -1
+skirt_b
+  rotate: false
+  xy: 1090, 1631
+  size: 523, 114
+  orig: 1572, 2054
+  offset: 613, 752
+  index: -1
+
+red_hood_a2.png
+size: 1012,774
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+clo_2
+  rotate: false
+  xy: 2, 2
+  size: 1008, 770
+  orig: 1008, 770
+  offset: 0, 0
+  index: -1
+
+red_hood_a3.png
+size: 1382,1854
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+fire
+  rotate: false
+  xy: 2, 2
+  size: 1378, 1850
+  orig: 1572, 2054
+  offset: 112, 126
+  index: -1

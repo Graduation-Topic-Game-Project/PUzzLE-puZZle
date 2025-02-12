@@ -8,7 +8,7 @@ public class BattleConfrontationController : MonoBehaviour
     public BattleGameController battleGameController;
     static BattleConfrontationController @this;
 
-    int[] PartnerAttack = new int[4];
+    int[] PartnerAttack = new int[4]; //夥伴攻擊數值
     int EnemyAttack = 0;
 
     Coroutine Coroutine_Confrontation;
@@ -79,17 +79,19 @@ public class BattleConfrontationController : MonoBehaviour
 
         foreach (int partnerAttack in PartnerAttack)
         {
+            Debug.Log($"{partnerAttack} vs {EnemyAttack}");
+
             if (partnerAttack > EnemyAttack)
             {
-                Debug.Log($"對敵方造成{partnerAttack - EnemyAttack}點傷害");
-                BattleMainMessage.SetMessage($"對敵方造成{partnerAttack - EnemyAttack}點傷害");
+                Debug.Log($"勝利! 對敵方造成{partnerAttack - EnemyAttack}點傷害");
+                BattleMainMessage.SetMessage($"勝利! 對敵方造成{partnerAttack - EnemyAttack}點傷害");
                 EnemyDameged.Call_Event_DamageToEnemy(partnerAttack - EnemyAttack);
             }
 
             if (partnerAttack < EnemyAttack)
             {
-                Debug.Log($"我方受到{EnemyAttack - partnerAttack}點傷害");
-                BattleMainMessage.SetMessage($"我方受到{EnemyAttack - partnerAttack}點傷害");
+                Debug.Log($"衝突失敗! 我方受到{EnemyAttack - partnerAttack}點傷害");
+                BattleMainMessage.SetMessage($"衝突失敗! 我方受到{EnemyAttack - partnerAttack}點傷害");
                 PlayerBattleData.Instance.Damage(EnemyAttack - partnerAttack);
             }
 
