@@ -41,6 +41,15 @@ public class PuzzleLibrary : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown("r"))
+        {
+            Debug.Log("手動刷新備戰區");
+            Load_All_Preparation(this, EventArgs.Empty);
+        }
+    }
+
     /// <summary>
     /// 獲取備戰區位置
     /// </summary>

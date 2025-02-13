@@ -128,6 +128,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FairyAttack_B
       objectReference: {fileID: 0}
+    - target: {fileID: 9116813533081333899, guid: 2e6561285470966469e6c62dcef36b06, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3143763128708506844, guid: 2e6561285470966469e6c62dcef36b06, type: 3}
     m_RemovedGameObjects: []
@@ -156,7 +160,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SkillName: "\u9C57\u7C89"
   enemyPuzzle: {fileID: 6554951725611283252}
-  isBreak: 0
+  isBreak: 1
 --- !u!114 &6554951725611283252 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2311983873258995316, guid: 2e6561285470966469e6c62dcef36b06, type: 3}

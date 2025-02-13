@@ -12,9 +12,12 @@ public class EditPuzzleUI : MonoBehaviour
     public TextMeshProUGUI LeftRotateCostText;
     public TextMeshProUGUI DestoryCostText;
 
+    public bool isOpen;
+
     void Start()
     {
         EditPuzzleInterface.gameObject.SetActive(false);
+        isOpen = false;
     }
 
     private void Update()
@@ -29,8 +32,9 @@ public class EditPuzzleUI : MonoBehaviour
     /// ¶}Ãö¤¶­± True = Open False = Cloxe
     /// </summary>
     /// <param name="OpenOrClose">True = Open False = Cloxe</param>
-    public void InterfaceOpenAndClose(bool OpenOrClose)
+    public void InterfaceOpenAndClose()
     {
-        EditPuzzleInterface.SetActive(OpenOrClose);
+        isOpen = !isOpen;
+        EditPuzzleInterface.SetActive(isOpen);
     }
 }

@@ -112,6 +112,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FairyAttack_A
       objectReference: {fileID: 0}
+    - target: {fileID: 9116813533081333899, guid: 2e6561285470966469e6c62dcef36b06, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3143763128708506844, guid: 2e6561285470966469e6c62dcef36b06, type: 3}
     m_RemovedGameObjects: []

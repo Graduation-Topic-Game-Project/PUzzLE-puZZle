@@ -42,7 +42,19 @@ public class EnemySkillController : MonoBehaviour
 
                 if (enemy.enemySkillsPrefab[r] != null)
                 {
-                    enemySkillsThisTurn.Add(enemy.enemySkillsPrefab[r].GetComponent<EnemySkill>()); //程式碼1
+                    //enemySkillsThisTurn.Add(enemy.enemySkillsPrefab[r].GetComponent<EnemySkill>()); //程式碼1
+
+                    GameObject skillInstance = Instantiate(enemy.enemySkillsPrefab[r]);
+                    EnemySkill skill = skillInstance.GetComponent<EnemySkill>();
+
+                    if (skill != null)
+                    {
+                        enemySkillsThisTurn.Add(skill);
+                    }
+                    else
+                    {
+                        Debug.LogError("錯誤，實例化的技能物件沒有 EnemySkill 組件！");
+                    }
                 }
                 else
                 {

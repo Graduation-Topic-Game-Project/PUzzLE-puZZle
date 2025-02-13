@@ -22,8 +22,13 @@ public class EnemyPuzzle : Puzzle
         //puzzleSideData.Interlocking_ = (PuzzleSideData.Interlocking)UnityEngine.Random.Range(1, 3);
     }
 
+    /// <summary>
+    /// ¶}Ãö¯}Ãaµõ²ª¹Ï¼h
+    /// </summary>
+    /// <param name="Open_or_Close"></param>
     public void BreakImage_OpenOrClose(bool Open_or_Close)
     {
+        Debug.Log("test123");
         breakImage.SetActive(Open_or_Close);
     }
 }

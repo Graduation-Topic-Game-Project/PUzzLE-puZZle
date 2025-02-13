@@ -58,6 +58,7 @@ public class EnemyPuzzleSkill : EnemySkill
     public override void InitializeSkill()
     {
         isBreak = false;
+        enemyPuzzle.BreakImage_OpenOrClose(false);
     }
 
     /// <summary>
@@ -76,8 +77,8 @@ public class EnemyPuzzleSkill : EnemySkill
 
         if (boardController.board[x, y].Puzzle == null)
         {
-            boardController.board[x, y].Puzzle = enemyPuzzle.puzzleData; //更新PuzzleData內的拼圖座標
-            boardController.board[x, y].Puzzle.puzzlePosition = (x, y);
+            boardController.board[x, y].Puzzle = enemyPuzzle.puzzleData; //將此拼圖新增至盤面
+            boardController.board[x, y].Puzzle.puzzlePosition = (x, y); //更新PuzzleData內的拼圖座標
         }
         else
             Debug.Log("錯誤，該地方已有拼圖，無法放置敵方拼圖技能");
@@ -94,8 +95,18 @@ public class EnemyPuzzleSkill : EnemySkill
                 isBreak = true;
                 BattleMainMessage.SetMessage("敵方拼圖已被破壞");
                 Debug.Log("敵方拼圖已被破壞");
-                //enemyPuzzle.
+                enemyPuzzle.BreakImage_OpenOrClose(true);
+
+                UpdateEnemyPuzzleImage();
             }
         }
+    }
+
+    public void UpdateEnemyPuzzleImage()
+    {
+        (int x, int y) = enemyPuzzle.puzzleData.puzzlePosition;
+        boardController.board[x, y].Puzzle = enemyPuzzle.puzzleData;
+
+        Debug.Log($"test 更新敵方拼圖{x},{y}的顯示");
     }
 }
