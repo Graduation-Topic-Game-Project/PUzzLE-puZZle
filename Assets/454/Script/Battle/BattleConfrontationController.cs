@@ -36,7 +36,7 @@ public class BattleConfrontationController : MonoBehaviour
         @this.EnemyAttack += damage;
     }
 
-    /// <summary> 第{1}位夥伴造成{0}點戰力值 </summary>
+    
     /// <param name="damage">戰力值</param>
     /// <param name="partnerNum">夥伴編號</param>
     public static void AddPartnerAttack(int damage, int partnerNum)
@@ -44,7 +44,8 @@ public class BattleConfrontationController : MonoBehaviour
         @this.PartnerAttack[partnerNum] = damage;
     }
 
-    public void StartConfrontation()
+    /// <summary> 開始衝突 </summary>
+    public void StartConfrontation() //開始衝突
     {
         if (Coroutine_Confrontation == null)
         {

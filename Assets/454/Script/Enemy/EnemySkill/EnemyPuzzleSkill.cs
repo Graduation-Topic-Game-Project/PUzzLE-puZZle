@@ -95,18 +95,19 @@ public class EnemyPuzzleSkill : EnemySkill
                 isBreak = true;
                 BattleMainMessage.SetMessage("敵方拼圖已被破壞");
                 Debug.Log("敵方拼圖已被破壞");
-                enemyPuzzle.BreakImage_OpenOrClose(true);
 
-                UpdateEnemyPuzzleImage();
+                (int x, int y) = enemyPuzzle.puzzleData.puzzlePosition;
+                boardController.board[x, y].Puzzle = enemyPuzzle.puzzleData;
+
+                Debug.Log(boardController.board[x, y].Puzzle);
+                Debug.Log($"test 更新敵方拼圖{x},{y}的board 資料");
+                boardController.UpdatePuzzleBoard();
             }
         }
     }
 
-    public void UpdateEnemyPuzzleImage()
+    /*public void UpdateEnemyPuzzleImage()
     {
-        (int x, int y) = enemyPuzzle.puzzleData.puzzlePosition;
-        boardController.board[x, y].Puzzle = enemyPuzzle.puzzleData;
 
-        Debug.Log($"test 更新敵方拼圖{x},{y}的顯示");
-    }
+    }*/
 }

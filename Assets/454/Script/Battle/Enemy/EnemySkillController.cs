@@ -8,7 +8,10 @@ public class EnemySkillController : MonoBehaviour
     public BattleGameController battleGameController;
     public BoardController boardController;
 
+    /// <summary> 本回合的敵方技能 </summary>
     public List<EnemySkill> enemySkillsThisTurn; //本回合的敵方技能
+    /// <summary> 本回合敵方技能實例生成位置 </summary>
+    public GameObject EnemySkillThisTurnInstanceGameObject; //本回合敵方技能實例生成位置
 
     private void Awake()
     {
@@ -33,7 +36,11 @@ public class EnemySkillController : MonoBehaviour
     private void RamdomSkill(object sender, EventArgs e)
     {
         enemySkillsThisTurn.Clear(); //清空上回合的技能
-        
+        foreach (Transform child in EnemySkillThisTurnInstanceGameObject.transform)  //清空上回合技能實例
+        {
+            GameObject.Destroy(child.gameObject);
+        }
+
         foreach (Enemy enemy in battleGameController.InstancedEnemy) //每位敵人觸發一次
         {
             for (int i = 0; i < enemy._attackNum; i++)
@@ -42,9 +49,9 @@ public class EnemySkillController : MonoBehaviour
 
                 if (enemy.enemySkillsPrefab[r] != null)
                 {
-                    //enemySkillsThisTurn.Add(enemy.enemySkillsPrefab[r].GetComponent<EnemySkill>()); //程式碼1
+                    //enemySkillsThisTurn.Add(enemy.enemySkillsPrefab[r].GetComponent<EnemySkill>()); //程式碼old
 
-                    GameObject skillInstance = Instantiate(enemy.enemySkillsPrefab[r]);
+                    GameObject skillInstance = Instantiate(enemy.enemySkillsPrefab[r], EnemySkillThisTurnInstanceGameObject.transform);
                     EnemySkill skill = skillInstance.GetComponent<EnemySkill>();
 
                     if (skill != null)
@@ -81,13 +88,13 @@ public class EnemySkillController : MonoBehaviour
     /// </summary>
     private void Settlement(object sender, EventArgs e)
     {
-        if(battleGameController.IsWin == false) //如果還沒贏
+        if (battleGameController.IsWin == false) //如果還沒贏
         {
             foreach (EnemySkill enemySkill in enemySkillsThisTurn)
             {
                 enemySkill.SettlementSkill();
             }
-        }       
+        }
     }
 
     /// <summary>
@@ -102,5 +109,18 @@ public class EnemySkillController : MonoBehaviour
                 enemyPuzzleSkill.CheckIsBreak();
             }
         }
+
+       /*foreach (Board board in boardController.board) //檢查敵方拼圖是否破壞
+         {
+             if (board.Puzzle.Type == PuzzleData.PuzzleType.EnemyPuzzle_敵方拼圖)
+             {
+                EnemyPuzzleSkill enemyPuzzleSkill = (EnemyPuzzle)board.Puzzle;
+
+                 if (enemyPuzzleSkill.isBreak == false)
+                 {
+                     enemyPuzzleSkill.CheckIsBreak();
+                 }
+             }
+         }*/
     }
 }

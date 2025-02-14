@@ -81,7 +81,7 @@ public class BoardController : MonoBehaviour
                             InstantiateEnemyPuzzle(i, j);
                             break;
                         default://以上都不符合走這個
-                            Debug.Log("錯誤，puzzle內有夥伴拼圖");
+                            Debug.LogWarning("錯誤，puzzle內有夥伴拼圖");
                             break;
                     }
                 }
