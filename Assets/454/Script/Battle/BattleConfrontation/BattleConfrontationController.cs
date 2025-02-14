@@ -5,13 +5,16 @@ using System;
 
 public class BattleConfrontationController : MonoBehaviour
 {
+
     public BattleGameController battleGameController;
     static BattleConfrontationController @this;
 
     int[] PartnerAttack = new int[4]; //¹Ù¦ñ§ðÀ»¼Æ­È
     int EnemyAttack = 0;
 
+    /// <summary> [¨óµ{]½Ä¬ð¶¥¬q </summary>
     Coroutine Coroutine_Confrontation;
+
     private void Awake()
     {
         if (@this == null)

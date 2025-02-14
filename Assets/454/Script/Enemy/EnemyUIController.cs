@@ -14,6 +14,7 @@ public class EnemyUIController : MonoBehaviour
     public GameObject InformationPlane;
     public TextMeshProUGUI InformationEnemyName;
     public TextMeshProUGUI InformationText;
+    public TextMeshProUGUI CombatPowerNumber; //½Ä¬ð¾Ô¤O­È¤å¦r
     public Image InformationImage;
 
     bool isOpenInformation = false;
