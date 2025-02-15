@@ -7,14 +7,13 @@ public class BattleEnemyController : MonoBehaviour
 {
     private BattleGameController battleGameController;
 
-    public GameObject EnemyPlane;
-
+    //public GameObject EnemyPlane;
 
     public GameObject[] EnemyPositionGameObject = new GameObject[3]; //依照敵方總數來選擇生成位置
     GameObject NowEnemyPosition;
     public int EnemiesNumber; //敵方總數
 
-
+    public List<GameObject> InstanceEnemy = new List<GameObject>(); //實例化的敵人物件
 
     private void Awake()
     {
@@ -91,6 +90,7 @@ public class BattleEnemyController : MonoBehaviour
              transform.rotation,
              NowEnemyPosition.transform.GetChild(i));
 
+            InstanceEnemy.Add(enemy);
             battleGameController.InstancedEnemy.Add(enemy.GetComponent<Enemy>());
         }
     }

@@ -7017,6 +7017,7 @@ MonoBehaviour:
   PuzzlePlace: {fileID: 8300000, guid: 93787a92bd87e974696a05356ae5f8eb, type: 3}
   SpecifyPuzzle: {fileID: 8300000, guid: 13453be64d3df2043a4d23346e85eb78, type: 3}
   PlayerAttacked: {fileID: 8300000, guid: 83dc904eafc783146bb12eba59a7d387, type: 3}
+  Confrontation: {fileID: 8300000, guid: cbf47139d5bacc4429e1d7434036299c, type: 3}
   EndTurn: {fileID: 8300000, guid: 0b673273af4098445b683ed8e96aa6de, type: 3}
 --- !u!1 &335934330
 GameObject:

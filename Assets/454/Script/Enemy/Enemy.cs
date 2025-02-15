@@ -10,7 +10,7 @@ public class Enemy : MonoBehaviour
 {
     private BattleGameController battleGameController;
 
-    public EnemyUIController enemyUIController;
+    //public EnemyUIController enemyUIController;
 
     [Header("¼Ä¤è¦WºÙ")]
     public string enemyName;

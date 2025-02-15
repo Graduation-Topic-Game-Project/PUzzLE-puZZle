@@ -8,6 +8,7 @@ public class BattleConfrontationController : MonoBehaviour
 
     public BattleGameController battleGameController;
     public BattlePartnerUiController battlePartnerUiController;
+    public BattleEnemyController battleEnemyController;
     public ConfrontationAnimationController confrontationAnimationController;
     static BattleConfrontationController @this;
 
@@ -36,6 +37,11 @@ public class BattleConfrontationController : MonoBehaviour
         {
             battlePartnerUiController = FindObjectOfType<BattlePartnerUiController>();
         }
+        if (battleEnemyController == null) //BattleEnemyController
+        {
+            battleEnemyController = FindObjectOfType<BattleEnemyController>();
+        }
+
         battleGameController.Event_Confrontation += StartConfrontation;
         battleGameController.Event_StartTurn += ResetConfronatationData;
     }
@@ -76,7 +82,7 @@ public class BattleConfrontationController : MonoBehaviour
 
             confrontationAnimationController.Start_Confrontation(
                 battlePartnerUiController.PartnersGameObject[i].GetComponent<BattlePartner>(),
-                battleGameController.enemies[0],
+                battleEnemyController.InstanceEnemy[0].GetComponent<Enemy>(),
                 partnerAttack,
                 EnemyAttack
                 );
@@ -114,6 +120,7 @@ public class BattleConfrontationController : MonoBehaviour
                 yield return new WaitForSeconds(0.5f);
                 ///********
             }
+            yield return new WaitForSeconds(0.5f);
         }
 
         yield return new WaitForSeconds(0.5f);

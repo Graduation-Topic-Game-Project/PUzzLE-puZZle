@@ -16,6 +16,8 @@ public class BattleAudioController : MonoBehaviour
     public AudioClip SpecifyPuzzle; //選擇備戰區拼圖音效
     [Header("受擊音效")]
     public AudioClip PlayerAttacked; //受擊音效
+    [Header("交鋒音效")]
+    public AudioClip Confrontation; //交鋒音效
     [Header("回合結束音效")]
     public AudioClip EndTurn; //回合結束音效
 
@@ -61,6 +63,12 @@ public class BattleAudioController : MonoBehaviour
     public static void PlayAudio_PlayerAttacked()
     {
         @this.audioSource.PlayOneShot(@this.PlayerAttacked);
+    }
+
+    /// <summary>撥放交鋒音效音效 </summary>
+    public static void PlayAudio_Confrontation()
+    {
+        @this.audioSource.PlayOneShot(@this.Confrontation);
     }
 
     /// <summary>撥放回合結束音效 </summary>

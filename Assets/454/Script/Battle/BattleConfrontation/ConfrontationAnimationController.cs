@@ -31,6 +31,7 @@ public class ConfrontationAnimationController : MonoBehaviour
         partner.ShowCombatPower(partnerCombatPower);
         enemy.ShowCombatPower(partnerCombatPower);
 
+        BattleAudioController.PlayAudio_Confrontation(); //撥放交鋒音效
         yield return new WaitForSeconds(0.5f); // 延遲  秒
 
         partner.ClearCombatPower();
