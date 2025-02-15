@@ -12,7 +12,8 @@ public class ExplorePoint : MapPoint
 
     public Sprite NoneSprite;
     public Sprite BattleSprite;
-    public Sprite EvenSpritet;
+    public Sprite EvenSprite;
+    public Sprite AwardSprite;
 
 
 
@@ -32,7 +33,10 @@ public class ExplorePoint : MapPoint
                 ExplarePointImage.sprite = BattleSprite;
                 break;
             case ExploreType.Event_事件:
-                ExplarePointImage.sprite = EvenSpritet;
+                ExplarePointImage.sprite = EvenSprite;
+                break;
+            case ExploreType.Award_獎勵:
+                ExplarePointImage.sprite = EvenSprite;
                 break;
         }
     }
@@ -52,6 +56,9 @@ public class ExplorePoint : MapPoint
             case ExploreType.Event_事件:
                 Debug.Log("事件");
                 break;
+            case ExploreType.Award_獎勵:
+                Debug.Log("獎勵");
+                break;
         }
     }
 
@@ -65,5 +72,6 @@ public class ExplorePoint : MapPoint
         None_無 = 0,
         Battle_戰鬥 = 1,
         Event_事件 = 2,
+        Award_獎勵 = 3,
     }
 }

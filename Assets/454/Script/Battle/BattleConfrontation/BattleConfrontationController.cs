@@ -74,12 +74,7 @@ public class BattleConfrontationController : MonoBehaviour
     /// </summary>
     private IEnumerator ConfrontationCoroutine()
     {
-        /*if (PartnerAttack.Length == 0)
-        {
-            BattleMainMessage.SetMessage($"單方面受擊，我方受到{EnemyAttack}點傷害");
-            PlayerBattleData.Instance.Damage(EnemyAttack);
-            Stop_Coroutine_Confrontation();
-        }*/
+        
 
         foreach (int partnerAttack in PartnerAttack)
         {
