@@ -7,6 +7,8 @@ public class BattleConfrontationController : MonoBehaviour
 {
 
     public BattleGameController battleGameController;
+    public BattlePartnerUiController battlePartnerUiController;
+    public ConfrontationAnimationController confrontationAnimationController;
     static BattleConfrontationController @this;
 
     int[] PartnerAttack = new int[4]; //夥伴攻擊數值
@@ -30,6 +32,10 @@ public class BattleConfrontationController : MonoBehaviour
         {
             battleGameController = FindObjectOfType<BattleGameController>();
         }
+        if (battlePartnerUiController == null) //獲取場景上的BattlePartnerUiController
+        {
+            battlePartnerUiController = FindObjectOfType<BattlePartnerUiController>();
+        }
         battleGameController.Event_Confrontation += StartConfrontation;
         battleGameController.Event_StartTurn += ResetConfronatationData;
     }
@@ -39,7 +45,7 @@ public class BattleConfrontationController : MonoBehaviour
         @this.EnemyAttack += damage;
     }
 
-    
+
     /// <param name="damage">戰力值</param>
     /// <param name="partnerNum">夥伴編號</param>
     public static void AddPartnerAttack(int damage, int partnerNum)
@@ -59,48 +65,55 @@ public class BattleConfrontationController : MonoBehaviour
     }
 
     /// <summary>
-    /// 雙方衝突
-    /// </summary>
-    private void MutualConflict()
-    {
-        //foreach (int enemyAttack in EnemyAttack)
-        {
-        }
-    }
-
-
-    /// <summary>
     /// <協程>衝突階段
     /// </summary>
     private IEnumerator ConfrontationCoroutine()
     {
-        
-
-        foreach (int partnerAttack in PartnerAttack)
+        //foreach (int partnerAttack in PartnerAttack)
+        for (int i = 0; i < PartnerAttack.Length; i++)
         {
+            int partnerAttack = PartnerAttack[i];
+
+            confrontationAnimationController.Start_Confrontation(
+                battlePartnerUiController.PartnersGameObject[i].GetComponent<BattlePartner>(),
+                battleGameController.enemies[0],
+                partnerAttack,
+                EnemyAttack
+                );
+
             Debug.Log($"{partnerAttack} vs {EnemyAttack}");
 
-            if (partnerAttack > EnemyAttack)
+            if (partnerAttack == 0) //直接攻擊
             {
-                Debug.Log($"勝利! 對敵方造成{partnerAttack - EnemyAttack}點傷害");
-                BattleMainMessage.SetMessage($"勝利! 對敵方造成{partnerAttack - EnemyAttack}點傷害");
-                EnemyDameged.Call_Event_DamageToEnemy(partnerAttack - EnemyAttack);
+                Debug.Log($"直接攻擊! 我方受到{EnemyAttack}點傷害");
+                BattleMainMessage.SetMessage($"直接攻擊! 我方受到{EnemyAttack}點傷害");
+                PlayerBattleData.Instance.Damage(EnemyAttack);
             }
-
-            if (partnerAttack < EnemyAttack)
+            else
             {
-                Debug.Log($"衝突失敗! 我方受到{EnemyAttack - partnerAttack}點傷害");
-                BattleMainMessage.SetMessage($"衝突失敗! 我方受到{EnemyAttack - partnerAttack}點傷害");
-                PlayerBattleData.Instance.Damage(EnemyAttack - partnerAttack);
-            }
+                if (partnerAttack > EnemyAttack) //勝利
+                {
+                    Debug.Log($"勝利! 對敵方造成{partnerAttack - EnemyAttack}點傷害");
+                    BattleMainMessage.SetMessage($"勝利! 對敵方造成{partnerAttack - EnemyAttack}點傷害");
+                    EnemyDameged.Call_Event_DamageToEnemy(partnerAttack - EnemyAttack);
+                }
 
-            if (partnerAttack == EnemyAttack)
-            {
-                Debug.Log($"平手!");
-                BattleMainMessage.SetMessage($"平手!");
-            }
+                if (partnerAttack < EnemyAttack) //失敗
+                {
+                    Debug.Log($"衝突失敗! 我方受到{EnemyAttack - partnerAttack}點傷害");
+                    BattleMainMessage.SetMessage($"衝突失敗! 我方受到{EnemyAttack - partnerAttack}點傷害");
+                    PlayerBattleData.Instance.Damage(EnemyAttack - partnerAttack);
+                }
 
-            yield return new WaitForSeconds(0.5f);
+                if (partnerAttack == EnemyAttack) //平手
+                {
+                    Debug.Log($"平手!");
+                    BattleMainMessage.SetMessage($"平手!");
+                }
+
+                yield return new WaitForSeconds(0.5f);
+                ///********
+            }
         }
 
         yield return new WaitForSeconds(0.5f);

@@ -12,4 +12,23 @@ public class BattlePartner : MonoBehaviour
     public int PartnerNumber;
     public Image PartnerImage;
     public TextMeshProUGUI CombatPowerNumber; //衝突戰力值文字
+
+    /// <summary> 顯示戰力值 </summary>
+    /// <param name="_combatPower">戰力值</param>
+    public void ShowCombatPower(int _combatPower)
+    {
+        Color color = CombatPowerNumber.color; //打開透明度
+        color.a = 1f;
+        CombatPowerNumber.color = color;
+
+        CombatPowerNumber.text = _combatPower.ToString();
+    }
+
+    /// <summary> 隱藏戰力值UI </summary>
+    public void ClearCombatPower()
+    {
+        Color color = CombatPowerNumber.color; //關閉透明度
+        color.a = 0f;
+        CombatPowerNumber.color = color;
+    }
 }

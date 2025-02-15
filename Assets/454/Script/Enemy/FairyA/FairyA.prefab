@@ -232,6 +232,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 596dceb876f9df84eb673fc682947b4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyUIController: {fileID: 6876242181692256181}
   enemyName: "\u5996\u7CBE"
   EnemyImage: {fileID: 21300000, guid: 3c8a056bf74f8e947ac7a55fc4123904, type: 3}
   DeadImage: {fileID: 21300000, guid: 3c8a056bf74f8e947ac7a55fc4123904, type: 3}
@@ -242,6 +243,17 @@ MonoBehaviour:
   enemySkillsPrefab:
   - {fileID: 4796933317568352855, guid: ad5b5ee3eaa252f44bb39de8f5f78270, type: 3}
   - {fileID: 4796933317568352855, guid: 7d7116f59d84aad468bdac736603d7f3, type: 3}
+--- !u!114 &6876242181692256181 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8164249773128086196, guid: 0715369398bb9ff46b2e8ed8e3cc2bea, type: 3}
+  m_PrefabInstance: {fileID: 3323775532999253249}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2843420416200513064}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a422600a12d1d59449bbb7ce25619a85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &6282128960607343592
 PrefabInstance:
   m_ObjectHideFlags: 0

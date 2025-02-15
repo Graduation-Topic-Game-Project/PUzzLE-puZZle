@@ -169,6 +169,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5ea486105bfc1c42a323c7318cde734, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyUIController: {fileID: 8164249773128086196}
   enemyName: "\u6E2C\u8A66"
   EnemyImage: {fileID: 0}
   DeadImage: {fileID: 0}

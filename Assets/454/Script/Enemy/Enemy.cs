@@ -10,6 +10,8 @@ public class Enemy : MonoBehaviour
 {
     private BattleGameController battleGameController;
 
+    public EnemyUIController enemyUIController;
+
     [Header("敵方名稱")]
     public string enemyName;
     [Header("敵方圖片")]
@@ -33,7 +35,12 @@ public class Enemy : MonoBehaviour
 
     public List<GameObject> enemySkillsPrefab;
 
-    public event Action Event_IsDead;
+    /// <summary> 【事件】死亡時 </summary>
+    public event Action Event_IsDead;  //死亡時
+
+    public event Action<int> Event_ConfrontaionStart;
+
+    public event Action Event_ConfrontaionEnd;
 
     protected void Awake()
     {
@@ -49,7 +56,7 @@ public class Enemy : MonoBehaviour
     /// </summary>
     protected virtual void AwakeNumericSetting()
     {
-
+        //子物件用
     }
 
     public virtual void Damage(int R, int B, int Y, int P) //受傷
@@ -80,6 +87,18 @@ public class Enemy : MonoBehaviour
     protected virtual void DamageFormula(int damage)
     {
         _enemyHp -= damage;
+    }
+
+    /// <summary> 顯示戰力值 </summary>
+    public void ShowCombatPower(int _combatPower)
+    {
+        Event_ConfrontaionStart?.Invoke(_combatPower);
+    }
+
+    /// <summary> 隱藏戰力值UI </summary>
+    public void ClearCombatPower()
+    {
+        Event_ConfrontaionEnd?.Invoke();
     }
 
     /// <summary>

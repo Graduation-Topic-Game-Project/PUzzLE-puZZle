@@ -31,8 +31,9 @@ public class EnemyUIController : MonoBehaviour
         isOpenInformation = false;
         InformationPlane.SetActive(false);
 
-        _enemy.Event_IsDead += DeadUIController;
-
+        _enemy.Event_IsDead += DeadUIController; //死亡時，執行死亡動畫
+        _enemy.Event_ConfrontaionStart += ShowCombatPower; //衝突動畫開始時，顯示戰力值
+        _enemy.Event_ConfrontaionEnd += ClearCombatPower; //衝突動畫結束時，隱藏戰力值UI
     }
 
     private void Start()
@@ -55,9 +56,33 @@ public class EnemyUIController : MonoBehaviour
         InformationEnemyName.text = _enemy.enemyName;
     }
 
-    private void DeadUIController()
+    /// <summary> 顯示戰力值 </summary>
+    public void ShowCombatPower(int _combatPower)
+    {
+        Color color = CombatPowerNumber.color; //打開透明度
+        color.a = 1f;
+        CombatPowerNumber.color = color;
+
+        CombatPowerNumber.text = _combatPower.ToString();
+    }
+
+    /// <summary> 隱藏戰力值UI </summary>
+    public void ClearCombatPower()
+    {
+        Color color = CombatPowerNumber.color; //關閉透明度
+        color.a = 0f;
+        CombatPowerNumber.color = color;
+    }
+
+    /// <summary> 執行死亡動畫 </summary>
+    public void DeadUIController()
     {
         Debug.Log("執行死亡動畫");
         EnemyImage.sprite = _enemy.DeadImage;
+    }
+
+    private void OnDestroy() //摧毀時取消訂閱
+    {
+        _enemy.Event_IsDead -= DeadUIController;
     }
 }
