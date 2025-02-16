@@ -74,7 +74,7 @@ public class PuzzleLibrary : MonoBehaviour
             //Debug.Log($"載入第{i + 1}個夥伴拼圖");
             if (battleGameController.partners[i] != null)
             {
-                puzzleLibrary.AddRange(battleGameController.partners[i].thisPartner.partnersPuzzle);
+                puzzleLibrary.AddRange(battleGameController.partners[i].partnerData.partnersPuzzle);
                 //Debug.Log($"第{i + 1}個夥伴拼圖載入完成");
             }
             else

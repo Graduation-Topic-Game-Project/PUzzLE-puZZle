@@ -27,10 +27,11 @@ public class BattlePartnerUiController : MonoBehaviour
             {
                 BattlePartner partnerUI = PartnersGameObject[i].GetComponent<BattlePartner>();
 
+                partnerUI.partner = battleGameController.partners[i];
                 partnerUI.PartnerNumber = i;
-                partnerUI.PartnerImage.sprite = battleGameController.partners[i].thisPartner.PartnerCuteBattle;
+                partnerUI.PartnerImage.sprite = battleGameController.partners[i].partnerData.PartnerCuteBattle;
 
-                switch (battleGameController.partners[i].thisPartner.Essence)
+                switch (battleGameController.partners[i].partnerData.Essence) //依照本質改變文字UI顏色
                 {
                     case EssenceEnum.Essence.Strengthe_力量:
                         partnerUI.CombatPowerNumber.color = EssenceEnum.Strengthe_Color;

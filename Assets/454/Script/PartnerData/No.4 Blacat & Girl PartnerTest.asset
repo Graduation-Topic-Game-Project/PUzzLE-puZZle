@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4b11fff491e6ce4997649e32191fc3b, type: 3}
   m_Name: No.4 Blacat & Girl PartnerTest
   m_EditorClassIdentifier: 
-  thisPartner:
-    _partnerName: Blacat & Girl
+  partnerData:
+    _partnerName: "\u5C0F\u9ED1\u8207\u5C11\u5973"
     PartnerTachie: {fileID: 21300000, guid: 497dd46de220aee4d8c9b90da6a8d333, type: 3}
     PartnerCuteBattle: {fileID: 21300000, guid: d378a3ae649c95b4787019a8efc1b8c3, type: 3}
-    _level: 1
-    _hp: 0
     _essence: 4
     partnersPuzzle: []
+    _level: 1
+    _hp: 0

@@ -78,7 +78,7 @@ public class SettlementBoardController : MonoBehaviour
     {
         for (int i = 0; i < battleGameController.partners.Length; i++)
         {
-            switch (battleGameController.partners[i].thisPartner.Essence)
+            switch (battleGameController.partners[i].partnerData.Essence)
             {
                 case EssenceEnum.Essence.Strengthe_力量:
                     Red = Red * 1.5f;
@@ -109,7 +109,7 @@ public class SettlementBoardController : MonoBehaviour
     {
         for (int i = 0; i < battleGameController.partners.Length; i++)
         {
-            switch (battleGameController.partners[i].thisPartner.Essence)
+            switch (battleGameController.partners[i].partnerData.Essence)
             {
                 case EssenceEnum.Essence.Strengthe_力量:
                     Red = Red * 1.5f;

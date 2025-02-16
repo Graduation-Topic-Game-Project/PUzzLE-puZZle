@@ -106,7 +106,7 @@ public class EnemySkillController : MonoBehaviour
         {
             if (enemyPuzzleSkill.isBreak == false)
             {
-                enemyPuzzleSkill.CheckIsBreak();
+                enemyPuzzleSkill.CheckIsBreak(); //此行有問題，該改的是實例化於盤面的物件
             }
         }
 

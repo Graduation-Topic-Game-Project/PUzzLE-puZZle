@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4b11fff491e6ce4997649e32191fc3b, type: 3}
   m_Name: No.3 Shin
   m_EditorClassIdentifier: 
-  thisPartner:
-    _partnerName: Shin
+  partnerData:
+    _partnerName: "\u5FC3"
     PartnerTachie: {fileID: 21300000, guid: a5bf7aef4a9e78e44bff089b9f702f6a, type: 3}
     PartnerCuteBattle: {fileID: 21300000, guid: 82a02099c00e15d47ad63dba1fe08275, type: 3}
-    _level: 1
-    _hp: 0
     _essence: 3
     partnersPuzzle: []
+    _level: 1
+    _hp: 0

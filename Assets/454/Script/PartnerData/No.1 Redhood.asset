@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4b11fff491e6ce4997649e32191fc3b, type: 3}
   m_Name: No.1 Redhood
   m_EditorClassIdentifier: 
-  thisPartner:
+  partnerData:
     _partnerName: Red hood
     PartnerTachie: {fileID: 21300000, guid: e79338a4ae1bb664d8de1d905ca487ca, type: 3}
     PartnerCuteBattle: {fileID: 21300000, guid: 6de54af1d81b8dc44a33584b868d4129, type: 3}
-    _level: 1
-    _hp: 0
     _essence: 1
     partnersPuzzle: []
+    _level: 1
+    _hp: 10

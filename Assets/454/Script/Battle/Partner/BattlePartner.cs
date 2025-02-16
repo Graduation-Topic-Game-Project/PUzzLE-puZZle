@@ -9,8 +9,13 @@ using TMPro;
 /// </summary>
 public class BattlePartner : MonoBehaviour
 {
+    /// <summary> 夥伴資料 </summary>
+    public Partner partner;
+    /// <summary> 夥伴位置編號 </summary>
     public int PartnerNumber;
+
     public Image PartnerImage;
+    /// <summary> 衝突戰力值文字 </summary>
     public TextMeshProUGUI CombatPowerNumber; //衝突戰力值文字
 
     /// <summary> 顯示戰力值 </summary>

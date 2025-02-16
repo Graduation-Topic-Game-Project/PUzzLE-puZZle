@@ -7,19 +7,27 @@ using UnityEngine.UI;
 [Serializable]
 public class PartnerData
 {
+    /// <summary> ¹Ù¦ñ¦W¦r </summary>
     [SerializeField]
     private string _partnerName;
+    /// <summary> ¹Ù¦ñ¥ßÃ¸ </summary>
     [SerializeField]
     public Sprite PartnerTachie;
+    /// <summary> ¹Ù¦ñ¾Ô°«¤p¤H </summary>
     [SerializeField]
     public Sprite PartnerCuteBattle;
+    /// <summary> ¹Ù¦ñÄÝ©Ê </summary>
+    [SerializeField]
+    EssenceEnum.Essence _essence;
+    public List<PuzzleData> partnersPuzzle;
+
+
+
+
     [SerializeField]
     private int _level = 1;
     [SerializeField]
     private int _hp;
-    [SerializeField]
-    EssenceEnum.Essence _essence;
-    public List<PuzzleData> partnersPuzzle;
 
     public EssenceEnum.Essence Essence { get => _essence; }
     public int Hp { get => Hp; }
@@ -30,6 +38,6 @@ public class PartnerData
 [CreateAssetMenu(fileName = "New Parther", menuName = "ScriptableObject/Partner", order = 1)]
 public class Partner : ScriptableObject
 {
-    public PartnerData thisPartner;
+    public PartnerData partnerData;
     //public Puzzle puzzle1
 }
