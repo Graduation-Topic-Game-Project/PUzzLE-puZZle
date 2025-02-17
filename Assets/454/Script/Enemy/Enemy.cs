@@ -17,9 +17,12 @@ public class Enemy : MonoBehaviour
     [Header("敵方圖片")]
     public Sprite EnemyImage;
     public Sprite DeadImage;
+    public Sprite Avatar; //頭像
 
     [Header("血量")]
     public int _enemyHp;
+
+    public int _enemyMaxHp;
 
     [Header("是否活著"), Tooltip("True:活著 False死亡")]
     public bool _LifeOrDead;
@@ -33,7 +36,8 @@ public class Enemy : MonoBehaviour
     [TextArea]
     public string Information; //敵方介紹
 
-    public List<GameObject> enemySkillsPrefab;
+    public List<GameObject> enemySkillsPrefab; //敵方技能
+    public EnemyBattleUI enemyBattleUI;
 
     /// <summary> 【事件】死亡時 </summary>
     public event Action Event_IsDead;  //死亡時
@@ -48,6 +52,7 @@ public class Enemy : MonoBehaviour
             battleGameController = FindObjectOfType<BattleGameController>();
 
         _LifeOrDead = true;
+        _enemyMaxHp = _enemyHp; //當前血量為最大Hp
         AwakeNumericSetting(); //初使數值設定
     }
 

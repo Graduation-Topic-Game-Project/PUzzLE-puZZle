@@ -112,7 +112,7 @@ public class BoardController : MonoBehaviour
         nowPuzzle.puzzleData = board[i, j].Puzzle;
         nowPuzzle.ReUpdate_PuzzleEssence_Image();
         EnemyPuzzleSkill enemyPuzzleSkill = nowPuzzle.GetComponent<EnemyPuzzleSkill>();
-        enemyPuzzleSkill.enabled = false;
+        enemyPuzzleSkill.enabled = false; //無效化
 
         //生成只有卡榫的拼圖Prefab在另一個
         Puzzle nowPuzzleSide = Instantiate(puzzleMasterController.puzzlePrefab, puzzlesGridGameObject[i, j].transform.position, transform.rotation, puzzleSideInstanceGameObject.transform);

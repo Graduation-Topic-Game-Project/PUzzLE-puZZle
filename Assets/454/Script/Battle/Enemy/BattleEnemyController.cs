@@ -10,6 +10,7 @@ public class BattleEnemyController : MonoBehaviour
     //public GameObject EnemyPlane;
 
     public GameObject[] EnemyPositionGameObject = new GameObject[3]; //依照敵方總數來選擇生成位置
+    public EnemyBattleUI[] enemyBattleUI = new EnemyBattleUI[3];
     GameObject NowEnemyPosition;
     public int EnemiesNumber; //敵方總數
 
@@ -55,18 +56,20 @@ public class BattleEnemyController : MonoBehaviour
         {
             case 1:
                 //Debug.Log("1位敵人");
-                //NowEnemyPosition = Instantiate(EnemyPositionPrefab[0], transform.position, transform.rotation, EnemyPlane.transform);
                 NowEnemyPosition = EnemyPositionGameObject[0];
+                SetActiceEnemyBattleUI(1);
                 NowEnemyPosition.SetActive(true);
                 break;
             case 2:
                 //Debug.Log("2位敵人");
                 NowEnemyPosition = EnemyPositionGameObject[1];
+                SetActiceEnemyBattleUI(2);
                 NowEnemyPosition.SetActive(true);
                 break;
             case 3:
                 //Debug.Log("3位敵人");
                 NowEnemyPosition = EnemyPositionGameObject[2];
+                SetActiceEnemyBattleUI(3);
                 NowEnemyPosition.SetActive(true);
                 break;
             default:  //以上都不符合走這個
@@ -77,6 +80,18 @@ public class BattleEnemyController : MonoBehaviour
         EnemiesNumber = enemiesNum;
         InstantiateEnemies(enemiesNum); // 生成敵人Prefab
     }
+
+    /// <summary> 開啟敵人戰鬥資訊UI  </summary>
+    /// <param name="EnemyAmount">敵人數量(1~3)</param>
+    void SetActiceEnemyBattleUI(int EnemyAmount)
+    {
+        for (int i = 0; i < EnemyAmount; i++)
+        {
+            enemyBattleUI[i].gameObject.SetActive(true);
+
+        }
+    }
+
     /// <summary>
     /// 生成敵人Prefab
     /// </summary>
@@ -85,13 +100,16 @@ public class BattleEnemyController : MonoBehaviour
     {
         for (int i = 0; i < enemiesNum; i++)
         {
-            GameObject enemy = Instantiate(battleGameController.battleInformation.Enemies[i],
+            GameObject enemyObject = Instantiate(battleGameController.battleInformation.Enemies[i],
              NowEnemyPosition.transform.GetChild(i).transform.position,
              transform.rotation,
              NowEnemyPosition.transform.GetChild(i));
+            Enemy enemy = enemyObject.GetComponent<Enemy>();
+            enemy.enemyBattleUI = enemyBattleUI[i];
+            enemyBattleUI[i].EnemyImage.sprite = enemy.Avatar;
 
-            InstanceEnemy.Add(enemy);
-            battleGameController.InstancedEnemy.Add(enemy.GetComponent<Enemy>());
+            InstanceEnemy.Add(enemyObject);
+            battleGameController.InstancedEnemy.Add(enemy);
         }
     }
 

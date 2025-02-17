@@ -77,8 +77,16 @@ public class EnemyPuzzleSkill : EnemySkill
 
         if (boardController.board[x, y].Puzzle == null)
         {
-            boardController.board[x, y].Puzzle = enemyPuzzle.puzzleData; //將此拼圖新增至盤面
-            boardController.board[x, y].Puzzle.puzzlePosition = (x, y); //更新PuzzleData內的拼圖座標
+            if(boardController.board[x, y].EnemySkill == null)
+            {
+                boardController.board[x, y].Puzzle = enemyPuzzle.puzzleData; //將此拼圖新增至盤面
+                boardController.board[x, y].Puzzle.puzzlePosition = (x, y); //更新PuzzleData內的拼圖座標
+                boardController.board[x, y].EnemySkill = this;
+            }
+            else
+            {
+                Debug.Log("錯誤，該地方已有敵方技能，無法放置敵方拼圖技能");
+            }
         }
         else
             Debug.Log("錯誤，該地方已有拼圖，無法放置敵方拼圖技能");

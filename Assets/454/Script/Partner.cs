@@ -19,6 +19,10 @@ public class PartnerData
     /// <summary> ¹Ù¦ñÄÝ©Ê </summary>
     [SerializeField]
     EssenceEnum.Essence _essence;
+    [SerializeField]
+    /// <summary> ¹Ù¦ñ°Êµe_§ðÀ» </summary>
+    public BattleAnimation partnerAnimation_Attack;
+    /// <summary> ¹Ù¦ñ«÷¹Ï </summary>
     public List<PuzzleData> partnersPuzzle;
 
 
