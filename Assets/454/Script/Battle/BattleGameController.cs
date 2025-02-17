@@ -21,7 +21,7 @@ public class BattleGameController : MonoBehaviour
     /// <summary>結算敵人技能</summary>
     public event EventHandler Event_SettlementEnemySkill; //結算敵人技能
     /// <summary>衝突階段</summary>
-    public event Action Event_Confrontation; //衝突階段
+    public event Func<Coroutine> Event_Confrontation; //衝突階段
     /// <summary>判定:是否全部敵方皆死亡</summary>
     public event Action Event_IsAllEnemyDead; //判定:是否全部敵方皆死亡
     /// <summary>勝利</summary>
@@ -97,6 +97,9 @@ public class BattleGameController : MonoBehaviour
     public void CallEvent_Confrontation()
     {
         Event_Confrontation?.Invoke();
+
+        /*Debug.LogWarning("錯誤，衝突協程未回傳協程");
+        return null;*/
     }
 
     /// <summary>

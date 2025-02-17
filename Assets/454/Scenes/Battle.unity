@@ -9568,7 +9568,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 365f8637bf29b784b84ff0d7b9379cb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  battleGameController: {fileID: 0}
+  battleGameController: {fileID: 683618066}
+  battleConfrontationController: {fileID: 1004839839}
 --- !u!114 &683618078
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24545,6 +24546,10 @@ PrefabInstance:
     - target: {fileID: 1917151493165113241, guid: 5be0be451184a2247892b25606ea9cb5, type: 3}
       propertyPath: m_Name
       value: BattleAnimationTest
+      objectReference: {fileID: 0}
+    - target: {fileID: 7785800766594138773, guid: 5be0be451184a2247892b25606ea9cb5, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8698394462342643337, guid: 5be0be451184a2247892b25606ea9cb5, type: 3}
       propertyPath: m_Pivot.x

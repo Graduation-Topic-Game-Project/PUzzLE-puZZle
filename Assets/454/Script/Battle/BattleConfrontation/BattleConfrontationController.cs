@@ -42,7 +42,7 @@ public class BattleConfrontationController : MonoBehaviour
             battleEnemyController = FindObjectOfType<BattleEnemyController>();
         }
 
-        battleGameController.Event_Confrontation += StartConfrontation;
+        //battleGameController.Event_Confrontation += StartConfrontation;
         battleGameController.Event_StartTurn += ResetConfronatationData;
     }
 
@@ -60,20 +60,22 @@ public class BattleConfrontationController : MonoBehaviour
     }
 
     /// <summary> 開始衝突 </summary>
-    public void StartConfrontation() //開始衝突
+    public IEnumerator StartConfrontation() //開始衝突
     {
         if (Coroutine_Confrontation == null)
         {
-            Coroutine_Confrontation = StartCoroutine(ConfrontationCoroutine());
+            //Coroutine_Confrontation = StartCoroutine(ConfrontationCoroutine());
+            yield return StartCoroutine(ConfrontationCoroutine());
         }
         else
             Debug.Log("錯誤：衝突協程重複觸發");
+        yield return null;
     }
 
     /// <summary>
-    /// <協程>衝突階段
+    /// {協程}衝突階段
     /// </summary>
-    private IEnumerator ConfrontationCoroutine()
+    public IEnumerator ConfrontationCoroutine()
     {
         //foreach (int partnerAttack in PartnerAttack)
         for (int i = 0; i < PartnerAttack.Length; i++)
@@ -86,6 +88,8 @@ public class BattleConfrontationController : MonoBehaviour
                 partnerAttack,
                 EnemyAttack
                 );
+
+            yield return new WaitForSeconds(0.5f);
 
             Debug.Log($"{partnerAttack} vs {EnemyAttack}");
 
@@ -123,7 +127,7 @@ public class BattleConfrontationController : MonoBehaviour
             yield return new WaitForSeconds(0.5f);
         }
 
-        yield return new WaitForSeconds(0.5f);
+        //yield return new WaitForSeconds(0.5f);
         // 協程執行完畢，清空引用
         Coroutine_Confrontation = null;
     }

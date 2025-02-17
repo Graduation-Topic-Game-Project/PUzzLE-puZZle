@@ -5,6 +5,7 @@ using UnityEngine;
 public class EndTurnController : MonoBehaviour
 {
     public BattleGameController battleGameController;
+    public BattleConfrontationController battleConfrontationController;
 
     Coroutine Coroutine_EndTurn;
 
@@ -13,6 +14,10 @@ public class EndTurnController : MonoBehaviour
         if (battleGameController == null) //獲取場景上的BattleGameController
         {
             battleGameController = FindObjectOfType<BattleGameController>();
+        }
+        if (battleConfrontationController == null) //獲取場景上的BattleConfrontationController
+        {
+            battleConfrontationController = FindObjectOfType<BattleConfrontationController>();
         }
     }
 
@@ -42,7 +47,9 @@ public class EndTurnController : MonoBehaviour
 
         // 技能衝突
         battleGameController.CallEvent_Confrontation();
-        yield return new WaitForSeconds(1.5f); //數值太低會bug,之後要改掉
+        yield return StartCoroutine(battleConfrontationController.StartConfrontation());
+
+        //yield return new WaitForSeconds(1.5f); //數值太低會bug,之後要改掉
 
         // 結束回合
         battleGameController.CallEvent_EndTurn();
