@@ -62,7 +62,7 @@ public class EnemyPuzzleSkill : EnemySkill
     }
 
     /// <summary>
-    /// 實例化技能
+    /// 實例化技能(將批圖資料存進BoardBoard)
     /// </summary>
     public override void InstantiateSkill()
     {
@@ -77,11 +77,11 @@ public class EnemyPuzzleSkill : EnemySkill
 
         if (boardController.board[x, y].Puzzle == null)
         {
-            if(boardController.board[x, y].EnemySkill == null)
+            if (boardController.board[x, y].EnemySkill == null)
             {
                 boardController.board[x, y].Puzzle = enemyPuzzle.puzzleData; //將此拼圖新增至盤面
                 boardController.board[x, y].Puzzle.puzzlePosition = (x, y); //更新PuzzleData內的拼圖座標
-                boardController.board[x, y].EnemySkill = this;
+                boardController.board[x, y].EnemySkill = this.gameObject;
             }
             else
             {
@@ -104,18 +104,18 @@ public class EnemyPuzzleSkill : EnemySkill
                 BattleMainMessage.SetMessage("敵方拼圖已被破壞");
                 Debug.Log("敵方拼圖已被破壞");
 
-                (int x, int y) = enemyPuzzle.puzzleData.puzzlePosition;
-                boardController.board[x, y].Puzzle = enemyPuzzle.puzzleData;
+                /*(int x, int y) = enemyPuzzle.puzzleData.puzzlePosition;
+                 boardController.board[x, y].Puzzle = enemyPuzzle.puzzleData;
 
-                Debug.Log(boardController.board[x, y].Puzzle);
-                Debug.Log($"test 更新敵方拼圖{x},{y}的board 資料");
+                 Debug.Log(boardController.board[x, y].Puzzle);
+                 Debug.Log($"test 更新敵方拼圖{x},{y}的board 資料");*/
                 boardController.UpdatePuzzleBoard();
             }
         }
     }
 
-    /*public void UpdateEnemyPuzzleImage()
+    public void OpenEenemyPuzzleBreakImage()
     {
-
-    }*/
+        enemyPuzzle.BreakImage_OpenOrClose(true);
+    }
 }

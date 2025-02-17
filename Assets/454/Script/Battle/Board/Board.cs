@@ -5,10 +5,10 @@ using UnityEngine;
 public class Board
 {
     private PuzzleData puzzle;
-    private EnemySkill enemySkill;
+    private GameObject enemySkill;
 
     public PuzzleData Puzzle { get => puzzle; set { puzzle = value; } }
-    public EnemySkill EnemySkill { get => enemySkill; set { enemySkill = value; } }
+    public GameObject EnemySkill { get => enemySkill; set { enemySkill = value; } }
 
     public Board()
     {

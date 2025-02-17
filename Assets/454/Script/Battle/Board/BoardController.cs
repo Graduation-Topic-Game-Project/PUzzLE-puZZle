@@ -46,7 +46,7 @@ public class BoardController : MonoBehaviour
     public void UpdatePuzzleBoard() //更新顯示盤面上拼圖
     {
         foreach (Transform child in puzzleInstanceGameObject.transform)
-        {         
+        {
             Destroy(child.gameObject);
         }
 
@@ -111,8 +111,19 @@ public class BoardController : MonoBehaviour
         EnemyPuzzle nowPuzzle = Instantiate(puzzleMasterController.EnemyPuzzlePrefab, puzzlesGridGameObject[i, j].transform.position, transform.rotation, puzzleInstanceGameObject.transform);
         nowPuzzle.puzzleData = board[i, j].Puzzle;
         nowPuzzle.ReUpdate_PuzzleEssence_Image();
+
+        EnemyPuzzleSkill enemyPuzzleSkillinBoard = board[i, j].EnemySkill.GetComponent<EnemyPuzzleSkill>();
+        if (enemyPuzzleSkillinBoard != null)
+        {
+            if(enemyPuzzleSkillinBoard.isBreak == true)
+            {
+                nowPuzzle.BreakImage_OpenOrClose(true);
+            }
+        }
+
         EnemyPuzzleSkill enemyPuzzleSkill = nowPuzzle.GetComponent<EnemyPuzzleSkill>();
         enemyPuzzleSkill.enabled = false; //無效化
+
 
         //生成只有卡榫的拼圖Prefab在另一個
         Puzzle nowPuzzleSide = Instantiate(puzzleMasterController.puzzlePrefab, puzzlesGridGameObject[i, j].transform.position, transform.rotation, puzzleSideInstanceGameObject.transform);
@@ -165,7 +176,7 @@ public class BoardController : MonoBehaviour
 
                 puzzleMasterController.CallEvent_RemovePlacedPuzzle(); //移除備戰區那塊已經被放上去的拼圖
                 puzzleMasterController.isSpecifyPuzzle = false; //取消選擇備戰區拼圖
-                puzzleMasterController.SpecifyPuzzleNumber = -1;             
+                puzzleMasterController.SpecifyPuzzleNumber = -1;
                 battleGameController.CallEvent_PlacedPuzzle(); //BattleGameController發送放置拼圖結束事件
                 UpdatePuzzleBoard();
             }
