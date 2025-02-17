@@ -49,8 +49,6 @@ public class EndTurnController : MonoBehaviour
         battleGameController.CallEvent_Confrontation();
         yield return StartCoroutine(battleConfrontationController.StartConfrontation());
 
-        //yield return new WaitForSeconds(1.5f); //數值太低會bug,之後要改掉
-
         // 結束回合
         battleGameController.CallEvent_EndTurn();
         yield return new WaitForSeconds(0.5f);
