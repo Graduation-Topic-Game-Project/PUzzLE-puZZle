@@ -69,7 +69,7 @@ public class BattleConfrontationController : MonoBehaviour
         }
         else
             Debug.Log("錯誤：衝突協程重複觸發");
-        yield return null;
+        //yield return null;
     }
 
     /// <summary>

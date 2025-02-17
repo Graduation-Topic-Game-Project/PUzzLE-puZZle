@@ -136,6 +136,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4882952043599079584, guid: 0715369398bb9ff46b2e8ed8e3cc2bea, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4882952043599079584, guid: 0715369398bb9ff46b2e8ed8e3cc2bea, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7504747802191047721, guid: 0715369398bb9ff46b2e8ed8e3cc2bea, type: 3}
       propertyPath: enemyName
       value: "\u5996\u7CBE"
@@ -198,6 +206,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 672645965533383465, guid: 0715369398bb9ff46b2e8ed8e3cc2bea, type: 3}
       insertIndex: 3
       addedObject: {fileID: 4123953294372731370}
+    - targetCorrespondingSourceObject: {fileID: 672645965533383465, guid: 0715369398bb9ff46b2e8ed8e3cc2bea, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4992961026474123897}
   m_SourcePrefab: {fileID: 100100000, guid: 0715369398bb9ff46b2e8ed8e3cc2bea, type: 3}
 --- !u!224 &383531296699278761 stripped
 RectTransform:
@@ -245,6 +256,27 @@ MonoBehaviour:
   - {fileID: 4796933317568352855, guid: ad5b5ee3eaa252f44bb39de8f5f78270, type: 3}
   - {fileID: 4796933317568352855, guid: 7d7116f59d84aad468bdac736603d7f3, type: 3}
   enemyBattleUI: {fileID: 0}
+--- !u!95 &4992961026474123897
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2843420416200513064}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c094f76f53a83794c8954e1c2cdab57d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &6282128960607343592
 PrefabInstance:
   m_ObjectHideFlags: 0
