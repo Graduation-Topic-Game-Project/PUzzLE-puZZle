@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class BattleAnimationController : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
+    [Tooltip("動畫物件生成位置")]
+    public GameObject AnimationInstanceObject;
+
+    public void PlayAttackAnimation(BattlePartner battlePartner)
     {
-        
+
+        Instantiate(battlePartner.partner.partnerData.partnerAnimation_Attack.gameObject,
+            battlePartner.transform.position,
+            Quaternion.identity, 
+            AnimationInstanceObject.transform);
     }
 }

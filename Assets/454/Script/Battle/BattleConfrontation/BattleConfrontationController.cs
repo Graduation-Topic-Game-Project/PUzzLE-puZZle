@@ -80,14 +80,23 @@ public class BattleConfrontationController : MonoBehaviour
         //foreach (int partnerAttack in PartnerAttack)
         for (int i = 0; i < PartnerAttack.Length; i++)
         {
-            int partnerAttack = PartnerAttack[i];
+            BattlePartner nowBattlePartner = battlePartnerUiController.PartnersGameObject[i].GetComponent<BattlePartner>();
+            int partnerAttack = PartnerAttack[i]; //友方戰力值
 
+            //開始衝突
             confrontationAnimationController.Start_Confrontation(
-                battlePartnerUiController.PartnersGameObject[i].GetComponent<BattlePartner>(),
+                nowBattlePartner,
                 battleEnemyController.InstanceEnemy[0].GetComponent<Enemy>(),
                 partnerAttack,
                 EnemyAttack
                 );
+
+            yield return StartCoroutine(confrontationAnimationController.Start_Confrontation(
+                nowBattlePartner,
+                battleEnemyController.InstanceEnemy[0].GetComponent<Enemy>(),
+                partnerAttack,
+                EnemyAttack
+                ));
 
             yield return new WaitForSeconds(0.5f);
 

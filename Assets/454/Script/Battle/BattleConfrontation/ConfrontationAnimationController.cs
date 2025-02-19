@@ -17,9 +17,9 @@ public class ConfrontationAnimationController : MonoBehaviour
         }
     }
 
-    public void Start_Confrontation(BattlePartner partner, Enemy enemy, int partnerCombatPower, int enemyCombatPower)
+    public IEnumerator Start_Confrontation(BattlePartner partner, Enemy enemy, int partnerCombatPower, int enemyCombatPower)
     {
-        StartCoroutine(Confrontation(partner, enemy, partnerCombatPower, enemyCombatPower));
+        yield return StartCoroutine(Confrontation(partner, enemy, partnerCombatPower, enemyCombatPower));
     }
 
     /// <summary>

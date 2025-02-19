@@ -5,6 +5,8 @@ using UnityEngine;
 public class BattleAnimation : MonoBehaviour
 {
     public Animator animator;
+
+    public string[] animations;
     private void Awake()
     {
         if (animator = null)
