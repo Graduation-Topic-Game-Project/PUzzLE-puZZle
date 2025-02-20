@@ -8,7 +8,7 @@ public class ActionPoint_UI_Controller : MonoBehaviour
     public CanvasGroup canvasGroup;
     public TextMeshProUGUI actionPoint_Number; //行動值文字
 
-    public float actionPointTextAlpha = 0.1f; //行動值文字預設透明度
+    public float actionPointTextAlpha; //行動值文字預設透明度
     Coroutine NowSetCoroutine;
 
     private void Awake()
