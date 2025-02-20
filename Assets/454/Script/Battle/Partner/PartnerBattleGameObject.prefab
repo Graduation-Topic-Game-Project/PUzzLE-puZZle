@@ -205,6 +205,7 @@ GameObject:
   - component: {fileID: 5189796699447728219}
   - component: {fileID: 4010759976802247846}
   - component: {fileID: 8289381617678294307}
+  - component: {fileID: 3675031250705178924}
   m_Layer: 5
   m_Name: PartnerBattleGameObject
   m_TagString: Untagged
@@ -290,6 +291,27 @@ MonoBehaviour:
   PartnerImage: {fileID: 5104091336361745487}
   CombatPowerNumber: {fileID: 7416874380175644646}
   animationInstanceTransform: {fileID: 4201335657937091751}
+--- !u!95 &3675031250705178924
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4622160756350702630}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: fd3521835f0b2a040b3c267ab7d5fcbc, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &4785829681433962085
 GameObject:
   m_ObjectHideFlags: 0
