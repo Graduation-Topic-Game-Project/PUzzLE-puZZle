@@ -29,7 +29,7 @@ public class ConfrontationAnimationController : MonoBehaviour
     {
         //顯示雙方戰力值
         partner.ShowCombatPower(partnerCombatPower);
-        enemy.ShowCombatPower(partnerCombatPower);
+        enemy.ShowCombatPower(enemyCombatPower);
 
         BattleAudioController.PlayAudio_Confrontation(); //撥放交鋒音效
         yield return new WaitForSeconds(0.5f); // 延遲  秒

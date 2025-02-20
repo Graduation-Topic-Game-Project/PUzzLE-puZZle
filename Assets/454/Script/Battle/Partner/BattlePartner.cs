@@ -13,10 +13,12 @@ public class BattlePartner : MonoBehaviour
     public Partner partner;
     /// <summary> 夥伴位置編號 </summary>
     public int PartnerNumber;
-
+    /// <summary> 夥伴圖片 </summary>
     public Image PartnerImage;
     /// <summary> 衝突戰力值文字 </summary>
     public TextMeshProUGUI CombatPowerNumber; //衝突戰力值文字
+    /// <summary> 動畫生成座標位置 </summary>
+    public GameObject animationInstanceTransform;
 
     /// <summary> 顯示戰力值 </summary>
     /// <param name="_combatPower">戰力值</param>

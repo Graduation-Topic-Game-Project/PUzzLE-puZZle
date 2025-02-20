@@ -10,6 +10,8 @@ public class BattleConfrontationController : MonoBehaviour
     public BattlePartnerUiController battlePartnerUiController;
     public BattleEnemyController battleEnemyController;
     public ConfrontationAnimationController confrontationAnimationController;
+    public BattleAnimationController battleAnimationController;
+
     static BattleConfrontationController @this;
 
     int[] PartnerAttack = new int[4]; //夥伴攻擊數值
@@ -37,9 +39,13 @@ public class BattleConfrontationController : MonoBehaviour
         {
             battlePartnerUiController = FindObjectOfType<BattlePartnerUiController>();
         }
-        if (battleEnemyController == null) //BattleEnemyController
+        if (battleEnemyController == null) //獲取場景上的BattleEnemyController
         {
             battleEnemyController = FindObjectOfType<BattleEnemyController>();
+        }
+        if (battleAnimationController == null) //獲取場景上的BattleAnimationController
+        {
+            battleAnimationController = FindObjectOfType<BattleAnimationController>();
         }
 
         //battleGameController.Event_Confrontation += StartConfrontation;
@@ -115,6 +121,7 @@ public class BattleConfrontationController : MonoBehaviour
                     Debug.Log($"勝利! 對敵方造成{partnerAttack - EnemyAttack}點傷害");
                     BattleMainMessage.SetMessage($"勝利! 對敵方造成{partnerAttack - EnemyAttack}點傷害");
                     EnemyDameged.Call_Event_DamageToEnemy(partnerAttack - EnemyAttack);
+                    yield return StartCoroutine(battleAnimationController.Start_PlayAttackAnimation(nowBattlePartner)); //撥放夥伴攻擊動畫
                 }
 
                 if (partnerAttack < EnemyAttack) //失敗
