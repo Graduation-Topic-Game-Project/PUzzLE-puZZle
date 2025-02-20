@@ -19,7 +19,7 @@ public class BattleAnimationController : MonoBehaviour
     {
         if(nowAnimation != null)
         {
-            Destroy(nowAnimation);
+            Destroy(nowAnimation.gameObject);
         }
 
         if (battlePartner.partner.partnerData.partnerAnimation_Attack == null)
@@ -34,5 +34,21 @@ public class BattleAnimationController : MonoBehaviour
             AnimationInstanceObject.transform);
 
         yield return null;
+
+        Animator animator = nowAnimation.GetComponent<Animator>();
+        if (animator != null)
+        {
+            // 等待動畫機的最後一個狀態播完
+            yield return WaitForFinalAnimation(animator);
+        }
+
+        yield return null;
+        Destroy(nowAnimation.gameObject); //動畫結束後刪除物件
+    }
+
+    private IEnumerator WaitForFinalAnimation(Animator animator)
+    {
+        yield return new WaitUntil(() => animator.GetCurrentAnimatorStateInfo(0).IsName("End"));
+        Debug.Log("動畫結束");
     }
 }

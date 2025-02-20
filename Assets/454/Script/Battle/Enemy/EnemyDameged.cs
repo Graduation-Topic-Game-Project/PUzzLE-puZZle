@@ -29,7 +29,7 @@ public class EnemyDameged : MonoBehaviour
 
     void DamageForAllEnemy(int damage)
     {
-        Debug.Log("test EnemyDameged");
+        //Debug.Log("test EnemyDameged");
         foreach (Enemy enemy in battleGameController.InstancedEnemy)
         {
             enemy.Damage(damage);
