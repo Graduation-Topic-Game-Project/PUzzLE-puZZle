@@ -44,7 +44,7 @@ public class ActionPoint_UI_Controller : MonoBehaviour
     {
         canvasGroup.alpha = 1f;
 
-        yield return new WaitForSeconds(0.2f);
+        yield return new WaitForSeconds(1.2f);  //顯示時間
 
         for (float i = 1f; i > actionPointTextAlpha; i = i - Time.deltaTime)
         {

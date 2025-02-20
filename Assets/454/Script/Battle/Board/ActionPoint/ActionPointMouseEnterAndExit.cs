@@ -17,10 +17,11 @@ public class ActionPointMouseEnterAndExit : MouseEnterAndExit
 
     protected override void OnPointerEnter() // 在此處執行滑鼠進入的邏輯
     {
-        //Debug.Log("Pointer entered manually!");
         actionPoint_UI_Controller.StopCoroutine();
-        //actionPoint_Controller.StopAllCoroutines();
         actionPoint_UI_Controller.canvasGroup.alpha = 1f;
+
+
+        //actionPoint_UI_Controller.ShowActionPoint(); //行動裝置版本需加此行
     }
 
     protected override void OnPointerExit() // 在此處執行滑鼠離開的邏輯
