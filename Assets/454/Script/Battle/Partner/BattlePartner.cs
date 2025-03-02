@@ -23,7 +23,6 @@ public class BattlePartner : MonoBehaviour
     private void Start()
     {
         ClearCombatPower();
-        Debug.Log("46");
     }
 
     /// <summary> 顯示戰力值 </summary>

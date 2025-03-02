@@ -7,6 +7,7 @@ public class EndTurnController : MonoBehaviour
     public BattleGameController battleGameController;
     public BattleConfrontationController battleConfrontationController;
 
+    public GameObject UIMask; //UI阻擋遮罩
     Coroutine Coroutine_EndTurn;
 
     private void Awake()
@@ -19,6 +20,8 @@ public class EndTurnController : MonoBehaviour
         {
             battleConfrontationController = FindObjectOfType<BattleConfrontationController>();
         }
+
+        UIMask.SetActive(false);
     }
 
 
@@ -37,6 +40,8 @@ public class EndTurnController : MonoBehaviour
     /// </summary>
     private IEnumerator EndTurnCoroutine()
     {
+        UIMask.SetActive(true);
+
         // 結算盤面
         battleGameController.CallEvent_SettlementBoard();
         yield return new WaitForSeconds(0.5f); // 可根據需求調整延遲時間
@@ -59,6 +64,8 @@ public class EndTurnController : MonoBehaviour
 
         // 協程執行完畢，清空引用
         Coroutine_EndTurn = null;
+
+        UIMask.SetActive(false);
     }
 
     private void OnDestroy()
