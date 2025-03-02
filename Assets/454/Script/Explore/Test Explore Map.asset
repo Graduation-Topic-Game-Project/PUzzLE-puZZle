@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Test Explore Map
   m_EditorClassIdentifier: 
   exploreData:
-    layers: 4
+    layers: 5
     layerWidth: 3
     battleInformation:
     - {fileID: 11400000, guid: d7510a1393a81794d93e66b6eda032c2, type: 2}

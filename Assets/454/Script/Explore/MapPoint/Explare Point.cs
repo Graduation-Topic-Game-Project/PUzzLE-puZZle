@@ -36,7 +36,7 @@ public class ExplorePoint : MapPoint
                 ExplarePointImage.sprite = EvenSprite;
                 break;
             case ExploreType.Award_¼úÀy:
-                ExplarePointImage.sprite = EvenSprite;
+                ExplarePointImage.sprite = AwardSprite;
                 break;
         }
     }

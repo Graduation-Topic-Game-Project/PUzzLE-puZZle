@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class ExploreMapController : MonoBehaviour
 {
-    public ExploreInformation exploreInformation;
+    [Header("探索關卡資料")]
+    public ExploreInformation exploreInformation; 
 
     public GameObject ExploreLayersGameObject; //事件層Prefab物件
     public GameObject PathLayersGameObject; //道路層Prefab物件
@@ -21,6 +22,7 @@ public class ExploreMapController : MonoBehaviour
 
     private void Awake()
     {
+        //定義大小(x = 幾層, y = 一層有幾格)
         ExplorePoints = new ExplorePoint[exploreInformation.Layers, exploreInformation.LayerWidth]; //探索格有四層
         PathPoints = new PathPoint[exploreInformation.Layers - 1, exploreInformation.LayerWidth]; //道路格有三層
 
@@ -72,7 +74,7 @@ public class ExploreMapController : MonoBehaviour
     /// </summary>
     public void GetAllExplorePoint()
     {
-        int ExplorePointTransformX = 1;
+        int ExplorePointTransformX = 1; //從第一層開始
 
         for (int i = 0; i < ExploreLayersGameObject.transform.childCount; i++)
         {

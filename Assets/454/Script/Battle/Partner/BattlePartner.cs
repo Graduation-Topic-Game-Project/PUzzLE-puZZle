@@ -20,6 +20,12 @@ public class BattlePartner : MonoBehaviour
     /// <summary> 動畫生成座標位置 </summary>
     public GameObject animationInstanceTransform;
 
+    private void Start()
+    {
+        ClearCombatPower();
+        Debug.Log("46");
+    }
+
     /// <summary> 顯示戰力值 </summary>
     /// <param name="_combatPower">戰力值</param>
     public void ShowCombatPower(int _combatPower)

@@ -1,0 +1,157 @@
+
+witch.png
+size: 1951,1403
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+body_2
+  rotate: true
+  xy: 637, 675
+  size: 368, 386
+  orig: 368, 389
+  offset: 0, 3
+  index: -1
+eye
+  rotate: false
+  xy: 2, 1328
+  size: 174, 73
+  orig: 1607, 2460
+  offset: 652, 1870
+  index: -1
+face
+  rotate: true
+  xy: 1679, 1177
+  size: 224, 258
+  orig: 1607, 2460
+  offset: 633, 1781
+  index: -1
+hair_1
+  rotate: true
+  xy: 1229, 1259
+  size: 142, 448
+  orig: 1607, 2460
+  offset: 777, 1539
+  index: -1
+hair_2
+  rotate: true
+  xy: 178, 1307
+  size: 94, 195
+  orig: 1607, 2460
+  offset: 666, 1881
+  index: -1
+hair_3
+  rotate: true
+  xy: 375, 1295
+  size: 106, 240
+  orig: 1607, 2460
+  offset: 610, 1840
+  index: -1
+hair_4
+  rotate: true
+  xy: 617, 1271
+  size: 130, 201
+  orig: 1607, 2460
+  offset: 594, 1629
+  index: -1
+hat_1
+  rotate: false
+  xy: 1219, 2
+  size: 720, 487
+  orig: 1607, 2460
+  offset: 505, 1863
+  index: -1
+hat_2
+  rotate: false
+  xy: 2, 767
+  size: 633, 276
+  orig: 633, 282
+  offset: 0, 0
+  index: -1
+left_hand
+  rotate: true
+  xy: 1025, 491
+  size: 361, 587
+  orig: 1607, 2460
+  offset: 723, 948
+  index: -1
+left_leg
+  rotate: true
+  xy: 2, 200
+  size: 289, 1215
+  orig: 1607, 2460
+  offset: 713, 74
+  index: -1
+right_hand
+  rotate: true
+  xy: 1203, 985
+  size: 272, 397
+  orig: 292, 403
+  offset: 20, 0
+  index: -1
+right_hand_2
+  rotate: true
+  xy: 820, 1262
+  size: 139, 407
+  orig: 162, 421
+  offset: 23, 2
+  index: -1
+right_leg
+  rotate: true
+  xy: 2, 1045
+  size: 215, 1199
+  orig: 1607, 2460
+  offset: 540, 67
+  index: -1
+star
+  rotate: false
+  xy: 1602, 854
+  size: 347, 321
+  orig: 1607, 2460
+  offset: 1059, 1575
+  index: -1
+
+witch2.png
+size: 1168,1236
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+body
+  rotate: false
+  xy: 2, 2
+  size: 1164, 1232
+  orig: 1197, 1765
+  offset: 0, 89
+  index: -1
+
+witch3.png
+size: 2018,1193
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+gun
+  rotate: true
+  xy: 2, 291
+  size: 900, 975
+  orig: 900, 975
+  offset: 0, 0
+  index: -1
+ring
+  rotate: true
+  xy: 979, 2
+  size: 1189, 1037
+  orig: 1607, 2460
+  offset: 237, 849
+  index: -1
+
+witch4.png
+size: 1203,1105
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+hair_5
+  rotate: false
+  xy: 2, 2
+  size: 1199, 1101
+  orig: 1607, 2460
+  offset: 181, 868
+  index: -1
