@@ -2,9 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using System;
 
 public class ActionPoint_UI_Controller : MonoBehaviour
 {
+    public BattleGameController battleGameController;
+
     public CanvasGroup canvasGroup;
     public TextMeshProUGUI actionPoint_Number; //行動值文字
 
@@ -17,6 +20,13 @@ public class ActionPoint_UI_Controller : MonoBehaviour
         {
             canvasGroup = this.gameObject.transform.GetComponent<CanvasGroup>();
         }
+
+        if (battleGameController == null) //獲取場景上的BattleGameController
+        {
+            battleGameController = FindObjectOfType<BattleGameController>();
+        }
+
+        battleGameController.Event_PuzzlePlaceCompleted += ShowActionPoint;
     }
 
     void Start()
@@ -38,6 +48,11 @@ public class ActionPoint_UI_Controller : MonoBehaviour
             StopCoroutine(NowSetCoroutine);*/
 
         NowSetCoroutine = StartCoroutine(ShowActionPoint_Coroutine());
+    }
+
+    public void ShowActionPoint(object sender, EventArgs e)
+    {
+        ShowActionPoint();
     }
 
     public IEnumerator ShowActionPoint_Coroutine() //行動值文字降至半透明

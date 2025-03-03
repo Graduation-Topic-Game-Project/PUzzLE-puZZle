@@ -15,6 +15,8 @@ public class BattlePartner : MonoBehaviour
     public int PartnerNumber;
     /// <summary> 夥伴圖片 </summary>
     public Image PartnerImage;
+    /// <summary> 陰影圖片 </summary>
+    public Image ShadowImage;
     /// <summary> 衝突戰力值文字 </summary>
     public TextMeshProUGUI CombatPowerNumber; //衝突戰力值文字
     /// <summary> 動畫生成座標位置 </summary>
@@ -42,5 +44,12 @@ public class BattlePartner : MonoBehaviour
         Color color = CombatPowerNumber.color; //關閉透明度
         color.a = 0f;
         CombatPowerNumber.color = color;
+    }
+
+    /// <summary> 開關夥伴圖片UI </summary>
+    public void HidePartnerUI(bool openOrClose)
+    {
+        PartnerImage.gameObject.SetActive(openOrClose);
+        ShadowImage.gameObject.SetActive(openOrClose);
     }
 }

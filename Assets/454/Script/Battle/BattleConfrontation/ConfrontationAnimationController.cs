@@ -32,7 +32,7 @@ public class ConfrontationAnimationController : MonoBehaviour
         enemy.ShowCombatPower(enemyCombatPower);
 
         BattleAudioController.PlayAudio_Confrontation(); //¼·©ñ¥æ¾W­µ®Ä
-        yield return new WaitForSeconds(0.5f); // ©µ¿ð  ¬í
+        yield return new WaitForSeconds(0.3f); // ©µ¿ð  ¬í
 
         partner.ClearCombatPower();
         enemy.ClearCombatPower();

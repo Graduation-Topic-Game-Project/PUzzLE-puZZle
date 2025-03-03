@@ -120,8 +120,8 @@ public class BattleConfrontationController : MonoBehaviour
                 {
                     Debug.Log($"勝利! 對敵方造成{partnerAttack - EnemyAttack}點傷害");
                     BattleMainMessage.SetMessage($"勝利! 對敵方造成{partnerAttack - EnemyAttack}點傷害");
-                    EnemyDameged.Call_Event_DamageToEnemy(partnerAttack - EnemyAttack);
                     yield return StartCoroutine(battleAnimationController.Start_PlayAttackAnimation(nowBattlePartner)); //撥放夥伴攻擊動畫
+                    EnemyDameged.Call_Event_DamageToEnemy(partnerAttack - EnemyAttack);
                 }
 
                 if (partnerAttack < EnemyAttack) //失敗

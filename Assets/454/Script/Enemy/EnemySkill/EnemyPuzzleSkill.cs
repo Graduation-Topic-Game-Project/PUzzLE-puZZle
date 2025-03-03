@@ -71,27 +71,32 @@ public class EnemyPuzzleSkill : EnemySkill
             boardController = FindObjectOfType<BoardController>();
         }
 
+        TryInstantiateSkill();
+        boardController.UpdatePuzzleBoard();
+    }
+
+    private void TryInstantiateSkill(int attempt = 0)
+    {
+        if (attempt > 100)
+        {
+            Debug.LogWarning("已達最大嘗試次數，無法生成拼圖!");
+            return;
+        }
+
         int x = UnityEngine.Random.Range(_minX, _maxX + 1);
         int y = UnityEngine.Random.Range(_minY, _maxY + 1);
 
-
-        if (boardController.board[x, y].Puzzle == null)
+        if (boardController.board[x, y].Puzzle == null && boardController.board[x, y].EnemySkill == null)
         {
-            if (boardController.board[x, y].EnemySkill == null)
-            {
-                boardController.board[x, y].Puzzle = enemyPuzzle.puzzleData; //將此拼圖新增至盤面
-                boardController.board[x, y].Puzzle.puzzlePosition = (x, y); //更新PuzzleData內的拼圖座標
-                boardController.board[x, y].EnemySkill = this.gameObject;
-            }
-            else
-            {
-                Debug.Log("錯誤，該地方已有敵方技能，無法放置敵方拼圖技能");
-            }
+            boardController.board[x, y].Puzzle = enemyPuzzle.puzzleData;
+            boardController.board[x, y].Puzzle.puzzlePosition = (x, y);
+            boardController.board[x, y].EnemySkill = this.gameObject;
         }
         else
-            Debug.Log("錯誤，該地方已有拼圖，無法放置敵方拼圖技能");
-
-        boardController.UpdatePuzzleBoard();
+        {
+            Debug.Log($"該地方已有拼圖，第{attempt + 1}次重新選擇位置...");
+            TryInstantiateSkill(attempt + 1); // 增加嘗試次數
+        }
     }
 
     public void CheckIsBreak() //檢查是否被破壞

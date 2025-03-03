@@ -26,7 +26,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2311983873258995316, guid: 2e6561285470966469e6c62dcef36b06, type: 3}
       propertyPath: puzzleData._left._interlocking
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2311983873258995316, guid: 2e6561285470966469e6c62dcef36b06, type: 3}
       propertyPath: puzzleData._right._sideEssence

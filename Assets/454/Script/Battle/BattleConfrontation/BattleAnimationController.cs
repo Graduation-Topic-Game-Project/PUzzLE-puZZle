@@ -28,6 +28,8 @@ public class BattleAnimationController : MonoBehaviour
             yield break;
         }
 
+        battlePartner.HidePartnerUI(false); //暫時隱藏人物UI
+
         nowAnimation = Instantiate(battlePartner.partner.partnerData.partnerAnimation_Attack,
             battlePartner.PartnerImage.transform.position,
             Quaternion.identity,
@@ -44,6 +46,7 @@ public class BattleAnimationController : MonoBehaviour
 
         yield return null;
         Destroy(nowAnimation.gameObject); //動畫結束後刪除物件
+        battlePartner.HidePartnerUI(true); //開啟人物UI
     }
 
     private IEnumerator WaitForFinalAnimation(Animator animator)
