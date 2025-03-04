@@ -92,14 +92,14 @@ public class BattleConfrontationController : MonoBehaviour
             //¶}©l½Ä¬ð
             confrontationAnimationController.Start_Confrontation(
                 nowBattlePartner,
-                battleEnemyController.InstanceEnemy[0].GetComponent<Enemy>(),
+                battleEnemyController.InstanceEnemyObject[0].GetComponent<Enemy>(),
                 partnerAttack,
                 EnemyAttack
                 );
 
             yield return StartCoroutine(confrontationAnimationController.Start_Confrontation(
                 nowBattlePartner,
-                battleEnemyController.InstanceEnemy[0].GetComponent<Enemy>(),
+                battleEnemyController.InstanceEnemyObject[0].GetComponent<Enemy>(),
                 partnerAttack,
                 EnemyAttack
                 ));

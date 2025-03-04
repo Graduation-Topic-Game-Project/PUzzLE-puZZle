@@ -14,7 +14,7 @@ public class BattleEnemyController : MonoBehaviour
     GameObject NowEnemyPosition;
     public int EnemiesNumber; //敵方總數
 
-    public List<GameObject> InstanceEnemy = new List<GameObject>(); //實例化的敵人物件
+    public List<GameObject> InstanceEnemyObject = new List<GameObject>(); //實例化的敵人物件
 
     private void Awake()
     {
@@ -108,7 +108,7 @@ public class BattleEnemyController : MonoBehaviour
             enemy.enemyBattleUI = enemyBattleUI[i];
             enemyBattleUI[i].EnemyImage.sprite = enemy.Avatar;
 
-            InstanceEnemy.Add(enemyObject);
+            InstanceEnemyObject.Add(enemyObject);
             battleGameController.InstancedEnemy.Add(enemy);
         }
     }

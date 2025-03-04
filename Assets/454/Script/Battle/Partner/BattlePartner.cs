@@ -50,6 +50,6 @@ public class BattlePartner : MonoBehaviour
     public void HidePartnerUI(bool openOrClose)
     {
         PartnerImage.gameObject.SetActive(openOrClose);
-        ShadowImage.gameObject.SetActive(openOrClose);
+        //ShadowImage.gameObject.SetActive(openOrClose);
     }
 }

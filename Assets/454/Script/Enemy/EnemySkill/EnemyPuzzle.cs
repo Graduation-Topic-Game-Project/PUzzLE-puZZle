@@ -28,7 +28,7 @@ public class EnemyPuzzle : Puzzle
     /// <param name="Open_or_Close"></param>
     public void BreakImage_OpenOrClose(bool Open_or_Close)
     {
-        Debug.Log("test123");
+        //Debug.Log("test123");
         breakImage.SetActive(Open_or_Close);
     }
 }

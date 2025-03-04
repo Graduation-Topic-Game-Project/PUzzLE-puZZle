@@ -9,11 +9,11 @@ EditorBuildSettings:
     path: Assets/454/Scenes/TitleScreen.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
-    path: Assets/454/Scenes/Battle.unity
-    guid: de29c1811fa899548bff44befa2fd910
-  - enabled: 1
     path: Assets/454/Scenes/Main.unity
     guid: 00c80b4a6984166418b00548f01ed836
+  - enabled: 1
+    path: Assets/454/Scenes/Battle.unity
+    guid: de29c1811fa899548bff44befa2fd910
   - enabled: 1
     path: Assets/454/Scenes/Explore.unity
     guid: 0ba09bcd9e509c04d8cf1ae8cfb8d425
