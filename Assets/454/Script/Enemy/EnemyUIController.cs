@@ -10,7 +10,7 @@ public class EnemyUIController : MonoBehaviour
 
     public Image EnemyImage;
     public TextMeshProUGUI HpText;
-    public EnemyBattleUI enemyBattleUI;
+    //public EnemyBattleUI enemyBattleUI;
 
     public GameObject InformationPlane;
     public TextMeshProUGUI InformationEnemyName;
@@ -45,7 +45,8 @@ public class EnemyUIController : MonoBehaviour
     void Update()
     {
         _enemy.enemyBattleUI.HpText.text = _enemy._enemyHp.ToString();
-        _enemy.enemyBattleUI.HpBar.fillAmount = _enemy._enemyHp / _enemy._enemyMaxHp;
+        
+        _enemy.enemyBattleUI.HpBar.fillAmount = (float)_enemy._enemyHp / (float)_enemy._enemyMaxHp;
     }
 
     public void OpenInformation()
