@@ -32,8 +32,8 @@ public class EndTurnButton : MonoBehaviour
 
     private void EndTurnButtonOnClick()
     {
-        endTurnController.StartEndTurn();
         inspirationButtonController.CloseButton();
+        endTurnController.StartEndTurn();
     }
 
 

@@ -8,6 +8,7 @@ public class EndTurnController : MonoBehaviour
     public BattleConfrontationController battleConfrontationController;
 
     public GameObject UIMask; //UIªý¾×¾B¸n
+    public GameObject InspirationObject;
     Coroutine Coroutine_EndTurn;
 
     private void Awake()
@@ -41,6 +42,7 @@ public class EndTurnController : MonoBehaviour
     private IEnumerator EndTurnCoroutine()
     {
         UIMask.SetActive(true);
+        //InspirationObject.SetActive(false);
 
         // µ²ºâ½L­±
         battleGameController.CallEvent_SettlementBoard();
@@ -66,6 +68,7 @@ public class EndTurnController : MonoBehaviour
         Coroutine_EndTurn = null;
 
         UIMask.SetActive(false);
+        //InspirationObject.SetActive(true);
     }
 
     private void OnDestroy()
