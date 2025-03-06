@@ -16,9 +16,8 @@ public class EditPuzzle_Button : MonoBehaviour
         }
     }
     public void open()
-    {      
-        editPuzzleUI.InterfaceOpenAndClose();
-        //Debug.Log("Bal_And_Sword_Button");
+    {
         inspirationButtonController.CloseButton();
+        editPuzzleUI.InterfaceOpenAndClose();
     }
 }

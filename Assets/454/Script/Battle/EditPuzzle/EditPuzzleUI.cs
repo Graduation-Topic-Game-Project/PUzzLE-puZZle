@@ -2,9 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using System;
 
 public class EditPuzzleUI : MonoBehaviour
 {
+    public BattleGameController battleGameController;
+
     public GameObject EditPuzzleInterface;
     public EditPuzzleController editPuzzleController;
 
@@ -13,6 +16,15 @@ public class EditPuzzleUI : MonoBehaviour
     public TextMeshProUGUI DestoryCostText;
 
     public bool isOpen;
+
+
+    private void Awake()
+    {
+        if (battleGameController == null) //獲取場景上的BattleGameController
+        {
+            battleGameController = FindObjectOfType<BattleGameController>();
+        }
+    }
 
     void Start()
     {
@@ -36,5 +48,6 @@ public class EditPuzzleUI : MonoBehaviour
     {
         isOpen = !isOpen;
         EditPuzzleInterface.SetActive(isOpen);
+        battleGameController.CallEvent_HideInspiration(isOpen);
     }
 }

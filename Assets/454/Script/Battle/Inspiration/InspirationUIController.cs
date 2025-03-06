@@ -38,6 +38,8 @@ public class InspirationUIController : MonoBehaviour
 
         battleGameController.Event_SettlementBoard += SetInspirationHide_True;
         battleGameController.Event_StartTurn += SetInspirationHide_False;
+
+        battleGameController.Event_HideInspiration += SetInspirationHide;
     }
     void Update()
     {
@@ -59,23 +61,25 @@ public class InspirationUIController : MonoBehaviour
     /// <param name="isHide"></param>
     public void SetInspirationHide(bool isHide)
     {
-        if (isHide)
+        if (isHide == true)
         {
             // 設透明度 (0 代表完全透明)
             canvasGroup.alpha = 0;
 
+            inspirationButtonController.Particle_System.GetComponent<ParticleSystem>().Stop(); //隱藏粒子效果
             canvasGroup.interactable = false; // 關閉互動
             canvasGroup.blocksRaycasts = false; // 禁止點擊
-            inspirationButtonController.Particle_System.SetActive(false); //隱藏粒子效果
+
         }
         else
         {
             // 設透明度 (1 代表完全不透明)
             canvasGroup.alpha = 1;
 
+            inspirationButtonController.Particle_System.GetComponent<ParticleSystem>().Play(); ; //顯示粒子效果
             canvasGroup.interactable = true;  // 開啟互動
             canvasGroup.blocksRaycasts = true; // 允許點擊
-            inspirationButtonController.Particle_System.SetActive(true); //顯示粒子效果
+
         }
 }
 

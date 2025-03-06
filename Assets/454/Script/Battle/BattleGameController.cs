@@ -14,6 +14,8 @@ public class BattleGameController : MonoBehaviour
     public event EventHandler Event_StartTurn; //回合開始
     /// <summary>選擇備戰區拼圖 [true = 選擇 false = 取消選擇]</summary>
     public event Action<bool> Event_SpecifyPuzzle; //選擇拼圖
+    /// <summary>隱藏靈感按鈕 [true = 隱藏 false = 不隱藏]</summary>
+    public event Action<bool> Event_HideInspiration; //隱藏靈感按鈕
     /// <summary>拼圖放置完成</summary>
     public event EventHandler Event_PuzzlePlaceCompleted; //拼圖放置完成
     /// <summary>結算盤面</summary>
@@ -65,6 +67,14 @@ public class BattleGameController : MonoBehaviour
     public void CallEvent_SpecifyPuzzle(bool Specify_Or_NoSpecify)
     {
         Event_SpecifyPuzzle?.Invoke(Specify_Or_NoSpecify);
+    }
+
+    /// <summary>
+    /// 發送隱藏靈感按鈕事件 [true = 隱藏 false = 不隱藏]
+    /// </summary>
+    public void CallEvent_HideInspiration(bool isHide)
+    {
+        Event_HideInspiration?.Invoke(isHide);
     }
 
     /// <summary>

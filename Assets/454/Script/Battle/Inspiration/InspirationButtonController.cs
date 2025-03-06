@@ -45,6 +45,7 @@ public class InspirationButtonController : MonoBehaviour
         Bal_And_Sword_Button.SetActive(isOpen);
         Shodow.SetActive(isOpen);
         Particle_System.SetActive(!isOpen);
+
     }
 
     public void CloseButton()
