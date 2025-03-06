@@ -8,12 +8,15 @@ public class TitleAnimationController : MonoBehaviour
     public VideoClip Title_In; // 動態標題入
     public VideoClip Title_Cycle; // 動態標題循環
 
-    private VideoPlayer videoPlayer;
+    public VideoPlayer videoPlayer;
+    public AudioSource audioSource;
+
     private bool isFirstVideoPlaying = true;
 
     void Start()
     {
-        videoPlayer = GetComponent<VideoPlayer>();
+        videoPlayer ??= GetComponent<VideoPlayer>();
+        audioSource ??= GetComponent<AudioSource>();
 
         // 綁定事件
         videoPlayer.loopPointReached += OnVideoEnd;
