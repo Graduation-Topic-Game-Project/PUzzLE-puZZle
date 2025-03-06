@@ -10,7 +10,9 @@ public class BattleEnemyController : MonoBehaviour
     //public GameObject EnemyPlane;
 
     public GameObject[] EnemyPositionGameObject = new GameObject[3]; //依照敵方總數來選擇生成位置
-    public EnemyBattleUI[] enemyBattleUI = new EnemyBattleUI[3];
+    public EnemyBattleUI[] enemyBattleUI = new EnemyBattleUI[3];  //右方敵方資訊
+    [Tooltip("是否顯示右方敵方資訊UI")]
+    public bool isEnemyBattleUI; //是否顯示右方UI
     GameObject NowEnemyPosition;
     public int EnemiesNumber; //敵方總數
 
@@ -85,10 +87,13 @@ public class BattleEnemyController : MonoBehaviour
     /// <param name="EnemyAmount">敵人數量(1~3)</param>
     void SetActiceEnemyBattleUI(int EnemyAmount)
     {
-        for (int i = 0; i < EnemyAmount; i++)
+        if (isEnemyBattleUI == true)
         {
-            enemyBattleUI[i].gameObject.SetActive(true);
+            for (int i = 0; i < EnemyAmount; i++)
+            {
+                enemyBattleUI[i].gameObject.SetActive(true);
 
+            }
         }
     }
 

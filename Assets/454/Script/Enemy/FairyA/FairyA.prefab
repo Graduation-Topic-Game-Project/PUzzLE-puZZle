@@ -44,6 +44,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3558751928119883546, guid: 0715369398bb9ff46b2e8ed8e3cc2bea, type: 3}
+      propertyPath: m_FillAmount
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4001276425440290067, guid: 0715369398bb9ff46b2e8ed8e3cc2bea, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -199,7 +203,7 @@ PrefabInstance:
     - {fileID: 7682352969943483424, guid: 0715369398bb9ff46b2e8ed8e3cc2bea, type: 3}
     - {fileID: 6542674170816723530, guid: 0715369398bb9ff46b2e8ed8e3cc2bea, type: 3}
     m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 3130845693935057064, guid: 0715369398bb9ff46b2e8ed8e3cc2bea, type: 3}
+    - targetCorrespondingSourceObject: {fileID: 4880572691354605769, guid: 0715369398bb9ff46b2e8ed8e3cc2bea, type: 3}
       insertIndex: -1
       addedObject: {fileID: 7681825410518941545}
     m_AddedComponents:
@@ -210,11 +214,6 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 4992961026474123897}
   m_SourcePrefab: {fileID: 100100000, guid: 0715369398bb9ff46b2e8ed8e3cc2bea, type: 3}
---- !u!224 &383531296699278761 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 3130845693935057064, guid: 0715369398bb9ff46b2e8ed8e3cc2bea, type: 3}
-  m_PrefabInstance: {fileID: 3323775532999253249}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1204216587141069802 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4509880757742937835, guid: 0715369398bb9ff46b2e8ed8e3cc2bea, type: 3}
@@ -277,13 +276,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!224 &7897953915019707848 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 4880572691354605769, guid: 0715369398bb9ff46b2e8ed8e3cc2bea, type: 3}
+  m_PrefabInstance: {fileID: 3323775532999253249}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6282128960607343592
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 383531296699278761}
+    m_TransformParent: {fileID: 7897953915019707848}
     m_Modifications:
     - target: {fileID: 2014291353569127628, guid: 5e1f5f32096d41040aa6b81bac14d0cb, type: 3}
       propertyPath: m_Color.a
