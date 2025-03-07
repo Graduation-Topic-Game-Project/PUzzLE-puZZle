@@ -8,7 +8,6 @@ public class MessageTextController : MonoBehaviour
 {
     public TextMeshProUGUI messageText;
 
-    //static MessageTextController @this;
 
     [Header("訊息顯示秒數"), Tooltip("顯示n秒後淡出，淡出時間固定1秒")]
     public int secondsDisplayed;
@@ -25,12 +24,12 @@ public class MessageTextController : MonoBehaviour
     }
 
 
-    void SetColorAlpha(float _alpha, TextMeshProUGUI textObject) //設置文字透明度
+    protected void SetColorAlpha(float _alpha, TextMeshProUGUI textObject) //設置文字透明度
     {
         textObject.color = new Color(textObject.color.r, textObject.color.g, textObject.color.b, _alpha);
     }
 
-    protected virtual IEnumerator SetMessageCoroutine(string messange,int second) //顯示訊息協程
+    protected virtual IEnumerator SetMessageCoroutine(string messange, int second) //顯示訊息協程
     {
         SetColorAlpha(1f, messageText);
         messageText.text = messange;
@@ -44,20 +43,5 @@ public class MessageTextController : MonoBehaviour
         }
         yield return null;
     }
-
-    /*public IEnumerator SetLinkageMessage2s(string messange) //顯示訊息2秒
-    {
-        SetColorAlpha(1f, linkageText);
-        linkageText.text = messange;
-
-        yield return new WaitForSeconds(secondsDisplayed);
-
-        for (float i = 1f; i > 0; i = i - Time.deltaTime) //在1秒內淡出
-        {
-            SetColorAlpha(i, linkageText);
-            yield return new WaitForFixedUpdate();
-        }
-        yield return null;
-    }*/
 
 }
