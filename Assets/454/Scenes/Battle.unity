@@ -17628,7 +17628,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1011842306}
   - component: {fileID: 1011842309}
-  - component: {fileID: 1011842308}
   m_Layer: 5
   m_Name: Messange Text Controller
   m_TagString: Untagged
@@ -17655,21 +17654,6 @@ RectTransform:
   m_AnchoredPosition: {x: -1113.107, y: -547.7837}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1011842308
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1011842305}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9d3f7e9331cdfb7499928f241d6fcc48, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  messageText: {fileID: 1224177106}
-  secondsDisplayed: 2
-  canvasGroup: {fileID: 1344492937}
 --- !u!114 &1011842309
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19102,7 +19086,7 @@ GameObject:
   - component: {fileID: 1224177106}
   - component: {fileID: 1224177109}
   m_Layer: 5
-  m_Name: Text
+  m_Name: Battle Main Message Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -19124,7 +19108,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -705.37, y: -10}
+  m_AnchoredPosition: {x: -705.37, y: -1}
   m_SizeDelta: {x: 0, y: 118.103}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &1224177106
@@ -19360,8 +19344,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 10}
-  m_SizeDelta: {x: 726, y: 20}
+  m_AnchoredPosition: {x: 0, y: 5}
+  m_SizeDelta: {x: 726, y: 10}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1249118046
 MonoBehaviour:
@@ -19376,7 +19360,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.23529412}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -19845,8 +19829,10 @@ GameObject:
   - component: {fileID: 1344492936}
   - component: {fileID: 1344492935}
   - component: {fileID: 1344492937}
+  - component: {fileID: 1344492938}
+  - component: {fileID: 1344492939}
   m_Layer: 5
-  m_Name: Message Text
+  m_Name: Battle Main Message
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -19871,7 +19857,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 362.1701, y: -60.9}
+  m_AnchoredPosition: {x: 362.1701, y: -60.899994}
   m_SizeDelta: {x: 726.34, y: 119.78}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1344492935
@@ -19924,6 +19910,43 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &1344492938
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1344492933}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d3f7e9331cdfb7499928f241d6fcc48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  messageText: {fileID: 1224177106}
+  secondsDisplayed: 2
+  canvasGroup: {fileID: 1344492937}
+  animator: {fileID: 0}
+--- !u!95 &1344492939
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1344492933}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 82f9c5ba4ac84e349b7aabfab674270d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1364278143
 GameObject:
   m_ObjectHideFlags: 0

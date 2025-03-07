@@ -7,15 +7,19 @@ public class BattleMainMessage : MessageTextController
 {
     static BattleMainMessage @this;
 
-    /*[Header("需要淡出的物件")]
-    public Image BgObject; // 需要一起透明化的物件*/
-
     public CanvasGroup canvasGroup;
+    public Animator animator;
 
     private void Awake()
     {
         if (@this == null)
             @this = this;
+
+        if (canvasGroup == null)
+            canvasGroup = GetComponent<CanvasGroup>();
+
+        if (animator == null)
+            animator = GetComponent<Animator>();
 
         messageText.text = "";
         canvasGroup.alpha = 0f;
@@ -25,10 +29,11 @@ public class BattleMainMessage : MessageTextController
     public static void SetMessage(string messange)
     {
         @this.Open_and_SetMessage(messange);
+
+        @this.animator.SetTrigger("In");
     }
 
 
-    #region
     public void SetObjectAlpha(float alpha)
     {
         canvasGroup.alpha = alpha;
@@ -61,6 +66,4 @@ public class BattleMainMessage : MessageTextController
 
         yield return null;
     }
-
-    #endregion
 }
