@@ -17,7 +17,7 @@ MonoBehaviour:
     PartnerTachie: {fileID: 21300000, guid: f2a62aa934cb0d74db409b3ca127686d, type: 3}
     PartnerCuteBattle: {fileID: 21300000, guid: 52ad709aec384b347bf42272f7314506, type: 3}
     _essence: 2
-    partnerAnimation_Attack: {fileID: 0}
+    partnerAnimation_Attack: {fileID: 6594293164146947614, guid: cbd8fdbb644533445ab4dc6581e0ba53, type: 3}
     partnersPuzzle: []
     _level: 1
     _hp: 10
