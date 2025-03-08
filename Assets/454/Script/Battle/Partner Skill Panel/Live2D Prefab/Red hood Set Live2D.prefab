@@ -90,7 +90,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8512701259236730393, guid: 94e8f89b9adf7024580c359178887ea3, type: 3}
       propertyPath: m_Name
-      value: Partner Set Live2D Variant
+      value: Red hood Set Live2D
+      objectReference: {fileID: 0}
+    - target: {fileID: 8838902762301661888, guid: 94e8f89b9adf7024580c359178887ea3, type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
