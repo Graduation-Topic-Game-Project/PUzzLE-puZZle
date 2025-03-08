@@ -16,6 +16,9 @@ public class PartnerData
     /// <summary> 夥伴戰鬥小人 </summary>
     [SerializeField]
     public Sprite PartnerCuteBattle;
+    /// <summary> 夥伴待機動態 </summary>
+    [SerializeField]
+    public PartnerLive2D PartnerSetLive2D;
     /// <summary> 夥伴屬性 </summary>
     [SerializeField]
     EssenceEnum.Essence _essence;

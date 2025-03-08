@@ -18,6 +18,20 @@ MonoBehaviour:
     PartnerCuteBattle: {fileID: 21300000, guid: 52ad709aec384b347bf42272f7314506, type: 3}
     _essence: 2
     partnerAnimation_Attack: {fileID: 6594293164146947614, guid: cbd8fdbb644533445ab4dc6581e0ba53, type: 3}
-    partnersPuzzle: []
+    partnersPuzzle:
+    - _essence: 2
+      _puzzleType: 0
+      _up:
+        _sideEssence: 0
+        _interlocking: 1
+      _down:
+        _sideEssence: 0
+        _interlocking: 1
+      _right:
+        _sideEssence: 2
+        _interlocking: 2
+      _left:
+        _sideEssence: 0
+        _interlocking: 1
     _level: 1
     _hp: 10

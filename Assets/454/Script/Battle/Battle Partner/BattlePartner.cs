@@ -21,7 +21,24 @@ public class BattlePartner : MonoBehaviour
     public TextMeshProUGUI CombatPowerNumber; //衝突戰力值文字
     /// <summary> 動畫生成座標位置 </summary>
     public GameObject animationInstanceTransform;
+    /// <summary> 技能頁面 </summary>
+    public PartnerSkillPanelController partnerSkillPanelController;
 
+    public Button button;
+
+    private void Awake()
+    {
+        if (partnerSkillPanelController == null) //獲取場景上的PartnerSkillPanelController
+        {
+            partnerSkillPanelController = FindObjectOfType<PartnerSkillPanelController>();
+        }
+
+        if (button == null)
+        {
+            button = GetComponent<Button>();
+        }
+        button.onClick.AddListener(Click);
+    }
     private void Start()
     {
         ClearCombatPower();
@@ -51,5 +68,10 @@ public class BattlePartner : MonoBehaviour
     {
         PartnerImage.gameObject.SetActive(openOrClose);
         //ShadowImage.gameObject.SetActive(openOrClose);
+    }
+
+    private void Click() //按鈕執行事件
+    {
+        partnerSkillPanelController.OpenSkillPlane(true);
     }
 }
