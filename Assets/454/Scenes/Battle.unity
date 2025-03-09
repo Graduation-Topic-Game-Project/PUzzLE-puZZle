@@ -21484,7 +21484,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 9, y: 774}
+  m_AnchoredPosition: {x: 9, y: 783}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1403464546
@@ -22529,7 +22529,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1486640070
 RectTransform:
   m_ObjectHideFlags: 0
@@ -22769,37 +22769,13 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1486640070}
     m_Modifications:
-    - target: {fileID: 1844023671746951195, guid: 6e36b70bcc5985c4fbbac7f42e98f990, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 1894.46
-      objectReference: {fileID: 0}
-    - target: {fileID: 1844023671746951195, guid: 6e36b70bcc5985c4fbbac7f42e98f990, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 724.06
-      objectReference: {fileID: 0}
-    - target: {fileID: 2856588470924008205, guid: 6e36b70bcc5985c4fbbac7f42e98f990, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 75
-      objectReference: {fileID: 0}
-    - target: {fileID: 2856588470924008205, guid: 6e36b70bcc5985c4fbbac7f42e98f990, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 75
-      objectReference: {fileID: 0}
-    - target: {fileID: 2856588470924008205, guid: 6e36b70bcc5985c4fbbac7f42e98f990, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 75
-      objectReference: {fileID: 0}
-    - target: {fileID: 2856588470924008205, guid: 6e36b70bcc5985c4fbbac7f42e98f990, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -925
-      objectReference: {fileID: 0}
-    - target: {fileID: 2856588470924008205, guid: 6e36b70bcc5985c4fbbac7f42e98f990, type: 3}
-      propertyPath: m_ConstrainProportionsScale
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6607488195269082268, guid: 6e36b70bcc5985c4fbbac7f42e98f990, type: 3}
       propertyPath: m_Name
       value: Syzygy Skill Live2D
+      objectReference: {fileID: 0}
+    - target: {fileID: 6607488195269082268, guid: 6e36b70bcc5985c4fbbac7f42e98f990, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8265364400791197709, guid: 6e36b70bcc5985c4fbbac7f42e98f990, type: 3}
       propertyPath: m_Pivot.x
@@ -24306,10 +24282,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1486640070}
     m_Modifications:
-    - target: {fileID: 5062631107017893559, guid: 0fbe1155b1bcb96419398a74a4c39a25, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: 5731966215466819937, guid: 0fbe1155b1bcb96419398a74a4c39a25, type: 3}
       propertyPath: m_Mesh
       value: 
