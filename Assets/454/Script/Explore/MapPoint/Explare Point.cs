@@ -14,6 +14,7 @@ public class ExplorePoint : MapPoint
     public Sprite BattleSprite;
     public Sprite EvenSprite;
     public Sprite AwardSprite;
+    public Sprite RestSprite;
 
 
 
@@ -38,6 +39,9 @@ public class ExplorePoint : MapPoint
             case ExploreType.Award_贱纘:
                 ExplarePointImage.sprite = AwardSprite;
                 break;
+            case ExploreType.Rest_ヰ就:
+                ExplarePointImage.sprite = RestSprite;
+                break;
         }
     }
 
@@ -59,6 +63,9 @@ public class ExplorePoint : MapPoint
             case ExploreType.Award_贱纘:
                 Debug.Log("贱纘");
                 break;
+            case ExploreType.Rest_ヰ就:
+                Debug.Log("ヰ就");
+                break;
         }
     }
 
@@ -73,5 +80,6 @@ public class ExplorePoint : MapPoint
         Battle_驹矮 = 1,
         Event_ㄆン = 2,
         Award_贱纘 = 3,
+        Rest_ヰ就 = 4,
     }
 }

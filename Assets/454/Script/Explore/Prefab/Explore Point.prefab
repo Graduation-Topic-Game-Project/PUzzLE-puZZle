@@ -141,6 +141,7 @@ MonoBehaviour:
   BattleSprite: {fileID: 21300000, guid: c91aff806c622c24a88dfd7a271102b9, type: 3}
   EvenSprite: {fileID: 21300000, guid: 691e5815ac346394dad7b9a70352abd5, type: 3}
   AwardSprite: {fileID: 21300000, guid: 11c9ef824595814419750cc8b96f2e68, type: 3}
+  RestSprite: {fileID: 21300000, guid: 62dcc75b981113d48b41f8d67d7528e5, type: 3}
 --- !u!1 &846464541936709749
 GameObject:
   m_ObjectHideFlags: 0
