@@ -137,7 +137,7 @@ public class BattleConfrontationController : MonoBehaviour
                     BattleMainMessage.SetMessage($"ендт!");
                 }
 
-                yield return new WaitForSeconds(0.5f);
+                yield return new WaitForSeconds(0.2f);
                 ///********
             }
             yield return new WaitForSeconds(0.5f);

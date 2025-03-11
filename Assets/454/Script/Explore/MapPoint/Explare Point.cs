@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;//<--重要
+using System;
 
 public class ExplorePoint : MapPoint
 {
@@ -16,14 +17,18 @@ public class ExplorePoint : MapPoint
     public Sprite AwardSprite;
     public Sprite RestSprite;
 
-
+    protected override void Awake()
+    {
+        base.Awake();
+        RandomMapPointEvent();
+    }
 
     protected override void Click()
     {
         base.Click();
     }
 
-    private void Start()
+    void Start()
     {
         switch (exploreType)
         {
@@ -65,6 +70,27 @@ public class ExplorePoint : MapPoint
                 break;
             case ExploreType.Rest_休憩:
                 Debug.Log("休憩");
+                break;
+        }
+    }
+
+    public void RandomMapPointEvent()
+    {
+        int rd = UnityEngine.Random.Range(1, Enum.GetValues(typeof(ExploreType)).Length + 1);
+
+        switch (rd)
+        {
+            case 1:
+                exploreType = ExploreType.Battle_戰鬥;
+                break;
+            case 2:
+                exploreType = ExploreType.Event_事件;
+                break;
+            case 3:
+                exploreType = ExploreType.Award_獎勵;
+                break;
+            case 4:
+                exploreType = ExploreType.Rest_休憩;
                 break;
         }
     }

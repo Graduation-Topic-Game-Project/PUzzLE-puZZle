@@ -9,7 +9,9 @@ public class MapPoint : MonoBehaviour
 
     public (int, int) PointTrasform;
 
-    private void Awake()
+    public int x, y;
+
+    protected virtual void Awake()
     {
         button = GetComponent<Button>();
         button.onClick.AddListener(Click);
@@ -41,5 +43,10 @@ public class MapPoint : MonoBehaviour
     public virtual void MapPointEvent()
     {
 
+    }
+
+    public void TestXY()
+    {
+        (x, y) = (PointTrasform.Item1, PointTrasform.Item2);
     }
 }

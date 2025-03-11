@@ -1,11 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ExploreMapController : MonoBehaviour
 {
     [Header("探索關卡資料")]
-    public ExploreInformation exploreInformation; 
+    public ExploreInformation exploreInformation;
 
     public GameObject ExploreLayersGameObject; //事件層Prefab物件
     public GameObject PathLayersGameObject; //道路層Prefab物件
@@ -16,6 +17,7 @@ public class ExploreMapController : MonoBehaviour
     public GameObject player; //玩家物件
     public (int, int) PlayerTransform; //玩家位置
     public GameObject ScrollPanel;
+    public ScrollRect scrollRect;
 
     /// <summary>是否可互動探索地圖</summary>
     static public bool isCanClickExploreMapUI; //是否可互動探索地圖
@@ -41,6 +43,8 @@ public class ExploreMapController : MonoBehaviour
     private void Update()
     {
         ExplorePlayerProgress.Instance.SetScrollPanelTransform(ScrollPanel.transform.position);
+
+        //ScrollRectUseSwitch();
     }
 
     private void PlayerSetProgress() //將玩家資料依儲存資料來設置
@@ -66,7 +70,7 @@ public class ExploreMapController : MonoBehaviour
             Debug.Log("回到起點");
         }
 
- 
+
     }
 
     /// <summary>
@@ -83,6 +87,7 @@ public class ExploreMapController : MonoBehaviour
                 ExplorePoints[i, j] = ExploreLayersGameObject.transform.GetChild(i).transform.GetChild(j).gameObject.GetComponent<ExplorePoint>();
                 //Debug.Log(ExplorePoints[i, j]);
                 ExplorePoints[i, j].PointTrasform = (ExplorePointTransformX, j);
+                ExplorePoints[i, j].TestXY();
             }
 
             ExplorePointTransformX = ExplorePointTransformX + 2;
@@ -100,10 +105,20 @@ public class ExploreMapController : MonoBehaviour
             for (int j = 0; j < 3; j++)
             {
                 PathPoints[i, j] = PathLayersGameObject.transform.GetChild(i).GetComponent<PathLayer>().GetPathPoints(j);
+                //PathPoints[i, j].Get
                 PathPoints[i, j].PointTrasform = (PathPointTransformX, j);
+                PathPoints[i, j].TestXY();
             }
 
             PathPointTransformX = PathPointTransformX + 2;
         }
+    }
+
+    /// <summary>
+    /// ScrollRect開關
+    /// </summary>
+    public void ScrollRectUseSwitch()
+    {
+        scrollRect.enabled = isCanClickExploreMapUI;
     }
 }

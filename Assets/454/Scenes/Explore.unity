@@ -157,6 +157,7 @@ MonoBehaviour:
   PathLayersGameObject: {fileID: 74861418}
   player: {fileID: 3520355688351327192}
   ScrollPanel: {fileID: 263449194}
+  scrollRect: {fileID: 1275327042}
 --- !u!4 &35215065
 Transform:
   m_ObjectHideFlags: 0
@@ -1128,6 +1129,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 74861419}
     m_Modifications:
+    - target: {fileID: 634857098604517476, guid: bbce9640b86790145a43db2acc9c1245, type: 3}
+      propertyPath: exploreMapController
+      value: 
+      objectReference: {fileID: 35215064}
     - target: {fileID: 4120441468270472931, guid: bbce9640b86790145a43db2acc9c1245, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -2463,6 +2468,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 74861419}
     m_Modifications:
+    - target: {fileID: 634857098604517476, guid: bbce9640b86790145a43db2acc9c1245, type: 3}
+      propertyPath: exploreMapController
+      value: 
+      objectReference: {fileID: 35215064}
     - target: {fileID: 4120441468270472931, guid: bbce9640b86790145a43db2acc9c1245, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -2601,6 +2610,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 74861419}
     m_Modifications:
+    - target: {fileID: 634857098604517476, guid: bbce9640b86790145a43db2acc9c1245, type: 3}
+      propertyPath: exploreMapController
+      value: 
+      objectReference: {fileID: 35215064}
     - target: {fileID: 4120441468270472931, guid: bbce9640b86790145a43db2acc9c1245, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -3015,6 +3028,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 74861419}
     m_Modifications:
+    - target: {fileID: 634857098604517476, guid: bbce9640b86790145a43db2acc9c1245, type: 3}
+      propertyPath: exploreMapController
+      value: 
+      objectReference: {fileID: 35215064}
     - target: {fileID: 4120441468270472931, guid: bbce9640b86790145a43db2acc9c1245, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
