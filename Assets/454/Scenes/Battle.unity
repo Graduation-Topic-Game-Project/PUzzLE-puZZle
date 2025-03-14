@@ -2597,7 +2597,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10308, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 619428a11595186458f07cd8e64db4a9, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2732,8 +2732,8 @@ ParticleSystem:
     enabled: 1
     startLifetime:
       serializedVersion: 2
-      minMaxState: 0
-      scalar: 5
+      minMaxState: 3
+      scalar: 2
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -2786,7 +2786,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 2
+      scalar: 0.15
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -2840,7 +2840,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 0.23905066, g: 0.23728724, b: 0.6075471, a: 1}
+      maxColor: {r: 1, g: 0.9130744, b: 0.49622637, a: 0.7058824}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -3220,7 +3220,7 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     randomizeRotationDirection: 0
-    gravitySource: 0
+    gravitySource: 1
     maxNumParticles: 1000
     customEmitterVelocity: {x: 0, y: 0, z: 0}
     size3D: 0
@@ -3281,7 +3281,7 @@ ParticleSystem:
   ShapeModule:
     serializedVersion: 6
     enabled: 1
-    type: 4
+    type: 17
     angle: 1.36
     length: 5
     boxThickness: {x: 0, y: 0, z: 0}
@@ -3487,7 +3487,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 10
+      scalar: 5
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -12829,7 +12829,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10308, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: dfa39bb15131d824b8563233c0828d74, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -27285,11 +27285,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1007965359853012859, guid: cbd8fdbb644533445ab4dc6581e0ba53, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: -202
       objectReference: {fileID: 0}
     - target: {fileID: 1007965359853012859, guid: cbd8fdbb644533445ab4dc6581e0ba53, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -50
+      value: 264
       objectReference: {fileID: 0}
     - target: {fileID: 1007965359853012859, guid: cbd8fdbb644533445ab4dc6581e0ba53, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -27303,13 +27303,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1043104408828980970, guid: cbd8fdbb644533445ab4dc6581e0ba53, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8057207648282420843, guid: cbd8fdbb644533445ab4dc6581e0ba53, type: 3}
       propertyPath: m_Name
       value: Syzygy Attatck
       objectReference: {fileID: 0}
     - target: {fileID: 8057207648282420843, guid: cbd8fdbb644533445ab4dc6581e0ba53, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -27407,6 +27411,10 @@ PrefabInstance:
     - target: {fileID: 6517369957822636807, guid: 5c5f3f3be2d6c7347902b94ec5afd520, type: 3}
       propertyPath: m_Name
       value: R.H Attack Test
+      objectReference: {fileID: 0}
+    - target: {fileID: 6517369957822636807, guid: 5c5f3f3be2d6c7347902b94ec5afd520, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
