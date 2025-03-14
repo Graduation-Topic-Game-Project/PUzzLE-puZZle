@@ -33,7 +33,7 @@ public class BattleAnimationController : MonoBehaviour
         nowAnimation = Instantiate(battlePartner.partner.partnerData.partnerAnimation_Attack,
             battlePartner.PartnerImage.transform.position,
             Quaternion.identity,
-            AnimationInstanceObject.transform);
+            battlePartner.animationInstanceTransform.transform);
 
         yield return null;
 

@@ -14,6 +14,7 @@ public class EditPuzzleUI : MonoBehaviour
     public TextMeshProUGUI RightRotateCostText;
     public TextMeshProUGUI LeftRotateCostText;
     public TextMeshProUGUI DestoryCostText;
+    public TextMeshProUGUI InspirationText;
 
     public bool isOpen;
 
@@ -37,6 +38,7 @@ public class EditPuzzleUI : MonoBehaviour
         RightRotateCostText.text = editPuzzleController.rightRotateCost.ToString();
         LeftRotateCostText.text = editPuzzleController.leftRotateCost.ToString();
         DestoryCostText.text = editPuzzleController.destoryCost.ToString();
+        InspirationText.text = editPuzzleController.inspirationController.Inspiration.ToString();
     }
 
 

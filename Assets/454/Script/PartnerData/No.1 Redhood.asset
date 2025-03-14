@@ -16,9 +16,9 @@ MonoBehaviour:
     _partnerName: Red hood
     PartnerTachie: {fileID: 21300000, guid: e79338a4ae1bb664d8de1d905ca487ca, type: 3}
     PartnerCuteBattle: {fileID: 21300000, guid: 6de54af1d81b8dc44a33584b868d4129, type: 3}
-    PartnerSetLive2D: {fileID: 8245182752387598513, guid: 0fbe1155b1bcb96419398a74a4c39a25, type: 3}
+    PartnerSetLive2D: {fileID: 4849889403419768083, guid: 508f0fc5aa997ce459a6649a0e0b5bdb, type: 3}
     _essence: 1
-    partnerAnimation_Attack: {fileID: 0}
+    partnerAnimation_Attack: {fileID: 7935633266030080882, guid: 5c5f3f3be2d6c7347902b94ec5afd520, type: 3}
     partnersPuzzle:
     - _essence: 1
       _puzzleType: 2
