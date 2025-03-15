@@ -2840,7 +2840,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 1, g: 0.9130744, b: 0.49622637, a: 0.7058824}
+      maxColor: {r: 0.14328934, g: 0.24269348, b: 0.6603774, a: 0.7058824}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -3281,7 +3281,7 @@ ParticleSystem:
   ShapeModule:
     serializedVersion: 6
     enabled: 1
-    type: 17
+    type: 4
     angle: 1.36
     length: 5
     boxThickness: {x: 0, y: 0, z: 0}
@@ -11905,8 +11905,8 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 460228845}
-  - {fileID: 106751908}
   - {fileID: 999070905}
+  - {fileID: 106751908}
   - {fileID: 1738271572}
   m_Father: {fileID: 756645075}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -27313,7 +27313,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8057207648282420843, guid: cbd8fdbb644533445ab4dc6581e0ba53, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
