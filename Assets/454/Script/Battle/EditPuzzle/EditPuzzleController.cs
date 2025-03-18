@@ -10,9 +10,9 @@ public class EditPuzzleController : MonoBehaviour
     public EditPuzzle_SpecifyPuzzle editPuzzle_SpecifyPuzzle;
     public InspirationController inspirationController;
 
-    public int rightRotateCost; //旋轉消耗靈感值
+    public int rightRotateCost; //旋轉消耗靈感值，預設-1
     public int leftRotateCost;
-    public int destoryCost;
+    public int destoryCost; //刷新消耗靈感值，預設-1
 
     private void Awake()
     {
@@ -135,7 +135,7 @@ public class EditPuzzleController : MonoBehaviour
         leftRotateCost--; //每次旋轉消耗+1
     }
 
-    public void DestoryPuzzle()
+    public void DestoryOnePuzzle()
     {
         int i = puzzleMasterController.SpecifyPuzzleNumber; //目前選擇的備戰區編號
         if (i < 0 || i > 5)
@@ -150,10 +150,27 @@ public class EditPuzzleController : MonoBehaviour
             return;
         }
 
-        inspirationController.Inspiration += destoryCost;
+        inspirationController.Inspiration += destoryCost;  //消耗靈感值
 
         PuzzleData newPuzzledata = puzzleLibrary.puzzlePreparations[i];
         puzzleLibrary.RemovePlacedPuzzle(i);
+
+        puzzleLibrary.ResetAllPreparationToNoSpecifying(); //重製所有備戰區為非選擇
+        editPuzzle_SpecifyPuzzle.UpdateSpecifyPuzzleImage(); //更新編輯介面拼圖圖片
+
+        destoryCost--; //每次破壞消耗+1
+    }
+
+    public void DestoryAllPuzzle()
+    {
+        if (inspirationController.Inspiration + destoryCost < 0) //若靈感值不足
+        {
+            BattleMainMessage.SetMessage("靈感值不足，無法破壞");
+            return;
+        }
+        inspirationController.Inspiration += destoryCost;  //消耗靈感值
+
+        puzzleLibrary.Load_All_Preparation();
 
         puzzleLibrary.ResetAllPreparationToNoSpecifying(); //重製所有備戰區為非選擇
         editPuzzle_SpecifyPuzzle.UpdateSpecifyPuzzleImage(); //更新編輯介面拼圖圖片

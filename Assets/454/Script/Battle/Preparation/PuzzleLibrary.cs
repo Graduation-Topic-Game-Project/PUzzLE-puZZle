@@ -135,6 +135,11 @@ public class PuzzleLibrary : MonoBehaviour
         }
         UpdatePreparationPuzzle(this, EventArgs.Empty);
     }
+    public void Load_All_Preparation()
+    {
+        Load_All_Preparation(this, EventArgs.Empty);
+    }
+
 
     /// <summary>
     /// 在放置後移除並刷新第number個備戰區
