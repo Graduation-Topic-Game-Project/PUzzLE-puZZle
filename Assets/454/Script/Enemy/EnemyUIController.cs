@@ -42,7 +42,6 @@ public class EnemyUIController : MonoBehaviour
     {
         EnemyImage.sprite = _enemy.EnemyImage;
         ClearCombatPower();
-
     }
 
     void Update()
