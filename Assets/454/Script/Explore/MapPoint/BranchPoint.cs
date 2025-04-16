@@ -16,13 +16,9 @@ public class BranchPoint : MonoBehaviour
 
     private void Awake()
     {
-        isHaveRoad = false;
-
-        int rd = Random.Range(0, 5);
-
-        if (rd == 0)
+        if (ExplorePlayerProgress.Instance == null)
         {
-            isHaveRoad = true;
+            RandomBranch();
         }
 
     }
@@ -31,5 +27,19 @@ public class BranchPoint : MonoBehaviour
     void Update()
     {
         RoadImage.gameObject.SetActive(isHaveRoad);
+    }
+
+    /// <summary> 隨機生成岔路 </summary>
+    public void RandomBranch() //隨機生成岔路
+    {
+        isHaveRoad = false;
+
+        int rd = Random.Range(0, 5); //20% 出現岔路
+
+        if (rd == 0)
+        {
+            isHaveRoad = true;
+        }
+
     }
 }

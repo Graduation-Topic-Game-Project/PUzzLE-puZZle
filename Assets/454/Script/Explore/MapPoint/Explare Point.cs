@@ -20,7 +20,11 @@ public class ExplorePoint : MapPoint
     protected override void Awake()
     {
         base.Awake();
-        RandomMapPointEvent();
+
+        if (ExplorePlayerProgress.Instance == null)
+        {
+            RandomMapPointEvent();
+        }
     }
 
     protected override void Click()
@@ -74,22 +78,24 @@ public class ExplorePoint : MapPoint
         }
     }
 
+    int[] RandomMapPointProbability = new int[] { 40, 20, 20, 20 }; //出現戰鬥機率(40%)，其餘20@
     public void RandomMapPointEvent()
     {
-        int rd = UnityEngine.Random.Range(1, Enum.GetValues(typeof(ExploreType)).Length + 1);
+        //int rd = UnityEngine.Random.Range(1, Enum.GetValues(typeof(ExploreType)).Length + 1);
+        int rd = GetRandow.Randow(RandomMapPointProbability);
 
         switch (rd)
         {
-            case 1:
+            case 0:
                 exploreType = ExploreType.Battle_戰鬥;
                 break;
-            case 2:
+            case 1:
                 exploreType = ExploreType.Event_事件;
                 break;
-            case 3:
+            case 2:
                 exploreType = ExploreType.Award_獎勵;
                 break;
-            case 4:
+            case 3:
                 exploreType = ExploreType.Rest_休憩;
                 break;
         }

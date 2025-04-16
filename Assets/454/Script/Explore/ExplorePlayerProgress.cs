@@ -28,6 +28,7 @@ public class ExplorePlayerProgress : MonoBehaviour //探索地圖玩家進度
         PlayerGameObjectPosition = new Vector3(0, -400, 0);
     }
 
+    #region 儲存玩家的座標
     /// <summary>
     /// 儲存玩家的座標 (int, int) (第幾行, 左邊數來第幾個)
     /// </summary>
@@ -37,7 +38,7 @@ public class ExplorePlayerProgress : MonoBehaviour //探索地圖玩家進度
     public void SetPlayerTransform((int, int) Transform)
     {
         PlayerTransform = (Transform);
-       // Debug.Log($"PlayerTransform updated to: ({Transform})");
+        // Debug.Log($"PlayerTransform updated to: ({Transform})");
     }
 
     // 取得玩家的座標
@@ -45,7 +46,9 @@ public class ExplorePlayerProgress : MonoBehaviour //探索地圖玩家進度
     {
         return PlayerTransform;
     }
+    #endregion
 
+    #region 儲存玩家物件位置
     // 儲存玩家物件位置
     public Vector3 PlayerGameObjectPosition { get; private set; }
 
@@ -61,14 +64,16 @@ public class ExplorePlayerProgress : MonoBehaviour //探索地圖玩家進度
     {
         return PlayerGameObjectPosition;
     }
+    #endregion
 
+    #region 儲存ScrollPanel位置
     // 儲存ScrollPanel位置
     public Vector3 ScrollPanelTransform { get; private set; }
 
     // 
     public void SetScrollPanelTransform(Vector3 transform)
     {
-        ScrollPanelTransform = (transform);      
+        ScrollPanelTransform = (transform);
     }
 
     // 
@@ -76,4 +81,5 @@ public class ExplorePlayerProgress : MonoBehaviour //探索地圖玩家進度
     {
         return ScrollPanelTransform;
     }
+    #endregion
 }

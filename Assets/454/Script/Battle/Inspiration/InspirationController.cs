@@ -17,6 +17,8 @@ public class InspirationController : MonoBehaviour
             battleGameController = FindObjectOfType<BattleGameController>();
         }
         battleGameController.Event_BattleStart += ResetInspiration;
+
+        battleGameController.Event_EndTurn += Increase_Inspiration_to_ActionValue;
     }
 
 
@@ -24,5 +26,11 @@ public class InspirationController : MonoBehaviour
     public void ResetInspiration(object sender, EventArgs e)
     {
         Inspiration = defaultInspirationValue;
+    }
+
+    /// <summary> 依行動值增加靈感值</summary>
+    public void Increase_Inspiration_to_ActionValue(object sender, EventArgs e)
+    {
+        Inspiration = Inspiration + ActionPoint_Controller.ActionPoint;
     }
 }

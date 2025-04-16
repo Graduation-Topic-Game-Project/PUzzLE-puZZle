@@ -9,7 +9,7 @@ public class MapPoint : MonoBehaviour
 
     public (int, int) PointTrasform;
 
-    public int x, y;
+    public int x, y; //測試顯示用，以PointTrasform為主
 
     protected virtual void Awake()
     {
@@ -47,6 +47,7 @@ public class MapPoint : MonoBehaviour
 
     public void TestXY()
     {
+        //測試顯示用，以PointTrasform為主
         (x, y) = (PointTrasform.Item1, PointTrasform.Item2);
     }
 }

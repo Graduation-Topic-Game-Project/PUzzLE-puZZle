@@ -194,6 +194,7 @@ GameObject:
   - component: {fileID: 6583670523177474956}
   - component: {fileID: 7398623938254143941}
   - component: {fileID: 7574244947984229699}
+  - component: {fileID: 9182039558713291226}
   - component: {fileID: 5054920976713386135}
   m_Layer: 5
   m_Name: Puzzle_grid
@@ -274,6 +275,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _puzzleGridNumber: 0000000000000000
+--- !u!114 &9182039558713291226
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4152035917846862657}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61c6b1cbf2b963742a07f31593fe631f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  puzzleDragController: {fileID: 0}
+  PuzzleGrid: {fileID: 7574244947984229699}
 --- !u!114 &5054920976713386135
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -37,7 +37,7 @@ public class EditPuzzleUI : MonoBehaviour
     {
         RightRotateCostText.text = editPuzzleController.rightRotateCost.ToString();
         LeftRotateCostText.text = editPuzzleController.leftRotateCost.ToString();
-        DestoryCostText.text = editPuzzleController.destoryCost.ToString();
+        DestoryCostText.text = editPuzzleController.resetCost.ToString();
         InspirationText.text = editPuzzleController.inspirationController.Inspiration.ToString();
     }
 

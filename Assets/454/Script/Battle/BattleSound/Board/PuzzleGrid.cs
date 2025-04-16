@@ -29,7 +29,7 @@ public class PuzzleGrid : MonoBehaviour
         button.onClick.AddListener(ClickPuzzleGrid);
     }
 
-    private void ClickPuzzleGrid()
+    public void ClickPuzzleGrid()
     {
         //Debug.Log("ClickPuzzleGrid");
         ClickPuzzleGridBotton?.Invoke(_puzzleGridNumber[0], _puzzleGridNumber[1]);
