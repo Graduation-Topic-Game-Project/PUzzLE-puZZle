@@ -30,7 +30,14 @@ public class ActionPoint_Controller : MonoBehaviour
         battleGameController.Event_PuzzlePlaceCompleted += this.PuzzlePlaceCompleted_ActionPoint; //放置拼圖後減少行動值
         battleGameController.Event_StartTurn += this.Reset_ActionPoint; //回合開始重製行動值
         Reset_ActionPoint(this, EventArgs.Empty); //將行動值提升至最大值
+    }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown("b"))
+        {
+            ActionPoint = 6;
+        }
     }
 
     /// <summary>
