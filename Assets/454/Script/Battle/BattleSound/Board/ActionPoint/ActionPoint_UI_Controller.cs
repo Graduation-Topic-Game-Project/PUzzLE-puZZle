@@ -26,7 +26,7 @@ public class ActionPoint_UI_Controller : MonoBehaviour
             battleGameController = FindObjectOfType<BattleGameController>();
         }
 
-        battleGameController.Event_PuzzlePlaceCompleted += ShowActionPoint;
+        battleGameController.Event_PuzzlePlaceCompleted += ShowActionPoint; //放置拼圖時，顯示行動值
     }
 
     void Start()
@@ -50,6 +50,7 @@ public class ActionPoint_UI_Controller : MonoBehaviour
         NowSetCoroutine = StartCoroutine(ShowActionPoint_Coroutine());
     }
 
+    /// <summary> 顯示行動值 </summary>
     public void ShowActionPoint(object sender, EventArgs e)
     {
         ShowActionPoint();

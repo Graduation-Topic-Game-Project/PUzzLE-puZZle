@@ -10,6 +10,7 @@ using UnityEngine.EventSystems;
 public class ActionPoint_Controller : MonoBehaviour
 {
     public BattleGameController battleGameController;
+    public EndTurnController endTurnController;
 
     [SerializeField]
     static public int ActionPoint; //行動值
@@ -20,6 +21,10 @@ public class ActionPoint_Controller : MonoBehaviour
         if (battleGameController == null) //獲取場景上的BattleGameController
         {
             battleGameController = FindObjectOfType<BattleGameController>();
+        }
+        if (endTurnController == null) //獲取場景上的EndTurnController
+        {
+            endTurnController = FindObjectOfType<EndTurnController>();
         }
 
         battleGameController.Event_PuzzlePlaceCompleted += this.PuzzlePlaceCompleted_ActionPoint; //放置拼圖後減少行動值
@@ -34,6 +39,11 @@ public class ActionPoint_Controller : MonoBehaviour
     void PuzzlePlaceCompleted_ActionPoint(object sender, EventArgs e)
     {
         ActionPoint--;
+        //檢查是否無行動值
+        if(ActionPoint == 0)
+        {
+            endTurnController.StartEndTurn();
+        }
     }
 
     /// <summary>
