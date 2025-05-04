@@ -195,11 +195,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3642794270762063608, guid: c15e18ce6a43a424985616f4afba7aca, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 134.55
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3642794270762063608, guid: c15e18ce6a43a424985616f4afba7aca, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 130.01
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3642794270762063608, guid: c15e18ce6a43a424985616f4afba7aca, type: 3}
       propertyPath: m_LocalRotation.w
@@ -327,11 +327,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7561817752773169580, guid: c15e18ce6a43a424985616f4afba7aca, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 327.66
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7561817752773169580, guid: c15e18ce6a43a424985616f4afba7aca, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 234.38
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7561817752773169580, guid: c15e18ce6a43a424985616f4afba7aca, type: 3}
       propertyPath: m_LocalRotation.w
@@ -3258,7 +3258,7 @@ RectTransform:
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
   m_AnchoredPosition: {x: -118.960144, y: 0.6927681}
-  m_SizeDelta: {x: 97.99, y: 111.33}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &292637609
 MonoBehaviour:
@@ -10276,7 +10276,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: -59.955017, y: -0.000015258789}
-  m_SizeDelta: {x: -52.9, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!114 &496561130
 MonoBehaviour:
@@ -21078,7 +21078,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   puzzleMasterController: {fileID: 683618075}
   puzzleLibrary: {fileID: 683618068}
+  editPuzzleUI: {fileID: 1094598042}
   editPuzzle_SpecifyPuzzle: {fileID: 1466954846}
+  editPuzzle_DestoryPuzzle: {fileID: 2026811468}
   inspirationController: {fileID: 843403868}
   rightRotateCost: 0
   leftRotateCost: 0
@@ -23097,7 +23099,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 80.38, y: 160.88}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1275141146
 MonoBehaviour:
@@ -29530,7 +29532,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -12, y: -0.000011444092}
-  m_SizeDelta: {x: 59.6, y: 296}
+  m_SizeDelta: {x: 0, y: 296}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &2063992151
 MonoBehaviour:
@@ -29884,7 +29886,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2083039271
 RectTransform:
   m_ObjectHideFlags: 0
@@ -30096,7 +30098,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2120975192
 RectTransform:
   m_ObjectHideFlags: 0
@@ -31332,23 +31334,23 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 962180380886707924, guid: 1d64d3ac469f7e147b24218e2cd3b906, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 962180380886707924, guid: 1d64d3ac469f7e147b24218e2cd3b906, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2608141522039840337, guid: 1d64d3ac469f7e147b24218e2cd3b906, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 2608141522039840337, guid: 1d64d3ac469f7e147b24218e2cd3b906, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2608141522039840337, guid: 1d64d3ac469f7e147b24218e2cd3b906, type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 3051535759306335979, guid: 1d64d3ac469f7e147b24218e2cd3b906, type: 3}
       propertyPath: m_Name
@@ -31356,23 +31358,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5814834358954384505, guid: 1d64d3ac469f7e147b24218e2cd3b906, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 5814834358954384505, guid: 1d64d3ac469f7e147b24218e2cd3b906, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5814834358954384505, guid: 1d64d3ac469f7e147b24218e2cd3b906, type: 3}
       propertyPath: m_AnchorMin.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8231279105482714875, guid: 1d64d3ac469f7e147b24218e2cd3b906, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8368343217898446024, guid: 1d64d3ac469f7e147b24218e2cd3b906, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8780279960809893116, guid: 1d64d3ac469f7e147b24218e2cd3b906, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 8780279960809893116, guid: 1d64d3ac469f7e147b24218e2cd3b906, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8922974383437430036, guid: 1d64d3ac469f7e147b24218e2cd3b906, type: 3}
       propertyPath: m_Pivot.x
@@ -32211,11 +32221,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3642794270762063608, guid: c15e18ce6a43a424985616f4afba7aca, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 134.55
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3642794270762063608, guid: c15e18ce6a43a424985616f4afba7aca, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 130.01
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4316082321749306007, guid: c15e18ce6a43a424985616f4afba7aca, type: 3}
       propertyPath: m_Color.b
@@ -32343,11 +32353,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7561817752773169580, guid: c15e18ce6a43a424985616f4afba7aca, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 327.66
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7561817752773169580, guid: c15e18ce6a43a424985616f4afba7aca, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 234.38
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

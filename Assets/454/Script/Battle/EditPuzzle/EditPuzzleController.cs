@@ -7,8 +7,11 @@ public class EditPuzzleController : MonoBehaviour
 {
     public PuzzleMasterController puzzleMasterController;
     public PuzzleLibrary puzzleLibrary;
+    public EditPuzzleUI editPuzzleUI;
     public EditPuzzle_SpecifyPuzzle editPuzzle_SpecifyPuzzle;
+    public EditPuzzle_DestoryPuzzle editPuzzle_DestoryPuzzle;
     public InspirationController inspirationController;
+
 
     public int rightRotateCost; //旋轉消耗靈感值，預設-1
     public int leftRotateCost;
@@ -24,9 +27,17 @@ public class EditPuzzleController : MonoBehaviour
         {
             puzzleMasterController = FindObjectOfType<PuzzleMasterController>();
         }
+        if (editPuzzleUI == null) //獲取場景上的EditPuzzleUI
+        {
+            editPuzzleUI = FindObjectOfType<EditPuzzleUI>();
+        }
         if (editPuzzle_SpecifyPuzzle == null) //獲取場景上的EditPuzzle_SpecifyPuzzle
         {
             editPuzzle_SpecifyPuzzle = FindObjectOfType<EditPuzzle_SpecifyPuzzle>();
+        }
+        if (editPuzzle_DestoryPuzzle == null) //獲取場景上的EditPuzzle_DestoryPuzzle
+        {
+            editPuzzle_DestoryPuzzle = FindObjectOfType<EditPuzzle_DestoryPuzzle>();
         }
         if (inspirationController == null) //獲取場景上的InspirationController
         {
@@ -159,6 +170,9 @@ public class EditPuzzleController : MonoBehaviour
         editPuzzle_SpecifyPuzzle.UpdateSpecifyPuzzleImage(); //更新編輯介面拼圖圖片
 
         resetCost--; //每次破壞消耗+1
+
+        editPuzzle_DestoryPuzzle.DestoryPlaneSwitch(false); //關閉重置拼圖介面
+        editPuzzleUI.InterfaceOpenAndClose(); //關閉編輯拼圖介面
     }
 
     public void ResetAllPuzzle()
@@ -176,5 +190,9 @@ public class EditPuzzleController : MonoBehaviour
         editPuzzle_SpecifyPuzzle.UpdateSpecifyPuzzleImage(); //更新編輯介面拼圖圖片
 
         resetCost--; //每次破壞消耗+1
+
+        editPuzzle_DestoryPuzzle.DestoryPlaneSwitch(false); //關閉重置拼圖介面
+        editPuzzleUI.InterfaceOpenAndClose(); //關閉編輯拼圖介面
+
     }
 }
