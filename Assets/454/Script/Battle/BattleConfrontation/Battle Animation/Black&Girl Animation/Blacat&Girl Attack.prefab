@@ -34,8 +34,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 203.8, y: 0}
-  m_SizeDelta: {x: 245.75, y: 260.94}
+  m_AnchoredPosition: {x: 255.58882, y: 0}
+  m_SizeDelta: {x: 401.3383, y: 426.1453}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &9031245238809287537
 CanvasRenderer:
@@ -110,7 +110,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 122, y: 0}
-  m_SizeDelta: {x: 249.48, y: 264.59}
+  m_SizeDelta: {x: 407.4298, y: 432.1062}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6549331992311087980
 CanvasRenderer:
@@ -260,7 +260,7 @@ ParticleSystem:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-  moveWithTransform: 0
+  moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
   randomSeed: 0
